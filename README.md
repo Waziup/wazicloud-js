@@ -1,0 +1,2 @@
+# waziup-js
+Javascript Client
