@@ -4,18 +4,18 @@ All URIs are relative to *http://127.0.0.1:8000/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**domainsDomainAuthPost**](UsersApi.md#domainsDomainAuthPost) | **POST** /domains/{domain}/auth/ | Get the access token for subsequent calls
-[**domainsDomainUsersGet**](UsersApi.md#domainsDomainUsersGet) | **GET** /domains/{domain}/users/ | Get all users in a realm
-[**domainsDomainUsersPost**](UsersApi.md#domainsDomainUsersPost) | **POST** /domains/{domain}/users/ | Create a new user in a realm
-[**domainsDomainUsersSearchGet**](UsersApi.md#domainsDomainUsersSearchGet) | **GET** /domains/{domain}/users/search/ | Search users with specific criteria
-[**domainsDomainUsersUseridDelete**](UsersApi.md#domainsDomainUsersUseridDelete) | **DELETE** /domains/{domain}/users/{userid} | 
-[**domainsDomainUsersUseridGet**](UsersApi.md#domainsDomainUsersUseridGet) | **GET** /domains/{domain}/users/{userid} | 
-[**domainsDomainUsersUseridPut**](UsersApi.md#domainsDomainUsersUseridPut) | **PUT** /domains/{domain}/users/{userid} | 
+[**AuthPost**](UsersApi.md#AuthPost) | **POST** /domains/{domain}/auth/ | Get the access token for subsequent calls
+[**UsersGet**](UsersApi.md#UsersGet) | **GET** /domains/{domain}/users/ | Get all users in a realm
+[**UsersPost**](UsersApi.md#UsersPost) | **POST** /domains/{domain}/users/ | Create a new user in a realm
+[**UsersSearchGet**](UsersApi.md#UsersSearchGet) | **GET** /domains/{domain}/users/search/ | Search users with specific criteria
+[**UsersUseridDelete**](UsersApi.md#UsersUseridDelete) | **DELETE** /domains/{domain}/users/{userid} | 
+[**UsersUseridGet**](UsersApi.md#UsersUseridGet) | **GET** /domains/{domain}/users/{userid} | 
+[**UsersUseridPut**](UsersApi.md#UsersUseridPut) | **PUT** /domains/{domain}/users/{userid} | 
 
 
-<a name="domainsDomainAuthPost"></a>
-# **domainsDomainAuthPost**
-> domainsDomainAuthPost(domain, credentials)
+<a name="AuthPost"></a>
+# **AuthPost**
+> AuthPost(domain, credentials)
 
 Get the access token for subsequent calls
 
@@ -37,7 +37,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.domainsDomainAuthPost(domain, credentials, callback);
+apiInstance.AuthPost(domain, credentials, callback);
 ```
 
 ### Parameters
@@ -60,9 +60,9 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="domainsDomainUsersGet"></a>
-# **domainsDomainUsersGet**
-> domainsDomainUsersGet(domain, )
+<a name="UsersGet"></a>
+# **UsersGet**
+> UsersGet(domain, )
 
 Get all users in a realm
 
@@ -89,7 +89,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.domainsDomainUsersGet(domain, , callback);
+apiInstance.UsersGet(domain, , callback);
 ```
 
 ### Parameters
@@ -111,9 +111,9 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="domainsDomainUsersPost"></a>
-# **domainsDomainUsersPost**
-> domainsDomainUsersPost(domain, user)
+<a name="UsersPost"></a>
+# **UsersPost**
+> UsersPost(domain, user)
 
 Create a new user in a realm
 
@@ -142,7 +142,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.domainsDomainUsersPost(domain, user, callback);
+apiInstance.UsersPost(domain, user, callback);
 ```
 
 ### Parameters
@@ -165,9 +165,9 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="domainsDomainUsersSearchGet"></a>
-# **domainsDomainUsersSearchGet**
-> domainsDomainUsersSearchGet(domain, )
+<a name="UsersSearchGet"></a>
+# **UsersSearchGet**
+> UsersSearchGet(domain, )
 
 Search users with specific criteria
 
@@ -194,7 +194,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.domainsDomainUsersSearchGet(domain, , callback);
+apiInstance.UsersSearchGet(domain, , callback);
 ```
 
 ### Parameters
@@ -216,9 +216,9 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="domainsDomainUsersUseridDelete"></a>
-# **domainsDomainUsersUseridDelete**
-> domainsDomainUsersUseridDelete(domain, userid)
+<a name="UsersUseridDelete"></a>
+# **UsersUseridDelete**
+> UsersUseridDelete(domain, userid)
 
 
 
@@ -247,7 +247,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.domainsDomainUsersUseridDelete(domain, userid, callback);
+apiInstance.UsersUseridDelete(domain, userid, callback);
 ```
 
 ### Parameters
@@ -270,9 +270,9 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="domainsDomainUsersUseridGet"></a>
-# **domainsDomainUsersUseridGet**
-> domainsDomainUsersUseridGet(domain, userid)
+<a name="UsersUseridGet"></a>
+# **UsersUseridGet**
+> UsersUseridGet(domain, userid)
 
 
 
@@ -301,7 +301,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.domainsDomainUsersUseridGet(domain, userid, callback);
+apiInstance.UsersUseridGet(domain, userid, callback);
 ```
 
 ### Parameters
@@ -324,9 +324,9 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="domainsDomainUsersUseridPut"></a>
-# **domainsDomainUsersUseridPut**
-> domainsDomainUsersUseridPut(domain, useriddata)
+<a name="UsersUseridPut"></a>
+# **UsersUseridPut**
+> UsersUseridPut(domain, useriddata)
 
 
 
@@ -357,7 +357,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.domainsDomainUsersUseridPut(domain, useriddata, callback);
+apiInstance.UsersUseridPut(domain, useriddata, callback);
 ```
 
 ### Parameters
