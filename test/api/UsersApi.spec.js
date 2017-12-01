@@ -14,112 +14,112 @@
  */
 
 (function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD.
-    define(['expect.js', '../../src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require('../../src/index'));
-  } else {
-    // Browser globals (root is window)
-    factory(root.expect, root.WaziupApi);
-  }
+    if (typeof define === 'function' && define.amd) {
+        // AMD.
+        define(['expect.js', '../../src/index'], factory);
+    } else if (typeof module === 'object' && module.exports) {
+        // CommonJS-like environments that support module.exports, like Node.
+        factory(require('expect.js'), require('../../src/index'));
+    } else {
+        // Browser globals (root is window)
+        factory(root.expect, root.WaziupApi);
+    }
 }(this, function(expect, WaziupApi) {
-  'use strict';
+    'use strict';
 
-  var instance;
+    var instance;
 
-  beforeEach(function() {
-    instance = new WaziupApi.UsersApi();
-  });
+    beforeEach(function() {
+        instance = new WaziupApi.UsersApi();
+    });
 
-  var getProperty = function(object, getter, property) {
-    // Use getter method if present; otherwise, get the property directly.
-    if (typeof object[getter] === 'function')
-      return object[getter]();
-    else
-      return object[property];
-  }
+    var getProperty = function(object, getter, property) {
+        // Use getter method if present; otherwise, get the property directly.
+        if (typeof object[getter] === 'function')
+            return object[getter]();
+        else
+            return object[property];
+    }
 
-  var setProperty = function(object, setter, property, value) {
-    // Use setter method if present; otherwise, set the property directly.
-    if (typeof object[setter] === 'function')
-      object[setter](value);
-    else
-      object[property] = value;
-  }
+    var setProperty = function(object, setter, property, value) {
+        // Use setter method if present; otherwise, set the property directly.
+        if (typeof object[setter] === 'function')
+            object[setter](value);
+        else
+            object[property] = value;
+    }
 
-  describe('UsersApi', function() {
-    describe('domainsDomainAuthPost', function() {
-      it('should call domainsDomainAuthPost successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainAuthPost
-        //instance.domainsDomainAuthPost(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+    describe('UsersApi', function() {
+        describe('AuthPost', function() {
+            it('should call AuthPost successfully', function(done) {
+                //uncomment below and update the code to test AuthPost
+                //instance.AuthPost(function(error) {
+                //  if (error) throw error;
+                //expect().to.be();
+                //});
+                done();
+            });
+        });
+        describe('UsersGet', function() {
+            it('should call UsersGet successfully', function(done) {
+                //uncomment below and update the code to test UsersGet
+                //instance.UsersGet(function(error) {
+                //  if (error) throw error;
+                //expect().to.be();
+                //});
+                done();
+            });
+        });
+        describe('UsersPost', function() {
+            it('should call UsersPost successfully', function(done) {
+                //uncomment below and update the code to test UsersPost
+                //instance.UsersPost(function(error) {
+                //  if (error) throw error;
+                //expect().to.be();
+                //});
+                done();
+            });
+        });
+        describe('UsersSearchGet', function() {
+            it('should call UsersSearchGet successfully', function(done) {
+                //uncomment below and update the code to test UsersSearchGet
+                //instance.UsersSearchGet(function(error) {
+                //  if (error) throw error;
+                //expect().to.be();
+                //});
+                done();
+            });
+        });
+        describe('UsersUseridDelete', function() {
+            it('should call UsersUseridDelete successfully', function(done) {
+                //uncomment below and update the code to test UsersUseridDelete
+                //instance.UsersUseridDelete(function(error) {
+                //  if (error) throw error;
+                //expect().to.be();
+                //});
+                done();
+            });
+        });
+        describe('UsersUseridGet', function() {
+            it('should call UsersUseridGet successfully', function(done) {
+                //uncomment below and update the code to test UsersUseridGet
+                //instance.UsersUseridGet(function(error) {
+                //  if (error) throw error;
+                //expect().to.be();
+                //});
+                done();
+            });
+        });
+        describe('UsersUseridPut', function() {
+            it('should call UsersUseridPut successfully', function(done) {
+                //uncomment below and update the code to test UsersUseridPut
+                //instance.UsersUseridPut(function(error) {
+                //  if (error) throw error;
+                //expect().to.be();
+                //});
+                done();
+            });
+        });
     });
-    describe('domainsDomainUsersGet', function() {
-      it('should call domainsDomainUsersGet successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainUsersGet
-        //instance.domainsDomainUsersGet(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('domainsDomainUsersPost', function() {
-      it('should call domainsDomainUsersPost successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainUsersPost
-        //instance.domainsDomainUsersPost(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('domainsDomainUsersSearchGet', function() {
-      it('should call domainsDomainUsersSearchGet successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainUsersSearchGet
-        //instance.domainsDomainUsersSearchGet(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('domainsDomainUsersUseridDelete', function() {
-      it('should call domainsDomainUsersUseridDelete successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainUsersUseridDelete
-        //instance.domainsDomainUsersUseridDelete(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('domainsDomainUsersUseridGet', function() {
-      it('should call domainsDomainUsersUseridGet successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainUsersUseridGet
-        //instance.domainsDomainUsersUseridGet(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('domainsDomainUsersUseridPut', function() {
-      it('should call domainsDomainUsersUseridPut successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainUsersUseridPut
-        //instance.domainsDomainUsersUseridPut(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-  });
 
 }));
