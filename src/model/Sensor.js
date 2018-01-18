@@ -85,6 +85,15 @@
       if (data.hasOwnProperty('location')) {
         obj['location'] = Location.constructFromObject(data['location']);
       }
+      if (data.hasOwnProperty('dateCreated')) {
+        obj['dateCreated'] = ApiClient.convertToType(data['dateCreated'], 'String');
+      }
+      if (data.hasOwnProperty('dateModified')) {
+        obj['dateModified'] = ApiClient.convertToType(data['dateModified'], 'String');
+      }
+      if (data.hasOwnProperty('domain')) {
+        obj['domain'] = ApiClient.convertToType(data['domain'], 'String');
+      }
     }
     return obj;
   }
@@ -117,6 +126,21 @@
    * @member {module:model/Location} location
    */
   exports.prototype['location'] = undefined;
+  /**
+   * date at which the sensor has been modified
+   * @member {String} dateModified
+   */
+  exports.prototype['dateModified'] = undefined;
+  /**
+   * date at which the sensor has been created
+   * @member {String} dateCreated
+   */
+  exports.prototype['dateCreated'] = undefined;
+  /**
+   * domain of the sensor
+   * @member {String} domain
+   */
+  exports.prototype['domain'] = undefined;
 
 
 
