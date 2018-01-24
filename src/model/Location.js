@@ -45,9 +45,11 @@
    * @alias module:model/Location
    * @class
    */
-  var exports = function() {
+  var exports = function(latitude, longitude) {
     var _this = this;
 
+    _this['latitude']  = latitude;
+    _this['longitude'] = longitude;
 
 
   };
