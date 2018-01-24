@@ -25,15 +25,6 @@
   var exports = function(apiClient) {
     this.apiClient = apiClient || ApiClient.instance;
 
-
-    /**
-     * Callback function to receive the result of the domainsDomainDelete operation.
-     * @callback module:api/DomainsApi~domainsDomainDeleteCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
-
     /**
      * Delete domain
      * @param {String} domain 
@@ -101,14 +92,6 @@
         authNames, contentTypes, accepts, returnType, callback
       );
     }
-
-    /**
-     * Callback function to receive the result of the domainsGet operation.
-     * @callback module:api/DomainsApi~domainsGetCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Domain>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * list domains
