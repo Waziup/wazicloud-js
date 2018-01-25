@@ -22,13 +22,13 @@
    * @param subject {module:model/NotificationSubject} 
    * @param notification {module:model/SocialMessageBatch} 
    */
-  var exports = function(subject, description = null, notification, throttling = null) {
+  var exports = function() {
     var _this = this;
 
-    _this['subject'] = subject;
-    _this['notification'] = notification;
-    if(description)  _this['description'] = description;
-    if(throttling)   _this['throttling'] = throttling;
+//    _this['subject'] = subject;
+//    _this['notification'] = notification;
+//    _this['description'] = description;
+//    _this['throttling'] = throttling;
 
   };
 

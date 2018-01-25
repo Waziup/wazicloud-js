@@ -28,18 +28,10 @@
 
 
     /**
-     * Callback function to receive the result of the domainsDomainNotificationsGet operation.
-     * @callback module:api/NotificationsApi~domainsDomainNotificationsGetCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/Notification} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
      * Get all notifications
      * @param {String} domain 
      * @param {module:api/NotificationsApi~domainsDomainNotificationsGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Notification}
+     * data is of type: {@link Array.<module:model/Notification>}
      */
     this.getNotifications = function(domain, callback) {
       var postBody = null;
@@ -48,7 +40,6 @@
       if (domain === undefined || domain === null) {
         throw new Error("Missing the required parameter 'domain' when calling getNotifications");
       }
-
 
       var pathParams = {
         'domain': domain
@@ -60,7 +51,7 @@
       var authNames = ['Bearer'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = Notification;
+      var returnType = [Notification];
 
       return this.apiClient.callApi(
         '/domains/{domain}/notifications', 'GET',
@@ -68,14 +59,6 @@
         authNames, contentTypes, accepts, returnType, callback
       );
     }
-
-    /**
-     * Callback function to receive the result of the domainsDomainNotificationsNotifIdDelete operation.
-     * @callback module:api/NotificationsApi~domainsDomainNotificationsNotifIdDeleteCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * delete a message to social networks
@@ -165,14 +148,6 @@
         authNames, contentTypes, accepts, returnType, callback
       );
     }
-
-    /**
-     * Callback function to receive the result of the domainsDomainNotificationsPost operation.
-     * @callback module:api/NotificationsApi~domainsDomainNotificationsPostCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * post a message to social networks
