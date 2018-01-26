@@ -50,170 +50,170 @@
   }
 
   describe('SensorsApi', function() {
-    describe('domainsDomainSensorsGet', function() {
-      it('should call domainsDomainSensorsGet successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainSensorsGet
-        //instance.domainsDomainSensorsGet(function(error) {
+    describe('getSensors', function() {
+      it('should call getSensors successfully', function(done) {
+        //uncomment below and update the code to test getSensors
+        //instance.getSensors(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('domainsDomainSensorsPost', function() {
-      it('should call domainsDomainSensorsPost successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainSensorsPost
-        //instance.domainsDomainSensorsPost(function(error) {
+    describe('createSensor', function() {
+      it('should call createSensor successfully', function(done) {
+        //uncomment below and update the code to test createSensor
+        //instance.createSensor(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('domainsDomainSensorsSensorIdDelete', function() {
-      it('should call domainsDomainSensorsSensorIdDelete successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainSensorsSensorIdDelete
-        //instance.domainsDomainSensorsSensorIdDelete(function(error) {
+    describe('deleteSensor', function() {
+      it('should call deleteSensor successfully', function(done) {
+        //uncomment below and update the code to test deleteSensor
+        //instance.deleteSensor(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('domainsDomainSensorsSensorIdGet', function() {
-      it('should call domainsDomainSensorsSensorIdGet successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainSensorsSensorIdGet
-        //instance.domainsDomainSensorsSensorIdGet(function(error) {
+    describe('getSensor', function() {
+      it('should call getSensor successfully', function(done) {
+        //uncomment below and update the code to test getSensor
+        //instance.getSensor(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('domainsDomainSensorsSensorIdLocationPut', function() {
-      it('should call domainsDomainSensorsSensorIdLocationPut successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainSensorsSensorIdLocationPut
-        //instance.domainsDomainSensorsSensorIdLocationPut(function(error) {
+    describe('putSensorLocation', function() {
+      it('should call putSensorLocation successfully', function(done) {
+        //uncomment below and update the code to test putSensorLocation
+        //instance.putSensorLocation(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('domainsDomainSensorsSensorIdMeasurementsGet', function() {
-      it('should call domainsDomainSensorsSensorIdMeasurementsGet successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainSensorsSensorIdMeasurementsGet
-        //instance.domainsDomainSensorsSensorIdMeasurementsGet(function(error) {
+    describe('getSensorMeasurements', function() {
+      it('should call getSensorMeasurements successfully', function(done) {
+        //uncomment below and update the code to test getSensorMeasurements
+        //instance.getSensorMeasurements(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('domainsDomainSensorsSensorIdMeasurementsMeasurementIdDelete', function() {
-      it('should call domainsDomainSensorsSensorIdMeasurementsMeasurementIdDelete successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainSensorsSensorIdMeasurementsMeasurementIdDelete
-        //instance.domainsDomainSensorsSensorIdMeasurementsMeasurementIdDelete(function(error) {
+    describe('deleteMeasurement', function() {
+      it('should call deleteMeasurement successfully', function(done) {
+        //uncomment below and update the code to test deleteMeasurement
+        //instance.deleteMeasurement(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('domainsDomainSensorsSensorIdMeasurementsMeasurementIdDimensionPut', function() {
-      it('should call domainsDomainSensorsSensorIdMeasurementsMeasurementIdDimensionPut successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainSensorsSensorIdMeasurementsMeasurementIdDimensionPut
-        //instance.domainsDomainSensorsSensorIdMeasurementsMeasurementIdDimensionPut(function(error) {
+    describe('putMeasurementDimension', function() {
+      it('should call putMeasurementDimension successfully', function(done) {
+        //uncomment below and update the code to test putMeasurementDimension
+        //instance.putMeasurementDimension(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('domainsDomainSensorsSensorIdMeasurementsMeasurementIdGet', function() {
-      it('should call domainsDomainSensorsSensorIdMeasurementsMeasurementIdGet successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainSensorsSensorIdMeasurementsMeasurementIdGet
-        //instance.domainsDomainSensorsSensorIdMeasurementsMeasurementIdGet(function(error) {
+    describe('getMeasurement', function() {
+      it('should call getMeasurement successfully', function(done) {
+        //uncomment below and update the code to test getMeasurement
+        //instance.getMeasurement(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('domainsDomainSensorsSensorIdMeasurementsMeasurementIdNamePut', function() {
-      it('should call domainsDomainSensorsSensorIdMeasurementsMeasurementIdNamePut successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainSensorsSensorIdMeasurementsMeasurementIdNamePut
-        //instance.domainsDomainSensorsSensorIdMeasurementsMeasurementIdNamePut(function(error) {
+    describe('putMeasurementName', function() {
+      it('should call putMeasurementName successfully', function(done) {
+        //uncomment below and update the code to test putMeasurementName
+        //instance.putMeasurementName(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('domainsDomainSensorsSensorIdMeasurementsMeasurementIdSensorKindPut', function() {
-      it('should call domainsDomainSensorsSensorIdMeasurementsMeasurementIdSensorKindPut successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainSensorsSensorIdMeasurementsMeasurementIdSensorKindPut
-        //instance.domainsDomainSensorsSensorIdMeasurementsMeasurementIdSensorKindPut(function(error) {
+    describe('putMeasurementSensorKind', function() {
+      it('should call putMeasurementSensorKind successfully', function(done) {
+        //uncomment below and update the code to test putMeasurementSensorKind
+        //instance.putMeasurementSensorKind(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('domainsDomainSensorsSensorIdMeasurementsMeasurementIdUnitPut', function() {
-      it('should call domainsDomainSensorsSensorIdMeasurementsMeasurementIdUnitPut successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainSensorsSensorIdMeasurementsMeasurementIdUnitPut
-        //instance.domainsDomainSensorsSensorIdMeasurementsMeasurementIdUnitPut(function(error) {
+    describe('putMeasurementUnit', function() {
+      it('should call putMeasurementUnit successfully', function(done) {
+        //uncomment below and update the code to test putMeasurementUnit
+        //instance.putMeasurementUnit(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('domainsDomainSensorsSensorIdMeasurementsMeasurementIdValuesGet', function() {
-      it('should call domainsDomainSensorsSensorIdMeasurementsMeasurementIdValuesGet successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainSensorsSensorIdMeasurementsMeasurementIdValuesGet
-        //instance.domainsDomainSensorsSensorIdMeasurementsMeasurementIdValuesGet(function(error) {
+    describe('getMeasurementValues', function() {
+      it('should call getMeasurementValues successfully', function(done) {
+        //uncomment below and update the code to test getMeasurementValues
+        //instance.getMeasurementValues(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('domainsDomainSensorsSensorIdMeasurementsMeasurementIdValuesPost', function() {
-      it('should call domainsDomainSensorsSensorIdMeasurementsMeasurementIdValuesPost successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainSensorsSensorIdMeasurementsMeasurementIdValuesPost
-        //instance.domainsDomainSensorsSensorIdMeasurementsMeasurementIdValuesPost(function(error) {
+    describe('addMeasurement', function() {
+      it('should call addMeasurement successfully', function(done) {
+        //uncomment below and update the code to test addMeasurement
+        //instance.addMeasurement(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('domainsDomainSensorsSensorIdMeasurementsPost', function() {
-      it('should call domainsDomainSensorsSensorIdMeasurementsPost successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainSensorsSensorIdMeasurementsPost
-        //instance.domainsDomainSensorsSensorIdMeasurementsPost(function(error) {
+    describe('addMeasurement', function() {
+      it('should call addMeasurement successfully', function(done) {
+        //uncomment below and update the code to test addMeasurement
+        //instance.addMeasurement(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('domainsDomainSensorsSensorIdNamePut', function() {
-      it('should call domainsDomainSensorsSensorIdNamePut successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainSensorsSensorIdNamePut
-        //instance.domainsDomainSensorsSensorIdNamePut(function(error) {
+    describe('putSensorName', function() {
+      it('should call putSensorName successfully', function(done) {
+        //uncomment below and update the code to test putSensorName
+        //instance.putSensorName(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('domainsDomainSensorsSensorIdOwnerPut', function() {
-      it('should call domainsDomainSensorsSensorIdOwnerPut successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainSensorsSensorIdOwnerPut
-        //instance.domainsDomainSensorsSensorIdOwnerPut(function(error) {
+    describe('putSensorOwner', function() {
+      it('should call putSensorOwner successfully', function(done) {
+        //uncomment below and update the code to test putSensorOwner
+        //instance.putSensorOwner(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

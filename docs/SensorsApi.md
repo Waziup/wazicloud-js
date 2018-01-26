@@ -4,28 +4,28 @@ All URIs are relative to *http://127.0.0.1:8000/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**domainsDomainSensorsGet**](SensorsApi.md#domainsDomainSensorsGet) | **GET** /domains/{domain}/sensors | Sensor data
-[**domainsDomainSensorsPost**](SensorsApi.md#domainsDomainSensorsPost) | **POST** /domains/{domain}/sensors | Create sensors
-[**domainsDomainSensorsSensorIdDelete**](SensorsApi.md#domainsDomainSensorsSensorIdDelete) | **DELETE** /domains/{domain}/sensors/{sensor_id} | Delete sensor
-[**domainsDomainSensorsSensorIdGet**](SensorsApi.md#domainsDomainSensorsSensorIdGet) | **GET** /domains/{domain}/sensors/{sensor_id} | get sensor
-[**domainsDomainSensorsSensorIdLocationPut**](SensorsApi.md#domainsDomainSensorsSensorIdLocationPut) | **PUT** /domains/{domain}/sensors/{sensor_id}/location | insert location
-[**domainsDomainSensorsSensorIdMeasurementsGet**](SensorsApi.md#domainsDomainSensorsSensorIdMeasurementsGet) | **GET** /domains/{domain}/sensors/{sensor_id}/measurements | get measurements
-[**domainsDomainSensorsSensorIdMeasurementsMeasurementIdDelete**](SensorsApi.md#domainsDomainSensorsSensorIdMeasurementsMeasurementIdDelete) | **DELETE** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id} | Delete measurement
-[**domainsDomainSensorsSensorIdMeasurementsMeasurementIdDimensionPut**](SensorsApi.md#domainsDomainSensorsSensorIdMeasurementsMeasurementIdDimensionPut) | **PUT** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/dimension | put measurement dimension
-[**domainsDomainSensorsSensorIdMeasurementsMeasurementIdGet**](SensorsApi.md#domainsDomainSensorsSensorIdMeasurementsMeasurementIdGet) | **GET** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id} | get measurement
-[**domainsDomainSensorsSensorIdMeasurementsMeasurementIdNamePut**](SensorsApi.md#domainsDomainSensorsSensorIdMeasurementsMeasurementIdNamePut) | **PUT** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/name | put measurement name
-[**domainsDomainSensorsSensorIdMeasurementsMeasurementIdSensorKindPut**](SensorsApi.md#domainsDomainSensorsSensorIdMeasurementsMeasurementIdSensorKindPut) | **PUT** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/sensor_kind | insert sensor kind
-[**domainsDomainSensorsSensorIdMeasurementsMeasurementIdUnitPut**](SensorsApi.md#domainsDomainSensorsSensorIdMeasurementsMeasurementIdUnitPut) | **PUT** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/unit | put measurement unit
-[**domainsDomainSensorsSensorIdMeasurementsMeasurementIdValuesGet**](SensorsApi.md#domainsDomainSensorsSensorIdMeasurementsMeasurementIdValuesGet) | **GET** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/values | get measurement values
-[**domainsDomainSensorsSensorIdMeasurementsMeasurementIdValuesPost**](SensorsApi.md#domainsDomainSensorsSensorIdMeasurementsMeasurementIdValuesPost) | **POST** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/values | Create new datapoint
-[**domainsDomainSensorsSensorIdMeasurementsPost**](SensorsApi.md#domainsDomainSensorsSensorIdMeasurementsPost) | **POST** /domains/{domain}/sensors/{sensor_id}/measurements | insert new measurement
-[**domainsDomainSensorsSensorIdNamePut**](SensorsApi.md#domainsDomainSensorsSensorIdNamePut) | **PUT** /domains/{domain}/sensors/{sensor_id}/name | insert name
-[**domainsDomainSensorsSensorIdOwnerPut**](SensorsApi.md#domainsDomainSensorsSensorIdOwnerPut) | **PUT** /domains/{domain}/sensors/{sensor_id}/owner | insert owner
+[**getSensors**](SensorsApi.md#getSensors) | **GET** /domains/{domain}/sensors | Sensor data
+[**createSensor**](SensorsApi.md#createSensor) | **POST** /domains/{domain}/sensors | Create sensors
+[**deleteSensor**](SensorsApi.md#deleteSensor) | **DELETE** /domains/{domain}/sensors/{sensor_id} | Delete sensor
+[**getSensor**](SensorsApi.md#getSensor) | **GET** /domains/{domain}/sensors/{sensor_id} | get sensor
+[**putSensorLocation**](SensorsApi.md#putSensorLocation) | **PUT** /domains/{domain}/sensors/{sensor_id}/location | insert location
+[**getSensorMeasurements**](SensorsApi.md#getSensorMeasurements) | **GET** /domains/{domain}/sensors/{sensor_id}/measurements | get measurements
+[**deleteMeasurement**](SensorsApi.md#deleteMeasurement) | **DELETE** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id} | Delete measurement
+[**putMeasurementDimension**](SensorsApi.md#putMeasurementDimension) | **PUT** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/dimension | put measurement dimension
+[**getMeasurement**](SensorsApi.md#getMeasurement) | **GET** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id} | get measurement
+[**putMeasurementName**](SensorsApi.md#putMeasurementName) | **PUT** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/name | put measurement name
+[**putMeasurementSensorKind**](SensorsApi.md#putMeasurementSensorKind) | **PUT** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/sensor_kind | insert sensor kind
+[**putMeasurementUnit**](SensorsApi.md#putMeasurementUnit) | **PUT** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/unit | put measurement unit
+[**getMeasurementValues**](SensorsApi.md#getMeasurementValues) | **GET** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/values | get measurement values
+[**addMeasurement**](SensorsApi.md#addMeasurement) | **POST** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/values | Create new datapoint
+[**addMeasurement**](SensorsApi.md#addMeasurement) | **POST** /domains/{domain}/sensors/{sensor_id}/measurements | insert new measurement
+[**putSensorName**](SensorsApi.md#putSensorName) | **PUT** /domains/{domain}/sensors/{sensor_id}/name | insert name
+[**putSensorOwner**](SensorsApi.md#putSensorOwner) | **PUT** /domains/{domain}/sensors/{sensor_id}/owner | insert owner
 
 
-<a name="domainsDomainSensorsGet"></a>
-# **domainsDomainSensorsGet**
-> [Sensor] domainsDomainSensorsGet(domain, , opts)
+<a name="getSensors"></a>
+# **getSensors**
+> [Sensor] getSensors(domain, , opts)
 
 Sensor data
 
@@ -57,7 +57,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.domainsDomainSensorsGet(domain, , opts, callback);
+apiInstance.getSensors(domain, , opts, callback);
 ```
 
 ### Parameters
@@ -80,9 +80,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="domainsDomainSensorsPost"></a>
-# **domainsDomainSensorsPost**
-> domainsDomainSensorsPost(body, domain, )
+<a name="createSensor"></a>
+# **createSensor**
+> createSensor(body, domain, )
 
 Create sensors
 
@@ -113,7 +113,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.domainsDomainSensorsPost(body, domain, , callback);
+apiInstance.createSensor(body, domain, , callback);
 ```
 
 ### Parameters
@@ -136,9 +136,9 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="domainsDomainSensorsSensorIdDelete"></a>
-# **domainsDomainSensorsSensorIdDelete**
-> domainsDomainSensorsSensorIdDelete(domain, sensorId, )
+<a name="deleteSensor"></a>
+# **deleteSensor**
+> deleteSensor(domain, sensorId, )
 
 Delete sensor
 
@@ -169,7 +169,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.domainsDomainSensorsSensorIdDelete(domain, sensorId, , callback);
+apiInstance.deleteSensor(domain, sensorId, , callback);
 ```
 
 ### Parameters
@@ -192,9 +192,9 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="domainsDomainSensorsSensorIdGet"></a>
-# **domainsDomainSensorsSensorIdGet**
-> Sensor domainsDomainSensorsSensorIdGet(domain, sensorId, )
+<a name="getSensor"></a>
+# **getSensor**
+> Sensor getSensor(domain, sensorId, )
 
 get sensor
 
@@ -225,7 +225,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.domainsDomainSensorsSensorIdGet(domain, sensorId, , callback);
+apiInstance.getSensor(domain, sensorId, , callback);
 ```
 
 ### Parameters
@@ -248,9 +248,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="domainsDomainSensorsSensorIdLocationPut"></a>
-# **domainsDomainSensorsSensorIdLocationPut**
-> domainsDomainSensorsSensorIdLocationPut(domain, sensorId, body)
+<a name="putSensorLocation"></a>
+# **putSensorLocation**
+> putSensorLocation(domain, sensorId, body)
 
 insert location
 
@@ -281,7 +281,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.domainsDomainSensorsSensorIdLocationPut(domain, sensorId, body, callback);
+apiInstance.putSensorLocation(domain, sensorId, body, callback);
 ```
 
 ### Parameters
@@ -305,9 +305,9 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="domainsDomainSensorsSensorIdMeasurementsGet"></a>
-# **domainsDomainSensorsSensorIdMeasurementsGet**
-> [Measurement] domainsDomainSensorsSensorIdMeasurementsGet(domain, sensorId, )
+<a name="getSensorMeasurements"></a>
+# **getSensorMeasurements**
+> [Measurement] getSensorMeasurements(domain, sensorId, )
 
 get measurements
 
@@ -336,7 +336,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.domainsDomainSensorsSensorIdMeasurementsGet(domain, sensorId, , callback);
+apiInstance.getSensorMeasurements(domain, sensorId, , callback);
 ```
 
 ### Parameters
@@ -359,9 +359,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="domainsDomainSensorsSensorIdMeasurementsMeasurementIdDelete"></a>
-# **domainsDomainSensorsSensorIdMeasurementsMeasurementIdDelete**
-> domainsDomainSensorsSensorIdMeasurementsMeasurementIdDelete(domain, sensorId, measurementId, )
+<a name="deleteMeasurement"></a>
+# **deleteMeasurement**
+> deleteMeasurement(domain, sensorId, measurementId, )
 
 Delete measurement
 
@@ -394,7 +394,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.domainsDomainSensorsSensorIdMeasurementsMeasurementIdDelete(domain, sensorId, measurementId, , callback);
+apiInstance.deleteMeasurement(domain, sensorId, measurementId, , callback);
 ```
 
 ### Parameters
@@ -418,9 +418,9 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="domainsDomainSensorsSensorIdMeasurementsMeasurementIdDimensionPut"></a>
-# **domainsDomainSensorsSensorIdMeasurementsMeasurementIdDimensionPut**
-> domainsDomainSensorsSensorIdMeasurementsMeasurementIdDimensionPut(domain, sensorId, measurementId, body)
+<a name="putMeasurementDimension"></a>
+# **putMeasurementDimension**
+> putMeasurementDimension(domain, sensorId, measurementId, body)
 
 put measurement dimension
 
@@ -453,7 +453,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.domainsDomainSensorsSensorIdMeasurementsMeasurementIdDimensionPut(domain, sensorId, measurementId, body, callback);
+apiInstance.putMeasurementDimension(domain, sensorId, measurementId, body, callback);
 ```
 
 ### Parameters
@@ -478,9 +478,9 @@ null (empty response body)
  - **Content-Type**: text/plain
  - **Accept**: application/json
 
-<a name="domainsDomainSensorsSensorIdMeasurementsMeasurementIdGet"></a>
-# **domainsDomainSensorsSensorIdMeasurementsMeasurementIdGet**
-> Measurement domainsDomainSensorsSensorIdMeasurementsMeasurementIdGet(domain, sensorId, measurementId)
+<a name="getMeasurement"></a>
+# **getMeasurement**
+> Measurement getMeasurement(domain, sensorId, measurementId)
 
 get measurement
 
@@ -511,7 +511,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.domainsDomainSensorsSensorIdMeasurementsMeasurementIdGet(domain, sensorId, measurementId, callback);
+apiInstance.getMeasurement(domain, sensorId, measurementId, callback);
 ```
 
 ### Parameters
@@ -535,9 +535,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="domainsDomainSensorsSensorIdMeasurementsMeasurementIdNamePut"></a>
-# **domainsDomainSensorsSensorIdMeasurementsMeasurementIdNamePut**
-> domainsDomainSensorsSensorIdMeasurementsMeasurementIdNamePut(domain, sensorId, measurementId, body)
+<a name="putMeasurementName"></a>
+# **putMeasurementName**
+> putMeasurementName(domain, sensorId, measurementId, body)
 
 put measurement name
 
@@ -570,7 +570,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.domainsDomainSensorsSensorIdMeasurementsMeasurementIdNamePut(domain, sensorId, measurementId, body, callback);
+apiInstance.putMeasurementName(domain, sensorId, measurementId, body, callback);
 ```
 
 ### Parameters
@@ -595,9 +595,9 @@ null (empty response body)
  - **Content-Type**: text/plain
  - **Accept**: application/json
 
-<a name="domainsDomainSensorsSensorIdMeasurementsMeasurementIdSensorKindPut"></a>
-# **domainsDomainSensorsSensorIdMeasurementsMeasurementIdSensorKindPut**
-> domainsDomainSensorsSensorIdMeasurementsMeasurementIdSensorKindPut(domain, sensorId, measurementId, body)
+<a name="putMeasurementSensorKind"></a>
+# **putMeasurementSensorKind**
+> putMeasurementSensorKind(domain, sensorId, measurementId, body)
 
 insert sensor kind
 
@@ -630,7 +630,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.domainsDomainSensorsSensorIdMeasurementsMeasurementIdSensorKindPut(domain, sensorId, measurementId, body, callback);
+apiInstance.putMeasurementSensorKind(domain, sensorId, measurementId, body, callback);
 ```
 
 ### Parameters
@@ -655,9 +655,9 @@ null (empty response body)
  - **Content-Type**: text/plain
  - **Accept**: application/json
 
-<a name="domainsDomainSensorsSensorIdMeasurementsMeasurementIdUnitPut"></a>
-# **domainsDomainSensorsSensorIdMeasurementsMeasurementIdUnitPut**
-> domainsDomainSensorsSensorIdMeasurementsMeasurementIdUnitPut(domain, sensorId, measurementId, body)
+<a name="putMeasurementUnit"></a>
+# **putMeasurementUnit**
+> putMeasurementUnit(domain, sensorId, measurementId, body)
 
 put measurement unit
 
@@ -690,7 +690,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.domainsDomainSensorsSensorIdMeasurementsMeasurementIdUnitPut(domain, sensorId, measurementId, body, callback);
+apiInstance.putMeasurementUnit(domain, sensorId, measurementId, body, callback);
 ```
 
 ### Parameters
@@ -715,9 +715,9 @@ null (empty response body)
  - **Content-Type**: text/plain
  - **Accept**: application/json
 
-<a name="domainsDomainSensorsSensorIdMeasurementsMeasurementIdValuesGet"></a>
-# **domainsDomainSensorsSensorIdMeasurementsMeasurementIdValuesGet**
-> [MeasurementValue] domainsDomainSensorsSensorIdMeasurementsMeasurementIdValuesGet(domain, sensorId, measurementId, )
+<a name="getMeasurementValues"></a>
+# **getMeasurementValues**
+> [MeasurementValue] getMeasurementValues(domain, sensorId, measurementId, )
 
 get measurement values
 
@@ -748,7 +748,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.domainsDomainSensorsSensorIdMeasurementsMeasurementIdValuesGet(domain, sensorId, measurementId, , callback);
+apiInstance.getMeasurementValues(domain, sensorId, measurementId, , callback);
 ```
 
 ### Parameters
@@ -772,9 +772,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="domainsDomainSensorsSensorIdMeasurementsMeasurementIdValuesPost"></a>
-# **domainsDomainSensorsSensorIdMeasurementsMeasurementIdValuesPost**
-> domainsDomainSensorsSensorIdMeasurementsMeasurementIdValuesPost(domain, sensorId, measurementId, body)
+<a name="addMeasurement"></a>
+# **addMeasurement**
+> addMeasurement(domain, sensorId, measurementId, body)
 
 Create new datapoint
 
@@ -807,7 +807,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.domainsDomainSensorsSensorIdMeasurementsMeasurementIdValuesPost(domain, sensorId, measurementId, body, callback);
+apiInstance.addMeasurement(domain, sensorId, measurementId, body, callback);
 ```
 
 ### Parameters
@@ -832,9 +832,9 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="domainsDomainSensorsSensorIdMeasurementsPost"></a>
-# **domainsDomainSensorsSensorIdMeasurementsPost**
-> domainsDomainSensorsSensorIdMeasurementsPost(domain, sensorId, body)
+<a name="addMeasurement"></a>
+# **addMeasurement**
+> addMeasurement(domain, sensorId, body)
 
 insert new measurement
 
@@ -865,7 +865,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.domainsDomainSensorsSensorIdMeasurementsPost(domain, sensorId, body, callback);
+apiInstance.addMeasurement(domain, sensorId, body, callback);
 ```
 
 ### Parameters
@@ -889,9 +889,9 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="domainsDomainSensorsSensorIdNamePut"></a>
-# **domainsDomainSensorsSensorIdNamePut**
-> domainsDomainSensorsSensorIdNamePut(domain, sensorId, body)
+<a name="putSensorName"></a>
+# **putSensorName**
+> putSensorName(domain, sensorId, body)
 
 insert name
 
@@ -922,7 +922,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.domainsDomainSensorsSensorIdNamePut(domain, sensorId, body, callback);
+apiInstance.putSensorName(domain, sensorId, body, callback);
 ```
 
 ### Parameters
@@ -946,9 +946,9 @@ null (empty response body)
  - **Content-Type**: text/plain
  - **Accept**: application/json
 
-<a name="domainsDomainSensorsSensorIdOwnerPut"></a>
-# **domainsDomainSensorsSensorIdOwnerPut**
-> domainsDomainSensorsSensorIdOwnerPut(domain, sensorId, body)
+<a name="putSensorOwner"></a>
+# **putSensorOwner**
+> putSensorOwner(domain, sensorId, body)
 
 insert owner
 
@@ -979,7 +979,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.domainsDomainSensorsSensorIdOwnerPut(domain, sensorId, body, callback);
+apiInstance.putSensorOwner(domain, sensorId, body, callback);
 ```
 
 ### Parameters

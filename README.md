@@ -83,14 +83,13 @@ api.getSensors(domain, null, callback);
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://127.0.0.1:8000/api/v1*
 There are 5 endpoints:
 
  - [Sensors API](docs/SensorsApi.md)
- - [Domains_API](docs/DomainsApi.md)
- - [Socials_API](docs/SocialsApi.md)
- - [Notifications_API](docs/NotificationsApi.md)
- - [Users_API](docs/UsersApi.md)
+ - [Domains API](docs/DomainsApi.md)
+ - [Socials API](docs/SocialsApi.md)
+ - [Notifications API](docs/NotificationsApi.md)
+ - [Users API](docs/UsersApi.md)
 
 
 ## Documentation for Models

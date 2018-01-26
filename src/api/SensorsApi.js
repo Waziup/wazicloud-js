@@ -31,7 +31,7 @@
      * @param {String} domain 
      * @param {Object} opts Optional parameters
      * @param {String} opts.q filter the results
-     * @param {module:api/SensorsApi~domainsDomainSensorsGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SensorsApi~getSensorsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Sensor>}
      */
     this.getSensors = function(domain, opts, callback) {
@@ -40,7 +40,7 @@
 
       // verify the required parameter 'domain' is set
       if (domain === undefined || domain === null) {
-        throw new Error("Missing the required parameter 'domain' when calling domainsDomainSensorsGet");
+        throw new Error("Missing the required parameter 'domain' when calling getSensors");
       }
 
       var pathParams = {'domain': domain};
@@ -66,19 +66,19 @@
      * Endpoint to create sensing devices.
      * @param {module:model/Sensor} body 
      * @param {String} domain 
-     * @param {module:api/SensorsApi~domainsDomainSensorsPostCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SensorsApi~createSensorCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.addSensor = function(body, domain, callback) {
+    this.createSensor = function(body, domain, callback) {
       var postBody = body;
 
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling domainsDomainSensorsPost");
+        throw new Error("Missing the required parameter 'body' when calling createSensor");
       }
 
       // verify the required parameter 'domain' is set
       if (domain === undefined || domain === null) {
-        throw new Error("Missing the required parameter 'domain' when calling domainsDomainSensorsPost");
+        throw new Error("Missing the required parameter 'domain' when calling createSensor");
       }
 
       var pathParams = {'domain': domain};
@@ -103,19 +103,19 @@
      * 
      * @param {String} domain 
      * @param {String} sensorId 
-     * @param {module:api/SensorsApi~domainsDomainSensorsSensorIdDeleteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SensorsApi~deleteSensorCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.deleteSensor = function(domain, sensorId, callback) {
       var postBody = null;
 
       // verify the required parameter 'domain' is set
       if (domain === undefined || domain === null) {
-        throw new Error("Missing the required parameter 'domain' when calling domainsDomainSensorsSensorIdDelete");
+        throw new Error("Missing the required parameter 'domain' when calling deleteSensor");
       }
 
       // verify the required parameter 'sensorId' is set
       if (sensorId === undefined || sensorId === null) {
-        throw new Error("Missing the required parameter 'sensorId' when calling domainsDomainSensorsSensorIdDelete");
+        throw new Error("Missing the required parameter 'sensorId' when calling deleteSensor");
       }
 
 
@@ -144,7 +144,7 @@
      * 
      * @param {String} domain 
      * @param {String} sensorId 
-     * @param {module:api/SensorsApi~domainsDomainSensorsSensorIdGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SensorsApi~getSensorCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Sensor}
      */
     this.getSensor = function(domain, sensorId, callback) {
@@ -152,12 +152,12 @@
 
       // verify the required parameter 'domain' is set
       if (domain === undefined || domain === null) {
-        throw new Error("Missing the required parameter 'domain' when calling domainsDomainSensorsSensorIdGet");
+        throw new Error("Missing the required parameter 'domain' when calling getSensor");
       }
 
       // verify the required parameter 'sensorId' is set
       if (sensorId === undefined || sensorId === null) {
-        throw new Error("Missing the required parameter 'sensorId' when calling domainsDomainSensorsSensorIdGet");
+        throw new Error("Missing the required parameter 'sensorId' when calling getSensor");
       }
 
 
@@ -186,24 +186,24 @@
      * @param {String} domain 
      * @param {String} sensorId 
      * @param {module:model/Location} body 
-     * @param {module:api/SensorsApi~domainsDomainSensorsSensorIdLocationPutCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SensorsApi~putSensorLocationCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.putSensorLocation = function(domain, sensorId, body, callback) {
       var postBody = body;
 
       // verify the required parameter 'domain' is set
       if (domain === undefined || domain === null) {
-        throw new Error("Missing the required parameter 'domain' when calling domainsDomainSensorsSensorIdLocationPut");
+        throw new Error("Missing the required parameter 'domain' when calling putSensorLocation");
       }
 
       // verify the required parameter 'sensorId' is set
       if (sensorId === undefined || sensorId === null) {
-        throw new Error("Missing the required parameter 'sensorId' when calling domainsDomainSensorsSensorIdLocationPut");
+        throw new Error("Missing the required parameter 'sensorId' when calling putSensorLocation");
       }
 
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling domainsDomainSensorsSensorIdLocationPut");
+        throw new Error("Missing the required parameter 'body' when calling putSensorLocation");
       }
 
 
@@ -231,7 +231,7 @@
      * get measurements
      * @param {String} domain 
      * @param {String} sensorId 
-     * @param {module:api/SensorsApi~domainsDomainSensorsSensorIdMeasurementsGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SensorsApi~getSensorMeasurementsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Measurement>}
      */
     this.getSensorMeasurements = function(domain, sensorId, callback) {
@@ -239,12 +239,12 @@
 
       // verify the required parameter 'domain' is set
       if (domain === undefined || domain === null) {
-        throw new Error("Missing the required parameter 'domain' when calling domainsDomainSensorsSensorIdMeasurementsGet");
+        throw new Error("Missing the required parameter 'domain' when calling getSensorMeasurements");
       }
 
       // verify the required parameter 'sensorId' is set
       if (sensorId === undefined || sensorId === null) {
-        throw new Error("Missing the required parameter 'sensorId' when calling domainsDomainSensorsSensorIdMeasurementsGet");
+        throw new Error("Missing the required parameter 'sensorId' when calling getSensorMeasurements");
       }
 
 
@@ -274,24 +274,24 @@
      * @param {String} domain 
      * @param {String} sensorId 
      * @param {String} measurementId 
-     * @param {module:api/SensorsApi~domainsDomainSensorsSensorIdMeasurementsMeasurementIdDeleteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SensorsApi~deleteMeasurementCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.deleteMeasurement = function(domain, sensorId, measurementId, callback) {
       var postBody = null;
 
       // verify the required parameter 'domain' is set
       if (domain === undefined || domain === null) {
-        throw new Error("Missing the required parameter 'domain' when calling domainsDomainSensorsSensorIdMeasurementsMeasurementIdDelete");
+        throw new Error("Missing the required parameter 'domain' when calling deleteMeasurement");
       }
 
       // verify the required parameter 'sensorId' is set
       if (sensorId === undefined || sensorId === null) {
-        throw new Error("Missing the required parameter 'sensorId' when calling domainsDomainSensorsSensorIdMeasurementsMeasurementIdDelete");
+        throw new Error("Missing the required parameter 'sensorId' when calling deleteMeasurement");
       }
 
       // verify the required parameter 'measurementId' is set
       if (measurementId === undefined || measurementId === null) {
-        throw new Error("Missing the required parameter 'measurementId' when calling domainsDomainSensorsSensorIdMeasurementsMeasurementIdDelete");
+        throw new Error("Missing the required parameter 'measurementId' when calling deleteMeasurement");
       }
 
 
@@ -322,29 +322,29 @@
      * @param {String} sensorId 
      * @param {String} measurementId 
      * @param {String} body 
-     * @param {module:api/SensorsApi~domainsDomainSensorsSensorIdMeasurementsMeasurementIdDimensionPutCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SensorsApi~putMeasurementDimensionCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.putMeasurementDimension = function(domain, sensorId, measurementId, body, callback) {
       var postBody = body;
 
       // verify the required parameter 'domain' is set
       if (domain === undefined || domain === null) {
-        throw new Error("Missing the required parameter 'domain' when calling domainsDomainSensorsSensorIdMeasurementsMeasurementIdDimensionPut");
+        throw new Error("Missing the required parameter 'domain' when calling putMeasurementDimension");
       }
 
       // verify the required parameter 'sensorId' is set
       if (sensorId === undefined || sensorId === null) {
-        throw new Error("Missing the required parameter 'sensorId' when calling domainsDomainSensorsSensorIdMeasurementsMeasurementIdDimensionPut");
+        throw new Error("Missing the required parameter 'sensorId' when calling putMeasurementDimension");
       }
 
       // verify the required parameter 'measurementId' is set
       if (measurementId === undefined || measurementId === null) {
-        throw new Error("Missing the required parameter 'measurementId' when calling domainsDomainSensorsSensorIdMeasurementsMeasurementIdDimensionPut");
+        throw new Error("Missing the required parameter 'measurementId' when calling putMeasurementDimension");
       }
 
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling domainsDomainSensorsSensorIdMeasurementsMeasurementIdDimensionPut");
+        throw new Error("Missing the required parameter 'body' when calling putMeasurementDimension");
       }
 
 
@@ -374,7 +374,7 @@
      * @param {String} domain 
      * @param {String} sensorId 
      * @param {String} measurementId 
-     * @param {module:api/SensorsApi~domainsDomainSensorsSensorIdMeasurementsMeasurementIdGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SensorsApi~getMeasurementCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Measurement}
      */
     this.getMeasurement = function(domain, sensorId, measurementId, callback) {
@@ -382,17 +382,17 @@
 
       // verify the required parameter 'domain' is set
       if (domain === undefined || domain === null) {
-        throw new Error("Missing the required parameter 'domain' when calling domainsDomainSensorsSensorIdMeasurementsMeasurementIdGet");
+        throw new Error("Missing the required parameter 'domain' when calling getMeasurement");
       }
 
       // verify the required parameter 'sensorId' is set
       if (sensorId === undefined || sensorId === null) {
-        throw new Error("Missing the required parameter 'sensorId' when calling domainsDomainSensorsSensorIdMeasurementsMeasurementIdGet");
+        throw new Error("Missing the required parameter 'sensorId' when calling getMeasurement");
       }
 
       // verify the required parameter 'measurementId' is set
       if (measurementId === undefined || measurementId === null) {
-        throw new Error("Missing the required parameter 'measurementId' when calling domainsDomainSensorsSensorIdMeasurementsMeasurementIdGet");
+        throw new Error("Missing the required parameter 'measurementId' when calling getMeasurement");
       }
 
 
@@ -418,42 +418,34 @@
     }
 
     /**
-     * Callback function to receive the result of the domainsDomainSensorsSensorIdMeasurementsMeasurementIdNamePut operation.
-     * @callback module:api/SensorsApi~domainsDomainSensorsSensorIdMeasurementsMeasurementIdNamePutCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
      * put measurement name
      * @param {String} domain 
      * @param {String} sensorId 
      * @param {String} measurementId 
      * @param {String} body 
-     * @param {module:api/SensorsApi~domainsDomainSensorsSensorIdMeasurementsMeasurementIdNamePutCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SensorsApi~putMeasurementNameCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.putMeasurementName = function(domain, sensorId, measurementId, body, callback) {
       var postBody = body;
 
       // verify the required parameter 'domain' is set
       if (domain === undefined || domain === null) {
-        throw new Error("Missing the required parameter 'domain' when calling domainsDomainSensorsSensorIdMeasurementsMeasurementIdNamePut");
+        throw new Error("Missing the required parameter 'domain' when calling putMeasurementName");
       }
 
       // verify the required parameter 'sensorId' is set
       if (sensorId === undefined || sensorId === null) {
-        throw new Error("Missing the required parameter 'sensorId' when calling domainsDomainSensorsSensorIdMeasurementsMeasurementIdNamePut");
+        throw new Error("Missing the required parameter 'sensorId' when calling putMeasurementName");
       }
 
       // verify the required parameter 'measurementId' is set
       if (measurementId === undefined || measurementId === null) {
-        throw new Error("Missing the required parameter 'measurementId' when calling domainsDomainSensorsSensorIdMeasurementsMeasurementIdNamePut");
+        throw new Error("Missing the required parameter 'measurementId' when calling putMeasurementName");
       }
 
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling domainsDomainSensorsSensorIdMeasurementsMeasurementIdNamePut");
+        throw new Error("Missing the required parameter 'body' when calling putMeasurementName");
       }
 
 
@@ -484,29 +476,29 @@
      * @param {String} sensorId 
      * @param {String} measurementId 
      * @param {String} body 
-     * @param {module:api/SensorsApi~domainsDomainSensorsSensorIdMeasurementsMeasurementIdSensorKindPutCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SensorsApi~putMeasurementSensorKindCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.putMeasurementSensorKind = function(domain, sensorId, measurementId, body, callback) {
       var postBody = body;
 
       // verify the required parameter 'domain' is set
       if (domain === undefined || domain === null) {
-        throw new Error("Missing the required parameter 'domain' when calling domainsDomainSensorsSensorIdMeasurementsMeasurementIdSensorKindPut");
+        throw new Error("Missing the required parameter 'domain' when calling putMeasurementSensorKind");
       }
 
       // verify the required parameter 'sensorId' is set
       if (sensorId === undefined || sensorId === null) {
-        throw new Error("Missing the required parameter 'sensorId' when calling domainsDomainSensorsSensorIdMeasurementsMeasurementIdSensorKindPut");
+        throw new Error("Missing the required parameter 'sensorId' when calling putMeasurementSensorKind");
       }
 
       // verify the required parameter 'measurementId' is set
       if (measurementId === undefined || measurementId === null) {
-        throw new Error("Missing the required parameter 'measurementId' when calling domainsDomainSensorsSensorIdMeasurementsMeasurementIdSensorKindPut");
+        throw new Error("Missing the required parameter 'measurementId' when calling putMeasurementSensorKind");
       }
 
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling domainsDomainSensorsSensorIdMeasurementsMeasurementIdSensorKindPut");
+        throw new Error("Missing the required parameter 'body' when calling putMeasurementSensorKind");
       }
 
 
@@ -537,29 +529,29 @@
      * @param {String} sensorId 
      * @param {String} measurementId 
      * @param {String} body 
-     * @param {module:api/SensorsApi~domainsDomainSensorsSensorIdMeasurementsMeasurementIdUnitPutCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SensorsApi~putMeasurementUnitCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.putMeasurementUnit = function(domain, sensorId, measurementId, body, callback) {
       var postBody = body;
 
       // verify the required parameter 'domain' is set
       if (domain === undefined || domain === null) {
-        throw new Error("Missing the required parameter 'domain' when calling domainsDomainSensorsSensorIdMeasurementsMeasurementIdUnitPut");
+        throw new Error("Missing the required parameter 'domain' when calling putMeasurementUnit");
       }
 
       // verify the required parameter 'sensorId' is set
       if (sensorId === undefined || sensorId === null) {
-        throw new Error("Missing the required parameter 'sensorId' when calling domainsDomainSensorsSensorIdMeasurementsMeasurementIdUnitPut");
+        throw new Error("Missing the required parameter 'sensorId' when calling putMeasurementUnit");
       }
 
       // verify the required parameter 'measurementId' is set
       if (measurementId === undefined || measurementId === null) {
-        throw new Error("Missing the required parameter 'measurementId' when calling domainsDomainSensorsSensorIdMeasurementsMeasurementIdUnitPut");
+        throw new Error("Missing the required parameter 'measurementId' when calling putMeasurementUnit");
       }
 
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling domainsDomainSensorsSensorIdMeasurementsMeasurementIdUnitPut");
+        throw new Error("Missing the required parameter 'body' when calling putMeasurementUnit");
       }
 
 
@@ -589,7 +581,7 @@
      * @param {String} domain 
      * @param {String} sensorId 
      * @param {String} measurementId 
-     * @param {module:api/SensorsApi~domainsDomainSensorsSensorIdMeasurementsMeasurementIdValuesGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SensorsApi~getMeasurementValuesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/MeasurementValue>}
      */
     this.getMeasurementValues = function(domain, sensorId, measurementId, callback) {
@@ -597,17 +589,17 @@
 
       // verify the required parameter 'domain' is set
       if (domain === undefined || domain === null) {
-        throw new Error("Missing the required parameter 'domain' when calling domainsDomainSensorsSensorIdMeasurementsMeasurementIdValuesGet");
+        throw new Error("Missing the required parameter 'domain' when calling getMeasurementValues");
       }
 
       // verify the required parameter 'sensorId' is set
       if (sensorId === undefined || sensorId === null) {
-        throw new Error("Missing the required parameter 'sensorId' when calling domainsDomainSensorsSensorIdMeasurementsMeasurementIdValuesGet");
+        throw new Error("Missing the required parameter 'sensorId' when calling getMeasurementValues");
       }
 
       // verify the required parameter 'measurementId' is set
       if (measurementId === undefined || measurementId === null) {
-        throw new Error("Missing the required parameter 'measurementId' when calling domainsDomainSensorsSensorIdMeasurementsMeasurementIdValuesGet");
+        throw new Error("Missing the required parameter 'measurementId' when calling getMeasurementValues");
       }
 
 
@@ -638,29 +630,29 @@
      * @param {String} sensorId 
      * @param {String} measurementId 
      * @param {module:model/MeasurementValue} body 
-     * @param {module:api/SensorsApi~domainsDomainSensorsSensorIdMeasurementsMeasurementIdValuesPostCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SensorsApi~addDatapointCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.addMeasurement = function(domain, sensorId, measurementId, body, callback) {
+    this.addDatapoint = function(domain, sensorId, measurementId, body, callback) {
       var postBody = body;
 
       // verify the required parameter 'domain' is set
       if (domain === undefined || domain === null) {
-        throw new Error("Missing the required parameter 'domain' when calling domainsDomainSensorsSensorIdMeasurementsMeasurementIdValuesPost");
+        throw new Error("Missing the required parameter 'domain' when calling addDatapoint");
       }
 
       // verify the required parameter 'sensorId' is set
       if (sensorId === undefined || sensorId === null) {
-        throw new Error("Missing the required parameter 'sensorId' when calling domainsDomainSensorsSensorIdMeasurementsMeasurementIdValuesPost");
+        throw new Error("Missing the required parameter 'sensorId' when calling addDatapoint");
       }
 
       // verify the required parameter 'measurementId' is set
       if (measurementId === undefined || measurementId === null) {
-        throw new Error("Missing the required parameter 'measurementId' when calling domainsDomainSensorsSensorIdMeasurementsMeasurementIdValuesPost");
+        throw new Error("Missing the required parameter 'measurementId' when calling addDatapoint");
       }
 
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling domainsDomainSensorsSensorIdMeasurementsMeasurementIdValuesPost");
+        throw new Error("Missing the required parameter 'body' when calling addDatapoint");
       }
 
 
@@ -690,24 +682,24 @@
      * @param {String} domain 
      * @param {String} sensorId 
      * @param {module:model/Measurement} body 
-     * @param {module:api/SensorsApi~domainsDomainSensorsSensorIdMeasurementsPostCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SensorsApi~addMeasurementCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.addMeasurement = function(domain, sensorId, body, callback) {
       var postBody = body;
 
       // verify the required parameter 'domain' is set
       if (domain === undefined || domain === null) {
-        throw new Error("Missing the required parameter 'domain' when calling domainsDomainSensorsSensorIdMeasurementsPost");
+        throw new Error("Missing the required parameter 'domain' when calling addMeasurement");
       }
 
       // verify the required parameter 'sensorId' is set
       if (sensorId === undefined || sensorId === null) {
-        throw new Error("Missing the required parameter 'sensorId' when calling domainsDomainSensorsSensorIdMeasurementsPost");
+        throw new Error("Missing the required parameter 'sensorId' when calling addMeasurement");
       }
 
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling domainsDomainSensorsSensorIdMeasurementsPost");
+        throw new Error("Missing the required parameter 'body' when calling addMeasurement");
       }
 
 
@@ -736,24 +728,24 @@
      * @param {String} domain 
      * @param {String} sensorId 
      * @param {String} body 
-     * @param {module:api/SensorsApi~domainsDomainSensorsSensorIdNamePutCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SensorsApi~putSensorNameCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.putSensorName = function(domain, sensorId, body, callback) {
       var postBody = body;
 
       // verify the required parameter 'domain' is set
       if (domain === undefined || domain === null) {
-        throw new Error("Missing the required parameter 'domain' when calling domainsDomainSensorsSensorIdNamePut");
+        throw new Error("Missing the required parameter 'domain' when calling putSensorName");
       }
 
       // verify the required parameter 'sensorId' is set
       if (sensorId === undefined || sensorId === null) {
-        throw new Error("Missing the required parameter 'sensorId' when calling domainsDomainSensorsSensorIdNamePut");
+        throw new Error("Missing the required parameter 'sensorId' when calling putSensorName");
       }
 
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling domainsDomainSensorsSensorIdNamePut");
+        throw new Error("Missing the required parameter 'body' when calling putSensorName");
       }
 
 
@@ -782,24 +774,24 @@
      * @param {String} domain 
      * @param {String} sensorId 
      * @param {String} body 
-     * @param {module:api/SensorsApi~domainsDomainSensorsSensorIdOwnerPutCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SensorsApi~putSensorOwnerCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.putSensorOwner = function(domain, sensorId, body, callback) {
       var postBody = body;
 
       // verify the required parameter 'domain' is set
       if (domain === undefined || domain === null) {
-        throw new Error("Missing the required parameter 'domain' when calling domainsDomainSensorsSensorIdOwnerPut");
+        throw new Error("Missing the required parameter 'domain' when calling putSensorOwner");
       }
 
       // verify the required parameter 'sensorId' is set
       if (sensorId === undefined || sensorId === null) {
-        throw new Error("Missing the required parameter 'sensorId' when calling domainsDomainSensorsSensorIdOwnerPut");
+        throw new Error("Missing the required parameter 'sensorId' when calling putSensorOwner");
       }
 
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling domainsDomainSensorsSensorIdOwnerPut");
+        throw new Error("Missing the required parameter 'body' when calling putSensorOwner");
       }
 
       var pathParams = {
