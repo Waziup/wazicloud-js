@@ -30,7 +30,7 @@
      * post several message to social networks
      * @param {String} domain 
      * @param {module:model/SocialMessageBatch} data social message
-     * @param {module:api/SocialsApi~domainsDomainSocialsBatchPostCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SocialsApi~createSocialMsgsBatchCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.createSocialMsgsBatch = function(domain, data, callback) {
       var postBody = data;
@@ -67,7 +67,7 @@
     /**
      * Get all messages sent
      * @param {String} domain 
-     * @param {module:api/SocialsApi~domainsDomainSocialsGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SocialsApi~getSocialMsgsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SocialMessage}
      */
     this.getSocialMsgs = function(domain, callback) {
@@ -102,7 +102,7 @@
      * delete a message to social networks
      * @param {String} domain 
      * @param {String} msgId 
-     * @param {module:api/SocialsApi~domainsDomainSocialsMsgIdDeleteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SocialsApi~deleteSocialsMsgCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.deleteSocialsMsg = function(domain, msgId, callback) {
       var postBody = null;
@@ -142,7 +142,7 @@
      * Get one message
      * @param {String} domain 
      * @param {String} msgId 
-     * @param {module:api/SocialsApi~domainsDomainSocialsMsgIdGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SocialsApi~getSocialsMsgCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SocialMessage}
      */
     this.getSocialsMsg = function(domain, msgId, callback) {
@@ -183,7 +183,7 @@
      * post a message to social networks
      * @param {String} domain 
      * @param {module:model/SocialMessage} data social message
-     * @param {module:api/SocialsApi~domainsDomainSocialsPostCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SocialsApi~createSocialMsgCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.createSocialMsg = function(domain, data, callback) {
       var postBody = data;

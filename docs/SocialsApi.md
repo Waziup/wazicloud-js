@@ -4,16 +4,16 @@ All URIs are relative to *http://127.0.0.1:8000/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**domainsDomainSocialsBatchPost**](SocialsApi.md#domainsDomainSocialsBatchPost) | **POST** /domains/{domain}/socials/batch | post several message to social networks
-[**domainsDomainSocialsGet**](SocialsApi.md#domainsDomainSocialsGet) | **GET** /domains/{domain}/socials | Get all messages sent
-[**domainsDomainSocialsMsgIdDelete**](SocialsApi.md#domainsDomainSocialsMsgIdDelete) | **DELETE** /domains/{domain}/socials/{msg_id} | delete a message to social networks
-[**domainsDomainSocialsMsgIdGet**](SocialsApi.md#domainsDomainSocialsMsgIdGet) | **GET** /domains/{domain}/socials/{msg_id} | Get one message
-[**domainsDomainSocialsPost**](SocialsApi.md#domainsDomainSocialsPost) | **POST** /domains/{domain}/socials | post a message to social networks
+[**createSocialMsgsBatch**](SocialsApi.md#createSocialMsgsBatch) | **POST** /domains/{domain}/socials/batch | post several message to social networks
+[**getSocialMsgs**](SocialsApi.md#getSocialMsgs) | **GET** /domains/{domain}/socials | Get all messages sent
+[**deleteSocialsMsg**](SocialsApi.md#deleteSocialsMsg) | **DELETE** /domains/{domain}/socials/{msg_id} | delete a message to social networks
+[**getSocialsMsg**](SocialsApi.md#getSocialsMsg) | **GET** /domains/{domain}/socials/{msg_id} | Get one message
+[**createSocialMsg**](SocialsApi.md#createSocialMsg) | **POST** /domains/{domain}/socials | post a message to social networks
 
 
-<a name="domainsDomainSocialsBatchPost"></a>
-# **domainsDomainSocialsBatchPost**
-> domainsDomainSocialsBatchPost(domain, data)
+<a name="createSocialMsgsBatch"></a>
+# **createSocialMsgsBatch**
+> createSocialMsgsBatch(domain, data)
 
 post several message to social networks
 
@@ -42,7 +42,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.domainsDomainSocialsBatchPost(domain, data, callback);
+apiInstance.createSocialMsgsBatch(domain, data, callback);
 ```
 
 ### Parameters
@@ -65,9 +65,9 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="domainsDomainSocialsGet"></a>
-# **domainsDomainSocialsGet**
-> SocialMessage domainsDomainSocialsGet(domain, )
+<a name="getSocialMsgs"></a>
+# **getSocialMsgs**
+> SocialMessage getSocialMsgs(domain, )
 
 Get all messages sent
 
@@ -94,7 +94,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.domainsDomainSocialsGet(domain, , callback);
+apiInstance.getSocialMsgs(domain, , callback);
 ```
 
 ### Parameters
@@ -116,9 +116,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="domainsDomainSocialsMsgIdDelete"></a>
-# **domainsDomainSocialsMsgIdDelete**
-> domainsDomainSocialsMsgIdDelete(domain, msgId)
+<a name="deleteSocialsMsg"></a>
+# **deleteSocialsMsg**
+> deleteSocialsMsg(domain, msgId)
 
 delete a message to social networks
 
@@ -147,7 +147,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.domainsDomainSocialsMsgIdDelete(domain, msgId, callback);
+apiInstance.deleteSocialsMsg(domain, msgId, callback);
 ```
 
 ### Parameters
@@ -170,9 +170,9 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="domainsDomainSocialsMsgIdGet"></a>
-# **domainsDomainSocialsMsgIdGet**
-> SocialMessage domainsDomainSocialsMsgIdGet(domain, msgId)
+<a name="getSocialsMsg"></a>
+# **getSocialsMsg**
+> SocialMessage getSocialsMsg(domain, msgId)
 
 Get one message
 
@@ -201,7 +201,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.domainsDomainSocialsMsgIdGet(domain, msgId, callback);
+apiInstance.getSocialsMsg(domain, msgId, callback);
 ```
 
 ### Parameters
@@ -224,9 +224,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="domainsDomainSocialsPost"></a>
-# **domainsDomainSocialsPost**
-> domainsDomainSocialsPost(domain, data)
+<a name="createSocialMsg"></a>
+# **createSocialMsg**
+> createSocialMsg(domain, data)
 
 post a message to social networks
 
@@ -255,7 +255,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.domainsDomainSocialsPost(domain, data, callback);
+apiInstance.createSocialMsg(domain, data, callback);
 ```
 
 ### Parameters

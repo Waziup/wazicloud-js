@@ -4,15 +4,15 @@ All URIs are relative to *http://127.0.0.1:8000/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**domainsDomainDelete**](DomainsApi.md#domainsDomainDelete) | **DELETE** /domains/{domain} | Delete domain
-[**domainsDomainGet**](DomainsApi.md#domainsDomainGet) | **GET** /domains/{domain} | get domain
-[**domainsGet**](DomainsApi.md#domainsGet) | **GET** /domains | list domains
-[**domainsPost**](DomainsApi.md#domainsPost) | **POST** /domains | Create a domain
+[**deleteDomain**](DomainsApi.md#deleteDomain) | **DELETE** /domains/{domain} | Delete domain
+[**getDomains**](DomainsApi.md#getDomains) | **GET** /domains/{domain} | get domain
+[**getDomains**](DomainsApi.md#getDomains) | **GET** /domains | list domains
+[**createDomain**](DomainsApi.md#createDomain) | **POST** /domains | Create a domain
 
 
-<a name="domainsDomainDelete"></a>
-# **domainsDomainDelete**
-> domainsDomainDelete(domain, )
+<a name="deleteDomain"></a>
+# **deleteDomain**
+> deleteDomain(domain, )
 
 Delete domain
 
@@ -39,7 +39,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.domainsDomainDelete(domain, , callback);
+apiInstance.deleteDomain(domain, , callback);
 ```
 
 ### Parameters
@@ -61,9 +61,9 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="domainsDomainGet"></a>
-# **domainsDomainGet**
-> Domain domainsDomainGet(domain, )
+<a name="getDomains"></a>
+# **getDomains**
+> Domain getDomains(domain, )
 
 get domain
 
@@ -92,7 +92,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.domainsDomainGet(domain, , callback);
+apiInstance.getDomains(domain, , callback);
 ```
 
 ### Parameters
@@ -114,9 +114,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="domainsGet"></a>
-# **domainsGet**
-> [Domain] domainsGet()
+<a name="getDomains"></a>
+# **getDomains**
+> [Domain] getDomains()
 
 list domains
 
@@ -140,7 +140,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.domainsGet(callback);
+apiInstance.getDomains(callback);
 ```
 
 ### Parameters
@@ -159,9 +159,9 @@ This endpoint does not need any parameter.
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="domainsPost"></a>
-# **domainsPost**
-> domainsPost(body)
+<a name="createDomain"></a>
+# **createDomain**
+> createDomain(body)
 
 Create a domain
 
@@ -188,7 +188,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.domainsPost(body, callback);
+apiInstance.createDomain(body, callback);
 ```
 
 ### Parameters

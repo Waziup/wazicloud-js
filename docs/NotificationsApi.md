@@ -4,15 +4,15 @@ All URIs are relative to *http://127.0.0.1:8000/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**domainsDomainNotificationsGet**](NotificationsApi.md#domainsDomainNotificationsGet) | **GET** /domains/{domain}/notifications | Get all notifications
-[**domainsDomainNotificationsNotifIdDelete**](NotificationsApi.md#domainsDomainNotificationsNotifIdDelete) | **DELETE** /domains/{domain}/notifications/{notif_id} | delete a message to social networks
-[**domainsDomainNotificationsNotifIdGet**](NotificationsApi.md#domainsDomainNotificationsNotifIdGet) | **GET** /domains/{domain}/notifications/{notif_id} | Get one message
-[**domainsDomainNotificationsPost**](NotificationsApi.md#domainsDomainNotificationsPost) | **POST** /domains/{domain}/notifications | post a message to social networks
+[**getNotificationsGet**](NotificationsApi.md#getNotificationsGet) | **GET** /domains/{domain}/notifications | Get all notifications
+[**getNotificationsNotifIdDelete**](NotificationsApi.md#getNotificationsNotifIdDelete) | **DELETE** /domains/{domain}/notifications/{notif_id} | delete a message to social networks
+[**getNotificationsNotifIdGet**](NotificationsApi.md#getNotificationsNotifIdGet) | **GET** /domains/{domain}/notifications/{notif_id} | Get one message
+[**getNotificationsPost**](NotificationsApi.md#getNotificationsPost) | **POST** /domains/{domain}/notifications | post a message to social networks
 
 
-<a name="domainsDomainNotificationsGet"></a>
-# **domainsDomainNotificationsGet**
-> Notification domainsDomainNotificationsGet(domain, )
+<a name="getNotificationsGet"></a>
+# **getNotificationsGet**
+> Notification getNotificationsGet(domain, )
 
 Get all notifications
 
@@ -39,7 +39,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.domainsDomainNotificationsGet(domain, , callback);
+apiInstance.getNotificationsGet(domain, , callback);
 ```
 
 ### Parameters
@@ -61,9 +61,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="domainsDomainNotificationsNotifIdDelete"></a>
-# **domainsDomainNotificationsNotifIdDelete**
-> domainsDomainNotificationsNotifIdDelete(domain, notifId)
+<a name="getNotificationsNotifIdDelete"></a>
+# **getNotificationsNotifIdDelete**
+> getNotificationsNotifIdDelete(domain, notifId)
 
 delete a message to social networks
 
@@ -92,7 +92,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.domainsDomainNotificationsNotifIdDelete(domain, notifId, callback);
+apiInstance.getNotificationsNotifIdDelete(domain, notifId, callback);
 ```
 
 ### Parameters
@@ -115,9 +115,9 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="domainsDomainNotificationsNotifIdGet"></a>
-# **domainsDomainNotificationsNotifIdGet**
-> Notification domainsDomainNotificationsNotifIdGet(domain, notifId)
+<a name="getNotificationsNotifIdGet"></a>
+# **getNotificationsNotifIdGet**
+> Notification getNotificationsNotifIdGet(domain, notifId)
 
 Get one message
 
@@ -146,7 +146,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.domainsDomainNotificationsNotifIdGet(domain, notifId, callback);
+apiInstance.getNotificationsNotifIdGet(domain, notifId, callback);
 ```
 
 ### Parameters
@@ -169,9 +169,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="domainsDomainNotificationsPost"></a>
-# **domainsDomainNotificationsPost**
-> domainsDomainNotificationsPost(domain, data)
+<a name="getNotificationsPost"></a>
+# **getNotificationsPost**
+> getNotificationsPost(domain, data)
 
 post a message to social networks
 
@@ -200,7 +200,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.domainsDomainNotificationsPost(domain, data, callback);
+apiInstance.getNotificationsPost(domain, data, callback);
 ```
 
 ### Parameters

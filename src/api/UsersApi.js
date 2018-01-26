@@ -29,9 +29,9 @@
      * Get the access token for subsequent calls
      * @param {String} domain 
      * @param {module:model/AuthBody} credentials auth credentials
-     * @param {module:api/UsersApi~domainsDomainAuthPostCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/UsersApi~getAuthTokenCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.postAuth = function(domain, credentials, callback) {
+    this.getAuthToken = function(domain, credentials, callback) {
       var postBody = credentials;
 
       // verify the required parameter 'domain' is set
@@ -67,14 +67,14 @@
     /**
      * Get all users in a realm
      * @param {String} domain 
-     * @param {module:api/UsersApi~domainsDomainUsersGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/UsersApi~getUsersCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.getUsers = function(domain, callback) {
       var postBody = null;
 
       // verify the required parameter 'domain' is set
       if (domain === undefined || domain === null) {
-        throw new Error("Missing the required parameter 'domain' when calling domainsDomainUsersGet");
+        throw new Error("Missing the required parameter 'domain' when calling getUsers");
       }
 
       var pathParams = {
@@ -100,19 +100,19 @@
      * Create a new user in a realm
      * @param {String} domain 
      * @param {module:model/User} user user object
-     * @param {module:api/UsersApi~domainsDomainUsersPostCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/UsersApi~createUserCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.createUser = function(domain, user, callback) {
       var postBody = user;
 
       // verify the required parameter 'domain' is set
       if (domain === undefined || domain === null) {
-        throw new Error("Missing the required parameter 'domain' when calling domainsDomainUsersPost");
+        throw new Error("Missing the required parameter 'domain' when calling createUser");
       }
 
       // verify the required parameter 'user' is set
       if (user === undefined || user === null) {
-        throw new Error("Missing the required parameter 'user' when calling domainsDomainUsersPost");
+        throw new Error("Missing the required parameter 'user' when calling createUser");
       }
 
 
@@ -138,7 +138,7 @@
     /**
      * Search users with specific criteria
      * @param {String} domain 
-     * @param {module:api/UsersApi~domainsDomainUsersSearchGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/UsersApi~searchUsersback} callback The callback function, accepting three arguments: error, data, response
      */
     this.searchUsers = function(domain, callback) { //TODO: complete arguments
       var postBody = null;
@@ -170,7 +170,7 @@
      /**
      * @param {String} domain 
      * @param {String} userid 
-     * @param {module:api/UsersApi~domainsDomainUsersUseridDeleteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/UsersApi~deleteUserCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.deleteUser = function(domain, userid, callback) {
       var postBody = null;
@@ -209,7 +209,7 @@
     /**
      * @param {String} domain 
      * @param {String} userid 
-     * @param {module:api/UsersApi~domainsDomainUsersUseridGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/UsersApi~getUserCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.getUser = function(domain, userid, callback) {
       var postBody = null;
@@ -249,24 +249,24 @@
      * @param {String} domain 
      * @param {String} userid 
      * @param {module:model/UserUpdateBody} data user data to update
-     * @param {module:api/UsersApi~domainsDomainUsersUseridPutCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/UsersApi~updateUserCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.updateUser = function(domain, userid, data, callback) {
       var postBody = data;
 
       // verify the required parameter 'domain' is set
       if (domain === undefined || domain === null) {
-        throw new Error("Missing the required parameter 'domain' when calling domainsDomainUsersUseridPut");
+        throw new Error("Missing the required parameter 'domain' when calling updateUser");
       }
 
       // verify the required parameter 'userid' is set
       if (userid === undefined || userid === null) {
-        throw new Error("Missing the required parameter 'userid' when calling domainsDomainUsersUseridPut");
+        throw new Error("Missing the required parameter 'userid' when calling updateUser");
       }
 
       // verify the required parameter 'data' is set
       if (data === undefined || data === null) {
-        throw new Error("Missing the required parameter 'data' when calling domainsDomainUsersUseridPut");
+        throw new Error("Missing the required parameter 'data' when calling updateUser");
       }
 
 

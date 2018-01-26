@@ -50,40 +50,40 @@
   }
 
   describe('DomainsApi', function() {
-    describe('domainsDomainDelete', function() {
-      it('should call domainsDomainDelete successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainDelete
-        //instance.domainsDomainDelete(function(error) {
+    describe('deleteDomain', function() {
+      it('should call deleteDomain successfully', function(done) {
+        //uncomment below and update the code to test deleteDomain
+        //instance.deleteDomain(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('domainsDomainGet', function() {
-      it('should call domainsDomainGet successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainGet
-        //instance.domainsDomainGet(function(error) {
+    describe('getDomains', function() {
+      it('should call getDomains successfully', function(done) {
+        //uncomment below and update the code to test getDomains
+        //instance.getDomains(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('domainsGet', function() {
-      it('should call domainsGet successfully', function(done) {
-        //uncomment below and update the code to test domainsGet
-        //instance.domainsGet(function(error) {
+    describe('getDomains', function() {
+      it('should call getDomains successfully', function(done) {
+        //uncomment below and update the code to test getDomains
+        //instance.getDomains(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('domainsPost', function() {
-      it('should call domainsPost successfully', function(done) {
-        //uncomment below and update the code to test domainsPost
-        //instance.domainsPost(function(error) {
+    describe('createDomain', function() {
+      it('should call createDomain successfully', function(done) {
+        //uncomment below and update the code to test createDomain
+        //instance.createDomain(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

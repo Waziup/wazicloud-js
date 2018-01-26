@@ -28,14 +28,14 @@
     /**
      * Delete domain
      * @param {String} domain 
-     * @param {module:api/DomainsApi~domainsDomainDeleteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/DomainsApi~deleteDomainCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.deleteDomain = function(domain, callback) {
       var postBody = null;
 
       // verify the required parameter 'domain' is set
       if (domain === undefined || domain === null) {
-        throw new Error("Missing the required parameter 'domain' when calling domainsDomainDelete");
+        throw new Error("Missing the required parameter 'domain' when calling deleteDomain");
       }
 
 
@@ -62,7 +62,7 @@
      * get domain
      * 
      * @param {String} domain 
-     * @param {module:api/DomainsApi~domainsDomainGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/DomainsApi~getDomainsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Domain}
      */
     this.getDomains = function(domain, callback) {
@@ -70,7 +70,7 @@
 
       // verify the required parameter 'domain' is set
       if (domain === undefined || domain === null) {
-        throw new Error("Missing the required parameter 'domain' when calling domainsDomainGet");
+        throw new Error("Missing the required parameter 'domain' when calling getDomains");
       }
 
 
@@ -95,7 +95,7 @@
 
     /**
      * list domains
-     * @param {module:api/DomainsApi~domainsGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/DomainsApi~getDomainsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Domain>}
      */
     this.getDomains = function(callback) {
@@ -122,14 +122,14 @@
      /**
      * Create a domain
      * @param {module:model/Domain} body 
-     * @param {module:api/DomainsApi~domainsPostCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/DomainsApi~createDomainCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.domainsPost = function(body, callback) {
+    this.createDomain = function(body, callback) {
       var postBody = body;
 
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
-        throw new Error("Missing the required parameter 'body' when calling domainsPost");
+        throw new Error("Missing the required parameter 'body' when calling createDomain");
       }
 
 

@@ -50,50 +50,50 @@
   }
 
   describe('SocialsApi', function() {
-    describe('domainsDomainSocialsBatchPost', function() {
-      it('should call domainsDomainSocialsBatchPost successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainSocialsBatchPost
-        //instance.domainsDomainSocialsBatchPost(function(error) {
+    describe('createSocialMsgsBatch', function() {
+      it('should call createSocialMsgsBatch successfully', function(done) {
+        //uncomment below and update the code to test createSocialMsgsBatch
+        //instance.createSocialMsgsBatch(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('domainsDomainSocialsGet', function() {
-      it('should call domainsDomainSocialsGet successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainSocialsGet
-        //instance.domainsDomainSocialsGet(function(error) {
+    describe('getSocialMsgs', function() {
+      it('should call getSocialMsgs successfully', function(done) {
+        //uncomment below and update the code to test getSocialMsgs
+        //instance.getSocialMsgs(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('domainsDomainSocialsMsgIdDelete', function() {
-      it('should call domainsDomainSocialsMsgIdDelete successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainSocialsMsgIdDelete
-        //instance.domainsDomainSocialsMsgIdDelete(function(error) {
+    describe('deleteSocialsMsg', function() {
+      it('should call deleteSocialsMsg successfully', function(done) {
+        //uncomment below and update the code to test deleteSocialsMsg
+        //instance.deleteSocialsMsg(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('domainsDomainSocialsMsgIdGet', function() {
-      it('should call domainsDomainSocialsMsgIdGet successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainSocialsMsgIdGet
-        //instance.domainsDomainSocialsMsgIdGet(function(error) {
+    describe('getSocialsMsg', function() {
+      it('should call getSocialsMsg successfully', function(done) {
+        //uncomment below and update the code to test getSocialsMsg
+        //instance.getSocialsMsg(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('domainsDomainSocialsPost', function() {
-      it('should call domainsDomainSocialsPost successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainSocialsPost
-        //instance.domainsDomainSocialsPost(function(error) {
+    describe('createSocialMsg', function() {
+      it('should call createSocialMsg successfully', function(done) {
+        //uncomment below and update the code to test createSocialMsg
+        //instance.createSocialMsg(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

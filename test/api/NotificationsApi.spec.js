@@ -50,40 +50,40 @@
   }
 
   describe('NotificationsApi', function() {
-    describe('domainsDomainNotificationsGet', function() {
-      it('should call domainsDomainNotificationsGet successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainNotificationsGet
-        //instance.domainsDomainNotificationsGet(function(error) {
+    describe('getNotificationsGet', function() {
+      it('should call getNotificationsGet successfully', function(done) {
+        //uncomment below and update the code to test getNotificationsGet
+        //instance.getNotificationsGet(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('domainsDomainNotificationsNotifIdDelete', function() {
-      it('should call domainsDomainNotificationsNotifIdDelete successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainNotificationsNotifIdDelete
-        //instance.domainsDomainNotificationsNotifIdDelete(function(error) {
+    describe('getNotificationsNotifIdDelete', function() {
+      it('should call getNotificationsNotifIdDelete successfully', function(done) {
+        //uncomment below and update the code to test getNotificationsNotifIdDelete
+        //instance.getNotificationsNotifIdDelete(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('domainsDomainNotificationsNotifIdGet', function() {
-      it('should call domainsDomainNotificationsNotifIdGet successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainNotificationsNotifIdGet
-        //instance.domainsDomainNotificationsNotifIdGet(function(error) {
+    describe('getNotificationsNotifIdGet', function() {
+      it('should call getNotificationsNotifIdGet successfully', function(done) {
+        //uncomment below and update the code to test getNotificationsNotifIdGet
+        //instance.getNotificationsNotifIdGet(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('domainsDomainNotificationsPost', function() {
-      it('should call domainsDomainNotificationsPost successfully', function(done) {
-        //uncomment below and update the code to test domainsDomainNotificationsPost
-        //instance.domainsDomainNotificationsPost(function(error) {
+    describe('getNotificationsPost', function() {
+      it('should call getNotificationsPost successfully', function(done) {
+        //uncomment below and update the code to test getNotificationsPost
+        //instance.getNotificationsPost(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
