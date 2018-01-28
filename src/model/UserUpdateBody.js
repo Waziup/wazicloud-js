@@ -1,78 +1,58 @@
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.WaziupApi) {
-      root.WaziupApi = {};
+'use strict';
+
+/**
+ * Constructs a new <code>UserUpdateBody</code>.
+ * @alias module:model/UserUpdateBody
+ * @class
+ * @param firstName {String} User's First Name
+ * @param lastName {String} User's Last Name
+ */
+var exports = function(firstName, lastName) {
+  var _this = this;
+
+  _this['firstName'] = firstName;
+  _this['lastName'] = lastName;
+
+};
+
+/**
+ * Constructs a <code>UserUpdateBody</code> from a plain JavaScript object, optionally creating a new instance.
+ * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+ * @param {Object} data The plain JavaScript object bearing properties of interest.
+ * @param {module:model/UserUpdateBody} obj Optional instance to populate.
+ * @return {module:model/UserUpdateBody} The populated <code>UserUpdateBody</code> instance.
+ */
+exports.constructFromObject = function(data, obj) {
+  if (data) {
+    obj = obj || new exports();
+
+    if (data.hasOwnProperty('firstName')) {
+      obj['firstName'] = ApiClient.convertToType(data['firstName'], 'String');
     }
-    root.WaziupApi.UserUpdateBody = factory(root.WaziupApi.ApiClient);
-  }
-}(this, function(ApiClient) {
-  'use strict';
-
-  /**
-   * Constructs a new <code>UserUpdateBody</code>.
-   * @alias module:model/UserUpdateBody
-   * @class
-   * @param firstName {String} User's First Name
-   * @param lastName {String} User's Last Name
-   */
-  var exports = function(firstName, lastName) {
-    var _this = this;
-
-    _this['firstName'] = firstName;
-    _this['lastName'] = lastName;
-
-  };
-
-  /**
-   * Constructs a <code>UserUpdateBody</code> from a plain JavaScript object, optionally creating a new instance.
-   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-   * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/UserUpdateBody} obj Optional instance to populate.
-   * @return {module:model/UserUpdateBody} The populated <code>UserUpdateBody</code> instance.
-   */
-  exports.constructFromObject = function(data, obj) {
-    if (data) {
-      obj = obj || new exports();
-
-      if (data.hasOwnProperty('firstName')) {
-        obj['firstName'] = ApiClient.convertToType(data['firstName'], 'String');
-      }
-      if (data.hasOwnProperty('lastName')) {
-        obj['lastName'] = ApiClient.convertToType(data['lastName'], 'String');
-      }
-      if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'String');
-      }
+    if (data.hasOwnProperty('lastName')) {
+      obj['lastName'] = ApiClient.convertToType(data['lastName'], 'String');
     }
-    return obj;
+    if (data.hasOwnProperty('id')) {
+      obj['id'] = ApiClient.convertToType(data['id'], 'String');
+    }
   }
+  return obj;
+}
 
-  /**
-   * User's First Name
-   * @member {String} firstName
-   */
-  exports.prototype['firstName'] = undefined;
-  /**
-   * User's Last Name
-   * @member {String} lastName
-   */
-  exports.prototype['lastName'] = undefined;
-  /**
-   * User id
-   * @member {String} id
-   */
-  exports.prototype['id'] = undefined;
+/**
+ * User's First Name
+ * @member {String} firstName
+ */
+exports.prototype['firstName'] = undefined;
+/**
+ * User's Last Name
+ * @member {String} lastName
+ */
+exports.prototype['lastName'] = undefined;
+/**
+ * User id
+ * @member {String} id
+ */
+exports.prototype['id'] = undefined;
 
-
-
-  return exports;
-}));
-
-
+export default exports;
