@@ -52,34 +52,26 @@ Then include *bundle.js* in the HTML pages.
 
 ## Getting Started
 
-Please follow the [installation](#installation) instruction and execute the following JS code:
+Here is an example code to retrieve all the sensors for Waziup:
 
 ```javascript
-var WaziupApi = require('waziup-js');
-
-var defaultClient = WaziupApi.ApiClient.instance;
-
-// Configure API key authorization: Bearer
-var Bearer = defaultClient.authentications['Bearer'];
-Bearer.apiKey = "YOUR API KEY"
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.apiKeyPrefix['Authorization'] = "Token"
+import * as WaziupApi from 'waziup-js';
 
 var api = new WaziupApi.SensorsApi()
-
-var domain = "waziup"; 
-
 
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('List of sensors: ', JSON.stringify(data));
+    //Place your code here
   }
 };
-api.getSensors(domain, null, callback);
-
+api.getSensors("waziup", null, callback);
 ```
+
+In the example above, a request is made to fetch all the sensors from Waziup.
+The format of the sensors is given [here](https://github.com/Waziup/waziup-js/blob/master/docs/Sensor.md).
 
 ## Documentation for API Endpoints
 
