@@ -18,9 +18,8 @@ var exports = function(apiClient) {
    * Get the access token for subsequent calls
    * @param {String} domain 
    * @param {module:model/AuthBody} credentials auth credentials
-   * @param {module:api/UsersApi~getAuthTokenCallback} callback The callback function, accepting three arguments: error, data, response
    */
-  this.getAuthToken = function(domain, credentials, callback) {
+  this.getAuthToken = async function(domain, credentials) {
     var postBody = credentials;
 
     // verify the required parameter 'domain' is set
@@ -49,16 +48,14 @@ var exports = function(apiClient) {
     return this.apiClient.callApi(
       '/domains/{domain}/auth/', 'POST',
       pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
+      authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * Get all users in a realm
    * @param {String} domain 
-   * @param {module:api/UsersApi~getUsersCallback} callback The callback function, accepting three arguments: error, data, response
    */
-  this.getUsers = function(domain, callback) {
+  this.getUsers = async function(domain) {
     var postBody = null;
 
     // verify the required parameter 'domain' is set
@@ -81,17 +78,15 @@ var exports = function(apiClient) {
     return this.apiClient.callApi(
       '/domains/{domain}/users/', 'GET',
       pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
+      authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * Create a new user in a realm
    * @param {String} domain 
    * @param {module:model/User} user user object
-   * @param {module:api/UsersApi~createUserCallback} callback The callback function, accepting three arguments: error, data, response
    */
-  this.createUser = function(domain, user, callback) {
+  this.createUser = async function(domain, user) {
     var postBody = user;
 
     // verify the required parameter 'domain' is set
@@ -120,16 +115,14 @@ var exports = function(apiClient) {
     return this.apiClient.callApi(
       '/domains/{domain}/users/', 'POST',
       pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
+      authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * Search users with specific criteria
    * @param {String} domain 
-   * @param {module:api/UsersApi~searchUsersback} callback The callback function, accepting three arguments: error, data, response
    */
-  this.searchUsers = function(domain, callback) { //TODO: complete arguments
+  this.searchUsers = async function(domain) { //TODO: complete arguments
     var postBody = null;
 
     // verify the required parameter 'domain' is set
@@ -152,16 +145,14 @@ var exports = function(apiClient) {
     return this.apiClient.callApi(
       '/domains/{domain}/users/search/', 'GET',
       pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
+      authNames, contentTypes, accepts, returnType);
   }
 
    /**
    * @param {String} domain 
    * @param {String} userid 
-   * @param {module:api/UsersApi~deleteUserCallback} callback The callback function, accepting three arguments: error, data, response
    */
-  this.deleteUser = function(domain, userid, callback) {
+  this.deleteUser = async function(domain, userid) {
     var postBody = null;
 
     // verify the required parameter 'domain' is set
@@ -191,16 +182,14 @@ var exports = function(apiClient) {
     return this.apiClient.callApi(
       '/domains/{domain}/users/{userid}', 'DELETE',
       pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
+      authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * @param {String} domain 
    * @param {String} userid 
-   * @param {module:api/UsersApi~getUserCallback} callback The callback function, accepting three arguments: error, data, response
    */
-  this.getUser = function(domain, userid, callback) {
+  this.getUser = async function(domain, userid) {
     var postBody = null;
 
     // verify the required parameter 'domain' is set
@@ -230,17 +219,15 @@ var exports = function(apiClient) {
     return this.apiClient.callApi(
       '/domains/{domain}/users/{userid}', 'GET',
       pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
+      authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * @param {String} domain 
    * @param {String} userid 
    * @param {module:model/UserUpdateBody} data user data to update
-   * @param {module:api/UsersApi~updateUserCallback} callback The callback function, accepting three arguments: error, data, response
    */
-  this.updateUser = function(domain, userid, data, callback) {
+  this.updateUser = async function(domain, userid, data) {
     var postBody = data;
 
     // verify the required parameter 'domain' is set
@@ -275,8 +262,7 @@ var exports = function(apiClient) {
     return this.apiClient.callApi(
       '/domains/{domain}/users/{userid}', 'PUT',
       pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
+      authNames, contentTypes, accepts, returnType);
   }
 };
 

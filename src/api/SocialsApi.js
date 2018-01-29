@@ -19,9 +19,8 @@ var exports = function(apiClient) {
    * post several message to social networks
    * @param {String} domain 
    * @param {module:model/SocialMessageBatch} data social message
-   * @param {module:api/SocialsApi~createSocialMsgsBatchCallback} callback The callback function, accepting three arguments: error, data, response
    */
-  this.createSocialMsgsBatch = function(domain, data, callback) {
+  this.createSocialMsgsBatch = async function(domain, data) {
     var postBody = data;
 
     // verify the required parameter 'domain' is set
@@ -49,24 +48,21 @@ var exports = function(apiClient) {
     return this.apiClient.callApi(
       '/domains/{domain}/socials/batch', 'POST',
       pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
+      authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * Get all messages sent
    * @param {String} domain 
-   * @param {module:api/SocialsApi~getSocialMsgsCallback} callback The callback function, accepting three arguments: error, data, response
    * data is of type: {@link module:model/SocialMessage}
    */
-  this.getSocialMsgs = function(domain, callback) {
+  this.getSocialMsgs = async function(domain) {
     var postBody = null;
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
       throw new Error("Missing the required parameter 'domain'");
     }
-
 
     var pathParams = {
       'domain': domain
@@ -83,17 +79,15 @@ var exports = function(apiClient) {
     return this.apiClient.callApi(
       '/domains/{domain}/socials', 'GET',
       pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
+      authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * delete a message to social networks
    * @param {String} domain 
    * @param {String} msgId 
-   * @param {module:api/SocialsApi~deleteSocialsMsgCallback} callback The callback function, accepting three arguments: error, data, response
    */
-  this.deleteSocialsMsg = function(domain, msgId, callback) {
+  this.deleteSocialsMsg = async function(domain, msgId) {
     var postBody = null;
 
     // verify the required parameter 'domain' is set
@@ -123,18 +117,16 @@ var exports = function(apiClient) {
     return this.apiClient.callApi(
       '/domains/{domain}/socials/{msg_id}', 'DELETE',
       pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
+      authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * Get one message
    * @param {String} domain 
    * @param {String} msgId 
-   * @param {module:api/SocialsApi~getSocialsMsgCallback} callback The callback function, accepting three arguments: error, data, response
    * data is of type: {@link module:model/SocialMessage}
    */
-  this.getSocialsMsg = function(domain, msgId, callback) {
+  this.getSocialsMsg = async function(domain, msgId) {
     var postBody = null;
 
     // verify the required parameter 'domain' is set
@@ -164,17 +156,15 @@ var exports = function(apiClient) {
     return this.apiClient.callApi(
       '/domains/{domain}/socials/{msg_id}', 'GET',
       pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
+      authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * post a message to social networks
    * @param {String} domain 
    * @param {module:model/SocialMessage} data social message
-   * @param {module:api/SocialsApi~createSocialMsgCallback} callback The callback function, accepting three arguments: error, data, response
    */
-  this.createSocialMsg = function(domain, data, callback) {
+  this.createSocialMsg = async function(domain, data) {
     var postBody = data;
 
     // verify the required parameter 'domain' is set
@@ -203,8 +193,7 @@ var exports = function(apiClient) {
     return this.apiClient.callApi(
       '/domains/{domain}/socials', 'POST',
       pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
+      authNames, contentTypes, accepts, returnType);
   }
 };
 

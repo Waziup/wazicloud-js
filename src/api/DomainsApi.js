@@ -17,9 +17,8 @@ var exports = function(apiClient) {
   /**
    * Delete domain
    * @param {String} domain 
-   * @param {module:api/DomainsApi~deleteDomainCallback} callback The callback function, accepting three arguments: error, data, response
    */
-  this.deleteDomain = function(domain, callback) {
+  this.deleteDomain = async function(domain) {
     var postBody = null;
 
     // verify the required parameter 'domain' is set
@@ -43,18 +42,16 @@ var exports = function(apiClient) {
     return this.apiClient.callApi(
       '/domains/{domain}', 'DELETE',
       pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
+      authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * get domain
    * 
    * @param {String} domain 
-   * @param {module:api/DomainsApi~getDomainsCallback} callback The callback function, accepting three arguments: error, data, response
    * data is of type: {@link module:model/Domain}
    */
-  this.getDomains = function(domain, callback) {
+  this.getDomains = async function(domain) {
     var postBody = null;
 
     // verify the required parameter 'domain' is set
@@ -78,16 +75,14 @@ var exports = function(apiClient) {
     return this.apiClient.callApi(
       '/domains/{domain}', 'GET',
       pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
+      authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * list domains
-   * @param {module:api/DomainsApi~getDomainsCallback} callback The callback function, accepting three arguments: error, data, response
    * data is of type: {@link Array.<module:model/Domain>}
    */
-  this.getDomains = function(callback) {
+  this.getDomains = async function() {
     var postBody = null;
 
 
@@ -104,16 +99,14 @@ var exports = function(apiClient) {
     return this.apiClient.callApi(
       '/domains', 'GET',
       pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
+      authNames, contentTypes, accepts, returnType);
   }
 
    /**
    * Create a domain
    * @param {module:model/Domain} body 
-   * @param {module:api/DomainsApi~createDomainCallback} callback The callback function, accepting three arguments: error, data, response
    */
-  this.createDomain = function(body, callback) {
+  this.createDomain = async function(body) {
     var postBody = body;
 
     // verify the required parameter 'body' is set
@@ -135,8 +128,7 @@ var exports = function(apiClient) {
     return this.apiClient.callApi(
       '/domains', 'POST',
       pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
+      authNames, contentTypes, accepts, returnType);
   }
 }
 

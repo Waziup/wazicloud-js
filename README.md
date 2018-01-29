@@ -2,7 +2,7 @@ WAZIUP-JS
 =========
 
 
-Waziup-js is a javascript client to interact with the Waziup plaform.
+Waziup-js is a javascript client to interact with the [Waziup plaform](www.waziup.io).
 
 ## Installation
 

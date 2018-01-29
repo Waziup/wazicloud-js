@@ -17,10 +17,9 @@ var exports = function(apiClient) {
   /**
    * Get all notifications
    * @param {String} domain 
-   * @param {module:api/NotificationsApi~getNotificationsGetCallback} callback The callback function, accepting three arguments: error, data, response
    * data is of type: {@link Array.<module:model/Notification>}
    */
-  this.getNotifications = function(domain, callback) {
+  this.getNotifications = async function(domain) {
     var postBody = null;
 
     // verify the required parameter 'domain' is set
@@ -43,17 +42,15 @@ var exports = function(apiClient) {
     return this.apiClient.callApi(
       '/domains/{domain}/notifications', 'GET',
       pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
+      authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * delete a message to social networks
    * @param {String} domain 
    * @param {String} notifId 
-   * @param {module:api/NotificationsApi~getNotificationsNotifIdDeleteCallback} callback The callback function, accepting three arguments: error, data, response
    */
-  this.deleteNotification = function(domain, notifId, callback) {
+  this.deleteNotification = async function(domain, notifId) {
     var postBody = null;
 
     // verify the required parameter 'domain' is set
@@ -83,26 +80,16 @@ var exports = function(apiClient) {
     return this.apiClient.callApi(
       '/domains/{domain}/notifications/{notif_id}', 'DELETE',
       pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
+      authNames, contentTypes, accepts, returnType);
   }
-
-  /**
-   * Callback function to receive the result of the getNotificationsNotifIdGet operation.
-   * @callback module:api/NotificationsApi~getNotificationsNotifIdGetCallback
-   * @param {String} error Error message, if any.
-   * @param {module:model/Notification} data The data returned by the service call.
-   * @param {String} response The complete HTTP response.
-   */
 
   /**
    * Get one message
    * @param {String} domain 
    * @param {String} notifId 
-   * @param {module:api/NotificationsApi~getNotificationsNotifIdGetCallback} callback The callback function, accepting three arguments: error, data, response
    * data is of type: {@link module:model/Notification}
    */
-  this.getNotification = function(domain, notifId, callback) {
+  this.getNotification = async function(domain, notifId) {
     var postBody = null;
 
     // verify the required parameter 'domain' is set
@@ -132,17 +119,15 @@ var exports = function(apiClient) {
     return this.apiClient.callApi(
       '/domains/{domain}/notifications/{notif_id}', 'GET',
       pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
+      authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * post a message to social networks
    * @param {String} domain 
    * @param {module:model/Notification} data social message
-   * @param {module:api/NotificationsApi~getNotificationsPostCallback} callback The callback function, accepting three arguments: error, data, response
    */
-  this.createNotification = function(domain, data, callback) {
+  this.createNotification = async function(domain, data) {
     var postBody = data;
 
     // verify the required parameter 'domain' is set
@@ -171,8 +156,7 @@ var exports = function(apiClient) {
     return this.apiClient.callApi(
       '/domains/{domain}/notifications', 'POST',
       pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
+      authNames, contentTypes, accepts, returnType);
   }
 };
 
