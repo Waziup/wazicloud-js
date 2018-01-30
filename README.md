@@ -12,62 +12,17 @@ Install it via:
 npm install waziup-js --save
 ```
 
-##### Local development
-
-To use the library locally without publishing to a remote npm registry, first install the dependencies by changing 
-into the directory containing `package.json` (and this README). Let's call this `JAVASCRIPT_CLIENT_DIR`. Then run:
-
-```shell
-npm install
-```
-
-Next, [link](https://docs.npmjs.com/cli/link) it globally in npm with the following, also from `JAVASCRIPT_CLIENT_DIR`:
-
-```shell
-npm link
-```
-
-Finally, switch to the directory you want to use your waziup-js from, and run:
-
-```shell
-npm link /path/to/<JAVASCRIPT_CLIENT_DIR>
-```
-
-You should now be able to `require('waziup-js')` in javascript files from the directory you ran the last 
-command above from.
-
-
-### For browser
-
-The library also works in the browser environment via npm and [browserify](http://browserify.org/). After following
-the above steps with Node.js and installing browserify with `npm install -g browserify`,
-perform the following (assuming *main.js* is your entry file, that's to say your javascript file where you actually 
-use this library):
-
-```shell
-browserify main.js > bundle.js
-```
-
-Then include *bundle.js* in the HTML pages.
 
 ## Getting Started
 
-Here is an example code to retrieve all the sensors for Waziup:
+Here is an example code to retrieve all sensors from Waziup:
 
 ```javascript
 import * as WaziupApi from 'waziup-js';
 
 var api = new WaziupApi.SensorsApi()
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('List of sensors: ', JSON.stringify(data));
-    //Place your code here
-  }
-};
-api.getSensors("waziup", null, callback);
+var sensors = api.getSensors("waziup");
+console.log('List of sensors: ', JSON.stringify(sensors));
 ```
 
 In the example above, a request is made to fetch all the sensors from Waziup.
@@ -112,3 +67,42 @@ There are 5 endpoints:
 - **API key parameter name**: Authorization
 - **Location**: HTTP header
 
+## Developement
+
+##### Local development
+
+To use the library locally without publishing to a remote npm registry, first install the dependencies by changing 
+into the directory containing `package.json` (and this README). Let's call this `JAVASCRIPT_CLIENT_DIR`. Then run:
+
+```shell
+npm install
+```
+
+Next, [link](https://docs.npmjs.com/cli/link) it globally in npm with the following, also from `JAVASCRIPT_CLIENT_DIR`:
+
+```shell
+npm link
+```
+
+Finally, switch to the directory you want to use your waziup-js from, and run:
+
+```shell
+npm link /path/to/<JAVASCRIPT_CLIENT_DIR>
+```
+
+You should now be able to `require('waziup-js')` in javascript files from the directory you ran the last 
+command above from.
+
+
+### For browser
+
+The library also works in the browser environment via npm and [browserify](http://browserify.org/). After following
+the above steps with Node.js and installing browserify with `npm install -g browserify`,
+perform the following (assuming *main.js* is your entry file, that's to say your javascript file where you actually 
+use this library):
+
+```shell
+browserify main.js > bundle.js
+```
+
+Then include *bundle.js* in the HTML pages.
