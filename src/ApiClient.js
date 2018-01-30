@@ -442,7 +442,7 @@ exports.parseDate = function(str) {
  */
 exports.convertToType = function(data, type) {
     if (data === null || data === undefined)
-        return data}
+        return data
     switch (type) {
         case 'Boolean':
             return Boolean(data);
