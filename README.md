@@ -15,7 +15,7 @@ npm install waziup-js --save
 
 ## Getting Started
 
-Here is an example code to retrieve all the sensors for Waziup:
+Here is an example code to retrieve all sensors from Waziup:
 
 ```javascript
 import * as WaziupApi from 'waziup-js';
