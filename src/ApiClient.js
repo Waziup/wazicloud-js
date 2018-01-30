@@ -442,9 +442,7 @@ exports.parseDate = function(str) {
  */
 exports.convertToType = function(data, type) {
     if (data === null || data === undefined)
-    {        console.log("Conv: null")
         return data}
-    console.log("convertToType data ", JSON.stringify(data), " type:", JSON.stringify(type))
     switch (type) {
         case 'Boolean':
             return Boolean(data);
@@ -460,16 +458,13 @@ exports.convertToType = function(data, type) {
             return data;
         default:
             if (type === Object) {
-            console.log("Conv: Object")
                 // generic object, return directly
                 return data;
             } else if (typeof type === 'function') {
-            console.log("Conv: function")
                 // for model type like: User
                 return type.constructFromObject(data);
             } else if (Array.isArray(type)) {
                 // for array type like: ['String']
-            console.log("Conv: array")
                 var itemType = type[0];
                 return data.map(function(item) {
                     return exports.convertToType(item, itemType);
