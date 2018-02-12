@@ -32,7 +32,6 @@ var exports = function(apiClient) {
       throw new Error("Missing the required parameter 'credentials'");
     }
 
-
     var pathParams = {
       'domain': domain
     };
@@ -43,7 +42,7 @@ var exports = function(apiClient) {
     var authNames = [];
     var contentTypes = ['application/json'];
     var accepts = ['application/json'];
-    var returnType = null;
+    var returnType = AuthBody;
 
     return this.apiClient.callApi(
       '/domains/{domain}/auth/', 'POST',
@@ -73,7 +72,7 @@ var exports = function(apiClient) {
     var authNames = ['Bearer'];
     var contentTypes = ['application/json'];
     var accepts = ['application/json'];
-    var returnType = null;
+    var returnType = [User];
 
     return this.apiClient.callApi(
       '/domains/{domain}/users/', 'GET',
@@ -140,7 +139,7 @@ var exports = function(apiClient) {
     var authNames = ['Bearer'];
     var contentTypes = ['application/json'];
     var accepts = ['application/json'];
-    var returnType = null;
+    var returnType = [User];
 
     return this.apiClient.callApi(
       '/domains/{domain}/users/search/', 'GET',
@@ -214,7 +213,7 @@ var exports = function(apiClient) {
     var authNames = ['Bearer'];
     var contentTypes = ['application/json'];
     var accepts = ['application/json'];
-    var returnType = null;
+    var returnType = User;
 
     return this.apiClient.callApi(
       '/domains/{domain}/users/{userid}', 'GET',
