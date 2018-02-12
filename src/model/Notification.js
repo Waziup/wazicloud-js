@@ -10,13 +10,13 @@ import SocialMessageBatch from './SocialMessageBatch';
  * @param subject {module:model/NotificationSubject} 
  * @param notification {module:model/SocialMessageBatch} 
  */
-var exports = function() {
+var exports = function(subject, description, notification, throttling) {
   var _this = this;
 
-//    _this['subject'] = subject;
-//    _this['notification'] = notification;
-//    _this['description'] = description;
-//    _this['throttling'] = throttling;
+  _this['subject'] = subject;
+  _this['notification'] = notification;
+  _this['description'] = description;
+  _this['throttling'] = throttling;
 
 };
 
