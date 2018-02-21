@@ -7,9 +7,10 @@ import MeasurementValue from './MeasurementValue';
  * @alias module:model/Measurement
  * @class
  */
-var exports = function() {
+var exports = function(id) {
   var _this = this;
 
+  _this['id'] = id;
 
 };
 
@@ -29,6 +30,12 @@ exports.constructFromObject = function(data, obj) {
     }
     if (data.hasOwnProperty('name')) {
       obj['name'] = ApiClient.convertToType(data['name'], 'String');
+    }
+    if (data.hasOwnProperty('last_value')) {
+      obj['last_value'] = ApiClient.convertToType(data['last_value'], 'Number');
+    }
+    if (data.hasOwnProperty('timestamp')) {
+      obj['timestamp'] = ApiClient.convertToType(data['timestamp'], 'String');
     }
     if (data.hasOwnProperty('dimension')) {
       obj['dimension'] = ApiClient.convertToType(data['dimension'], 'String');
@@ -56,6 +63,16 @@ exports.prototype['id'] = undefined;
  * @member {String} name
  */
 exports.prototype['name'] = undefined;
+/**
+ * last value measured
+ * @member {String} last_value 
+ */
+exports.prototype['last_value'] = undefined;
+/**
+ * timestamp of the last value measured
+ * @member {String} timestamp 
+ */
+exports.prototype['timestamp'] = undefined;
 /**
  * physical dimension of the measurement
  * @member {String} dimension
