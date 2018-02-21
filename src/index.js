@@ -9,9 +9,12 @@ import MeasurementValue       from './model/MeasurementValue'
 import Notification           from './model/Notification'
 import NotificationCondition  from './model/NotificationCondition'
 import NotificationSubject    from './model/NotificationSubject'
+import QuantityKinds          from './model/QuantityKinds'
+import SensingDevices         from './model/SensingDevices'
 import Sensor                 from './model/Sensor'
 import SocialMessage          from './model/SocialMessage'
 import SocialMessageBatch     from './model/SocialMessageBatch'
+import Units                  from './model/Units'
 import User                   from './model/User'
 import UserUpdateBody         from './model/UserUpdateBody'
 import DomainsApi             from './api/DomainsApi'
@@ -101,6 +104,16 @@ import UsersApi               from './api/UsersApi'
    */
   NotificationSubject,
   /**
+   * List of Quantity kinds
+   * @property {module:model/QuantityKinds}
+   */
+  QuantityKinds,
+  /**
+   * List of sensing devices
+   * @property {module:model/SensingDevices}
+   */
+  SensingDevices,
+  /**
    * The Sensor model constructor.
    * @property {module:model/Sensor}
    */
@@ -115,6 +128,11 @@ import UsersApi               from './api/UsersApi'
    * @property {module:model/SocialMessageBatch}
    */
   SocialMessageBatch,
+  /**
+   * List of Units
+   * @property {module:model/Units}
+   */
+  Units,
   /**
    * The User model constructor.
    * @property {module:model/User}
