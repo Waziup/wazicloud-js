@@ -56,7 +56,7 @@ var exports = function(apiClient) {
    * @param {module:model/Sensor} body 
    * @param {String} domain 
    */
-  this.createSensor = async function(body, domain) {
+  this.createSensor = async function(domain, body) {
     var postBody = body;
 
     // verify the required parameter 'body' is set
