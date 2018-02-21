@@ -1,13 +1,13 @@
 'use strict'
-
-/* Sensing devices list
-  Generated from FIESTA IoT ontology with this script:
+/* Quantity kind list
+  Generated from FIESTA IoT ontology with this Jena SPARQL script:
   1 PREFIX qu:<http://purl.org/NET/ssnx/qu/qu#>
   2 PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
   3 PREFIX ssn:<http://purl.oclc.org/NET/ssnx/ssn#>
   4 SELECT (strafter(str(?subClass), "#") AS ?quantityKind)
-  5 WHERE { ?subClass rdfs:subClassOf* qu:QuantityKind. } 
-  jena$ bin/sparql --data=http://ontology.fiesta-iot.eu/ontologyDocs/fiesta-iot.owl --query=./rq --results=TSV
+  5 WHERE { ?subClass rdfs:subClassOf* ssn:SensingDevice. } 
+  $ bin/sparql --data=http://ontology.fiesta-iot.eu/ontologyDocs/fiesta-iot.owl --query=./rq --results=TSV
+  Reference paper: R. Agarwal, D. Farnandez, T. Elsaleh, A.Gyrard, J. Lanza, L. Sanchez, N. Georgantas, V. Issarny, "Unified IoT Ontology to Enable Interoperability and Federation of Testbeds", 3rd IEEE WF-IoT, pp. 70-75, Reston USA, 12-14 December 2016
 */
 
 export default [
