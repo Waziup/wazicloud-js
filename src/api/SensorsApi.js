@@ -295,33 +295,33 @@ var exports = function(apiClient) {
   }
 
   /**
-   * put measurement dimension
+   * put measurement quantity kind 
    * @param {String} domain 
    * @param {String} sensorId 
    * @param {String} measurementId 
    * @param {String} body 
    */
-  this.putMeasurementDimension = async function(domain, sensorId, measurementId, body) {
+  this.putMeasurementQK = async function(domain, sensorId, measurementId, body) {
     var postBody = body;
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain' when calling putMeasurementDimension");
+      throw new Error("Missing the required parameter 'domain' when calling putMeasurementQK");
     }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
-      throw new Error("Missing the required parameter 'sensorId' when calling putMeasurementDimension");
+      throw new Error("Missing the required parameter 'sensorId' when calling putMeasurementQK");
     }
 
     // verify the required parameter 'measurementId' is set
     if (measurementId === undefined || measurementId === null) {
-      throw new Error("Missing the required parameter 'measurementId' when calling putMeasurementDimension");
+      throw new Error("Missing the required parameter 'measurementId' when calling putMeasurementQK");
     }
 
     // verify the required parameter 'body' is set
     if (body === undefined || body === null) {
-      throw new Error("Missing the required parameter 'body' when calling putMeasurementDimension");
+      throw new Error("Missing the required parameter 'body' when calling putMeasurementQK");
     }
 
 
@@ -340,7 +340,7 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/dimension', 'PUT',
+      '/domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/quantity_kind', 'PUT',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
@@ -488,7 +488,7 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/sensor_kind', 'PUT',
+      '/domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/sensing_device', 'PUT',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }

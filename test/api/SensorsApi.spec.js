@@ -120,8 +120,8 @@
         done();
       });
     });
-    describe('putMeasurementDimension', function() {
-      it('should call putMeasurementDimension successfully', function(done) {
+    describe('putMeasurementQK', function() {
+      it('should call putMeasurementQK successfully', function(done) {
         //uncomment below and update the code to test putMeasurementDimension
         //instance.putMeasurementDimension(function(error) {
         //  if (error) throw error;
@@ -150,8 +150,8 @@
         done();
       });
     });
-    describe('putMeasurementSensorKind', function() {
-      it('should call putMeasurementSensorKind successfully', function(done) {
+    describe('putMeasurementSD', function() {
+      it('should call putMeasurementSD successfully', function(done) {
         //uncomment below and update the code to test putMeasurementSensorKind
         //instance.putMeasurementSensorKind(function(error) {
         //  if (error) throw error;

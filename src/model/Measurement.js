@@ -37,14 +37,14 @@ exports.constructFromObject = function(data, obj) {
     if (data.hasOwnProperty('timestamp')) {
       obj['timestamp'] = ApiClient.convertToType(data['timestamp'], 'String');
     }
-    if (data.hasOwnProperty('dimension')) {
-      obj['dimension'] = ApiClient.convertToType(data['dimension'], 'String');
+    if (data.hasOwnProperty('sensing_device')) {
+      obj['sensing_device'] = ApiClient.convertToType(data['sensng_device'], 'String');
+    }
+    if (data.hasOwnProperty('quantity_kind')) {
+      obj['quantity_kind'] = ApiClient.convertToType(data['quantity_kind'], 'String');
     }
     if (data.hasOwnProperty('unit')) {
       obj['unit'] = ApiClient.convertToType(data['unit'], 'String');
-    }
-    if (data.hasOwnProperty('sensor_kind')) {
-      obj['sensor_kind'] = ApiClient.convertToType(data['sensor_kind'], 'String');
     }
     if (data.hasOwnProperty('values')) {
       obj['values'] = ApiClient.convertToType(data['values'], [MeasurementValue]);
@@ -74,10 +74,10 @@ exports.prototype['last_value'] = undefined;
  */
 exports.prototype['timestamp'] = undefined;
 /**
- * physical dimension of the measurement
- * @member {String} dimension
+ * quantity kind measured
+ * @member {String} quantity_kind 
  */
-exports.prototype['dimension'] = undefined;
+exports.prototype['quantity_kind'] = undefined;
 /**
  * unit of the measurement
  * @member {String} unit
@@ -85,9 +85,9 @@ exports.prototype['dimension'] = undefined;
 exports.prototype['unit'] = undefined;
 /**
  * kind of sensor providing the measurement
- * @member {String} sensor_kind
+ * @member {String} sensing_device 
  */
-exports.prototype['sensor_kind'] = undefined;
+exports.prototype['sensing_device'] = undefined;
 /**
  * @member {Array.<module:model/MeasurementValue>} values
  */

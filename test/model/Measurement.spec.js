@@ -68,7 +68,7 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property dimension (base name: "dimension")', function() {
+    it('should have the property quantity_kind (base name: "quantity_kind")', function() {
       // uncomment below and update the code to test the property dimension
       //var instane = new WaziupApi.Measurement();
       //expect(instance).to.be();
@@ -80,7 +80,7 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property sensorKind (base name: "sensor_kind")', function() {
+    it('should have the property sensorKind (base name: "sensing_device")', function() {
       // uncomment below and update the code to test the property sensorKind
       //var instane = new WaziupApi.Measurement();
       //expect(instance).to.be();

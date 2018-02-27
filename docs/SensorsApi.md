@@ -11,10 +11,10 @@ Method | HTTP request | Description
 [**putSensorLocation**](SensorsApi.md#putSensorLocation) | **PUT** /domains/{domain}/sensors/{sensor_id}/location | insert location
 [**getSensorMeasurements**](SensorsApi.md#getSensorMeasurements) | **GET** /domains/{domain}/sensors/{sensor_id}/measurements | get measurements
 [**deleteMeasurement**](SensorsApi.md#deleteMeasurement) | **DELETE** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id} | Delete measurement
-[**putMeasurementDimension**](SensorsApi.md#putMeasurementDimension) | **PUT** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/dimension | put measurement dimension
+[**putMeasurementQK**](SensorsApi.md#putMeasurementQK) | **PUT** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/quantity_kind | put measurement quantity kind 
 [**getMeasurement**](SensorsApi.md#getMeasurement) | **GET** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id} | get measurement
 [**putMeasurementName**](SensorsApi.md#putMeasurementName) | **PUT** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/name | put measurement name
-[**putMeasurementSensorKind**](SensorsApi.md#putMeasurementSensorKind) | **PUT** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/sensor_kind | insert sensor kind
+[**putMeasurementSD**](SensorsApi.md#putMeasurementSD) | **PUT** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/sensingDevice | insert sensor kind
 [**putMeasurementUnit**](SensorsApi.md#putMeasurementUnit) | **PUT** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/unit | put measurement unit
 [**getMeasurementValues**](SensorsApi.md#getMeasurementValues) | **GET** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/values | get measurement values
 [**addMeasurement**](SensorsApi.md#addMeasurement) | **POST** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/values | Create new datapoint
@@ -418,11 +418,11 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="putMeasurementDimension"></a>
-# **putMeasurementDimension**
-> putMeasurementDimension(domain, sensorId, measurementId, body)
+<a name="putMeasurementQuantityKind"></a>
+# **putMeasurementQuantityKind**
+> putMeasurementQuantityKind(domain, sensorId, measurementId, body)
 
-put measurement dimension
+put measurement quantity kind 
 
 ### Example
 ```javascript
@@ -453,7 +453,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.putMeasurementDimension(domain, sensorId, measurementId, body, callback);
+apiInstance.putMeasurementQuantityKind(domain, sensorId, measurementId, body, callback);
 ```
 
 ### Parameters
