@@ -1,4 +1,6 @@
 'use strict'
+import QuantityKinds from './QuantityKinds.js'
+
 /* Sensing devices list
   Generated from FIESTA IoT ontology with this Jena SPARQL script:
   1 PREFIX qu:<http://purl.org/NET/ssnx/qu/qu#>
@@ -10,7 +12,7 @@
   Reference paper: R. Agarwal, D. Farnandez, T. Elsaleh, A.Gyrard, J. Lanza, L. Sanchez, N. Georgantas, V. Issarny, "Unified IoT Ontology to Enable Interoperability and Federation of Testbeds", 3rd IEEE WF-IoT, pp. 70-75, Reston USA, 12-14 December 2016
 */
 
-export default [
+const dic = [
 {id: "Accelerometer",                     label: "Accelerometer",                    QK: ["Acceleration", "AccelerationInstantaneous"]},
 {id: "AirHumiditySensor",                 label: "Air humidity sensor",              QK: ["Percent"]},
 {id: "AirPollutantSensor",                label: "Air pollutant sensor",             QK: ["AirPollution"]},   
@@ -117,3 +119,23 @@ export default [
 {id: "WindDirectionSensor",               label: "Wind direction sensor",            QK: ["WindDirection"]},
 {id: "WindSpeedSensor",                   label: "Wind speed sensor",                QK: ["WindSpeed"]}
 ]
+
+function getAll() {
+  return dic
+}
+
+function getLabel(id) {
+  return dic.filter(sd => sd.id == id).label
+}
+
+function getQKs(id) {
+  console.log("id: " + id)
+  console.log("dic: " + JSON.stringify(dic))
+  const sds = dic.filter(sd => sd.id == id)
+  console.log("sds: " + JSON.stringify(sds))
+  return sds[0]? sds[0].QK.map(qkid => QuantityKinds.getQK(qkid)): []
+}
+
+var exports = {getAll, getLabel, getQKs}
+export default exports 
+

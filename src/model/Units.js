@@ -10,7 +10,7 @@
   Reference paper: R. Agarwal, D. Farnandez, T. Elsaleh, A.Gyrard, J. Lanza, L. Sanchez, N. Georgantas, V. Issarny, "Unified IoT Ontology to Enable Interoperability and Federation of Testbeds", 3rd IEEE WF-IoT, pp. 70-75, Reston USA, 12-14 December 2016
 */
 
-export default [
+const dic = [
 {id: "Ampere",                       label: "A"},                     
 {id: "Bar",                          label: "bar"},                        
 {id: "BeatPerMinute",                label: "BeatPerMinute"},              
@@ -101,3 +101,20 @@ export default [
 {id: "Weber",                        label: "Wb"},                      
 {id: "Year",                         label: "a"}                       
 ]
+
+function getAll() {
+  return dic
+}
+
+function getUnit(id) {
+  return dic.filter(u => u.id == id)[0]
+}
+
+function getLabel(id) {
+  const u = dic.filter(u => u.id == id)
+  return u[0]? u[0].label: ""
+}
+
+var exports = {getAll, getUnit, getLabel}
+export default exports 
+

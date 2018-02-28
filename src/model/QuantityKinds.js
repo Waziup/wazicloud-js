@@ -1,4 +1,5 @@
 'use strict'
+import Units from './Units.js'
 /* Quantity kind list
   Generated from FIESTA IoT ontology with this Jena SPARQL script:
   1 PREFIX qu:<http://purl.org/NET/ssnx/qu/qu#>
@@ -10,7 +11,7 @@
   Reference paper: R. Agarwal, D. Farnandez, T. Elsaleh, A.Gyrard, J. Lanza, L. Sanchez, N. Georgantas, V. Issarny, "Unified IoT Ontology to Enable Interoperability and Federation of Testbeds", 3rd IEEE WF-IoT, pp. 70-75, Reston USA, 12-14 December 2016
 */
 
-export default [
+const dic= [
 {id: "Acceleration",                                       label: "Acceleration",                                 units: ["MetrePerSecondSquare"]},
 {id: "AccelerationInstantaneous",                          label: "Acceleration instantaneous",                   units: ["MetrePerSecondSquare"]},
 {id: "ActivePower",                                        label: "Active power",                                 units: ["Watt"]},
@@ -140,4 +141,21 @@ export default [
 {id: "WindDirection",                                      label: "Wind direction",                               units: ["DegreeAngle", "Radian"]},
 {id: "WindSpeed",                                          label: "Wind speed",                                   units: ["MetrePerSecond", "KilometrePerHour"]},
 {id: "WorkingState",                                       label: "Working state",                                units: ["Dimensionless"]}
-]
+] 
+
+function getAll() {
+  return dic
+}
+
+function getQK(id) {
+  return dic.find(sd => sd.id == id)
+}
+
+function getUnits(id) {
+  const qk = dic.filter(sd => sd.id == id)
+  return qk[0]? qk[0].units.map(uid => Units.getUnit(uid)): []
+}
+
+var exports = {getAll, getQK, getUnits}
+export default exports 
+
