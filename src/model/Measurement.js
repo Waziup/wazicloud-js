@@ -75,17 +75,17 @@ exports.prototype['last_value'] = undefined;
 exports.prototype['timestamp'] = undefined;
 /**
  * quantity kind measured
- * @member {String} quantity_kind 
+ * @member {model/QuantityKinds} quantity_kind 
  */
 exports.prototype['quantity_kind'] = undefined;
 /**
  * unit of the measurement
- * @member {String} unit
+ * @member {model/Units} unit
  */
 exports.prototype['unit'] = undefined;
 /**
  * kind of sensor providing the measurement
- * @member {String} sensing_device 
+ * @member {model/SensingDevices} sensing_device 
  */
 exports.prototype['sensing_device'] = undefined;
 /**
