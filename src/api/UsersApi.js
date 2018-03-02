@@ -24,12 +24,12 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain'");
+      throw("Missing the required parameter 'domain'");
     }
 
     // verify the required parameter 'credentials' is set
     if (credentials === undefined || credentials === null) {
-      throw new Error("Missing the required parameter 'credentials'");
+      throw("Missing the required parameter 'credentials'");
     }
 
     var pathParams = {
@@ -59,7 +59,7 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain' when calling getUsers");
+      throw("Missing the required parameter 'domain' when calling getUsers");
     }
 
     var pathParams = {
@@ -90,12 +90,12 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain' when calling createUser");
+      throw("Missing the required parameter 'domain' when calling createUser");
     }
 
     // verify the required parameter 'user' is set
     if (user === undefined || user === null) {
-      throw new Error("Missing the required parameter 'user' when calling createUser");
+      throw("Missing the required parameter 'user' when calling createUser");
     }
 
 
@@ -126,7 +126,7 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain'");
+      throw("Missing the required parameter 'domain'");
     }
 
     var pathParams = {
@@ -156,12 +156,12 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain'");
+      throw("Missing the required parameter 'domain'");
     }
 
     // verify the required parameter 'userid' is set
     if (userid === undefined || userid === null) {
-      throw new Error("Missing the required parameter 'userid'");
+      throw("Missing the required parameter 'userid'");
     }
 
 
@@ -193,12 +193,12 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain'");
+      throw("Missing the required parameter 'domain'");
     }
 
     // verify the required parameter 'userid' is set
     if (userid === undefined || userid === null) {
-      throw new Error("Missing the required parameter 'userid'");
+      throw("Missing the required parameter 'userid'");
     }
 
 
@@ -231,17 +231,17 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain' when calling updateUser");
+      throw("Missing the required parameter 'domain' when calling updateUser");
     }
 
     // verify the required parameter 'userid' is set
     if (userid === undefined || userid === null) {
-      throw new Error("Missing the required parameter 'userid' when calling updateUser");
+      throw("Missing the required parameter 'userid' when calling updateUser");
     }
 
     // verify the required parameter 'data' is set
     if (data === undefined || data === null) {
-      throw new Error("Missing the required parameter 'data' when calling updateUser");
+      throw("Missing the required parameter 'data' when calling updateUser");
     }
 
 

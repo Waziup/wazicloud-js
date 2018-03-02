@@ -23,7 +23,7 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain' when calling deleteDomain");
+      throw("Missing the required parameter 'domain' when calling deleteDomain");
     }
 
 
@@ -56,7 +56,7 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain' when calling getDomains");
+      throw("Missing the required parameter 'domain' when calling getDomains");
     }
 
 
@@ -111,7 +111,7 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'body' is set
     if (body === undefined || body === null) {
-      throw new Error("Missing the required parameter 'body' when calling createDomain");
+      throw("Missing the required parameter 'body' when calling createDomain");
     }
 
 

@@ -25,12 +25,12 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain'");
+      throw("Missing the required parameter 'domain'");
     }
 
     // verify the required parameter 'data' is set
     if (data === undefined || data === null) {
-      throw new Error("Missing the required parameter 'data'");
+      throw("Missing the required parameter 'data'");
     }
 
     var pathParams = {
@@ -61,7 +61,7 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain'");
+      throw("Missing the required parameter 'domain'");
     }
 
     var pathParams = {
@@ -92,12 +92,12 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain'");
+      throw("Missing the required parameter 'domain'");
     }
 
     // verify the required parameter 'msgId' is set
     if (msgId === undefined || msgId === null) {
-      throw new Error("Missing the required parameter 'msgId'");
+      throw("Missing the required parameter 'msgId'");
     }
 
 
@@ -131,12 +131,12 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain'");
+      throw("Missing the required parameter 'domain'");
     }
 
     // verify the required parameter 'msgId' is set
     if (msgId === undefined || msgId === null) {
-      throw new Error("Missing the required parameter 'msgId'");
+      throw("Missing the required parameter 'msgId'");
     }
 
 
@@ -169,12 +169,12 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain'");
+      throw("Missing the required parameter 'domain'");
     }
 
     // verify the required parameter 'data' is set
     if (data === undefined || data === null) {
-      throw new Error("Missing the required parameter 'data'");
+      throw("Missing the required parameter 'data'");
     }
 
 

@@ -24,7 +24,7 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain' when calling getNotifications");
+      throw("Missing the required parameter 'domain' when calling getNotifications");
     }
 
     var pathParams = {
@@ -55,12 +55,12 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain' when calling getNotificationsNotifIdDelete");
+      throw("Missing the required parameter 'domain' when calling getNotificationsNotifIdDelete");
     }
 
     // verify the required parameter 'notifId' is set
     if (notifId === undefined || notifId === null) {
-      throw new Error("Missing the required parameter 'notifId' when calling getNotificationsNotifIdDelete");
+      throw("Missing the required parameter 'notifId' when calling getNotificationsNotifIdDelete");
     }
 
 
@@ -94,12 +94,12 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain' when calling getNotificationsNotifIdGet");
+      throw("Missing the required parameter 'domain' when calling getNotificationsNotifIdGet");
     }
 
     // verify the required parameter 'notifId' is set
     if (notifId === undefined || notifId === null) {
-      throw new Error("Missing the required parameter 'notifId' when calling getNotificationsNotifIdGet");
+      throw("Missing the required parameter 'notifId' when calling getNotificationsNotifIdGet");
     }
 
 
@@ -132,14 +132,13 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain' when calling getNotificationsPost");
+      throw("Missing the required parameter 'domain' when calling getNotificationsPost");
     }
 
     // verify the required parameter 'data' is set
     if (data === undefined || data === null) {
-      throw new Error("Missing the required parameter 'data' when calling getNotificationsPost");
+      throw("Missing the required parameter 'data' when calling getNotificationsPost");
     }
-
 
     var pathParams = {
       'domain': domain

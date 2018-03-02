@@ -246,7 +246,7 @@ exports.prototype.buildCollectionParam = function buildCollectionParam(param, co
             // return the array directly as SuperAgent will handle it as expected
             return param.map(this.paramToString);
         default:
-            throw new Error('Unknown collection format: ' + collectionFormat);
+            throw('Unknown collection format: ' + collectionFormat);
     }
 };
 
@@ -286,7 +286,7 @@ exports.prototype.applyAuthToRequest = function(request, authNames) {
                 }
                 break;
             default:
-                throw new Error('Unknown authentication type: ' + auth.type);
+                throw('Unknown authentication type: ' + auth.type);
         }
     });
 };

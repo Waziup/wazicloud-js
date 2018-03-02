@@ -30,7 +30,7 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain' when calling getSensors");
+      throw("Missing the required parameter 'domain' when calling getSensors");
     }
 
     var pathParams = {'domain': domain};
@@ -61,12 +61,12 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'body' is set
     if (body === undefined || body === null) {
-      throw new Error("Missing the required parameter 'body' when calling createSensor");
+      throw("Missing the required parameter 'body' when calling createSensor");
     }
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain' when calling createSensor");
+      throw("Missing the required parameter 'domain' when calling createSensor");
     }
 
     var pathParams = {'domain': domain};
@@ -96,12 +96,12 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain' when calling deleteSensor");
+      throw("Missing the required parameter 'domain' when calling deleteSensor");
     }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
-      throw new Error("Missing the required parameter 'sensorId' when calling deleteSensor");
+      throw("Missing the required parameter 'sensorId' when calling deleteSensor");
     }
 
 
@@ -136,12 +136,12 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain' when calling getSensor");
+      throw("Missing the required parameter 'domain' when calling getSensor");
     }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
-      throw new Error("Missing the required parameter 'sensorId' when calling getSensor");
+      throw("Missing the required parameter 'sensorId' when calling getSensor");
     }
 
 
@@ -175,17 +175,17 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain' when calling putSensorLocation");
+      throw("Missing the required parameter 'domain' when calling putSensorLocation");
     }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
-      throw new Error("Missing the required parameter 'sensorId' when calling putSensorLocation");
+      throw("Missing the required parameter 'sensorId' when calling putSensorLocation");
     }
 
     // verify the required parameter 'body' is set
     if (body === undefined || body === null) {
-      throw new Error("Missing the required parameter 'body' when calling putSensorLocation");
+      throw("Missing the required parameter 'body' when calling putSensorLocation");
     }
 
 
@@ -219,12 +219,12 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain' when calling getSensorMeasurements");
+      throw("Missing the required parameter 'domain' when calling getSensorMeasurements");
     }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
-      throw new Error("Missing the required parameter 'sensorId' when calling getSensorMeasurements");
+      throw("Missing the required parameter 'sensorId' when calling getSensorMeasurements");
     }
 
 
@@ -260,17 +260,17 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain' when calling deleteMeasurement");
+      throw("Missing the required parameter 'domain' when calling deleteMeasurement");
     }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
-      throw new Error("Missing the required parameter 'sensorId' when calling deleteMeasurement");
+      throw("Missing the required parameter 'sensorId' when calling deleteMeasurement");
     }
 
     // verify the required parameter 'measurementId' is set
     if (measurementId === undefined || measurementId === null) {
-      throw new Error("Missing the required parameter 'measurementId' when calling deleteMeasurement");
+      throw("Missing the required parameter 'measurementId' when calling deleteMeasurement");
     }
 
 
@@ -306,22 +306,22 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain' when calling putMeasurementQK");
+      throw("Missing the required parameter 'domain' when calling putMeasurementQK");
     }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
-      throw new Error("Missing the required parameter 'sensorId' when calling putMeasurementQK");
+      throw("Missing the required parameter 'sensorId' when calling putMeasurementQK");
     }
 
     // verify the required parameter 'measurementId' is set
     if (measurementId === undefined || measurementId === null) {
-      throw new Error("Missing the required parameter 'measurementId' when calling putMeasurementQK");
+      throw("Missing the required parameter 'measurementId' when calling putMeasurementQK");
     }
 
     // verify the required parameter 'body' is set
     if (body === undefined || body === null) {
-      throw new Error("Missing the required parameter 'body' when calling putMeasurementQK");
+      throw("Missing the required parameter 'body' when calling putMeasurementQK");
     }
 
 
@@ -357,17 +357,17 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain' when calling getMeasurement");
+      throw("Missing the required parameter 'domain' when calling getMeasurement");
     }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
-      throw new Error("Missing the required parameter 'sensorId' when calling getMeasurement");
+      throw("Missing the required parameter 'sensorId' when calling getMeasurement");
     }
 
     // verify the required parameter 'measurementId' is set
     if (measurementId === undefined || measurementId === null) {
-      throw new Error("Missing the required parameter 'measurementId' when calling getMeasurement");
+      throw("Missing the required parameter 'measurementId' when calling getMeasurement");
     }
 
 
@@ -403,22 +403,22 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain' when calling putMeasurementName");
+      throw("Missing the required parameter 'domain' when calling putMeasurementName");
     }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
-      throw new Error("Missing the required parameter 'sensorId' when calling putMeasurementName");
+      throw("Missing the required parameter 'sensorId' when calling putMeasurementName");
     }
 
     // verify the required parameter 'measurementId' is set
     if (measurementId === undefined || measurementId === null) {
-      throw new Error("Missing the required parameter 'measurementId' when calling putMeasurementName");
+      throw("Missing the required parameter 'measurementId' when calling putMeasurementName");
     }
 
     // verify the required parameter 'body' is set
     if (body === undefined || body === null) {
-      throw new Error("Missing the required parameter 'body' when calling putMeasurementName");
+      throw("Missing the required parameter 'body' when calling putMeasurementName");
     }
 
 
@@ -454,22 +454,22 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain' when calling putMeasurementSensorKind");
+      throw("Missing the required parameter 'domain' when calling putMeasurementSensorKind");
     }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
-      throw new Error("Missing the required parameter 'sensorId' when calling putMeasurementSensorKind");
+      throw("Missing the required parameter 'sensorId' when calling putMeasurementSensorKind");
     }
 
     // verify the required parameter 'measurementId' is set
     if (measurementId === undefined || measurementId === null) {
-      throw new Error("Missing the required parameter 'measurementId' when calling putMeasurementSensorKind");
+      throw("Missing the required parameter 'measurementId' when calling putMeasurementSensorKind");
     }
 
     // verify the required parameter 'body' is set
     if (body === undefined || body === null) {
-      throw new Error("Missing the required parameter 'body' when calling putMeasurementSensorKind");
+      throw("Missing the required parameter 'body' when calling putMeasurementSensorKind");
     }
 
 
@@ -505,22 +505,22 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain' when calling putMeasurementUnit");
+      throw("Missing the required parameter 'domain' when calling putMeasurementUnit");
     }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
-      throw new Error("Missing the required parameter 'sensorId' when calling putMeasurementUnit");
+      throw("Missing the required parameter 'sensorId' when calling putMeasurementUnit");
     }
 
     // verify the required parameter 'measurementId' is set
     if (measurementId === undefined || measurementId === null) {
-      throw new Error("Missing the required parameter 'measurementId' when calling putMeasurementUnit");
+      throw("Missing the required parameter 'measurementId' when calling putMeasurementUnit");
     }
 
     // verify the required parameter 'body' is set
     if (body === undefined || body === null) {
-      throw new Error("Missing the required parameter 'body' when calling putMeasurementUnit");
+      throw("Missing the required parameter 'body' when calling putMeasurementUnit");
     }
 
 
@@ -556,17 +556,17 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain' when calling getMeasurementValues");
+      throw("Missing the required parameter 'domain' when calling getMeasurementValues");
     }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
-      throw new Error("Missing the required parameter 'sensorId' when calling getMeasurementValues");
+      throw("Missing the required parameter 'sensorId' when calling getMeasurementValues");
     }
 
     // verify the required parameter 'measurementId' is set
     if (measurementId === undefined || measurementId === null) {
-      throw new Error("Missing the required parameter 'measurementId' when calling getMeasurementValues");
+      throw("Missing the required parameter 'measurementId' when calling getMeasurementValues");
     }
 
 
@@ -602,22 +602,22 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain' when calling addDatapoint");
+      throw("Missing the required parameter 'domain' when calling addDatapoint");
     }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
-      throw new Error("Missing the required parameter 'sensorId' when calling addDatapoint");
+      throw("Missing the required parameter 'sensorId' when calling addDatapoint");
     }
 
     // verify the required parameter 'measurementId' is set
     if (measurementId === undefined || measurementId === null) {
-      throw new Error("Missing the required parameter 'measurementId' when calling addDatapoint");
+      throw("Missing the required parameter 'measurementId' when calling addDatapoint");
     }
 
     // verify the required parameter 'body' is set
     if (body === undefined || body === null) {
-      throw new Error("Missing the required parameter 'body' when calling addDatapoint");
+      throw("Missing the required parameter 'body' when calling addDatapoint");
     }
 
 
@@ -652,17 +652,17 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain' when calling addMeasurement");
+      throw("Missing the required parameter 'domain' when calling addMeasurement");
     }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
-      throw new Error("Missing the required parameter 'sensorId' when calling addMeasurement");
+      throw("Missing the required parameter 'sensorId' when calling addMeasurement");
     }
 
     // verify the required parameter 'body' is set
     if (body === undefined || body === null) {
-      throw new Error("Missing the required parameter 'body' when calling addMeasurement");
+      throw("Missing the required parameter 'body' when calling addMeasurement");
     }
 
 
@@ -696,17 +696,17 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain' when calling putSensorName");
+      throw("Missing the required parameter 'domain' when calling putSensorName");
     }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
-      throw new Error("Missing the required parameter 'sensorId' when calling putSensorName");
+      throw("Missing the required parameter 'sensorId' when calling putSensorName");
     }
 
     // verify the required parameter 'body' is set
     if (body === undefined || body === null) {
-      throw new Error("Missing the required parameter 'body' when calling putSensorName");
+      throw("Missing the required parameter 'body' when calling putSensorName");
     }
 
 
@@ -740,17 +740,17 @@ var exports = function(apiClient) {
 
     // verify the required parameter 'domain' is set
     if (domain === undefined || domain === null) {
-      throw new Error("Missing the required parameter 'domain' when calling putSensorOwner");
+      throw("Missing the required parameter 'domain' when calling putSensorOwner");
     }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
-      throw new Error("Missing the required parameter 'sensorId' when calling putSensorOwner");
+      throw("Missing the required parameter 'sensorId' when calling putSensorOwner");
     }
 
     // verify the required parameter 'body' is set
     if (body === undefined || body === null) {
-      throw new Error("Missing the required parameter 'body' when calling putSensorOwner");
+      throw("Missing the required parameter 'body' when calling putSensorOwner");
     }
 
     var pathParams = {
