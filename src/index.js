@@ -22,6 +22,7 @@ import NotificationsApi       from './api/NotificationsApi'
 import SensorsApi             from './api/SensorsApi'
 import SocialsApi             from './api/SocialsApi'
 import UsersApi               from './api/UsersApi'               
+import AuthApi                from './api/AuthApi'               
 
 /**
  * Waziup API<br>
@@ -167,4 +168,10 @@ import UsersApi               from './api/UsersApi'
    * The UsersApi service constructor.
    * @property {module:api/UsersApi}
    */
-  UsersApi}
+  UsersApi,
+  /**
+   * The AuthApi service constructor.
+   * @property {module:api/AuthApi}
+   */
+  AuthApi
+}
