@@ -129,10 +129,7 @@ function getLabel(id) {
 }
 
 function getQKs(id) {
-  console.log("id: " + id)
-  console.log("dic: " + JSON.stringify(dic))
   const sds = dic.filter(sd => sd.id == id)
-  console.log("sds: " + JSON.stringify(sds))
   return sds[0]? sds[0].QK.map(qkid => QuantityKinds.getQK(qkid)): []
 }
 
