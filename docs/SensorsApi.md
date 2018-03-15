@@ -22,42 +22,33 @@ Method | HTTP request | Description
 [**putSensorName**](SensorsApi.md#putSensorName) | **PUT** /domains/{domain}/sensors/{sensor_id}/name | insert name
 [**putSensorOwner**](SensorsApi.md#putSensorOwner) | **PUT** /domains/{domain}/sensors/{sensor_id}/owner | insert owner
 
+## Preliminaries
+Insert this code in your file, before using any endpoint:
+
+```javascript
+var WaziupApi = require('waziup-js');
+var defaultClient = WaziupApi.ApiClient.instance;
+defaultClient.basePath = 'WAZIUP_BASE_URL' + '/v1'
+
+// Configure API key authorization: Bearer
+defaultClient.authentications['Bearer'].apiKey = "Bearer " + 'YOUR API KEY';
+
+var apiInstance = new WaziupApi.SensorsApi();
+```
 
 <a name="getSensors"></a>
 # **getSensors**
-> [Sensor] getSensors(domain, , opts)
+> [Sensor] getSensors(domain, opts)
 
 Sensor data
 
-
-
 ### Example
+
 ```javascript
-var WaziupApi = require('waziup_api');
-var defaultClient = WaziupApi.ApiClient.instance;
-
-// Configure API key authorization: Bearer
-var Bearer = defaultClient.authentications['Bearer'];
-Bearer.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.apiKeyPrefix = 'Token';
-
-var apiInstance = new WaziupApi.SensorsApi();
-
-var domain = "domain_example"; // String | 
-
-var opts = { 
-  'q': "q_example" // String | filter the results
-};
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.getSensors(domain, , opts, callback);
+var domain = "domain_example";
+var opts = {'q': "owner=cdupont"} // filter the results
+let sensors = await apiInstance.getSensors(domain, opts);
+//You can use the sensors here
 ```
 
 ### Parameters
@@ -82,7 +73,7 @@ Name | Type | Description  | Notes
 
 <a name="createSensor"></a>
 # **createSensor**
-> createSensor(body, domain, )
+> createSensor(domain, sensor)
 
 Create sensors
 
@@ -90,30 +81,10 @@ Endpoint to create sensing devices.
 
 ### Example
 ```javascript
-var WaziupApi = require('waziup_api');
-var defaultClient = WaziupApi.ApiClient.instance;
-
-// Configure API key authorization: Bearer
-var Bearer = defaultClient.authentications['Bearer'];
-Bearer.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.apiKeyPrefix = 'Token';
-
-var apiInstance = new WaziupApi.SensorsApi();
-
-var body = new WaziupApi.Sensor(); // Sensor | 
-
-var domain = "domain_example"; // String | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.createSensor(body, domain, , callback);
+var domain = "domain_example";
+var sensor = new WaziupApi.Sensor("ID");
+sensor.name = ... //Set up the sensor here
+apiInstance.createSensors(domain, sensor);
 ```
 
 ### Parameters
@@ -138,38 +109,15 @@ null (empty response body)
 
 <a name="deleteSensor"></a>
 # **deleteSensor**
-> deleteSensor(domain, sensorId, )
+> deleteSensor(domain, sensorId)
 
 Delete sensor
 
-
-
 ### Example
 ```javascript
-var WaziupApi = require('waziup_api');
-var defaultClient = WaziupApi.ApiClient.instance;
-
-// Configure API key authorization: Bearer
-var Bearer = defaultClient.authentications['Bearer'];
-Bearer.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.apiKeyPrefix = 'Token';
-
-var apiInstance = new WaziupApi.SensorsApi();
-
-var domain = "domain_example"; // String | 
-
-var sensorId = "sensorId_example"; // String | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.deleteSensor(domain, sensorId, , callback);
+var domain = "domain_example";
+var sensorID = "test"
+apiInstance.deleteSensor(domain, sensorID);
 ```
 
 ### Parameters
@@ -194,38 +142,16 @@ null (empty response body)
 
 <a name="getSensor"></a>
 # **getSensor**
-> Sensor getSensor(domain, sensorId, )
+> Sensor getSensor(domain, sensorId)
 
 get sensor
 
-
-
 ### Example
 ```javascript
-var WaziupApi = require('waziup_api');
-var defaultClient = WaziupApi.ApiClient.instance;
-
-// Configure API key authorization: Bearer
-var Bearer = defaultClient.authentications['Bearer'];
-Bearer.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.apiKeyPrefix = 'Token';
-
-var apiInstance = new WaziupApi.SensorsApi();
-
-var domain = "domain_example"; // String | 
-
-var sensorId = "sensorId_example"; // String | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.getSensor(domain, sensorId, , callback);
+var domain = "domain_example";
+var sensorID = "test"
+let sensor = await apiInstance.getSensor(domain, sensorID);
+//You can use the sensor here
 ```
 
 ### Parameters
@@ -256,32 +182,10 @@ insert location
 
 ### Example
 ```javascript
-var WaziupApi = require('waziup_api');
-var defaultClient = WaziupApi.ApiClient.instance;
-
-// Configure API key authorization: Bearer
-var Bearer = defaultClient.authentications['Bearer'];
-Bearer.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.apiKeyPrefix = 'Token';
-
-var apiInstance = new WaziupApi.SensorsApi();
-
-var domain = "domain_example"; // String | 
-
-var sensorId = "sensorId_example"; // String | 
-
-var body = new WaziupApi.Location(); // Location | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.putSensorLocation(domain, sensorId, body, callback);
+var domain = "domain_example";
+var sensorID = "test"
+var location = new WaziupApi.Location(4.0, 1.0);
+apiInstance.putSensorLocation(domain, sensorID, location);
 ```
 
 ### Parameters
@@ -307,36 +211,15 @@ null (empty response body)
 
 <a name="getSensorMeasurements"></a>
 # **getSensorMeasurements**
-> [Measurement] getSensorMeasurements(domain, sensorId, )
+> [Measurement] getSensorMeasurements(domain, sensorId)
 
 get measurements
 
 ### Example
 ```javascript
-var WaziupApi = require('waziup_api');
-var defaultClient = WaziupApi.ApiClient.instance;
-
-// Configure API key authorization: Bearer
-var Bearer = defaultClient.authentications['Bearer'];
-Bearer.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.apiKeyPrefix = 'Token';
-
-var apiInstance = new WaziupApi.SensorsApi();
-
-var domain = "domain_example"; // String | 
-
-var sensorId = "sensorId_example"; // String | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.getSensorMeasurements(domain, sensorId, , callback);
+var domain = "domain_example";
+var sensorID = "test"
+var measurements = await apiInstance.getSensorMeasurements(domain, sensorID);
 ```
 
 ### Parameters
@@ -361,7 +244,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteMeasurement"></a>
 # **deleteMeasurement**
-> deleteMeasurement(domain, sensorId, measurementId, )
+> deleteMeasurement(domain, sensorId, measurementId)
 
 Delete measurement
 
@@ -369,32 +252,10 @@ Delete measurement
 
 ### Example
 ```javascript
-var WaziupApi = require('waziup_api');
-var defaultClient = WaziupApi.ApiClient.instance;
-
-// Configure API key authorization: Bearer
-var Bearer = defaultClient.authentications['Bearer'];
-Bearer.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.apiKeyPrefix = 'Token';
-
-var apiInstance = new WaziupApi.SensorsApi();
-
-var domain = "domain_example"; // String | 
-
-var sensorId = "sensorId_example"; // String | 
-
-var measurementId = "measurementId_example"; // String | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.deleteMeasurement(domain, sensorId, measurementId, , callback);
+var domain = "domain_example";
+var sensorID = "test"
+var measID = "TC"
+var measurements = await apiInstance.deleteSensorMeasurement(domain, sensorID, measID);
 ```
 
 ### Parameters
@@ -426,34 +287,10 @@ put measurement quantity kind
 
 ### Example
 ```javascript
-var WaziupApi = require('waziup_api');
-var defaultClient = WaziupApi.ApiClient.instance;
-
-// Configure API key authorization: Bearer
-var Bearer = defaultClient.authentications['Bearer'];
-Bearer.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.apiKeyPrefix = 'Token';
-
-var apiInstance = new WaziupApi.SensorsApi();
-
-var domain = "domain_example"; // String | 
-
-var sensorId = "sensorId_example"; // String | 
-
-var measurementId = "measurementId_example"; // String | 
-
-var body = "body_example"; // String | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.putMeasurementQuantityKind(domain, sensorId, measurementId, body, callback);
+var domain = "domain_example";
+var sensorID = "test"
+var measID = "TC"
+apiInstance.putMeasurementQuantityKind(domain, sensorID, measID, "Temperature");
 ```
 
 ### Parameters
@@ -486,32 +323,10 @@ get measurement
 
 ### Example
 ```javascript
-var WaziupApi = require('waziup_api');
-var defaultClient = WaziupApi.ApiClient.instance;
-
-// Configure API key authorization: Bearer
-var Bearer = defaultClient.authentications['Bearer'];
-Bearer.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.apiKeyPrefix = 'Token';
-
-var apiInstance = new WaziupApi.SensorsApi();
-
-var domain = "domain_example"; // String | 
-
-var sensorId = "sensorId_example"; // String | 
-
-var measurementId = "measurementId_example"; // String | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.getMeasurement(domain, sensorId, measurementId, callback);
+var domain = "domain_example";
+var sensorID = "test"
+var measID = "TC"
+var measurements = await apiInstance.getMeasurement(domain, sensorID, measID);
 ```
 
 ### Parameters
@@ -543,34 +358,10 @@ put measurement name
 
 ### Example
 ```javascript
-var WaziupApi = require('waziup_api');
-var defaultClient = WaziupApi.ApiClient.instance;
-
-// Configure API key authorization: Bearer
-var Bearer = defaultClient.authentications['Bearer'];
-Bearer.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.apiKeyPrefix = 'Token';
-
-var apiInstance = new WaziupApi.SensorsApi();
-
-var domain = "domain_example"; // String | 
-
-var sensorId = "sensorId_example"; // String | 
-
-var measurementId = "measurementId_example"; // String | 
-
-var body = "body_example"; // String | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.putMeasurementName(domain, sensorId, measurementId, body, callback);
+var domain = "domain_example";
+var sensorID = "test"
+var measID = "TC"
+apiInstance.putMeasurementName(domain, sensorID, "My temperature");
 ```
 
 ### Parameters
@@ -603,34 +394,10 @@ insert sensor kind
 
 ### Example
 ```javascript
-var WaziupApi = require('waziup_api');
-var defaultClient = WaziupApi.ApiClient.instance;
-
-// Configure API key authorization: Bearer
-var Bearer = defaultClient.authentications['Bearer'];
-Bearer.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.apiKeyPrefix = 'Token';
-
-var apiInstance = new WaziupApi.SensorsApi();
-
-var domain = "domain_example"; // String | 
-
-var sensorId = "sensorId_example"; // String | 
-
-var measurementId = "measurementId_example"; // String | 
-
-var body = "body_example"; // String | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.putMeasurementSensorKind(domain, sensorId, measurementId, body, callback);
+var domain = "domain_example";
+var sensorID = "test"
+var measID = "TC"
+apiInstance.putMeasurementSensorKind(domain, sensorID, measID, "Thermometer");
 ```
 
 ### Parameters
@@ -663,34 +430,10 @@ put measurement unit
 
 ### Example
 ```javascript
-var WaziupApi = require('waziup_api');
-var defaultClient = WaziupApi.ApiClient.instance;
-
-// Configure API key authorization: Bearer
-var Bearer = defaultClient.authentications['Bearer'];
-Bearer.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.apiKeyPrefix = 'Token';
-
-var apiInstance = new WaziupApi.SensorsApi();
-
-var domain = "domain_example"; // String | 
-
-var sensorId = "sensorId_example"; // String | 
-
-var measurementId = "measurementId_example"; // String | 
-
-var body = "body_example"; // String | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.putMeasurementUnit(domain, sensorId, measurementId, body, callback);
+var domain = "domain_example";
+var sensorID = "test"
+var measID = "TC"
+apiInstance.putMeasurementUnit(domain, sensorID, measID, "DegreeCelcius");
 ```
 
 ### Parameters
@@ -717,38 +460,16 @@ null (empty response body)
 
 <a name="getMeasurementValues"></a>
 # **getMeasurementValues**
-> [MeasurementValue] getMeasurementValues(domain, sensorId, measurementId, )
+> [MeasurementValue] getMeasurementValues(domain, sensorId, measurementId)
 
 get measurement values
 
 ### Example
 ```javascript
-var WaziupApi = require('waziup_api');
-var defaultClient = WaziupApi.ApiClient.instance;
-
-// Configure API key authorization: Bearer
-var Bearer = defaultClient.authentications['Bearer'];
-Bearer.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.apiKeyPrefix = 'Token';
-
-var apiInstance = new WaziupApi.SensorsApi();
-
-var domain = "domain_example"; // String | 
-
-var sensorId = "sensorId_example"; // String | 
-
-var measurementId = "measurementId_example"; // String | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.getMeasurementValues(domain, sensorId, measurementId, , callback);
+var domain = "domain_example";
+var sensorID = "test"
+var measID = "TC"
+var values = await apiInstance.getMeasurementValues(domain, sensorID, measID);
 ```
 
 ### Parameters
@@ -773,41 +494,18 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 <a name="addMeasurement"></a>
-# **addMeasurement**
-> addMeasurement(domain, sensorId, measurementId, body)
+# **addDatapoint**
+> addDatapoint(domain, sensorId, measurementId, datapoint)
 
 Create new datapoint
 
 ### Example
 ```javascript
-var WaziupApi = require('waziup_api');
-var defaultClient = WaziupApi.ApiClient.instance;
-
-// Configure API key authorization: Bearer
-var Bearer = defaultClient.authentications['Bearer'];
-Bearer.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.apiKeyPrefix = 'Token';
-
-var apiInstance = new WaziupApi.SensorsApi();
-
-var domain = "domain_example"; // String | 
-
-var sensorId = "sensorId_example"; // String | 
-
-var measurementId = "measurementId_example"; // String | 
-
-var body = new WaziupApi.MeasurementValue(); // MeasurementValue | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.addMeasurement(domain, sensorId, measurementId, body, callback);
+var domain = "domain_example";
+var sensorID = "test"
+var measID = "TC"
+var value = new WaziupApi.MeasurementValue("25.6", "2018-03-15T15:27:17+01:00");
+apiInstance.putMeasurementValue(domain, sensorID, measID, value);
 ```
 
 ### Parameters
@@ -840,32 +538,10 @@ insert new measurement
 
 ### Example
 ```javascript
-var WaziupApi = require('waziup_api');
-var defaultClient = WaziupApi.ApiClient.instance;
-
-// Configure API key authorization: Bearer
-var Bearer = defaultClient.authentications['Bearer'];
-Bearer.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.apiKeyPrefix = 'Token';
-
-var apiInstance = new WaziupApi.SensorsApi();
-
-var domain = "domain_example"; // String | 
-
-var sensorId = "sensorId_example"; // String | 
-
-var body = new WaziupApi.Measurement(); // Measurement | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.addMeasurement(domain, sensorId, body, callback);
+var domain = "domain_example";
+var sensorID = "test"
+var meas = new WaziupApi.Measurement("TC");
+apiInstance.addMeasurement(domain, sensorID, meas);
 ```
 
 ### Parameters
@@ -897,32 +573,9 @@ insert name
 
 ### Example
 ```javascript
-var WaziupApi = require('waziup_api');
-var defaultClient = WaziupApi.ApiClient.instance;
-
-// Configure API key authorization: Bearer
-var Bearer = defaultClient.authentications['Bearer'];
-Bearer.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.apiKeyPrefix = 'Token';
-
-var apiInstance = new WaziupApi.SensorsApi();
-
-var domain = "domain_example"; // String | 
-
-var sensorId = "sensorId_example"; // String | 
-
-var body = "body_example"; // String | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.putSensorName(domain, sensorId, body, callback);
+var domain = "domain_example";
+var sensorID = "test"
+apiInstance.putSensorName(domain, sensorID, "My Sensor 1");
 ```
 
 ### Parameters
@@ -954,32 +607,9 @@ insert owner
 
 ### Example
 ```javascript
-var WaziupApi = require('waziup_api');
-var defaultClient = WaziupApi.ApiClient.instance;
-
-// Configure API key authorization: Bearer
-var Bearer = defaultClient.authentications['Bearer'];
-Bearer.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.apiKeyPrefix = 'Token';
-
-var apiInstance = new WaziupApi.SensorsApi();
-
-var domain = "domain_example"; // String | 
-
-var sensorId = "sensorId_example"; // String | 
-
-var body = "body_example"; // String | 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.putSensorOwner(domain, sensorId, body, callback);
+var domain = "domain_example";
+var sensorID = "test"
+apiInstance.putSensorOwner(domain, sensorID, "cdupont");
 ```
 
 ### Parameters
