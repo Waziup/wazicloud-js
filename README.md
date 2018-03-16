@@ -9,7 +9,7 @@ Waziup-js is a javascript client to interact with the [Waziup plaform](www.waziu
 Install it via:
 
 ```shell
-npm install waziup-js --save
+npm install --save -g waziup-js
 ```
 
 
@@ -51,9 +51,14 @@ var authApi = new WaziupApi.AuthApi()
 
 //Deleting a resource requires authentication
 async function testDelete() {
-  var token = await authApi.getAuthToken("waziup", new WaziupApi.AuthBody('username', 'password')) 
+  var token = await authApi.getAuthToken("waziup", new WaziupApi.AuthBody('YOUR_USERNAME', 'YOUR_PASSWORD')) 
   WaziupApi.ApiClient.instance.authentications['Bearer'].apiKey = 'Bearer ' + token
-  sensorApi.deleteSensor("waziup", "MySensor")
+  
+  try {
+    await sensorApi.deleteSensor("waziup", "MySensor")
+  } catch (error) {
+    console.log("Error " + error.status)
+  }
 }
 
 testDelete()
