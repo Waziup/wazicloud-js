@@ -39,8 +39,7 @@ The format of the sensors is given [here](https://github.com/Waziup/waziup-js/bl
 
 ## Authentication
 
-Some resources are protected in Waziup platform.
-To access the API, you need a token. You can retrieve one like that:
+You need a token to access protected resources. You can retrieve one like that:
 
 
 ```javascript
@@ -60,7 +59,7 @@ async function testDelete() {
 testDelete()
 ```
 
-You should create a user beforehand on dev.waziup.io:3000.
+You should create a user beforehand on http://dev.waziup.io:3000.
 As a rule of thumb, you can only update or delete resources that you are owner of.
 
 ## Documentation for API Endpoints
