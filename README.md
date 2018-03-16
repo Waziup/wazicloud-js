@@ -18,14 +18,22 @@ npm install waziup-js --save
 Here is an example code to retrieve all sensors from Waziup:
 
 ```javascript
-import * as WaziupApi from 'waziup-js';
+const WaziupApi = require('waziup-js');
 
+WaziupApi.ApiClient.instance.basePath = 'http://dev.waziup.io/api/v1'
 var api = new WaziupApi.SensorsApi()
-var sensors = api.getSensors("waziup");
-console.log('List of sensors: ', JSON.stringify(sensors));
-```
 
-In the example above, a request is made to fetch all the sensors from Waziup.
+api.getSensors("waziup").then((sensors) =>{
+    console.log('List of sensors: ', JSON.stringify(sensors));
+})
+
+```
+Save this file as test.js and run:
+
+```
+node test.js
+```
+You should get a list of sensors.
 The format of the sensors is given [here](https://github.com/Waziup/waziup-js/blob/master/docs/Sensor.md).
 
 ## Documentation for API Endpoints

@@ -1,11 +1,15 @@
 {
     "name": "waziup-js",
-    "version": "0.0.8",
+    "version": "0.0.11",
     "description": "Javascript client for the WAZIUP API",
     "license": "Apache License v2",
-    "main": "src/index.js",
+    "main": "lib/index.js",
     "scripts": {
-        "test": "./node_modules/mocha/bin/mocha --recursive"
+        "test": "./node_modules/mocha/bin/mocha --recursive",
+        "prepublishOnly": "node_modules/babel-cli/bin/babel.js src --out-dir lib"
+    },
+    "babel": {
+        "presets": ["es2015"]
     },
     "browser": {
         "fs": false
@@ -14,8 +18,11 @@
         "superagent": "3.5.2"
     },
     "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.0",
+        "babel-preset-es2015": "^6.24.1",
+        "expect.js": "~0.3.1",
         "mocha": "~2.3.4",
-        "sinon": "1.17.3",
-        "expect.js": "~0.3.1"
+        "sinon": "1.17.3"
     }
 }
