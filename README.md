@@ -36,6 +36,33 @@ node test.js
 You should get a list of sensors.
 The format of the sensors is given [here](https://github.com/Waziup/waziup-js/blob/master/docs/Sensor.md).
 
+
+## Authentication
+
+Some resources are protected in Waziup platform.
+To access the API, you need a token. You can retrieve one like that:
+
+
+```javascript
+const WaziupApi = require('waziup-js');
+
+WaziupApi.ApiClient.instance.basePath = 'http://dev.waziup.io/api/v1'
+var sensorApi = new WaziupApi.SensorsApi()
+var authApi = new WaziupApi.AuthApi()
+
+//Deleting a resource requires authentication
+async function testDelete() {
+  var token = await authApi.getAuthToken("waziup", new WaziupApi.AuthBody('username', 'password')) 
+  WaziupApi.ApiClient.instance.authentications['Bearer'].apiKey = 'Bearer ' + token
+  sensorApi.deleteSensor("waziup", "MySensor")
+}
+
+testDelete()
+```
+
+You should create a user beforehand on dev.waziup.io:3000.
+As a rule of thumb, you can only update or delete resources that you are owner of.
+
 ## Documentation for API Endpoints
 
 There are 5 endpoints:

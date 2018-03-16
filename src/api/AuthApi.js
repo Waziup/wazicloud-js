@@ -40,7 +40,7 @@ var exports = function(apiClient) {
     var authNames = [];
     var contentTypes = ['application/json'];
     var accepts = ['application/json'];
-    var returnType = AuthBody;
+    var returnType = 'String';
 
     return this.apiClient.callApi(
       '/auth/token', 'POST',
