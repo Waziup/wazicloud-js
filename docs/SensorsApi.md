@@ -6,10 +6,13 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getSensors**](SensorsApi.md#getSensors) | **GET** /domains/{domain}/sensors | Sensor data
 [**createSensor**](SensorsApi.md#createSensor) | **POST** /domains/{domain}/sensors | Create sensors
-[**deleteSensor**](SensorsApi.md#deleteSensor) | **DELETE** /domains/{domain}/sensors/{sensor_id} | Delete sensor
 [**getSensor**](SensorsApi.md#getSensor) | **GET** /domains/{domain}/sensors/{sensor_id} | get sensor
+[**deleteSensor**](SensorsApi.md#deleteSensor) | **DELETE** /domains/{domain}/sensors/{sensor_id} | Delete sensor
 [**putSensorLocation**](SensorsApi.md#putSensorLocation) | **PUT** /domains/{domain}/sensors/{sensor_id}/location | insert location
+[**putSensorName**](SensorsApi.md#putSensorName) | **PUT** /domains/{domain}/sensors/{sensor_id}/name | insert name
+[**putSensorOwner**](SensorsApi.md#putSensorOwner) | **PUT** /domains/{domain}/sensors/{sensor_id}/owner | insert owner
 [**getSensorMeasurements**](SensorsApi.md#getSensorMeasurements) | **GET** /domains/{domain}/sensors/{sensor_id}/measurements | get measurements
+[**addMeasurement**](SensorsApi.md#addMeasurement) | **POST** /domains/{domain}/sensors/{sensor_id}/measurements | insert new measurement
 [**deleteMeasurement**](SensorsApi.md#deleteMeasurement) | **DELETE** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id} | Delete measurement
 [**putMeasurementQK**](SensorsApi.md#putMeasurementQK) | **PUT** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/quantity_kind | put measurement quantity kind 
 [**getMeasurement**](SensorsApi.md#getMeasurement) | **GET** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id} | get measurement
@@ -17,10 +20,7 @@ Method | HTTP request | Description
 [**putMeasurementSD**](SensorsApi.md#putMeasurementSD) | **PUT** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/sensingDevice | insert sensor kind
 [**putMeasurementUnit**](SensorsApi.md#putMeasurementUnit) | **PUT** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/unit | put measurement unit
 [**getMeasurementValues**](SensorsApi.md#getMeasurementValues) | **GET** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/values | get measurement values
-[**addMeasurement**](SensorsApi.md#addMeasurement) | **POST** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/values | Create new datapoint
-[**addMeasurement**](SensorsApi.md#addMeasurement) | **POST** /domains/{domain}/sensors/{sensor_id}/measurements | insert new measurement
-[**putSensorName**](SensorsApi.md#putSensorName) | **PUT** /domains/{domain}/sensors/{sensor_id}/name | insert name
-[**putSensorOwner**](SensorsApi.md#putSensorOwner) | **PUT** /domains/{domain}/sensors/{sensor_id}/owner | insert owner
+[**addDatapoint**](SensorsApi.md#addDatapoint) | **POST** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/values | Create new datapoint
 
 ## Preliminaries
 Insert this code in your file, before using any endpoint:
@@ -493,7 +493,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="addMeasurement"></a>
+<a name="addDatapoint"></a>
 # **addDatapoint**
 > addDatapoint(domain, sensorId, measurementId, datapoint)
 
@@ -505,7 +505,7 @@ var domain = "domain_example";
 var sensorID = "test"
 var measID = "TC"
 var value = new WaziupApi.MeasurementValue("25.6", "2018-03-15T15:27:17+01:00");
-apiInstance.putMeasurementValue(domain, sensorID, measID, value);
+apiInstance.addDatapoint(domain, sensorID, measID, value);
 ```
 
 ### Parameters
