@@ -515,7 +515,7 @@ Name | Type | Description  | Notes
  **domain** | **String**|  | 
  **sensorId** | **String**|  | 
  **measurementId** | **String**|  | 
- **body** | [**MeasurementValue**](MeasurementValue.md)|  | 
+ **value** | [**MeasurementValue**](MeasurementValue.md)|  | 
 
 ### Return type
 

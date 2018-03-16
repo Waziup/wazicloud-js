@@ -6,8 +6,10 @@ import ApiClient from '../ApiClient';
  * @alias module:model/MeasurementValue
  * @class
  */
-var exports = function() {
+var exports = function(value, timestamp) {
   var _this = this;
+  _this['value'] = value;
+  _this['timestamp'] = timestamp;
 
 
 
