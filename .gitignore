@@ -56,4 +56,6 @@ typings/
 
 # dotenv environment variables file
 .env
-
+# exclude nodeJS files
+/node_modules/
+/lib
