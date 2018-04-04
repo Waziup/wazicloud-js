@@ -548,10 +548,16 @@ var exports = function(apiClient) {
    * get measurement values
    * @param {String} domain 
    * @param {String} sensorId 
-   * @param {String} measurementId 
+   * @param {String} measurementId
+   * @param {Object} opts Optional parameters
+   * @param {String} opts.lastN get the last N entries, most recent first. Default value is 20.
+   * @param {String} opts.limit In case of pagination, number of entris per page
+   * @param {String} opts.offset In case of pagination, offset for the starting entry
+   * @param {String} opts.dateFrom The starting date and time from which the entries are desired. It is an optional parameter.
+   * @param {String} opts.dateTo The final date and time until which the entries are desired. It is an optional parameter. 
    * data is of type: {@link Array.<module:model/MeasurementValue>}
    */
-  this.getMeasurementValues = async function(domain, sensorId, measurementId) {
+  this.getMeasurementValues = async function(domain, sensorId, measurementId, opts) {
     var postBody = null;
 
     // verify the required parameter 'domain' is set
@@ -569,13 +575,18 @@ var exports = function(apiClient) {
       throw("Missing the required parameter 'measurementId' when calling getMeasurementValues");
     }
 
-
     var pathParams = {
       'domain': domain,
       'sensor_id': sensorId,
       'measurement_id': measurementId
     };
-    var queryParams = {};
+    var queryParams = {
+        'lastN': opts['lastN'],
+        'limit': opts['limit'],
+        'offset': opts['offset'],
+        'dateFrom': opts['dateFrom'],
+        'dateTo': opts['dateTo']
+    };
     var headerParams = {};
     var formParams = {};
 

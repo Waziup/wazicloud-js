@@ -460,7 +460,7 @@ null (empty response body)
 
 <a name="getMeasurementValues"></a>
 # **getMeasurementValues**
-> [MeasurementValue] getMeasurementValues(domain, sensorId, measurementId)
+> [MeasurementValue] getMeasurementValues(domain, sensorId, measurementId, options)
 
 get measurement values
 
@@ -469,7 +469,15 @@ get measurement values
 var domain = "domain_example";
 var sensorID = "test"
 var measID = "TC"
-var values = await apiInstance.getMeasurementValues(domain, sensorID, measID);
+//Options for fetching the values. Use either 'lastN' or ('limit', 'offset'). dateFrom and dataTo can be use to further limit the time window.
+var opts = { 
+  'lastN': "20", // String | get the last N entries, most recent first. Default value is 20.
+  'limit': "50", // String | In case of pagination, number of entris per page
+  'offset': "0", // String | In case of pagination, offset for the starting entry
+  'dateFrom': "2016-01-01T00:00:00.000Z", // String | The starting date and time from which the entries are desired. It is an optional parameter.
+  'dateTo': "2019-01-31T23:59:59.999Z" // String | The final date and time until which the entries are desired. It is an optional parameter.
+};
+var values = await apiInstance.getMeasurementValues(domain, sensorID, measID, opts);
 ```
 
 ### Parameters
@@ -478,7 +486,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **domain** | **String**|  | 
  **sensorId** | **String**|  | 
- **measurementId** | **String**|  | 
+ **measurementId** | **String**|  |
+ **lastN** | **String**| get the last N entries, most recent first. Default value is 20. | [optional] 
+ **limit** | **String**| In case of pagination, number of entris per page | [optional] 
+ **offset** | **String**| In case of pagination, offset for the starting entry | [optional] 
+ **dateFrom** | **String**| The starting date and time from which the entries are desired. It is an optional parameter. | [optional] 
+ **dateTo** | **String**| The final date and time until which the entries are desired. It is an optional parameter. | [optional] 
 
 ### Return type
 
