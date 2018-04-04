@@ -581,11 +581,11 @@ var exports = function(apiClient) {
       'measurement_id': measurementId
     };
     var queryParams = {
-        'lastN': opts['lastN'],
-        'limit': opts['limit'],
-        'offset': opts['offset'],
-        'dateFrom': opts['dateFrom'],
-        'dateTo': opts['dateTo']
+      'lastN'   : opts['lastN'],
+      'limit'   : opts['limit'],
+      'offset'  : opts['offset'],
+      'dateFrom': opts['dateFrom'],
+      'dateTo'  : opts['dateTo']
     };
     var headerParams = {};
     var formParams = {};
