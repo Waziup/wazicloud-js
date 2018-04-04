@@ -121,7 +121,7 @@ var exports = function(apiClient) {
    * Search users with specific criteria
    * @param {String} domain 
    */
-  this.searchUsers = async function(domain) { //TODO: complete arguments
+  this.searchUsers = async function(domain, q) { //TODO: complete arguments
     var postBody = null;
 
     // verify the required parameter 'domain' is set
@@ -132,7 +132,7 @@ var exports = function(apiClient) {
     var pathParams = {
       'domain': domain
     };
-    var queryParams = {};
+    var queryParams = q;
     var headerParams = {};
     var formParams = {};
 
