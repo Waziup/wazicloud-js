@@ -27,7 +27,7 @@ import Scope from './Scope';
         obj['resource'] = Resource.constructFromObject(data['resource']);
       }
       if (data.hasOwnProperty('scopes')) {
-        obj['scopes'] = ApiClient.convertToType(data['scopes'], [Scope]);
+        obj['scopes'] = data['scopes'].map(s => Scope.constructFromObject(s));
       }
     }
     return obj;
