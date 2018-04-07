@@ -38,7 +38,7 @@ exports.constructFromObject = function(data, obj) {
       obj['timestamp'] = ApiClient.convertToType(data['timestamp'], 'String');
     }
     if (data.hasOwnProperty('sensing_device')) {
-      obj['sensing_device'] = ApiClient.convertToType(data['sensng_device'], 'String');
+      obj['sensing_device'] = ApiClient.convertToType(data['sensing_device'], 'String');
     }
     if (data.hasOwnProperty('quantity_kind')) {
       obj['quantity_kind'] = ApiClient.convertToType(data['quantity_kind'], 'String');
