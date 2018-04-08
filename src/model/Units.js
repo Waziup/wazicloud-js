@@ -107,12 +107,12 @@ function getAll() {
 }
 
 function getUnit(id) {
-  return dic.filter(u => u.id == id)[0]
+  return dic.find(u => u.id == id)
 }
 
 function getLabel(id) {
-  const u = dic.filter(u => u.id == id)
-  return u[0]? u[0].label: ""
+  const u = dic.find(u => u.id == id)
+  return u? u.label: ""
 }
 
 var exports = {getAll, getUnit, getLabel}

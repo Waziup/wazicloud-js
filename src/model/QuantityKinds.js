@@ -18,6 +18,7 @@ const dic= [
 {id: "AirPollution",                                       label: "Air pollution",                                units: ["PartsPerBillion"]},
 {id: "AirQuality",                                         label: "Air quality",                                  units: ["EAQI"]},
 {id: "AirTemperature",                                     label: "Air temperature",                              units: ["DegreeCelsius", "DegreeFahrenheit"]},
+{id: "AirHumidity",                                        label: "Air humidity",                                 units: ["Percent"]},
 {id: "AlcoholLevel",                                       label: "Alcohol level",                                units: ["Percent"]},
 {id: "AngularSpeed",                                       label: "Angular speed",                                units: ["RadianPerSecond", "RevolutionsPerMinute"]},
 {id: "AtmosphericPressure",                                label: "Atmospheric pressure",                         units: ["Pascal", "Bar", "Centibar", "Millibar", "MillimetreMercure"]},
@@ -151,11 +152,16 @@ function getQK(id) {
   return dic.find(sd => sd.id == id)
 }
 
-function getUnits(id) {
-  const qk = dic.filter(sd => sd.id == id)
-  return qk[0]? qk[0].units.map(uid => Units.getUnit(uid)): []
+function getLabel(id) {
+  const qk = dic.find(sd => sd.id == id)
+  return qk? qk.label: ""
 }
 
-var exports = {getAll, getQK, getUnits}
+function getUnits(id) {
+  const qk = dic.find(sd => sd.id == id)
+  return qk? qk.units.map(uid => Units.getUnit(uid)).filter(u => u != undefined): []
+}
+
+var exports = {getAll, getQK, getUnits, getLabel}
 export default exports 
 

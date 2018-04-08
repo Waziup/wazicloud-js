@@ -14,7 +14,7 @@ import QuantityKinds from './QuantityKinds.js'
 
 const dic = [
 {id: "Accelerometer",                     label: "Accelerometer",                    QK: ["Acceleration", "AccelerationInstantaneous"]},
-{id: "AirHumiditySensor",                 label: "Air humidity sensor",              QK: ["Percent"]},
+{id: "AirHumiditySensor",                 label: "Air humidity sensor",              QK: ["AirHumidity"]},
 {id: "AirPollutantSensor",                label: "Air pollutant sensor",             QK: ["AirPollution"]},   
 {id: "AirThermometer",                    label: "Air thermometer",                  QK: ["AirTemperature"]},
 {id: "AlcoholLevelSensor",                label: "Alcohol level sensor",             QK: ["AlcoholLevel"]},
@@ -53,7 +53,7 @@ const dic = [
 {id: "GyroscopeSensor",                   label: "Gyroscope sensor",                 QK: ["AngularSpeed", "RotationalSpeed", "Orientation"]},
 {id: "HeartBeatSensor",                   label: "Heart beat sensor",                QK: ["HeartBeat"]},
 {id: "HumanPresenceDetector",             label: "Human presence detector",          QK: ["Presence"]},
-{id: "HumiditySensor",                    label: "Humidity sensor",                  QK: ["Humidity", "RelativeHumidity", "SoilHumidity"]},
+{id: "HumiditySensor",                    label: "Humidity sensor",                  QK: ["Humidity", "RelativeHumidity", "SoilHumidity", "AirHumidity"]},
 {id: "Hydrophone",                        label: "Hydrophone",                       QK: ["Sound", "SoundPressureLevel", "SoundPressureLevelAmbient"]},
 {id: "ImageSensor",                       label: "Image sensor",                     QK: []},
 {id: "LeafWetnessSensor",                 label: "Leaf wetness sensor",              QK: ["LeafWetness"]},
@@ -125,12 +125,13 @@ function getAll() {
 }
 
 function getLabel(id) {
-  return dic.filter(sd => sd.id == id).label
+  const sds = dic.find(sd => sd.id == id)
+  return sds? sds.label: ""
 }
 
 function getQKs(id) {
-  const sds = dic.filter(sd => sd.id == id)
-  return sds[0]? sds[0].QK.map(qkid => QuantityKinds.getQK(qkid)): []
+  const sds = dic.find(sd => sd.id == id)
+  return sds? sds.QK.map(qkid => QuantityKinds.getQK(qkid)): []
 }
 
 var exports = {getAll, getLabel, getQKs}
