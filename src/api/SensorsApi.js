@@ -34,7 +34,9 @@ var exports = function(apiClient) {
     }
 
     var pathParams = {'domain': domain};
-    var queryParams = {'q': opts['q']};
+    var queryParams = {'q':      opts['q'],
+                       'limit':  opts['limit'],
+                       'offset': opts['offset']};
     var headerParams = {};
     var formParams = {};
 
@@ -48,7 +50,6 @@ var exports = function(apiClient) {
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType)
   }
-
 
   /**
    * Create sensors
