@@ -1,12 +1,13 @@
 {
     "name": "waziup-js",
-    "version": "0.0.15",
+    "version": "0.0.21",
     "description": "Javascript client for the WAZIUP API",
     "license": "Apache License v2",
     "main": "lib/index.js",
     "scripts": {
         "test": "./node_modules/mocha/bin/mocha --recursive",
-        "prepublishOnly": "node_modules/babel-cli/bin/babel.js src --out-dir lib"
+        "prepublishOnly": "node_modules/babel-cli/bin/babel.js src --out-dir lib",
+        "build": "webpack"
     },
     "babel": {
         "presets": ["es2015"]
