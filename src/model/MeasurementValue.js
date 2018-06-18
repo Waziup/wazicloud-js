@@ -6,13 +6,9 @@ import ApiClient from '../ApiClient';
  * @alias module:model/MeasurementValue
  * @class
  */
-var exports = function(value, timestamp) {
+var exports = function(value) {
   var _this = this;
   _this['value'] = value;
-  _this['timestamp'] = timestamp;
-
-
-
 };
 
 /**
@@ -32,6 +28,9 @@ exports.constructFromObject = function(data, obj) {
     if (data.hasOwnProperty('timestamp')) {
       obj['timestamp'] = ApiClient.convertToType(data['timestamp'], 'String');
     }
+    if (data.hasOwnProperty('date_received')) {
+      obj['date_received'] = ApiClient.convertToType(data['date_received'], 'String');
+    }
   }
   return obj;
 }
@@ -46,6 +45,11 @@ exports.prototype['value'] = undefined;
  * @member {String} timestamp
  */
 exports.prototype['timestamp'] = undefined;
+/**
+ * time received on Cloud side
+ * @member {String} date_received
+ */
+exports.prototype['date_received'] = undefined;
 
 
 export default exports;

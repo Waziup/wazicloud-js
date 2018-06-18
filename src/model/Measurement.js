@@ -32,10 +32,7 @@ exports.constructFromObject = function(data, obj) {
       obj['name'] = ApiClient.convertToType(data['name'], 'String');
     }
     if (data.hasOwnProperty('last_value')) {
-      obj['last_value'] = ApiClient.convertToType(data['last_value'], 'Number');
-    }
-    if (data.hasOwnProperty('timestamp')) {
-      obj['timestamp'] = ApiClient.convertToType(data['timestamp'], 'String');
+      obj['last_value'] = MeasurementValue.constructFromObject(data['last_value']);
     }
     if (data.hasOwnProperty('sensing_device')) {
       obj['sensing_device'] = ApiClient.convertToType(data['sensing_device'], 'String');
@@ -45,9 +42,6 @@ exports.constructFromObject = function(data, obj) {
     }
     if (data.hasOwnProperty('unit')) {
       obj['unit'] = ApiClient.convertToType(data['unit'], 'String');
-    }
-    if (data.hasOwnProperty('values')) {
-      obj['values'] = ApiClient.convertToType(data['values'], [MeasurementValue]);
     }
   }
   return obj;
@@ -65,14 +59,9 @@ exports.prototype['id'] = undefined;
 exports.prototype['name'] = undefined;
 /**
  * last value measured
- * @member {String} last_value 
+ * @member {model/MeasurementValue} last_value 
  */
 exports.prototype['last_value'] = undefined;
-/**
- * timestamp of the last value measured
- * @member {String} timestamp 
- */
-exports.prototype['timestamp'] = undefined;
 /**
  * quantity kind measured
  * @member {model/QuantityKinds} quantity_kind 
@@ -88,10 +77,6 @@ exports.prototype['unit'] = undefined;
  * @member {model/SensingDevices} sensing_device 
  */
 exports.prototype['sensing_device'] = undefined;
-/**
- * @member {Array.<module:model/MeasurementValue>} values
- */
-exports.prototype['values'] = undefined;
 
 
 export default exports;
