@@ -45,11 +45,11 @@ exports.constructFromObject = function(data, obj) {
     if (data.hasOwnProperty('location')) {
       obj['location'] = Location.constructFromObject(data['location']);
     }
-    if (data.hasOwnProperty('dateCreated')) {
-      obj['dateCreated'] = ApiClient.convertToType(data['dateCreated'], 'String');
+    if (data.hasOwnProperty('date_created')) {
+      obj['date_created'] = ApiClient.convertToType(data['date_created'], 'String');
     }
-    if (data.hasOwnProperty('dateModified')) {
-      obj['dateModified'] = ApiClient.convertToType(data['dateModified'], 'String');
+    if (data.hasOwnProperty('date_modified')) {
+      obj['date_modified'] = ApiClient.convertToType(data['date_modified'], 'String');
     }
     if (data.hasOwnProperty('domain')) {
       obj['domain'] = ApiClient.convertToType(data['domain'], 'String');
@@ -91,12 +91,12 @@ exports.prototype['location'] = undefined;
  * date at which the sensor has been modified
  * @member {String} dateModified
  */
-exports.prototype['dateModified'] = undefined;
+exports.prototype['date_modified'] = undefined;
 /**
  * date at which the sensor has been created
- * @member {String} dateCreated
+ * @member {String} date_created
  */
-exports.prototype['dateCreated'] = undefined;
+exports.prototype['date_created'] = undefined;
 /**
  * domain of the sensor
  * @member {String} domain
