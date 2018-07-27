@@ -39,6 +39,9 @@ exports.constructFromObject = function(data, obj) {
     if (data.hasOwnProperty('owner')) {
       obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
     }
+    if (data.hasOwnProperty('visibility')) {
+      obj['visibility'] = ApiClient.convertToType(data['visibility'], 'String');
+    }
     if (data.hasOwnProperty('measurements')) {
       obj['measurements'] = ApiClient.convertToType(data['measurements'], [Measurement]);
     }
@@ -79,6 +82,11 @@ exports.prototype['name'] = undefined;
  * @member {String} owner
  */
 exports.prototype['owner'] = undefined;
+/**
+ * visibility of the sensor node (either "private" or "public")
+ * @member {String} visibility
+ */
+exports.prototype['visibility'] = undefined;
 /**
  * @member {Array.<module:model/Measurement>} measurements
  */

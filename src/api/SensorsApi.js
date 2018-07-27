@@ -785,6 +785,48 @@ var exports = function(apiClient) {
   }
 
   /**
+   * insert visibility
+   * @param {String} domain 
+   * @param {String} sensorId 
+   * @param {String} body 
+   */
+  this.putSensorVisility = async function(domain, sensorId, body) {
+    var postBody = body;
+
+    // verify the required parameter 'domain' is set
+    if (domain === undefined || domain === null) {
+      throw("Missing the required parameter 'domain' when calling putSensorOwner");
+    }
+
+    // verify the required parameter 'sensorId' is set
+    if (sensorId === undefined || sensorId === null) {
+      throw("Missing the required parameter 'sensorId' when calling putSensorOwner");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body === undefined || body === null) {
+      throw("Missing the required parameter 'body' when calling putSensorOwner");
+    }
+
+    var pathParams = {
+      'domain': domain,
+      'sensor_id': sensorId
+    };
+    var queryParams = {};
+    var headerParams = {};
+    var formParams = {};
+
+    var authNames = ['Bearer'];
+    var contentTypes = ['text/plain'];
+    var accepts = ['application/json'];
+    var returnType = null;
+
+    return this.apiClient.callApi(
+      '/domains/{domain}/sensors/{sensor_id}/visibility', 'PUT',
+      pathParams, queryParams, headerParams, formParams, postBody,
+      authNames, contentTypes, accepts, returnType);
+  }
+  /**
    * insert gateway_id
    * @param {String} domain 
    * @param {String} sensorId 
