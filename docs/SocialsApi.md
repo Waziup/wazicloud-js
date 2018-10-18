@@ -4,16 +4,16 @@ All URIs are relative to *http://127.0.0.1:8000/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createSocialMsgsBatch**](SocialsApi.md#createSocialMsgsBatch) | **POST** /domains/{domain}/socials/batch | post several message to social networks
-[**getSocialMsgs**](SocialsApi.md#getSocialMsgs) | **GET** /domains/{domain}/socials | Get all messages sent
-[**deleteSocialsMsg**](SocialsApi.md#deleteSocialsMsg) | **DELETE** /domains/{domain}/socials/{msg_id} | delete a message to social networks
-[**getSocialsMsg**](SocialsApi.md#getSocialsMsg) | **GET** /domains/{domain}/socials/{msg_id} | Get one message
-[**createSocialMsg**](SocialsApi.md#createSocialMsg) | **POST** /domains/{domain}/socials | post a message to social networks
+[**createSocialMsgsBatch**](SocialsApi.md#createSocialMsgsBatch) | **POST** /socials/batch | post several message to social networks
+[**getSocialMsgs**](SocialsApi.md#getSocialMsgs) | **GET** /socials | Get all messages sent
+[**deleteSocialsMsg**](SocialsApi.md#deleteSocialsMsg) | **DELETE** /socials/{msg_id} | delete a message to social networks
+[**getSocialsMsg**](SocialsApi.md#getSocialsMsg) | **GET** /socials/{msg_id} | Get one message
+[**createSocialMsg**](SocialsApi.md#createSocialMsg) | **POST** /socials | post a message to social networks
 
 
 <a name="createSocialMsgsBatch"></a>
 # **createSocialMsgsBatch**
-> createSocialMsgsBatch(domain, data)
+> createSocialMsgsBatch(data)
 
 post several message to social networks
 
@@ -30,8 +30,6 @@ Bearer.apiKey = 'YOUR API KEY';
 
 var apiInstance = new WaziupApi.SocialsApi();
 
-var domain = "domain_example"; // String | 
-
 var data = new WaziupApi.SocialMessageBatch(); // SocialMessageBatch | social message
 
 
@@ -42,14 +40,13 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.createSocialMsgsBatch(domain, data, callback);
+apiInstance.createSocialMsgsBatch(data, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **String**|  | 
  **data** | [**SocialMessageBatch**](SocialMessageBatch.md)| social message | 
 
 ### Return type
@@ -67,7 +64,7 @@ null (empty response body)
 
 <a name="getSocialMsgs"></a>
 # **getSocialMsgs**
-> SocialMessage getSocialMsgs(domain, )
+> SocialMessage getSocialMsgs()
 
 Get all messages sent
 
@@ -84,9 +81,6 @@ Bearer.apiKey = 'YOUR API KEY';
 
 var apiInstance = new WaziupApi.SocialsApi();
 
-var domain = "domain_example"; // String | 
-
-
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -94,14 +88,13 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getSocialMsgs(domain, , callback);
+apiInstance.getSocialMsgs(, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **String**|  | 
 
 ### Return type
 
@@ -118,7 +111,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteSocialsMsg"></a>
 # **deleteSocialsMsg**
-> deleteSocialsMsg(domain, msgId)
+> deleteSocialsMsg(msgId)
 
 delete a message to social networks
 
@@ -135,8 +128,6 @@ Bearer.apiKey = 'YOUR API KEY';
 
 var apiInstance = new WaziupApi.SocialsApi();
 
-var domain = "domain_example"; // String | 
-
 var msgId = "msgId_example"; // String | 
 
 
@@ -147,14 +138,13 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.deleteSocialsMsg(domain, msgId, callback);
+apiInstance.deleteSocialsMsg(msgId, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **String**|  | 
  **msgId** | **String**|  | 
 
 ### Return type
@@ -172,7 +162,7 @@ null (empty response body)
 
 <a name="getSocialsMsg"></a>
 # **getSocialsMsg**
-> SocialMessage getSocialsMsg(domain, msgId)
+> SocialMessage getSocialsMsg(msgId)
 
 Get one message
 
@@ -189,8 +179,6 @@ Bearer.apiKey = 'YOUR API KEY';
 
 var apiInstance = new WaziupApi.SocialsApi();
 
-var domain = "domain_example"; // String | 
-
 var msgId = "msgId_example"; // String | 
 
 
@@ -201,14 +189,13 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getSocialsMsg(domain, msgId, callback);
+apiInstance.getSocialsMsg(msgId, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **String**|  | 
  **msgId** | **String**|  | 
 
 ### Return type
@@ -226,7 +213,7 @@ Name | Type | Description  | Notes
 
 <a name="createSocialMsg"></a>
 # **createSocialMsg**
-> createSocialMsg(domain, data)
+> createSocialMsg(data)
 
 post a message to social networks
 
@@ -243,8 +230,6 @@ Bearer.apiKey = 'YOUR API KEY';
 
 var apiInstance = new WaziupApi.SocialsApi();
 
-var domain = "domain_example"; // String | 
-
 var data = new WaziupApi.SocialMessage(); // SocialMessage | social message
 
 
@@ -255,14 +240,13 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.createSocialMsg(domain, data, callback);
+apiInstance.createSocialMsg(data, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **String**|  | 
  **data** | [**SocialMessage**](SocialMessage.md)| social message | 
 
 ### Return type

@@ -4,15 +4,15 @@ All URIs are relative to *http://127.0.0.1:8000/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getNotificationsGet**](NotificationsApi.md#getNotificationsGet) | **GET** /domains/{domain}/notifications | Get all notifications
-[**getNotificationsNotifIdDelete**](NotificationsApi.md#getNotificationsNotifIdDelete) | **DELETE** /domains/{domain}/notifications/{notif_id} | delete a message to social networks
-[**getNotificationsNotifIdGet**](NotificationsApi.md#getNotificationsNotifIdGet) | **GET** /domains/{domain}/notifications/{notif_id} | Get one message
-[**getNotificationsPost**](NotificationsApi.md#getNotificationsPost) | **POST** /domains/{domain}/notifications | post a message to social networks
+[**getNotificationsGet**](NotificationsApi.md#getNotificationsGet) | **GET** /notifications | Get all notifications
+[**getNotificationsNotifIdDelete**](NotificationsApi.md#getNotificationsNotifIdDelete) | **DELETE** /notifications/{notif_id} | delete a message to social networks
+[**getNotificationsNotifIdGet**](NotificationsApi.md#getNotificationsNotifIdGet) | **GET** /notifications/{notif_id} | Get one message
+[**getNotificationsPost**](NotificationsApi.md#getNotificationsPost) | **POST** /notifications | post a message to social networks
 
 
 <a name="getNotificationsGet"></a>
 # **getNotificationsGet**
-> Notification getNotificationsGet(domain, )
+> Notification getNotificationsGet()
 
 Get all notifications
 
@@ -29,9 +29,6 @@ Bearer.apiKey = 'YOUR API KEY';
 
 var apiInstance = new WaziupApi.NotificationsApi();
 
-var domain = "domain_example"; // String | 
-
-
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -39,14 +36,8 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getNotificationsGet(domain, , callback);
+apiInstance.getNotificationsGet(, , callback);
 ```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **domain** | **String**|  | 
 
 ### Return type
 
@@ -63,7 +54,7 @@ Name | Type | Description  | Notes
 
 <a name="getNotificationsNotifIdDelete"></a>
 # **getNotificationsNotifIdDelete**
-> getNotificationsNotifIdDelete(domain, notifId)
+> getNotificationsNotifIdDelete(notifId)
 
 delete a message to social networks
 
@@ -80,8 +71,6 @@ Bearer.apiKey = 'YOUR API KEY';
 
 var apiInstance = new WaziupApi.NotificationsApi();
 
-var domain = "domain_example"; // String | 
-
 var notifId = "notifId_example"; // String | 
 
 
@@ -92,14 +81,13 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.getNotificationsNotifIdDelete(domain, notifId, callback);
+apiInstance.getNotificationsNotifIdDelete(notifId, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **String**|  | 
  **notifId** | **String**|  | 
 
 ### Return type
@@ -117,7 +105,7 @@ null (empty response body)
 
 <a name="getNotificationsNotifIdGet"></a>
 # **getNotificationsNotifIdGet**
-> Notification getNotificationsNotifIdGet(domain, notifId)
+> Notification getNotificationsNotifIdGet(notifId)
 
 Get one message
 
@@ -134,8 +122,6 @@ Bearer.apiKey = 'YOUR API KEY';
 
 var apiInstance = new WaziupApi.NotificationsApi();
 
-var domain = "domain_example"; // String | 
-
 var notifId = "notifId_example"; // String | 
 
 
@@ -146,14 +132,13 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getNotificationsNotifIdGet(domain, notifId, callback);
+apiInstance.getNotificationsNotifIdGet(notifId, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **String**|  | 
  **notifId** | **String**|  | 
 
 ### Return type
@@ -171,7 +156,7 @@ Name | Type | Description  | Notes
 
 <a name="getNotificationsPost"></a>
 # **getNotificationsPost**
-> getNotificationsPost(domain, data)
+> getNotificationsPost(data)
 
 post a message to social networks
 
@@ -188,8 +173,6 @@ Bearer.apiKey = 'YOUR API KEY';
 
 var apiInstance = new WaziupApi.NotificationsApi();
 
-var domain = "domain_example"; // String | 
-
 var data = new WaziupApi.Notification(); // Notification | social message
 
 
@@ -200,14 +183,13 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.getNotificationsPost(domain, data, callback);
+apiInstance.getNotificationsPost(data, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **String**|  | 
  **data** | [**Notification**](Notification.md)| social message | 
 
 ### Return type

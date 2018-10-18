@@ -1,7 +1,6 @@
 'use strict';
 import ApiClient              from './ApiClient'
 import AuthBody               from './model/AuthBody'
-import Domain                 from './model/Domain'
 import Error                  from './model/Error'
 import Location               from './model/Location'
 import Measurement            from './model/Measurement'
@@ -17,7 +16,6 @@ import SocialMessageBatch     from './model/SocialMessageBatch'
 import Units                  from './model/Units'
 import User                   from './model/User'
 import UserUpdateBody         from './model/UserUpdateBody'
-import DomainsApi             from './api/DomainsApi'
 import NotificationsApi       from './api/NotificationsApi'
 import SensorsApi             from './api/SensorsApi'
 import SocialsApi             from './api/SocialsApi'
@@ -64,11 +62,6 @@ import AuthApi                from './api/AuthApi'
    * @property {module:model/AuthBody}
    */
   AuthBody,
-  /**
-   * The Domain model constructor.
-   * @property {module:model/Domain}
-   */
-  Domain,
   /**
    * The Error model constructor.
    * @property {module:model/Error}
@@ -147,11 +140,6 @@ import AuthApi                from './api/AuthApi'
   /**
    * The DomainsApi service constructor.
    * @property {module:api/DomainsApi}
-   */
-  DomainsApi,
-  /**
-   * The NotificationsApi service constructor.
-   * @property {module:api/NotificationsApi}
    */
   NotificationsApi,
   /**

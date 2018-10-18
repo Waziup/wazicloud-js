@@ -28,26 +28,6 @@ var exports = {
    */
   "sensors:delete": "sensors:delete",
   /**
-   * value: "domains:create"
-   * @const
-   */
-  "domains:create": "domains:create",
-  /**
-   * value: "domains:view"
-   * @const
-   */
-  "domains:view": "domains:view",
-  /**
-   * value: "domains:update"
-   * @const
-   */
-  "domains:update": "domains:update",
-  /**
-   * value: "domains:delete"
-   * @const
-   */
-  "domains:delete": "domains:delete",
-  /**
    * value: "socials:create"
    * @const
    */

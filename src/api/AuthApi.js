@@ -14,16 +14,10 @@ var exports = function(apiClient) {
 
   /**
    * Get the access token for subsequent calls
-   * @param {String} domain 
    * @param {module:model/AuthBody} credentials auth credentials
    */
-  this.getAuthToken = async function(domain, credentials) {
+  this.getAuthToken = async function(credentials) {
     var postBody = credentials;
-
-    // verify the required parameter 'domain' is set
-    if (domain === undefined || domain === null) {
-      throw("Missing the required parameter 'domain'");
-    }
 
     // verify the required parameter 'credentials' is set
     if (credentials === undefined || credentials === null) {
@@ -31,7 +25,6 @@ var exports = function(apiClient) {
     }
 
     var pathParams = {
-      'domain': domain
     };
     var queryParams = {};
     var headerParams = {};

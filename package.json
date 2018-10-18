@@ -1,6 +1,6 @@
 {
     "name": "waziup-js",
-    "version": "0.0.23",
+    "version": "1.1.2",
     "description": "Javascript client for the WAZIUP API",
     "license": "Apache License v2",
     "main": "lib/index.js",
@@ -10,7 +10,9 @@
         "build": "webpack"
     },
     "babel": {
-        "presets": ["es2015"]
+        "presets": [
+            "es2015"
+        ]
     },
     "browser": {
         "fs": false

@@ -4,23 +4,23 @@ All URIs are relative to *http://127.0.0.1:8000/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getSensors**](SensorsApi.md#getSensors) | **GET** /domains/{domain}/sensors | Sensor data
-[**createSensor**](SensorsApi.md#createSensor) | **POST** /domains/{domain}/sensors | Create sensors
-[**getSensor**](SensorsApi.md#getSensor) | **GET** /domains/{domain}/sensors/{sensor_id} | get sensor
-[**deleteSensor**](SensorsApi.md#deleteSensor) | **DELETE** /domains/{domain}/sensors/{sensor_id} | Delete sensor
-[**putSensorLocation**](SensorsApi.md#putSensorLocation) | **PUT** /domains/{domain}/sensors/{sensor_id}/location | insert location
-[**putSensorName**](SensorsApi.md#putSensorName) | **PUT** /domains/{domain}/sensors/{sensor_id}/name | insert name
-[**putSensorOwner**](SensorsApi.md#putSensorOwner) | **PUT** /domains/{domain}/sensors/{sensor_id}/owner | insert owner
-[**getSensorMeasurements**](SensorsApi.md#getSensorMeasurements) | **GET** /domains/{domain}/sensors/{sensor_id}/measurements | get measurements
-[**addMeasurement**](SensorsApi.md#addMeasurement) | **POST** /domains/{domain}/sensors/{sensor_id}/measurements | insert new measurement
-[**deleteMeasurement**](SensorsApi.md#deleteMeasurement) | **DELETE** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id} | Delete measurement
-[**putMeasurementQK**](SensorsApi.md#putMeasurementQK) | **PUT** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/quantity_kind | put measurement quantity kind 
-[**getMeasurement**](SensorsApi.md#getMeasurement) | **GET** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id} | get measurement
-[**putMeasurementName**](SensorsApi.md#putMeasurementName) | **PUT** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/name | put measurement name
-[**putMeasurementSD**](SensorsApi.md#putMeasurementSD) | **PUT** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/sensingDevice | insert sensor kind
-[**putMeasurementUnit**](SensorsApi.md#putMeasurementUnit) | **PUT** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/unit | put measurement unit
-[**getMeasurementValues**](SensorsApi.md#getMeasurementValues) | **GET** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/values | get measurement values
-[**addDatapoint**](SensorsApi.md#addDatapoint) | **POST** /domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/values | Create new datapoint
+[**getSensors**](SensorsApi.md#getSensors) | **GET** /sensors | Sensor data
+[**createSensor**](SensorsApi.md#createSensor) | **POST** /sensors | Create sensors
+[**getSensor**](SensorsApi.md#getSensor) | **GET** /sensors/{sensor_id} | get sensor
+[**deleteSensor**](SensorsApi.md#deleteSensor) | **DELETE** /sensors/{sensor_id} | Delete sensor
+[**putSensorLocation**](SensorsApi.md#putSensorLocation) | **PUT** /sensors/{sensor_id}/location | insert location
+[**putSensorName**](SensorsApi.md#putSensorName) | **PUT** /sensors/{sensor_id}/name | insert name
+[**putSensorOwner**](SensorsApi.md#putSensorOwner) | **PUT** /sensors/{sensor_id}/owner | insert owner
+[**getSensorMeasurements**](SensorsApi.md#getSensorMeasurements) | **GET** /sensors/{sensor_id}/measurements | get measurements
+[**addMeasurement**](SensorsApi.md#addMeasurement) | **POST** /sensors/{sensor_id}/measurements | insert new measurement
+[**deleteMeasurement**](SensorsApi.md#deleteMeasurement) | **DELETE** /sensors/{sensor_id}/measurements/{measurement_id} | Delete measurement
+[**putMeasurementQK**](SensorsApi.md#putMeasurementQK) | **PUT** /sensors/{sensor_id}/measurements/{measurement_id}/quantity_kind | put measurement quantity kind 
+[**getMeasurement**](SensorsApi.md#getMeasurement) | **GET** /sensors/{sensor_id}/measurements/{measurement_id} | get measurement
+[**putMeasurementName**](SensorsApi.md#putMeasurementName) | **PUT** /sensors/{sensor_id}/measurements/{measurement_id}/name | put measurement name
+[**putMeasurementSD**](SensorsApi.md#putMeasurementSD) | **PUT** /sensors/{sensor_id}/measurements/{measurement_id}/sensingDevice | insert sensor kind
+[**putMeasurementUnit**](SensorsApi.md#putMeasurementUnit) | **PUT** /sensors/{sensor_id}/measurements/{measurement_id}/unit | put measurement unit
+[**getMeasurementValues**](SensorsApi.md#getMeasurementValues) | **GET** /sensors/{sensor_id}/measurements/{measurement_id}/values | get measurement values
+[**addDatapoint**](SensorsApi.md#addDatapoint) | **POST** /sensors/{sensor_id}/measurements/{measurement_id}/values | Create new datapoint
 
 ## Preliminaries
 Insert this code in your file, before using any endpoint:
@@ -38,16 +38,15 @@ var apiInstance = new WaziupApi.SensorsApi();
 
 <a name="getSensors"></a>
 # **getSensors**
-> [Sensor] getSensors(domain, opts)
+> [Sensor] getSensors(opts)
 
 Sensor data
 
 ### Example
 
 ```javascript
-var domain = "domain_example";
 var opts = {'q': "owner=cdupont"} // filter the results
-let sensors = await apiInstance.getSensors(domain, opts);
+let sensors = await apiInstance.getSensors(opts);
 //You can use the sensors here
 ```
 
@@ -55,7 +54,6 @@ let sensors = await apiInstance.getSensors(domain, opts);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **String**|  | 
  **q** | **String**| filter the results | [optional] 
 
 ### Return type
@@ -73,7 +71,7 @@ Name | Type | Description  | Notes
 
 <a name="createSensor"></a>
 # **createSensor**
-> createSensor(domain, sensor)
+> createSensor(sensor)
 
 Create sensors
 
@@ -81,10 +79,9 @@ Endpoint to create sensing devices.
 
 ### Example
 ```javascript
-var domain = "domain_example";
 var sensor = new WaziupApi.Sensor("ID");
 sensor.name = ... //Set up the sensor here
-apiInstance.createSensors(domain, sensor);
+apiInstance.createSensors(sensor);
 ```
 
 ### Parameters
@@ -92,7 +89,6 @@ apiInstance.createSensors(domain, sensor);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**Sensor**](Sensor.md)|  | 
- **domain** | **String**|  | 
 
 ### Return type
 
@@ -109,22 +105,20 @@ null (empty response body)
 
 <a name="deleteSensor"></a>
 # **deleteSensor**
-> deleteSensor(domain, sensorId)
+> deleteSensor(sensorId)
 
 Delete sensor
 
 ### Example
 ```javascript
-var domain = "domain_example";
 var sensorID = "test"
-apiInstance.deleteSensor(domain, sensorID);
+apiInstance.deleteSensor(sensorID);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **String**|  | 
  **sensorId** | **String**|  | 
 
 ### Return type
@@ -142,15 +136,14 @@ null (empty response body)
 
 <a name="getSensor"></a>
 # **getSensor**
-> Sensor getSensor(domain, sensorId)
+> Sensor getSensor(sensorId)
 
 get sensor
 
 ### Example
 ```javascript
-var domain = "domain_example";
 var sensorID = "test"
-let sensor = await apiInstance.getSensor(domain, sensorID);
+let sensor = await apiInstance.getSensor(sensorID);
 //You can use the sensor here
 ```
 
@@ -158,7 +151,6 @@ let sensor = await apiInstance.getSensor(domain, sensorID);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **String**|  | 
  **sensorId** | **String**|  | 
 
 ### Return type
@@ -176,23 +168,21 @@ Name | Type | Description  | Notes
 
 <a name="putSensorLocation"></a>
 # **putSensorLocation**
-> putSensorLocation(domain, sensorId, body)
+> putSensorLocation(sensorId, body)
 
 insert location
 
 ### Example
 ```javascript
-var domain = "domain_example";
 var sensorID = "test"
 var location = new WaziupApi.Location(4.0, 1.0);
-apiInstance.putSensorLocation(domain, sensorID, location);
+apiInstance.putSensorLocation(sensorID, location);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **String**|  | 
  **sensorId** | **String**|  | 
  **body** | [**Location**](Location.md)|  | 
 
@@ -211,22 +201,20 @@ null (empty response body)
 
 <a name="getSensorMeasurements"></a>
 # **getSensorMeasurements**
-> [Measurement] getSensorMeasurements(domain, sensorId)
+> [Measurement] getSensorMeasurements(sensorId)
 
 get measurements
 
 ### Example
 ```javascript
-var domain = "domain_example";
 var sensorID = "test"
-var measurements = await apiInstance.getSensorMeasurements(domain, sensorID);
+var measurements = await apiInstance.getSensorMeasurements(sensorID);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **String**|  | 
  **sensorId** | **String**|  | 
 
 ### Return type
@@ -244,7 +232,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteMeasurement"></a>
 # **deleteMeasurement**
-> deleteMeasurement(domain, sensorId, measurementId)
+> deleteMeasurement(sensorId, measurementId)
 
 Delete measurement
 
@@ -252,17 +240,15 @@ Delete measurement
 
 ### Example
 ```javascript
-var domain = "domain_example";
 var sensorID = "test"
 var measID = "TC"
-var measurements = await apiInstance.deleteSensorMeasurement(domain, sensorID, measID);
+var measurements = await apiInstance.deleteSensorMeasurement(sensorID, measID);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **String**|  | 
  **sensorId** | **String**|  | 
  **measurementId** | **String**|  | 
 
@@ -281,23 +267,21 @@ null (empty response body)
 
 <a name="putMeasurementQuantityKind"></a>
 # **putMeasurementQuantityKind**
-> putMeasurementQuantityKind(domain, sensorId, measurementId, body)
+> putMeasurementQuantityKind(sensorId, measurementId, body)
 
 put measurement quantity kind 
 
 ### Example
 ```javascript
-var domain = "domain_example";
 var sensorID = "test"
 var measID = "TC"
-apiInstance.putMeasurementQuantityKind(domain, sensorID, measID, "Temperature");
+apiInstance.putMeasurementQuantityKind(sensorID, measID, "Temperature");
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **String**|  | 
  **sensorId** | **String**|  | 
  **measurementId** | **String**|  | 
  **body** | **String**|  | 
@@ -317,23 +301,21 @@ null (empty response body)
 
 <a name="getMeasurement"></a>
 # **getMeasurement**
-> Measurement getMeasurement(domain, sensorId, measurementId)
+> Measurement getMeasurement(sensorId, measurementId)
 
 get measurement
 
 ### Example
 ```javascript
-var domain = "domain_example";
 var sensorID = "test"
 var measID = "TC"
-var measurements = await apiInstance.getMeasurement(domain, sensorID, measID);
+var measurements = await apiInstance.getMeasurement(sensorID, measID);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **String**|  | 
  **sensorId** | **String**|  | 
  **measurementId** | **String**|  | 
 
@@ -352,23 +334,21 @@ Name | Type | Description  | Notes
 
 <a name="putMeasurementName"></a>
 # **putMeasurementName**
-> putMeasurementName(domain, sensorId, measurementId, body)
+> putMeasurementName(sensorId, measurementId, body)
 
 put measurement name
 
 ### Example
 ```javascript
-var domain = "domain_example";
 var sensorID = "test"
 var measID = "TC"
-apiInstance.putMeasurementName(domain, sensorID, "My temperature");
+apiInstance.putMeasurementName(sensorID, "My temperature");
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **String**|  | 
  **sensorId** | **String**|  | 
  **measurementId** | **String**|  | 
  **body** | **String**|  | 
@@ -388,23 +368,21 @@ null (empty response body)
 
 <a name="putMeasurementSensorKind"></a>
 # **putMeasurementSensorKind**
-> putMeasurementSensorKind(domain, sensorId, measurementId, body)
+> putMeasurementSensorKind(sensorId, measurementId, body)
 
 insert sensor kind
 
 ### Example
 ```javascript
-var domain = "domain_example";
 var sensorID = "test"
 var measID = "TC"
-apiInstance.putMeasurementSensorKind(domain, sensorID, measID, "Thermometer");
+apiInstance.putMeasurementSensorKind(sensorID, measID, "Thermometer");
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **String**|  | 
  **sensorId** | **String**|  | 
  **measurementId** | **String**|  | 
  **body** | **String**|  | 
@@ -424,23 +402,21 @@ null (empty response body)
 
 <a name="putMeasurementUnit"></a>
 # **putMeasurementUnit**
-> putMeasurementUnit(domain, sensorId, measurementId, body)
+> putMeasurementUnit(sensorId, measurementId, body)
 
 put measurement unit
 
 ### Example
 ```javascript
-var domain = "domain_example";
 var sensorID = "test"
 var measID = "TC"
-apiInstance.putMeasurementUnit(domain, sensorID, measID, "DegreeCelcius");
+apiInstance.putMeasurementUnit(sensorID, measID, "DegreeCelcius");
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **String**|  | 
  **sensorId** | **String**|  | 
  **measurementId** | **String**|  | 
  **body** | **String**|  | 
@@ -460,13 +436,12 @@ null (empty response body)
 
 <a name="getMeasurementValues"></a>
 # **getMeasurementValues**
-> [MeasurementValue] getMeasurementValues(domain, sensorId, measurementId, options)
+> [MeasurementValue] getMeasurementValues(sensorId, measurementId, options)
 
 get measurement values
 
 ### Example
 ```javascript
-var domain = "domain_example";
 var sensorID = "test"
 var measID = "TC"
 //Options for fetching the values. Use either 'lastN' or ('limit', 'offset'). dateFrom and dataTo can be use to further limit the time window.
@@ -477,14 +452,13 @@ var opts = {
   'dateFrom': "2016-01-01T00:00:00.000Z", // String | The starting date and time from which the entries are desired. It is an optional parameter.
   'dateTo': "2019-01-31T23:59:59.999Z" // String | The final date and time until which the entries are desired. It is an optional parameter.
 };
-var values = await apiInstance.getMeasurementValues(domain, sensorID, measID, opts);
+var values = await apiInstance.getMeasurementValues(sensorID, measID, opts);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **String**|  | 
  **sensorId** | **String**|  | 
  **measurementId** | **String**|  |
  **lastN** | **String**| get the last N entries, most recent first. Default value is 20. | [optional] 
@@ -508,24 +482,22 @@ Name | Type | Description  | Notes
 
 <a name="addDatapoint"></a>
 # **addDatapoint**
-> addDatapoint(domain, sensorId, measurementId, datapoint)
+> addDatapoint(sensorId, measurementId, datapoint)
 
 Create new datapoint
 
 ### Example
 ```javascript
-var domain = "domain_example";
 var sensorID = "test"
 var measID = "TC"
 var value = new WaziupApi.MeasurementValue("25.6", "2018-03-15T15:27:17+01:00");
-apiInstance.addDatapoint(domain, sensorID, measID, value);
+apiInstance.addDatapoint(sensorID, measID, value);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **String**|  | 
  **sensorId** | **String**|  | 
  **measurementId** | **String**|  | 
  **value** | [**MeasurementValue**](MeasurementValue.md)|  | 
@@ -545,23 +517,21 @@ null (empty response body)
 
 <a name="addMeasurement"></a>
 # **addMeasurement**
-> addMeasurement(domain, sensorId, body)
+> addMeasurement(sensorId, body)
 
 insert new measurement
 
 ### Example
 ```javascript
-var domain = "domain_example";
 var sensorID = "test"
 var meas = new WaziupApi.Measurement("TC");
-apiInstance.addMeasurement(domain, sensorID, meas);
+apiInstance.addMeasurement(sensorID, meas);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **String**|  | 
  **sensorId** | **String**|  | 
  **body** | [**Measurement**](Measurement.md)|  | 
 
@@ -580,22 +550,20 @@ null (empty response body)
 
 <a name="putSensorName"></a>
 # **putSensorName**
-> putSensorName(domain, sensorId, body)
+> putSensorName(sensorId, body)
 
 insert name
 
 ### Example
 ```javascript
-var domain = "domain_example";
 var sensorID = "test"
-apiInstance.putSensorName(domain, sensorID, "My Sensor 1");
+apiInstance.putSensorName(sensorID, "My Sensor 1");
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **String**|  | 
  **sensorId** | **String**|  | 
  **body** | **String**|  | 
 
@@ -614,22 +582,20 @@ null (empty response body)
 
 <a name="putSensorOwner"></a>
 # **putSensorOwner**
-> putSensorOwner(domain, sensorId, body)
+> putSensorOwner(sensorId, body)
 
 insert owner
 
 ### Example
 ```javascript
-var domain = "domain_example";
 var sensorID = "test"
-apiInstance.putSensorOwner(domain, sensorID, "cdupont");
+apiInstance.putSensorOwner(sensorID, "cdupont");
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain** | **String**|  | 
  **sensorId** | **String**|  | 
  **body** | **String**|  | 
 

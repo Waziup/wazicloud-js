@@ -17,16 +17,10 @@ var exports = function(apiClient) {
 
   /**
    * post several message to social networks
-   * @param {String} domain 
    * @param {module:model/SocialMessageBatch} data social message
    */
-  this.createSocialMsgsBatch = async function(domain, data) {
+  this.createSocialMsgsBatch = async function(data) {
     var postBody = data;
-
-    // verify the required parameter 'domain' is set
-    if (domain === undefined || domain === null) {
-      throw("Missing the required parameter 'domain'");
-    }
 
     // verify the required parameter 'data' is set
     if (data === undefined || data === null) {
@@ -34,7 +28,6 @@ var exports = function(apiClient) {
     }
 
     var pathParams = {
-      'domain': domain
     };
     var queryParams = {};
     var headerParams = {};
@@ -46,26 +39,19 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/domains/{domain}/socials/batch', 'POST',
+      '/socials/batch', 'POST',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * Get all messages sent
-   * @param {String} domain 
    * data is of type: {@link module:model/SocialMessage}
    */
-  this.getSocialMsgs = async function(domain) {
+  this.getSocialMsgs = async function() {
     var postBody = null;
 
-    // verify the required parameter 'domain' is set
-    if (domain === undefined || domain === null) {
-      throw("Missing the required parameter 'domain'");
-    }
-
     var pathParams = {
-      'domain': domain
     };
     var queryParams = {};
     var headerParams = {};
@@ -77,23 +63,17 @@ var exports = function(apiClient) {
     var returnType = SocialMessage;
 
     return this.apiClient.callApi(
-      '/domains/{domain}/socials', 'GET',
+      '/socials', 'GET',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * delete a message to social networks
-   * @param {String} domain 
    * @param {String} msgId 
    */
-  this.deleteSocialsMsg = async function(domain, msgId) {
+  this.deleteSocialsMsg = async function(msgId) {
     var postBody = null;
-
-    // verify the required parameter 'domain' is set
-    if (domain === undefined || domain === null) {
-      throw("Missing the required parameter 'domain'");
-    }
 
     // verify the required parameter 'msgId' is set
     if (msgId === undefined || msgId === null) {
@@ -102,7 +82,6 @@ var exports = function(apiClient) {
 
 
     var pathParams = {
-      'domain': domain,
       'msg_id': msgId
     };
     var queryParams = {};
@@ -115,24 +94,18 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/domains/{domain}/socials/{msg_id}', 'DELETE',
+      '/socials/{msg_id}', 'DELETE',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * Get one message
-   * @param {String} domain 
    * @param {String} msgId 
    * data is of type: {@link module:model/SocialMessage}
    */
-  this.getSocialsMsg = async function(domain, msgId) {
+  this.getSocialsMsg = async function(msgId) {
     var postBody = null;
-
-    // verify the required parameter 'domain' is set
-    if (domain === undefined || domain === null) {
-      throw("Missing the required parameter 'domain'");
-    }
 
     // verify the required parameter 'msgId' is set
     if (msgId === undefined || msgId === null) {
@@ -141,7 +114,6 @@ var exports = function(apiClient) {
 
 
     var pathParams = {
-      'domain': domain,
       'msg_id': msgId
     };
     var queryParams = {};
@@ -154,23 +126,17 @@ var exports = function(apiClient) {
     var returnType = SocialMessage;
 
     return this.apiClient.callApi(
-      '/domains/{domain}/socials/{msg_id}', 'GET',
+      '/socials/{msg_id}', 'GET',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * post a message to social networks
-   * @param {String} domain 
    * @param {module:model/SocialMessage} data social message
    */
-  this.createSocialMsg = async function(domain, data) {
+  this.createSocialMsg = async function(data) {
     var postBody = data;
-
-    // verify the required parameter 'domain' is set
-    if (domain === undefined || domain === null) {
-      throw("Missing the required parameter 'domain'");
-    }
 
     // verify the required parameter 'data' is set
     if (data === undefined || data === null) {
@@ -179,7 +145,6 @@ var exports = function(apiClient) {
 
 
     var pathParams = {
-      'domain': domain
     };
     var queryParams = {};
     var headerParams = {};
@@ -191,7 +156,7 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/domains/{domain}/socials', 'POST',
+      '/socials', 'POST',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }

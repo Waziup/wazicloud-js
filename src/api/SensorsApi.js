@@ -19,21 +19,15 @@ var exports = function(apiClient) {
   /**
    * Sensor data
    * 
-   * @param {String} domain 
    * @param {Object} opts Optional parameters
    * @param {String} opts.q filter the results
    * data is of type: {@link Array.<module:model/Sensor>}
    */
-  this.getSensors = async function(domain, opts) {
+  this.getSensors = async function(opts) {
     opts = opts || {};
     var postBody = null;
 
-    // verify the required parameter 'domain' is set
-    if (domain === undefined || domain === null) {
-      throw("Missing the required parameter 'domain' when calling getSensors");
-    }
-
-    var pathParams = {'domain': domain};
+    var pathParams = {};
     var queryParams = {'q':      opts['q'],
                        'limit':  opts['limit'],
                        'offset': opts['offset']};
@@ -46,7 +40,7 @@ var exports = function(apiClient) {
     var returnType = [Sensor];
 
     return this.apiClient.callApi(
-      '/domains/{domain}/sensors', 'GET',
+      '/sensors', 'GET',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType)
   }
@@ -55,9 +49,8 @@ var exports = function(apiClient) {
    * Create sensors
    * Endpoint to create sensing devices.
    * @param {module:model/Sensor} body 
-   * @param {String} domain 
    */
-  this.createSensor = async function(domain, body) {
+  this.createSensor = async function(body) {
     var postBody = body;
 
     // verify the required parameter 'body' is set
@@ -65,12 +58,7 @@ var exports = function(apiClient) {
       throw("Missing the required parameter 'body' when calling createSensor");
     }
 
-    // verify the required parameter 'domain' is set
-    if (domain === undefined || domain === null) {
-      throw("Missing the required parameter 'domain' when calling createSensor");
-    }
-
-    var pathParams = {'domain': domain};
+    var pathParams = {};
     var queryParams = {};
     var headerParams = {};
     var formParams = {};
@@ -81,7 +69,7 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/domains/{domain}/sensors', 'POST',
+      'sensors', 'POST',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
@@ -89,16 +77,10 @@ var exports = function(apiClient) {
   /**
    * Delete sensor
    * 
-   * @param {String} domain 
    * @param {String} sensorId 
    */
-  this.deleteSensor = async function(domain, sensorId) {
+  this.deleteSensor = async function(sensorId) {
     var postBody = null;
-
-    // verify the required parameter 'domain' is set
-    if (domain === undefined || domain === null) {
-      throw("Missing the required parameter 'domain' when calling deleteSensor");
-    }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
@@ -107,7 +89,6 @@ var exports = function(apiClient) {
 
 
     var pathParams = {
-      'domain': domain,
       'sensor_id': sensorId
     };
     var queryParams = {};
@@ -120,7 +101,7 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/domains/{domain}/sensors/{sensor_id}', 'DELETE',
+      '/sensors/{sensor_id}', 'DELETE',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
@@ -128,17 +109,11 @@ var exports = function(apiClient) {
   /**
    * get sensor
    * 
-   * @param {String} domain 
    * @param {String} sensorId 
    * data is of type: {@link module:model/Sensor}
    */
-  this.getSensor = async function(domain, sensorId) {
+  this.getSensor = async function(sensorId) {
     var postBody = null;
-
-    // verify the required parameter 'domain' is set
-    if (domain === undefined || domain === null) {
-      throw("Missing the required parameter 'domain' when calling getSensor");
-    }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
@@ -147,7 +122,6 @@ var exports = function(apiClient) {
 
 
     var pathParams = {
-      'domain': domain,
       'sensor_id': sensorId
     };
     var queryParams = {};
@@ -160,24 +134,18 @@ var exports = function(apiClient) {
     var returnType = Sensor;
 
     return this.apiClient.callApi(
-      '/domains/{domain}/sensors/{sensor_id}', 'GET',
+      '/sensors/{sensor_id}', 'GET',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * insert location
-   * @param {String} domain 
    * @param {String} sensorId 
    * @param {module:model/Location} body 
    */
-  this.putSensorLocation = async function(domain, sensorId, body) {
+  this.putSensorLocation = async function(sensorId, body) {
     var postBody = body;
-
-    // verify the required parameter 'domain' is set
-    if (domain === undefined || domain === null) {
-      throw("Missing the required parameter 'domain' when calling putSensorLocation");
-    }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
@@ -191,7 +159,6 @@ var exports = function(apiClient) {
 
 
     var pathParams = {
-      'domain': domain,
       'sensor_id': sensorId
     };
     var queryParams = {};
@@ -204,24 +171,18 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/domains/{domain}/sensors/{sensor_id}/location', 'PUT',
+      '/sensors/{sensor_id}/location', 'PUT',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * get measurements
-   * @param {String} domain 
    * @param {String} sensorId 
    * data is of type: {@link Array.<module:model/Measurement>}
    */
-  this.getSensorMeasurements = async function(domain, sensorId) {
+  this.getSensorMeasurements = async function(sensorId) {
     var postBody = null;
-
-    // verify the required parameter 'domain' is set
-    if (domain === undefined || domain === null) {
-      throw("Missing the required parameter 'domain' when calling getSensorMeasurements");
-    }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
@@ -230,7 +191,6 @@ var exports = function(apiClient) {
 
 
     var pathParams = {
-      'domain': domain,
       'sensor_id': sensorId
     };
     var queryParams = {};
@@ -243,7 +203,7 @@ var exports = function(apiClient) {
     var returnType = [Measurement];
 
     return this.apiClient.callApi(
-      '/domains/{domain}/sensors/{sensor_id}/measurements', 'GET',
+      '/sensors/{sensor_id}/measurements', 'GET',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
@@ -251,18 +211,12 @@ var exports = function(apiClient) {
   /**
    * Delete measurement
    * 
-   * @param {String} domain 
    * @param {String} sensorId 
    * @param {String} measurementId 
    * @param {module:api/SensorsApi~deleteMeasurementCallback} callback The callback function, accepting three arguments: error, data, response
    */
-  this.deleteMeasurement = async function(domain, sensorId, measurementId) {
+  this.deleteMeasurement = async function(sensorId, measurementId) {
     var postBody = null;
-
-    // verify the required parameter 'domain' is set
-    if (domain === undefined || domain === null) {
-      throw("Missing the required parameter 'domain' when calling deleteMeasurement");
-    }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
@@ -276,7 +230,6 @@ var exports = function(apiClient) {
 
 
     var pathParams = {
-      'domain': domain,
       'sensor_id': sensorId,
       'measurement_id': measurementId
     };
@@ -290,25 +243,19 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}', 'DELETE',
+      '/sensors/{sensor_id}/measurements/{measurement_id}', 'DELETE',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * put measurement quantity kind 
-   * @param {String} domain 
    * @param {String} sensorId 
    * @param {String} measurementId 
    * @param {String} body 
    */
-  this.putMeasurementQK = async function(domain, sensorId, measurementId, body) {
+  this.putMeasurementQK = async function(sensorId, measurementId, body) {
     var postBody = body;
-
-    // verify the required parameter 'domain' is set
-    if (domain === undefined || domain === null) {
-      throw("Missing the required parameter 'domain' when calling putMeasurementQK");
-    }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
@@ -327,7 +274,6 @@ var exports = function(apiClient) {
 
 
     var pathParams = {
-      'domain': domain,
       'sensor_id': sensorId,
       'measurement_id': measurementId
     };
@@ -341,25 +287,19 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/quantity_kind', 'PUT',
+      '/sensors/{sensor_id}/measurements/{measurement_id}/quantity_kind', 'PUT',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * get measurement
-   * @param {String} domain 
    * @param {String} sensorId 
    * @param {String} measurementId 
    * data is of type: {@link module:model/Measurement}
    */
-  this.getMeasurement = async function(domain, sensorId, measurementId) {
+  this.getMeasurement = async function(sensorId, measurementId) {
     var postBody = null;
-
-    // verify the required parameter 'domain' is set
-    if (domain === undefined || domain === null) {
-      throw("Missing the required parameter 'domain' when calling getMeasurement");
-    }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
@@ -373,7 +313,6 @@ var exports = function(apiClient) {
 
 
     var pathParams = {
-      'domain': domain,
       'sensor_id': sensorId,
       'measurement_id': measurementId
     };
@@ -387,25 +326,19 @@ var exports = function(apiClient) {
     var returnType = Measurement;
 
     return this.apiClient.callApi(
-      '/domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}', 'GET',
+      '/sensors/{sensor_id}/measurements/{measurement_id}', 'GET',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * put measurement name
-   * @param {String} domain 
    * @param {String} sensorId 
    * @param {String} measurementId 
    * @param {String} body 
    */
-  this.putMeasurementName = async function(domain, sensorId, measurementId, body) {
+  this.putMeasurementName = async function(sensorId, measurementId, body) {
     var postBody = body;
-
-    // verify the required parameter 'domain' is set
-    if (domain === undefined || domain === null) {
-      throw("Missing the required parameter 'domain' when calling putMeasurementName");
-    }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
@@ -424,7 +357,6 @@ var exports = function(apiClient) {
 
 
     var pathParams = {
-      'domain': domain,
       'sensor_id': sensorId,
       'measurement_id': measurementId
     };
@@ -438,25 +370,19 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/name', 'PUT',
+      '/sensors/{sensor_id}/measurements/{measurement_id}/name', 'PUT',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * insert sensor kind
-   * @param {String} domain 
    * @param {String} sensorId 
    * @param {String} measurementId 
    * @param {String} body 
    */
-  this.putMeasurementSensorKind = async function(domain, sensorId, measurementId, body) {
+  this.putMeasurementSensorKind = async function(sensorId, measurementId, body) {
     var postBody = body;
-
-    // verify the required parameter 'domain' is set
-    if (domain === undefined || domain === null) {
-      throw("Missing the required parameter 'domain' when calling putMeasurementSensorKind");
-    }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
@@ -475,7 +401,6 @@ var exports = function(apiClient) {
 
 
     var pathParams = {
-      'domain': domain,
       'sensor_id': sensorId,
       'measurement_id': measurementId
     };
@@ -489,25 +414,19 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/sensing_device', 'PUT',
+      '/sensors/{sensor_id}/measurements/{measurement_id}/sensing_device', 'PUT',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * put measurement unit
-   * @param {String} domain 
    * @param {String} sensorId 
    * @param {String} measurementId 
    * @param {String} body 
    */
-  this.putMeasurementUnit = async function(domain, sensorId, measurementId, body) {
+  this.putMeasurementUnit = async function(sensorId, measurementId, body) {
     var postBody = body;
-
-    // verify the required parameter 'domain' is set
-    if (domain === undefined || domain === null) {
-      throw("Missing the required parameter 'domain' when calling putMeasurementUnit");
-    }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
@@ -526,7 +445,6 @@ var exports = function(apiClient) {
 
 
     var pathParams = {
-      'domain': domain,
       'sensor_id': sensorId,
       'measurement_id': measurementId
     };
@@ -540,14 +458,13 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/unit', 'PUT',
+      '/sensors/{sensor_id}/measurements/{measurement_id}/unit', 'PUT',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * get measurement values
-   * @param {String} domain 
    * @param {String} sensorId 
    * @param {String} measurementId
    * @param {Object} opts Optional parameters
@@ -558,13 +475,8 @@ var exports = function(apiClient) {
    * @param {String} opts.dateTo The final date and time until which the entries are desired. It is an optional parameter. 
    * data is of type: {@link Array.<module:model/MeasurementValue>}
    */
-  this.getMeasurementValues = async function(domain, sensorId, measurementId, opts) {
+  this.getMeasurementValues = async function(sensorId, measurementId, opts) {
     var postBody = null;
-
-    // verify the required parameter 'domain' is set
-    if (domain === undefined || domain === null) {
-      throw("Missing the required parameter 'domain' when calling getMeasurementValues");
-    }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
@@ -577,7 +489,6 @@ var exports = function(apiClient) {
     }
 
     var pathParams = {
-      'domain': domain,
       'sensor_id': sensorId,
       'measurement_id': measurementId
     };
@@ -597,25 +508,19 @@ var exports = function(apiClient) {
     var returnType = [MeasurementValue];
 
     return this.apiClient.callApi(
-      '/domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/values', 'GET',
+      '/sensors/{sensor_id}/measurements/{measurement_id}/values', 'GET',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * Create new datapoint
-   * @param {String} domain 
    * @param {String} sensorId 
    * @param {String} measurementId 
    * @param {module:model/MeasurementValue} body 
    */
-  this.addDatapoint = async function(domain, sensorId, measurementId, body) {
+  this.addDatapoint = async function(sensorId, measurementId, body) {
     var postBody = body;
-
-    // verify the required parameter 'domain' is set
-    if (domain === undefined || domain === null) {
-      throw("Missing the required parameter 'domain' when calling addDatapoint");
-    }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
@@ -634,7 +539,6 @@ var exports = function(apiClient) {
 
 
     var pathParams = {
-      'domain': domain,
       'sensor_id': sensorId,
       'measurement_id': measurementId
     };
@@ -648,24 +552,18 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/domains/{domain}/sensors/{sensor_id}/measurements/{measurement_id}/values', 'POST',
+      '/sensors/{sensor_id}/measurements/{measurement_id}/values', 'POST',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * insert new measurement
-   * @param {String} domain 
    * @param {String} sensorId 
    * @param {module:model/Measurement} body 
    */
-  this.addMeasurement = async function(domain, sensorId, body) {
+  this.addMeasurement = async function(sensorId, body) {
     var postBody = body;
-
-    // verify the required parameter 'domain' is set
-    if (domain === undefined || domain === null) {
-      throw("Missing the required parameter 'domain' when calling addMeasurement");
-    }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
@@ -679,7 +577,6 @@ var exports = function(apiClient) {
 
 
     var pathParams = {
-      'domain': domain,
       'sensor_id': sensorId
     };
     var queryParams = {};
@@ -692,24 +589,18 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/domains/{domain}/sensors/{sensor_id}/measurements', 'POST',
+      '/sensors/{sensor_id}/measurements', 'POST',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * insert name
-   * @param {String} domain 
    * @param {String} sensorId 
    * @param {String} body 
    */
-  this.putSensorName = async function(domain, sensorId, body) {
+  this.putSensorName = async function(sensorId, body) {
     var postBody = body;
-
-    // verify the required parameter 'domain' is set
-    if (domain === undefined || domain === null) {
-      throw("Missing the required parameter 'domain' when calling putSensorName");
-    }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
@@ -723,7 +614,6 @@ var exports = function(apiClient) {
 
 
     var pathParams = {
-      'domain': domain,
       'sensor_id': sensorId
     };
     var queryParams = {};
@@ -736,24 +626,18 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/domains/{domain}/sensors/{sensor_id}/name', 'PUT',
+      '/sensors/{sensor_id}/name', 'PUT',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * insert owner
-   * @param {String} domain 
    * @param {String} sensorId 
    * @param {String} body 
    */
-  this.putSensorOwner = async function(domain, sensorId, body) {
+  this.putSensorOwner = async function(sensorId, body) {
     var postBody = body;
-
-    // verify the required parameter 'domain' is set
-    if (domain === undefined || domain === null) {
-      throw("Missing the required parameter 'domain' when calling putSensorOwner");
-    }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
@@ -766,7 +650,6 @@ var exports = function(apiClient) {
     }
 
     var pathParams = {
-      'domain': domain,
       'sensor_id': sensorId
     };
     var queryParams = {};
@@ -779,24 +662,18 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/domains/{domain}/sensors/{sensor_id}/owner', 'PUT',
+      '/sensors/{sensor_id}/owner', 'PUT',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * insert visibility
-   * @param {String} domain 
    * @param {String} sensorId 
    * @param {String} body 
    */
-  this.putSensorVisility = async function(domain, sensorId, body) {
+  this.putSensorVisility = async function(sensorId, body) {
     var postBody = body;
-
-    // verify the required parameter 'domain' is set
-    if (domain === undefined || domain === null) {
-      throw("Missing the required parameter 'domain' when calling putSensorOwner");
-    }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
@@ -809,7 +686,6 @@ var exports = function(apiClient) {
     }
 
     var pathParams = {
-      'domain': domain,
       'sensor_id': sensorId
     };
     var queryParams = {};
@@ -822,23 +698,17 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/domains/{domain}/sensors/{sensor_id}/visibility', 'PUT',
+      '/sensors/{sensor_id}/visibility', 'PUT',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
   /**
    * insert gateway_id
-   * @param {String} domain 
    * @param {String} sensorId 
    * @param {String} body 
    */
-  this.putSensorGatewayId = async function(domain, sensorId, body) {
+  this.putSensorGatewayId = async function(sensorId, body) {
     var postBody = body;
-
-    // verify the required parameter 'domain' is set
-    if (domain === undefined || domain === null) {
-      throw("Missing the required parameter 'domain' when calling putSensorGatewayId");
-    }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
@@ -851,7 +721,6 @@ var exports = function(apiClient) {
     }
 
     var pathParams = {
-      'domain': domain,
       'sensor_id': sensorId
     };
     var queryParams = {};
@@ -864,7 +733,7 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/domains/{domain}/sensors/{sensor_id}/gateway_id', 'PUT',
+      '/sensors/{sensor_id}/gateway_id', 'PUT',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }

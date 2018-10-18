@@ -12,7 +12,6 @@ Install it via:
 npm install --save -g waziup-js
 ```
 
-
 ## Getting Started
 
 Here is an example code to retrieve all sensors from Waziup:
@@ -72,7 +71,6 @@ As a rule of thumb, you can only update or delete resources that you are owner o
 There are 5 endpoints:
 
  - [Sensors API](docs/SensorsApi.md)
- - [Domains API](docs/DomainsApi.md)
  - [Socials API](docs/SocialsApi.md)
  - [Notifications API](docs/NotificationsApi.md)
  - [Users API](docs/UsersApi.md)
@@ -81,7 +79,6 @@ There are 5 endpoints:
 ## Documentation for Models
 
  - [WaziupApi.AuthBody](docs/AuthBody.md)
- - [WaziupApi.Domain](docs/Domain.md)
  - [WaziupApi.Error](docs/Error.md)
  - [WaziupApi.HistoricalValue](docs/HistoricalValue.md)
  - [WaziupApi.Location](docs/Location.md)

@@ -16,19 +16,12 @@ var exports = function(apiClient) {
 
   /**
    * Get all notifications
-   * @param {String} domain 
    * data is of type: {@link Array.<module:model/Notification>}
    */
-  this.getNotifications = async function(domain) {
+  this.getNotifications = async function() {
     var postBody = null;
 
-    // verify the required parameter 'domain' is set
-    if (domain === undefined || domain === null) {
-      throw("Missing the required parameter 'domain' when calling getNotifications");
-    }
-
     var pathParams = {
-      'domain': domain
     };
     var queryParams = {};
     var headerParams = {};
@@ -40,23 +33,17 @@ var exports = function(apiClient) {
     var returnType = [Notification];
 
     return this.apiClient.callApi(
-      '/domains/{domain}/notifications', 'GET',
+      '/notifications', 'GET',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * delete a message to social networks
-   * @param {String} domain 
    * @param {String} notifId 
    */
-  this.deleteNotification = async function(domain, notifId) {
+  this.deleteNotification = async function(notifId) {
     var postBody = null;
-
-    // verify the required parameter 'domain' is set
-    if (domain === undefined || domain === null) {
-      throw("Missing the required parameter 'domain' when calling getNotificationsNotifIdDelete");
-    }
 
     // verify the required parameter 'notifId' is set
     if (notifId === undefined || notifId === null) {
@@ -65,7 +52,6 @@ var exports = function(apiClient) {
 
 
     var pathParams = {
-      'domain': domain,
       'notif_id': notifId
     };
     var queryParams = {};
@@ -78,24 +64,18 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/domains/{domain}/notifications/{notif_id}', 'DELETE',
+      '/notifications/{notif_id}', 'DELETE',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * Get one message
-   * @param {String} domain 
    * @param {String} notifId 
    * data is of type: {@link module:model/Notification}
    */
-  this.getNotification = async function(domain, notifId) {
+  this.getNotification = async function(notifId) {
     var postBody = null;
-
-    // verify the required parameter 'domain' is set
-    if (domain === undefined || domain === null) {
-      throw("Missing the required parameter 'domain' when calling getNotificationsNotifIdGet");
-    }
 
     // verify the required parameter 'notifId' is set
     if (notifId === undefined || notifId === null) {
@@ -104,7 +84,6 @@ var exports = function(apiClient) {
 
 
     var pathParams = {
-      'domain': domain,
       'notif_id': notifId
     };
     var queryParams = {};
@@ -117,23 +96,17 @@ var exports = function(apiClient) {
     var returnType = Notification;
 
     return this.apiClient.callApi(
-      '/domains/{domain}/notifications/{notif_id}', 'GET',
+      '/notifications/{notif_id}', 'GET',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * post a message to social networks
-   * @param {String} domain 
    * @param {module:model/Notification} data social message
    */
-  this.createNotification = async function(domain, data) {
+  this.createNotification = async function(data) {
     var postBody = data;
-
-    // verify the required parameter 'domain' is set
-    if (domain === undefined || domain === null) {
-      throw("Missing the required parameter 'domain' when calling getNotificationsPost");
-    }
 
     // verify the required parameter 'data' is set
     if (data === undefined || data === null) {
@@ -141,7 +114,6 @@ var exports = function(apiClient) {
     }
 
     var pathParams = {
-      'domain': domain
     };
     var queryParams = {};
     var headerParams = {};
@@ -153,7 +125,7 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/domains/{domain}/notifications', 'POST',
+      '/notifications', 'POST',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
