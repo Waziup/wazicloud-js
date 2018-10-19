@@ -7,7 +7,6 @@ import Measurement            from './model/Measurement'
 import MeasurementValue       from './model/MeasurementValue'
 import Notification           from './model/Notification'
 import NotificationCondition  from './model/NotificationCondition'
-import NotificationSubject    from './model/NotificationSubject'
 import QuantityKinds          from './model/QuantityKinds'
 import SensingDevices         from './model/SensingDevices'
 import Sensor                 from './model/Sensor'
@@ -92,11 +91,6 @@ import AuthApi                from './api/AuthApi'
    * @property {module:model/NotificationCondition}
    */
   NotificationCondition,
-  /**
-   * The NotificationSubject model constructor.
-   * @property {module:model/NotificationSubject}
-   */
-  NotificationSubject,
   /**
    * List of Quantity kinds
    * @property {module:model/QuantityKinds}
