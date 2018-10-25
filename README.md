@@ -44,7 +44,7 @@ You need a token to access protected resources. You can retrieve one like that:
 ```javascript
 const WaziupApi = require('waziup-js');
 
-WaziupApi.ApiClient.instance.basePath = 'http://dev.waziup.io/api/v1'
+WaziupApi.ApiClient.instance.basePath = 'https://api.waziup.io/api/v1'
 var sensorApi = new WaziupApi.SensorsApi()
 var authApi = new WaziupApi.AuthApi()
 
