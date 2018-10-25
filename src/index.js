@@ -132,8 +132,8 @@ import AuthApi                from './api/AuthApi'
    */
   UserUpdateBody,
   /**
-   * The DomainsApi service constructor.
-   * @property {module:api/DomainsApi}
+   * The Notifications service constructor.
+   * @property {module:api/NotificationsApi}
    */
   NotificationsApi,
   /**
