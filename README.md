@@ -19,10 +19,10 @@ Here is an example code to retrieve all sensors from Waziup:
 ```javascript
 const WaziupApi = require('waziup-js');
 
-WaziupApi.ApiClient.instance.basePath = 'http://dev.waziup.io/api/v1'
+WaziupApi.ApiClient.instance.basePath = 'https://api.waziup.io/api/v1'
 var api = new WaziupApi.SensorsApi()
 
-api.getSensors("waziup").then((sensors) =>{
+api.getSensors().then((sensors) =>{
     console.log('List of sensors: ', JSON.stringify(sensors));
 })
 
@@ -54,7 +54,7 @@ async function testDelete() {
   WaziupApi.ApiClient.instance.authentications['Bearer'].apiKey = 'Bearer ' + token
   
   try {
-    await sensorApi.deleteSensor("waziup", "MySensor")
+    await sensorApi.deleteSensor("MySensor")
   } catch (error) {
     console.log("Error " + error.status)
   }
@@ -63,7 +63,7 @@ async function testDelete() {
 testDelete()
 ```
 
-You should create a user beforehand on http://dev.waziup.io:3000.
+You should create a user beforehand on https://dashboard.waziup.io.
 As a rule of thumb, you can only update or delete resources that you are owner of.
 
 ## Documentation for API Endpoints
