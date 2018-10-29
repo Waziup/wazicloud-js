@@ -23,7 +23,7 @@ exports.constructFromObject = function(data, obj) {
     obj = obj || new exports();
 
     if (data.hasOwnProperty('value')) {
-      obj['value'] = ApiClient.convertToType(data['value'], 'Number');
+      obj['value'] = ApiClient.convertToType(data['value'], 'Blob');
     }
     if (data.hasOwnProperty('timestamp')) {
       obj['timestamp'] = ApiClient.convertToType(data['timestamp'], 'String');
