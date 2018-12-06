@@ -25,7 +25,13 @@ Bearer.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Bearer.apiKeyPrefix = 'Token';
 
-var apiInstance = new WaziupApi.UsersApi();
+//Options for fetching the values. Use ('limit', 'offset').
+var opts = { 
+  'limit': "50", // String | In case of pagination, number of entris per page
+  'offset': "0", // String | In case of pagination, offset for the starting entry
+};
+
+var apiInstance = new WaziupApi.UsersApi(opts);
 
 
 var callback = function(error, data, response) {
@@ -37,6 +43,12 @@ var callback = function(error, data, response) {
 };
 apiInstance.UsersGet(, , callback);
 ```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **String**| In case of pagination, number of entris per page | [optional] 
+ **offset** | **String**| In case of pagination, offset for the starting entry | [optional] 
 
 ### Return type
 
