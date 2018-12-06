@@ -16,12 +16,14 @@ var exports = function(apiClient) {
   /**
    * Get all users in a realm
    */
-  this.getUsers = async function() {
+  this.getUsers = async function(opts) {
+    opts = opts || {};
     var postBody = null;
 
     var pathParams = {
     };
-    var queryParams = {};
+    var queryParams = {'limit':  opts['limit'],
+                       'offset': opts['offset']};
     var headerParams = {};
     var formParams = {};
 
