@@ -5,12 +5,11 @@ All URIs are relative to *http://127.0.0.1:8000/api/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**UsersGet**](UsersApi.md#UsersGet) | **GET** /users/ | Get all users in a realm
-[**UsersSearchGet**](UsersApi.md#UsersSearchGet) | **GET** /users/search/ | Search users with specific criteria
 [**UsersUseridGet**](UsersApi.md#UsersUseridGet) | **GET** /users/{userid} | 
 
 <a name="UsersGet"></a>
 # **UsersGet**
-> UsersGet()
+> UsersGet(opts)
 
 Get all users in a realm
 
@@ -64,46 +63,6 @@ null (empty response body)
  - **Accept**: application/json
 
 
-<a name="UsersSearchGet"></a>
-# **UsersSearchGet**
-> UsersSearchGet()
-
-Search users with specific criteria
-
-### Example
-```javascript
-var WaziupApi = require('waziup_api');
-var defaultClient = WaziupApi.ApiClient.instance;
-
-// Configure API key authorization: Bearer
-var Bearer = defaultClient.authentications['Bearer'];
-Bearer.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Bearer.apiKeyPrefix = 'Token';
-
-var apiInstance = new WaziupApi.UsersApi();
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-apiInstance.UsersSearchGet(, callback);
-```
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
 
 <a name="UsersUseridGet"></a>
 # **UsersUseridGet**
