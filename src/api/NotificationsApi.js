@@ -18,12 +18,14 @@ var exports = function(apiClient) {
    * Get all notifications
    * data is of type: {@link Array.<module:model/Notification>}
    */
-  this.getNotifications = async function() {
+  this.getNotifications = async function(opts) {
+    opts = opts || {};
     var postBody = null;
 
     var pathParams = {
     };
-    var queryParams = {};
+    var queryParams = {'limit':  opts['limit'],
+                       'offset': opts['offset']};
     var headerParams = {};
     var formParams = {};
 
