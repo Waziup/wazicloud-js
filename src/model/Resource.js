@@ -8,10 +8,10 @@ import ApiClient from '../ApiClient';
  */
 var exports = {
   /**
-   * value: "Sensors"
+   * value: "Devices"
    * @const
    */
-  "Sensors": "Sensors",
+  "Devices": "Devices",
   /**
    * value: "Domains"
    * @const

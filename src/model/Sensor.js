@@ -1,18 +1,16 @@
 'use strict';
 import ApiClient from '../ApiClient';
-import Location from './Location';
-import Measurement from './Measurement';
+import SensorValue from './SensorValue';
 
 /**
  * Constructs a new <code>Sensor</code>.
  * @alias module:model/Sensor
  * @class
- * @param id {String} Unique ID of the sensor node
  */
-var exports = function(id) {
+var exports = function(senId) {
   var _this = this;
 
-  _this['id'] = id;
+  _this['senId'] = senId;
 
 };
 
@@ -27,90 +25,58 @@ exports.constructFromObject = function(data, obj) {
   if (data) {
     obj = obj || new exports();
 
-    if (data.hasOwnProperty('id')) {
-      obj['id'] = ApiClient.convertToType(data['id'], 'String');
+    if (data.hasOwnProperty('senId')) {
+      obj['senId'] = ApiClient.convertToType(data['senId'], 'String');
     }
-    if (data.hasOwnProperty('gateway_id')) {
-      obj['gateway_id'] = ApiClient.convertToType(data['gateway_id'], 'String');
+    if (data.hasOwnProperty('senName')) {
+      obj['senName'] = ApiClient.convertToType(data['senName'], 'String');
     }
-    if (data.hasOwnProperty('name')) {
-      obj['name'] = ApiClient.convertToType(data['name'], 'String');
+    if (data.hasOwnProperty('senValue')) {
+      obj['senValue'] = SensorValue.constructFromObject(data['senValue']);
     }
-    if (data.hasOwnProperty('owner')) {
-      obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
+    if (data.hasOwnProperty('senSensorKind')) {
+      obj['senSensorKind'] = ApiClient.convertToType(data['senSensorKind'], 'String');
     }
-    if (data.hasOwnProperty('visibility')) {
-      obj['visibility'] = ApiClient.convertToType(data['visibility'], 'String');
+    if (data.hasOwnProperty('senQuantityKind')) {
+      obj['senQuantityKind'] = ApiClient.convertToType(data['senQuantityKind'], 'String');
     }
-    if (data.hasOwnProperty('measurements')) {
-      obj['measurements'] = ApiClient.convertToType(data['measurements'], [Measurement]);
-    }
-    if (data.hasOwnProperty('location')) {
-      obj['location'] = Location.constructFromObject(data['location']);
-    }
-    if (data.hasOwnProperty('date_created')) {
-      obj['date_created'] = ApiClient.convertToType(data['date_created'], 'String');
-    }
-    if (data.hasOwnProperty('date_modified')) {
-      obj['date_modified'] = ApiClient.convertToType(data['date_modified'], 'String');
-    }
-    if (data.hasOwnProperty('domain')) {
-      obj['domain'] = ApiClient.convertToType(data['domain'], 'String');
+    if (data.hasOwnProperty('senUnit')) {
+      obj['senUnit'] = ApiClient.convertToType(data['senUnit'], 'String');
     }
   }
-  
   return obj;
 }
 
 /**
- * Unique ID of the sensor node
- * @member {String} id
+ * ID of the sensor
+ * @member {String} senId
  */
-exports.prototype['id'] = undefined;
+exports.prototype['senId'] = undefined;
 /**
- * Unique ID of the gateway
- * @member {String} gateway_id
+ * name of the sensor
+ * @member {String} senName
  */
-exports.prototype['gateway_id'] = undefined;
+exports.prototype['senName'] = undefined;
 /**
- * name of the sensor node
- * @member {String} name
+ * last value measured
+ * @member {model/SensorValue} senValue 
  */
-exports.prototype['name'] = undefined;
+exports.prototype['senValue'] = undefined;
 /**
- * owner of the sensor node
- * @member {String} owner
+ * quantity kind measured
+ * @member {model/QuantityKinds} senQuantityKind 
  */
-exports.prototype['owner'] = undefined;
+exports.prototype['senQuantityKind'] = undefined;
 /**
- * visibility of the sensor node (either "private" or "public")
- * @member {String} visibility
+ * unit of the sensor
+ * @member {model/Units} senUnit
  */
-exports.prototype['visibility'] = undefined;
+exports.prototype['senUnit'] = undefined;
 /**
- * @member {Array.<module:model/Measurement>} measurements
+ * kind of device providing the sensor
+ * @member {model/SensorKinds} senSensorKind 
  */
-exports.prototype['measurements'] = undefined;
-/**
- * @member {module:model/Location} location
- */
-exports.prototype['location'] = undefined;
-/**
- * date at which the sensor has been modified
- * @member {String} dateModified
- */
-exports.prototype['date_modified'] = undefined;
-/**
- * date at which the sensor has been created
- * @member {String} date_created
- */
-exports.prototype['date_created'] = undefined;
-/**
- * domain of the sensor
- * @member {String} domain
- */
-exports.prototype['domain'] = undefined;
-
+exports.prototype['senSensorKind'] = undefined;
 
 
 export default exports;

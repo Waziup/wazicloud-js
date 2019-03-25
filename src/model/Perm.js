@@ -23,24 +23,24 @@ import Scope from './Scope';
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('resource')) {
-        obj['resource'] = Resource.constructFromObject(data['resource']);
+      if (data.hasOwnProperty('permResource')) {
+        obj['permResource'] = Resource.constructFromObject(data['permResource']);
       }
-      if (data.hasOwnProperty('scopes')) {
-        obj['scopes'] = data['scopes'].map(s => Scope.constructFromObject(s));
+      if (data.hasOwnProperty('permScopes')) {
+        obj['permScopes'] = data['permScopes'].map(s => Scope.constructFromObject(s));
       }
     }
     return obj;
   }
 
   /**
-   * @member {module:model/Resource} resource
+   * @member {module:model/Resource} permResource
    */
-  exports.prototype['resource'] = undefined;
+  exports.prototype['permResource'] = undefined;
   /**
-   * @member {Array.<module:model/Scope>} scopes
+   * @member {Array.<module:model/Scope>} permScopes
    */
-  exports.prototype['scopes'] = undefined;
+  exports.prototype['permScopes'] = undefined;
 
 
 export default exports;

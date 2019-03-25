@@ -7,12 +7,12 @@ import ApiClient from '../ApiClient';
  * @alias module:model/NotificationCondition
  * @class
  */
-var exports = function(sensors, measurements, expression) {
+var exports = function(notifDevices, notifSensors, notifExpression) {
   var _this = this;
 
-  _this['sensors'] = sensors;
-  _this['measurements'] = measurements;
-  _this['expression'] = expression;
+  _this['notifDevices'] = notifDevices;
+  _this['notifSensors'] = notifSensors;
+  _this['notifExpression'] = notifExpression;
 
 
 };
@@ -28,30 +28,30 @@ exports.constructFromObject = function(data, obj) {
   if (data) {
     obj = obj || new exports();
 
-    if (data.hasOwnProperty('sensors')) {
-      obj['sensors'] = ApiClient.convertToType(data['sensors'], ['String']);
+    if (data.hasOwnProperty('notifDevices')) {
+      obj['notifDevices'] = ApiClient.convertToType(data['notifDevices'], ['String']);
     }
-    if (data.hasOwnProperty('measurements')) {
-      obj['measurements'] = ApiClient.convertToType(data['measurements'], ['String']);
+    if (data.hasOwnProperty('notifSensors')) {
+      obj['notifSensors'] = ApiClient.convertToType(data['notifSensors'], ['String']);
     }
-    if (data.hasOwnProperty('expression')) {
-      obj['expression'] = ApiClient.convertToType(data['expression'], 'String');
+    if (data.hasOwnProperty('notifExpression')) {
+      obj['notifExpression'] = ApiClient.convertToType(data['notifExpression'], 'String');
     }
   }
   return obj;
 }
 
 /**
- * @member {Array.<String>} sensors
+ * @member {Array.<String>} notifDevices
  */
-exports.prototype['sensors'] = undefined;
+exports.prototype['notifDevices'] = undefined;
 /**
- * @member {Array.<String>} measurementss
+ * @member {Array.<String>} notifSensors
  */
-exports.prototype['meaurements'] = undefined;
+exports.prototype['notifSensors'] = undefined;
 /**
- * @member {String} expression
+ * @member {String} notifExpression
  */
-exports.prototype['expression'] = undefined;
+exports.prototype['notifExpression'] = undefined;
 
 export default exports;

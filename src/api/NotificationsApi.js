@@ -1,7 +1,7 @@
 'use strict';
 import ApiClient from '../ApiClient'
 import Error from '../model/Error'
-import Notification from '../model/Notification'
+import Notification from '../model/Notif'
 
 /**
  * Constructs a new NotificationsApi. 

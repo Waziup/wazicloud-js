@@ -6,10 +6,10 @@ import ApiClient from '../ApiClient';
  * @alias module:model/User
  * @class
  */
-var exports = function(id) {
+var exports = function(userId) {
   var _this = this;
 
-  _this['id'] = id;
+  _this['userId'] = userId;
 
 };
 
@@ -24,35 +24,35 @@ exports.constructFromObject = function(data, obj) {
   if (data) {
     obj = obj || new exports();
 
-    if (data.hasOwnProperty('id')) {
-      obj['id'] = ApiClient.convertToType(data['id'], 'String');
+    if (data.hasOwnProperty('userId')) {
+      obj['userId'] = ApiClient.convertToType(data['userId'], 'String');
     }
-    if (data.hasOwnProperty('username')) {
-      obj['username'] = ApiClient.convertToType(data['username'], 'String');
+    if (data.hasOwnProperty('userUsername')) {
+      obj['userUsername'] = ApiClient.convertToType(data['userUsername'], 'String');
     }
-    if (data.hasOwnProperty('firstName')) {
-      obj['firstName'] = ApiClient.convertToType(data['firstName'], 'String');
+    if (data.hasOwnProperty('userFirstName')) {
+      obj['userFirstName'] = ApiClient.convertToType(data['userFirstName'], 'String');
     }
-    if (data.hasOwnProperty('lastName')) {
-      obj['lastName'] = ApiClient.convertToType(data['lastName'], 'String');
+    if (data.hasOwnProperty('userLastName')) {
+      obj['userLastName'] = ApiClient.convertToType(data['userLastName'], 'String');
     }
     if (data.hasOwnProperty('subservice')) {
       obj['subservice'] = ApiClient.convertToType(data['subservice'], 'String');
     }
-    if (data.hasOwnProperty('email')) {
-      obj['email'] = ApiClient.convertToType(data['email'], 'String');
+    if (data.hasOwnProperty('userEmail')) {
+      obj['userEmail'] = ApiClient.convertToType(data['userEmail'], 'String');
     }
-    if (data.hasOwnProperty('phone')) {
-      obj['phone'] = ApiClient.convertToType(data['phone'], 'String');
+    if (data.hasOwnProperty('userPhone')) {
+      obj['userPhone'] = ApiClient.convertToType(data['userPhone'], 'String');
     }
     if (data.hasOwnProperty('address')) {
       obj['address'] = ApiClient.convertToType(data['address'], 'String');
     }
-    if (data.hasOwnProperty('facebook')) {
-      obj['facebook'] = ApiClient.convertToType(data['facebook'], 'String');
+    if (data.hasOwnProperty('userFacebook')) {
+      obj['userFacebook'] = ApiClient.convertToType(data['userFacebook'], 'String');
     }
-    if (data.hasOwnProperty('twitter')) {
-      obj['twitter'] = ApiClient.convertToType(data['twitter'], 'String');
+    if (data.hasOwnProperty('userTwitter')) {
+      obj['userTwitter'] = ApiClient.convertToType(data['userTwitter'], 'String');
     }
     if (data.hasOwnProperty('roles')) {
       obj['roles'] = ApiClient.convertToType(data['roles'], 'String');
@@ -62,45 +62,45 @@ exports.constructFromObject = function(data, obj) {
 }
 
 /**
- * @member {String} id
+ * @member {String} userId
  */
-exports.prototype['id'] = undefined;
+exports.prototype['userId'] = undefined;
 /**
- * @member {String} username
+ * @member {String} userUsername
  */
-exports.prototype['username'] = undefined;
+exports.prototype['userUsername'] = undefined;
 /**
- * @member {String} firstName
+ * @member {String} userFirstName
  */
-exports.prototype['firstName'] = undefined;
+exports.prototype['userFirstName'] = undefined;
 /**
- * @member {String} lastName
+ * @member {String} userLastName
  */
-exports.prototype['lastName'] = undefined;
+exports.prototype['userLastName'] = undefined;
 /**
  * @member {String} subservice
  */
 exports.prototype['subservice'] = undefined;
 /**
- * @member {String} email
+ * @member {String} userEmail
  */
-exports.prototype['email'] = undefined;
+exports.prototype['userEmail'] = undefined;
 /**
- * @member {String} phone
+ * @member {String} userPhone
  */
-exports.prototype['phone'] = undefined;
+exports.prototype['userPhone'] = undefined;
 /**
  * @member {String} address
  */
 exports.prototype['address'] = undefined;
 /**
- * @member {String} facebook
+ * @member {String} userFacebook
  */
-exports.prototype['facebook'] = undefined;
+exports.prototype['userFacebook'] = undefined;
 /**
- * @member {String} twitter
+ * @member {String} userTwitter
  */
-exports.prototype['twitter'] = undefined;
+exports.prototype['userTwitter'] = undefined;
 /**
  * @member {String} roles
  */

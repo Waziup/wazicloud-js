@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new WaziupApi.Measurement();
+    instance = new WaziupApi.Sensor();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,46 +49,46 @@
       object[property] = value;
   }
 
-  describe('Measurement', function() {
-    it('should create an instance of Measurement', function() {
-      // uncomment below and update the code to test Measurement
-      //var instane = new WaziupApi.Measurement();
-      //expect(instance).to.be.a(WaziupApi.Measurement);
+  describe('Sensor', function() {
+    it('should create an instance of Sensor', function() {
+      // uncomment below and update the code to test Sensor
+      //var instane = new WaziupApi.Sensor();
+      //expect(instance).to.be.a(WaziupApi.Sensor);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new WaziupApi.Measurement();
+      //var instane = new WaziupApi.Sensor();
       //expect(instance).to.be();
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instane = new WaziupApi.Measurement();
+      //var instane = new WaziupApi.Sensor();
       //expect(instance).to.be();
     });
 
     it('should have the property quantity_kind (base name: "quantity_kind")', function() {
       // uncomment below and update the code to test the property dimension
-      //var instane = new WaziupApi.Measurement();
+      //var instane = new WaziupApi.Sensor();
       //expect(instance).to.be();
     });
 
     it('should have the property unit (base name: "unit")', function() {
       // uncomment below and update the code to test the property unit
-      //var instane = new WaziupApi.Measurement();
+      //var instane = new WaziupApi.Sensor();
       //expect(instance).to.be();
     });
 
-    it('should have the property sensorKind (base name: "sensing_device")', function() {
-      // uncomment below and update the code to test the property sensorKind
-      //var instane = new WaziupApi.Measurement();
+    it('should have the property deviceKind (base name: "sensor_kind")', function() {
+      // uncomment below and update the code to test the property deviceKind
+      //var instane = new WaziupApi.Sensor();
       //expect(instance).to.be();
     });
 
     it('should have the property values (base name: "values")', function() {
       // uncomment below and update the code to test the property values
-      //var instane = new WaziupApi.Measurement();
+      //var instane = new WaziupApi.Sensor();
       //expect(instance).to.be();
     });
 

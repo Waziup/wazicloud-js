@@ -8,25 +8,25 @@ import ApiClient from '../ApiClient';
  */
 var exports = {
   /**
-   * value: "sensors:create"
+   * value: "devices:create"
    * @const
    */
-  "sensors:create": "sensors:create",
+  "devices:create": "devices:create",
   /**
-   * value: "sensors:view"
+   * value: "devices:view"
    * @const
    */
-  "sensors:view": "sensors:view",
+  "devices:view": "devices:view",
   /**
-   * value: "sensors:update"
+   * value: "devices:update"
    * @const
    */
-  "sensors:update": "sensors:update",
+  "devices:update": "devices:update",
   /**
-   * value: "sensors:delete"
+   * value: "devices:delete"
    * @const
    */
-  "sensors:delete": "sensors:delete",
+  "devices:delete": "devices:delete",
   /**
    * value: "socials:create"
    * @const

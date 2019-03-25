@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new WaziupApi.MeasurementValue();
+    instance = new WaziupApi.SensorValue();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,22 +49,22 @@
       object[property] = value;
   }
 
-  describe('MeasurementValue', function() {
-    it('should create an instance of MeasurementValue', function() {
-      // uncomment below and update the code to test MeasurementValue
-      //var instane = new WaziupApi.MeasurementValue();
-      //expect(instance).to.be.a(WaziupApi.MeasurementValue);
+  describe('SensorValue', function() {
+    it('should create an instance of SensorValue', function() {
+      // uncomment below and update the code to test SensorValue
+      //var instane = new WaziupApi.SensorValue();
+      //expect(instance).to.be.a(WaziupApi.SensorValue);
     });
 
     it('should have the property value (base name: "value")', function() {
       // uncomment below and update the code to test the property value
-      //var instane = new WaziupApi.MeasurementValue();
+      //var instane = new WaziupApi.SensorValue();
       //expect(instance).to.be();
     });
 
     it('should have the property timestamp (base name: "timestamp")', function() {
       // uncomment below and update the code to test the property timestamp
-      //var instane = new WaziupApi.MeasurementValue();
+      //var instane = new WaziupApi.SensorValue();
       //expect(instance).to.be();
     });
 

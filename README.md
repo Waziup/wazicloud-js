@@ -14,16 +14,16 @@ npm install --save -g waziup-js
 
 ## Getting Started
 
-Here is an example code to retrieve all sensors from Waziup:
+Here is an example code to retrieve all devices from Waziup:
 
 ```javascript
 const WaziupApi = require('waziup-js');
 
 WaziupApi.ApiClient.instance.basePath = 'https://api.waziup.io/api/v1'
-var api = new WaziupApi.SensorsApi()
+var api = new WaziupApi.DevicesApi()
 
-api.getSensors().then((sensors) =>{
-    console.log('List of sensors: ', JSON.stringify(sensors));
+api.getDevices().then((devices) =>{
+    console.log('List of devices: ', JSON.stringify(devices));
 })
 
 ```
@@ -32,8 +32,8 @@ Save this file as test.js and run:
 ```
 node test.js
 ```
-You should get a list of sensors.
-The format of the sensors is given [here](https://github.com/Waziup/waziup-js/blob/master/docs/Sensor.md).
+You should get a list of devices.
+The format of the devices is given [here](https://github.com/Waziup/waziup-js/blob/master/docs/Device.md).
 
 
 ## Authentication
@@ -45,7 +45,7 @@ You need a token to access protected resources. You can retrieve one like that:
 const WaziupApi = require('waziup-js');
 
 WaziupApi.ApiClient.instance.basePath = 'https://api.waziup.io/api/v1'
-var sensorApi = new WaziupApi.SensorsApi()
+var deviceApi = new WaziupApi.DevicesApi()
 var authApi = new WaziupApi.AuthApi()
 
 //Deleting a resource requires authentication
@@ -54,7 +54,7 @@ async function testDelete() {
   WaziupApi.ApiClient.instance.authentications['Bearer'].apiKey = 'Bearer ' + token
   
   try {
-    await sensorApi.deleteSensor("MySensor")
+    await deviceApi.deleteDevice("MyDevice")
   } catch (error) {
     console.log("Error " + error.status)
   }
@@ -70,7 +70,7 @@ As a rule of thumb, you can only update or delete resources that you are owner o
 
 There are 5 endpoints:
 
- - [Sensors API](docs/SensorsApi.md)
+ - [Devices API](docs/DevicesApi.md)
  - [Socials API](docs/SocialsApi.md)
  - [Notifications API](docs/NotificationsApi.md)
  - [Users API](docs/UsersApi.md)
@@ -82,13 +82,13 @@ There are 5 endpoints:
  - [WaziupApi.Error](docs/Error.md)
  - [WaziupApi.HistoricalValue](docs/HistoricalValue.md)
  - [WaziupApi.Location](docs/Location.md)
- - [WaziupApi.Measurement](docs/Measurement.md)
- - [WaziupApi.MeasurementValue](docs/MeasurementValue.md)
+ - [WaziupApi.Sensor](docs/Sensor.md)
+ - [WaziupApi.SensorValue](docs/SensorValue.md)
  - [WaziupApi.Notification](docs/Notification.md)
  - [WaziupApi.NotificationCondition](docs/NotificationCondition.md)
  - [WaziupApi.NotificationEntity](docs/NotificationEntity.md)
  - [WaziupApi.NotificationSubject](docs/NotificationSubject.md)
- - [WaziupApi.Sensor](docs/Sensor.md)
+ - [WaziupApi.Device](docs/Device.md)
  - [WaziupApi.SocialMessage](docs/SocialMessage.md)
  - [WaziupApi.SocialMessageBatch](docs/SocialMessageBatch.md)
  - [WaziupApi.User](docs/User.md)

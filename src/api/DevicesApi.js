@@ -2,13 +2,13 @@
 import ApiClient from '../ApiClient'
 import Error from '../model/Error'
 import Location from '../model/Location'
-import Measurement from '../model/Measurement'
-import MeasurementValue from '../model/MeasurementValue'
-import Sensor from '../model/Sensor'
+import Sensor from '../model/Device'
+import SensorValue from '../model/SensorValue'
+import Device from '../model/Device'
 
 /**
- * Constructs a new SensorsApi. 
- * @alias module:api/SensorsApi
+ * Constructs a new DevicesApi. 
+ * @alias module:api/DevicesApi
  * @class
  * @param {module:ApiClient} apiClient Optional API client implementation to use,
  * default to {@link module:ApiClient#instance} if unspecified.
@@ -17,13 +17,13 @@ var exports = function(apiClient) {
   this.apiClient = apiClient || ApiClient.instance;
 
   /**
-   * Sensor data
+   * Device data
    * 
    * @param {Object} opts Optional parameters
    * @param {String} opts.q filter the results
-   * data is of type: {@link Array.<module:model/Sensor>}
+   * data is of type: {@link Array.<module:model/Device>}
    */
-  this.getSensors = async function(opts) {
+  this.getDevices = async function(opts) {
     opts = opts || {};
     var postBody = null;
 
@@ -37,25 +37,25 @@ var exports = function(apiClient) {
     var authNames = ['Bearer'];
     var contentTypes = ['application/json'];
     var accepts = ['application/json'];
-    var returnType = [Sensor];
+    var returnType = [Device];
 
     return this.apiClient.callApi(
-      '/sensors', 'GET',
+      '/devices', 'GET',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType)
   }
 
   /**
-   * Create sensors
+   * Create devices
    * Endpoint to create sensing devices.
-   * @param {module:model/Sensor} body 
+   * @param {module:model/Device} body 
    */
-  this.createSensor = async function(body) {
+  this.createDevice = async function(body) {
     var postBody = body;
 
     // verify the required parameter 'body' is set
     if (body === undefined || body === null) {
-      throw("Missing the required parameter 'body' when calling createSensor");
+      throw("Missing the required parameter 'body' when calling createDevice");
     }
 
     var pathParams = {};
@@ -69,7 +69,141 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      'sensors', 'POST',
+      'devices', 'POST',
+      pathParams, queryParams, headerParams, formParams, postBody,
+      authNames, contentTypes, accepts, returnType);
+  }
+
+  /**
+   * Delete device
+   * 
+   * @param {String} deviceId 
+   */
+  this.deleteDevice = async function(deviceId) {
+    var postBody = null;
+
+    // verify the required parameter 'deviceId' is set
+    if (deviceId === undefined || deviceId === null) {
+      throw("Missing the required parameter 'deviceId' when calling deleteDevice");
+    }
+
+
+    var pathParams = {
+      'device_id': deviceId
+    };
+    var queryParams = {};
+    var headerParams = {};
+    var formParams = {};
+
+    var authNames = ['Bearer'];
+    var contentTypes = ['application/json'];
+    var accepts = ['application/json'];
+    var returnType = null;
+
+    return this.apiClient.callApi(
+      '/devices/{device_id}', 'DELETE',
+      pathParams, queryParams, headerParams, formParams, postBody,
+      authNames, contentTypes, accepts, returnType);
+  }
+
+  /**
+   * get device
+   * 
+   * @param {String} deviceId 
+   * data is of type: {@link module:model/Device}
+   */
+  this.getDevice = async function(deviceId) {
+    var postBody = null;
+
+    // verify the required parameter 'deviceId' is set
+    if (deviceId === undefined || deviceId === null) {
+      throw("Missing the required parameter 'deviceId' when calling getDevice");
+    }
+
+
+    var pathParams = {
+      'device_id': deviceId
+    };
+    var queryParams = {};
+    var headerParams = {};
+    var formParams = {};
+
+    var authNames = ['Bearer'];
+    var contentTypes = ['application/json'];
+    var accepts = ['application/json'];
+    var returnType = Device;
+
+    return this.apiClient.callApi(
+      '/devices/{device_id}', 'GET',
+      pathParams, queryParams, headerParams, formParams, postBody,
+      authNames, contentTypes, accepts, returnType);
+  }
+
+  /**
+   * insert location
+   * @param {String} deviceId 
+   * @param {module:model/Location} body 
+   */
+  this.putDeviceLocation = async function(deviceId, body) {
+    var postBody = body;
+
+    // verify the required parameter 'deviceId' is set
+    if (deviceId === undefined || deviceId === null) {
+      throw("Missing the required parameter 'deviceId' when calling putDeviceLocation");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body === undefined || body === null) {
+      throw("Missing the required parameter 'body' when calling putDeviceLocation");
+    }
+
+
+    var pathParams = {
+      'device_id': deviceId
+    };
+    var queryParams = {};
+    var headerParams = {};
+    var formParams = {};
+
+    var authNames = ['Bearer'];
+    var contentTypes = ['application/json'];
+    var accepts = ['application/json'];
+    var returnType = null;
+
+    return this.apiClient.callApi(
+      '/devices/{device_id}/location', 'PUT',
+      pathParams, queryParams, headerParams, formParams, postBody,
+      authNames, contentTypes, accepts, returnType);
+  }
+
+  /**
+   * get sensors
+   * @param {String} deviceId 
+   * data is of type: {@link Array.<module:model/Sensor>}
+   */
+  this.getDeviceSensors = async function(deviceId) {
+    var postBody = null;
+
+    // verify the required parameter 'deviceId' is set
+    if (deviceId === undefined || deviceId === null) {
+      throw("Missing the required parameter 'deviceId' when calling getDeviceSensors");
+    }
+
+
+    var pathParams = {
+      'device_id': deviceId
+    };
+    var queryParams = {};
+    var headerParams = {};
+    var formParams = {};
+
+    var authNames = ['Bearer'];
+    var contentTypes = ['application/json'];
+    var accepts = ['application/json'];
+    var returnType = [Sensor];
+
+    return this.apiClient.callApi(
+      '/devices/{device_id}/sensors', 'GET',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
@@ -77,10 +211,17 @@ var exports = function(apiClient) {
   /**
    * Delete sensor
    * 
+   * @param {String} deviceId 
    * @param {String} sensorId 
+   * @param {module:api/DevicesApi~deleteSensorCallback} callback The callback function, accepting three arguments: error, data, response
    */
-  this.deleteSensor = async function(sensorId) {
+  this.deleteSensor = async function(deviceId, sensorId) {
     var postBody = null;
+
+    // verify the required parameter 'deviceId' is set
+    if (deviceId === undefined || deviceId === null) {
+      throw("Missing the required parameter 'deviceId' when calling deleteSensor");
+    }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
@@ -89,6 +230,7 @@ var exports = function(apiClient) {
 
 
     var pathParams = {
+      'device_id': deviceId,
       'sensor_id': sensorId
     };
     var queryParams = {};
@@ -101,19 +243,68 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/sensors/{sensor_id}', 'DELETE',
+      '/devices/{device_id}/sensors/{sensor_id}', 'DELETE',
+      pathParams, queryParams, headerParams, formParams, postBody,
+      authNames, contentTypes, accepts, returnType);
+  }
+
+  /**
+   * put sensor quantity kind 
+   * @param {String} deviceId 
+   * @param {String} sensorId 
+   * @param {String} body 
+   */
+  this.putSensorQK = async function(deviceId, sensorId, body) {
+    var postBody = body;
+
+    // verify the required parameter 'deviceId' is set
+    if (deviceId === undefined || deviceId === null) {
+      throw("Missing the required parameter 'deviceId' when calling putSensorQK");
+    }
+
+    // verify the required parameter 'sensorId' is set
+    if (sensorId === undefined || sensorId === null) {
+      throw("Missing the required parameter 'sensorId' when calling putSensorQK");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body === undefined || body === null) {
+      throw("Missing the required parameter 'body' when calling putSensorQK");
+    }
+
+
+    var pathParams = {
+      'device_id': deviceId,
+      'sensor_id': sensorId
+    };
+    var queryParams = {};
+    var headerParams = {};
+    var formParams = {};
+
+    var authNames = ['Bearer'];
+    var contentTypes = ['text/plain'];
+    var accepts = ['application/json'];
+    var returnType = null;
+
+    return this.apiClient.callApi(
+      '/devices/{device_id}/sensors/{sensor_id}/quantity_kind', 'PUT',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * get sensor
-   * 
+   * @param {String} deviceId 
    * @param {String} sensorId 
    * data is of type: {@link module:model/Sensor}
    */
-  this.getSensor = async function(sensorId) {
+  this.getSensor = async function(deviceId, sensorId) {
     var postBody = null;
+
+    // verify the required parameter 'deviceId' is set
+    if (deviceId === undefined || deviceId === null) {
+      throw("Missing the required parameter 'deviceId' when calling getSensor");
+    }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
@@ -122,6 +313,7 @@ var exports = function(apiClient) {
 
 
     var pathParams = {
+      'device_id': deviceId,
       'sensor_id': sensorId
     };
     var queryParams = {};
@@ -134,31 +326,38 @@ var exports = function(apiClient) {
     var returnType = Sensor;
 
     return this.apiClient.callApi(
-      '/sensors/{sensor_id}', 'GET',
+      '/devices/{device_id}/sensors/{sensor_id}', 'GET',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
 
   /**
-   * insert location
+   * put sensor name
+   * @param {String} deviceId 
    * @param {String} sensorId 
-   * @param {module:model/Location} body 
+   * @param {String} body 
    */
-  this.putSensorLocation = async function(sensorId, body) {
+  this.putSensorName = async function(deviceId, sensorId, body) {
     var postBody = body;
+
+    // verify the required parameter 'deviceId' is set
+    if (deviceId === undefined || deviceId === null) {
+      throw("Missing the required parameter 'deviceId' when calling putSensorName");
+    }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
-      throw("Missing the required parameter 'sensorId' when calling putSensorLocation");
+      throw("Missing the required parameter 'sensorId' when calling putSensorName");
     }
 
     // verify the required parameter 'body' is set
     if (body === undefined || body === null) {
-      throw("Missing the required parameter 'body' when calling putSensorLocation");
+      throw("Missing the required parameter 'body' when calling putSensorName");
     }
 
 
     var pathParams = {
+      'device_id': deviceId,
       'sensor_id': sensorId
     };
     var queryParams = {};
@@ -166,31 +365,43 @@ var exports = function(apiClient) {
     var formParams = {};
 
     var authNames = ['Bearer'];
-    var contentTypes = ['application/json'];
+    var contentTypes = ['text/plain'];
     var accepts = ['application/json'];
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/sensors/{sensor_id}/location', 'PUT',
+      '/devices/{device_id}/sensors/{sensor_id}/name', 'PUT',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
 
   /**
-   * get measurements
+   * insert device kind
+   * @param {String} deviceId 
    * @param {String} sensorId 
-   * data is of type: {@link Array.<module:model/Measurement>}
+   * @param {String} body 
    */
-  this.getSensorMeasurements = async function(sensorId) {
-    var postBody = null;
+  this.putSensorDeviceKind = async function(deviceId, sensorId, body) {
+    var postBody = body;
+
+    // verify the required parameter 'deviceId' is set
+    if (deviceId === undefined || deviceId === null) {
+      throw("Missing the required parameter 'deviceId' when calling putSensorDeviceKind");
+    }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
-      throw("Missing the required parameter 'sensorId' when calling getSensorMeasurements");
+      throw("Missing the required parameter 'sensorId' when calling putSensorDeviceKind");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body === undefined || body === null) {
+      throw("Missing the required parameter 'body' when calling putSensorDeviceKind");
     }
 
 
     var pathParams = {
+      'device_id': deviceId,
       'sensor_id': sensorId
     };
     var queryParams = {};
@@ -198,84 +409,44 @@ var exports = function(apiClient) {
     var formParams = {};
 
     var authNames = ['Bearer'];
-    var contentTypes = ['application/json'];
-    var accepts = ['application/json'];
-    var returnType = [Measurement];
-
-    return this.apiClient.callApi(
-      '/sensors/{sensor_id}/measurements', 'GET',
-      pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType);
-  }
-
-  /**
-   * Delete measurement
-   * 
-   * @param {String} sensorId 
-   * @param {String} measurementId 
-   * @param {module:api/SensorsApi~deleteMeasurementCallback} callback The callback function, accepting three arguments: error, data, response
-   */
-  this.deleteMeasurement = async function(sensorId, measurementId) {
-    var postBody = null;
-
-    // verify the required parameter 'sensorId' is set
-    if (sensorId === undefined || sensorId === null) {
-      throw("Missing the required parameter 'sensorId' when calling deleteMeasurement");
-    }
-
-    // verify the required parameter 'measurementId' is set
-    if (measurementId === undefined || measurementId === null) {
-      throw("Missing the required parameter 'measurementId' when calling deleteMeasurement");
-    }
-
-
-    var pathParams = {
-      'sensor_id': sensorId,
-      'measurement_id': measurementId
-    };
-    var queryParams = {};
-    var headerParams = {};
-    var formParams = {};
-
-    var authNames = ['Bearer'];
-    var contentTypes = ['application/json'];
+    var contentTypes = ['text/plain'];
     var accepts = ['application/json'];
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/sensors/{sensor_id}/measurements/{measurement_id}', 'DELETE',
+      '/devices/{device_id}/sensors/{sensor_id}/sensor_kind', 'PUT',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
 
   /**
-   * put measurement quantity kind 
+   * put sensor unit
+   * @param {String} deviceId 
    * @param {String} sensorId 
-   * @param {String} measurementId 
    * @param {String} body 
    */
-  this.putMeasurementQK = async function(sensorId, measurementId, body) {
+  this.putSensorUnit = async function(deviceId, sensorId, body) {
     var postBody = body;
+
+    // verify the required parameter 'deviceId' is set
+    if (deviceId === undefined || deviceId === null) {
+      throw("Missing the required parameter 'deviceId' when calling putSensorUnit");
+    }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
-      throw("Missing the required parameter 'sensorId' when calling putMeasurementQK");
-    }
-
-    // verify the required parameter 'measurementId' is set
-    if (measurementId === undefined || measurementId === null) {
-      throw("Missing the required parameter 'measurementId' when calling putMeasurementQK");
+      throw("Missing the required parameter 'sensorId' when calling putSensorUnit");
     }
 
     // verify the required parameter 'body' is set
     if (body === undefined || body === null) {
-      throw("Missing the required parameter 'body' when calling putMeasurementQK");
+      throw("Missing the required parameter 'body' when calling putSensorUnit");
     }
 
 
     var pathParams = {
-      'sensor_id': sensorId,
-      'measurement_id': measurementId
+      'device_id': deviceId,
+      'sensor_id': sensorId
     };
     var queryParams = {};
     var headerParams = {};
@@ -287,210 +458,39 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/sensors/{sensor_id}/measurements/{measurement_id}/quantity_kind', 'PUT',
+      '/devices/{device_id}/sensors/{sensor_id}/unit', 'PUT',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
 
   /**
-   * get measurement
-   * @param {String} sensorId 
-   * @param {String} measurementId 
-   * data is of type: {@link module:model/Measurement}
-   */
-  this.getMeasurement = async function(sensorId, measurementId) {
-    var postBody = null;
-
-    // verify the required parameter 'sensorId' is set
-    if (sensorId === undefined || sensorId === null) {
-      throw("Missing the required parameter 'sensorId' when calling getMeasurement");
-    }
-
-    // verify the required parameter 'measurementId' is set
-    if (measurementId === undefined || measurementId === null) {
-      throw("Missing the required parameter 'measurementId' when calling getMeasurement");
-    }
-
-
-    var pathParams = {
-      'sensor_id': sensorId,
-      'measurement_id': measurementId
-    };
-    var queryParams = {};
-    var headerParams = {};
-    var formParams = {};
-
-    var authNames = ['Bearer'];
-    var contentTypes = ['application/json'];
-    var accepts = ['application/json'];
-    var returnType = Measurement;
-
-    return this.apiClient.callApi(
-      '/sensors/{sensor_id}/measurements/{measurement_id}', 'GET',
-      pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType);
-  }
-
-  /**
-   * put measurement name
-   * @param {String} sensorId 
-   * @param {String} measurementId 
-   * @param {String} body 
-   */
-  this.putMeasurementName = async function(sensorId, measurementId, body) {
-    var postBody = body;
-
-    // verify the required parameter 'sensorId' is set
-    if (sensorId === undefined || sensorId === null) {
-      throw("Missing the required parameter 'sensorId' when calling putMeasurementName");
-    }
-
-    // verify the required parameter 'measurementId' is set
-    if (measurementId === undefined || measurementId === null) {
-      throw("Missing the required parameter 'measurementId' when calling putMeasurementName");
-    }
-
-    // verify the required parameter 'body' is set
-    if (body === undefined || body === null) {
-      throw("Missing the required parameter 'body' when calling putMeasurementName");
-    }
-
-
-    var pathParams = {
-      'sensor_id': sensorId,
-      'measurement_id': measurementId
-    };
-    var queryParams = {};
-    var headerParams = {};
-    var formParams = {};
-
-    var authNames = ['Bearer'];
-    var contentTypes = ['text/plain'];
-    var accepts = ['application/json'];
-    var returnType = null;
-
-    return this.apiClient.callApi(
-      '/sensors/{sensor_id}/measurements/{measurement_id}/name', 'PUT',
-      pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType);
-  }
-
-  /**
-   * insert sensor kind
-   * @param {String} sensorId 
-   * @param {String} measurementId 
-   * @param {String} body 
-   */
-  this.putMeasurementSensorKind = async function(sensorId, measurementId, body) {
-    var postBody = body;
-
-    // verify the required parameter 'sensorId' is set
-    if (sensorId === undefined || sensorId === null) {
-      throw("Missing the required parameter 'sensorId' when calling putMeasurementSensorKind");
-    }
-
-    // verify the required parameter 'measurementId' is set
-    if (measurementId === undefined || measurementId === null) {
-      throw("Missing the required parameter 'measurementId' when calling putMeasurementSensorKind");
-    }
-
-    // verify the required parameter 'body' is set
-    if (body === undefined || body === null) {
-      throw("Missing the required parameter 'body' when calling putMeasurementSensorKind");
-    }
-
-
-    var pathParams = {
-      'sensor_id': sensorId,
-      'measurement_id': measurementId
-    };
-    var queryParams = {};
-    var headerParams = {};
-    var formParams = {};
-
-    var authNames = ['Bearer'];
-    var contentTypes = ['text/plain'];
-    var accepts = ['application/json'];
-    var returnType = null;
-
-    return this.apiClient.callApi(
-      '/sensors/{sensor_id}/measurements/{measurement_id}/sensing_device', 'PUT',
-      pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType);
-  }
-
-  /**
-   * put measurement unit
-   * @param {String} sensorId 
-   * @param {String} measurementId 
-   * @param {String} body 
-   */
-  this.putMeasurementUnit = async function(sensorId, measurementId, body) {
-    var postBody = body;
-
-    // verify the required parameter 'sensorId' is set
-    if (sensorId === undefined || sensorId === null) {
-      throw("Missing the required parameter 'sensorId' when calling putMeasurementUnit");
-    }
-
-    // verify the required parameter 'measurementId' is set
-    if (measurementId === undefined || measurementId === null) {
-      throw("Missing the required parameter 'measurementId' when calling putMeasurementUnit");
-    }
-
-    // verify the required parameter 'body' is set
-    if (body === undefined || body === null) {
-      throw("Missing the required parameter 'body' when calling putMeasurementUnit");
-    }
-
-
-    var pathParams = {
-      'sensor_id': sensorId,
-      'measurement_id': measurementId
-    };
-    var queryParams = {};
-    var headerParams = {};
-    var formParams = {};
-
-    var authNames = ['Bearer'];
-    var contentTypes = ['text/plain'];
-    var accepts = ['application/json'];
-    var returnType = null;
-
-    return this.apiClient.callApi(
-      '/sensors/{sensor_id}/measurements/{measurement_id}/unit', 'PUT',
-      pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType);
-  }
-
-  /**
-   * get measurement values
-   * @param {String} sensorId 
-   * @param {String} measurementId
+   * get sensor values
+   * @param {String} deviceId 
+   * @param {String} sensorId
    * @param {Object} opts Optional parameters
    * @param {String} opts.lastN get the last N entries, most recent first. Default value is 20.
    * @param {String} opts.limit In case of pagination, number of entris per page
    * @param {String} opts.offset In case of pagination, offset for the starting entry
    * @param {String} opts.dateFrom The starting date and time from which the entries are desired. It is an optional parameter.
    * @param {String} opts.dateTo The final date and time until which the entries are desired. It is an optional parameter. 
-   * data is of type: {@link Array.<module:model/MeasurementValue>}
+   * data is of type: {@link Array.<module:model/SensorValue>}
    */
-  this.getMeasurementValues = async function(sensorId, measurementId, opts) {
+  this.getSensorValues = async function(deviceId, sensorId, opts) {
     var postBody = null;
+
+    // verify the required parameter 'deviceId' is set
+    if (deviceId === undefined || deviceId === null) {
+      throw("Missing the required parameter 'deviceId' when calling getSensorValues");
+    }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
-      throw("Missing the required parameter 'sensorId' when calling getMeasurementValues");
-    }
-
-    // verify the required parameter 'measurementId' is set
-    if (measurementId === undefined || measurementId === null) {
-      throw("Missing the required parameter 'measurementId' when calling getMeasurementValues");
+      throw("Missing the required parameter 'sensorId' when calling getSensorValues");
     }
 
     var pathParams = {
-      'sensor_id': sensorId,
-      'measurement_id': measurementId
+      'device_id': deviceId,
+      'sensor_id': sensorId
     };
     var queryParams = {
       'lastN'   : opts['lastN'],
@@ -505,31 +505,31 @@ var exports = function(apiClient) {
     var authNames = ['Bearer'];
     var contentTypes = ['application/json'];
     var accepts = ['application/json'];
-    var returnType = [MeasurementValue];
+    var returnType = [SensorValue];
 
     return this.apiClient.callApi(
-      '/sensors/{sensor_id}/measurements/{measurement_id}/values', 'GET',
+      '/devices/{device_id}/sensors/{sensor_id}/values', 'GET',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * Create new datapoint
+   * @param {String} deviceId 
    * @param {String} sensorId 
-   * @param {String} measurementId 
-   * @param {module:model/MeasurementValue} body 
+   * @param {module:model/SensorValue} body 
    */
-  this.addDatapoint = async function(sensorId, measurementId, body) {
+  this.addDatapoint = async function(deviceId, sensorId, body) {
     var postBody = body;
+
+    // verify the required parameter 'deviceId' is set
+    if (deviceId === undefined || deviceId === null) {
+      throw("Missing the required parameter 'deviceId' when calling addDatapoint");
+    }
 
     // verify the required parameter 'sensorId' is set
     if (sensorId === undefined || sensorId === null) {
       throw("Missing the required parameter 'sensorId' when calling addDatapoint");
-    }
-
-    // verify the required parameter 'measurementId' is set
-    if (measurementId === undefined || measurementId === null) {
-      throw("Missing the required parameter 'measurementId' when calling addDatapoint");
     }
 
     // verify the required parameter 'body' is set
@@ -539,44 +539,7 @@ var exports = function(apiClient) {
 
 
     var pathParams = {
-      'sensor_id': sensorId,
-      'measurement_id': measurementId
-    };
-    var queryParams = {};
-    var headerParams = {};
-    var formParams = {};
-
-    var authNames = ['Bearer'];
-    var contentTypes = ['application/json'];
-    var accepts = ['application/json'];
-    var returnType = null;
-
-    return this.apiClient.callApi(
-      '/sensors/{sensor_id}/measurements/{measurement_id}/values', 'POST',
-      pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType);
-  }
-
-  /**
-   * insert new measurement
-   * @param {String} sensorId 
-   * @param {module:model/Measurement} body 
-   */
-  this.addMeasurement = async function(sensorId, body) {
-    var postBody = body;
-
-    // verify the required parameter 'sensorId' is set
-    if (sensorId === undefined || sensorId === null) {
-      throw("Missing the required parameter 'sensorId' when calling addMeasurement");
-    }
-
-    // verify the required parameter 'body' is set
-    if (body === undefined || body === null) {
-      throw("Missing the required parameter 'body' when calling addMeasurement");
-    }
-
-
-    var pathParams = {
+      'device_id': deviceId,
       'sensor_id': sensorId
     };
     var queryParams = {};
@@ -589,32 +552,69 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/sensors/{sensor_id}/measurements', 'POST',
+      '/devices/{device_id}/sensors/{sensor_id}/value', 'POST',
+      pathParams, queryParams, headerParams, formParams, postBody,
+      authNames, contentTypes, accepts, returnType);
+  }
+
+  /**
+   * insert new sensor
+   * @param {String} deviceId 
+   * @param {module:model/Sensor} body 
+   */
+  this.addSensor = async function(deviceId, body) {
+    var postBody = body;
+
+    // verify the required parameter 'deviceId' is set
+    if (deviceId === undefined || deviceId === null) {
+      throw("Missing the required parameter 'deviceId' when calling addSensor");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body === undefined || body === null) {
+      throw("Missing the required parameter 'body' when calling addSensor");
+    }
+
+
+    var pathParams = {
+      'device_id': deviceId
+    };
+    var queryParams = {};
+    var headerParams = {};
+    var formParams = {};
+
+    var authNames = ['Bearer'];
+    var contentTypes = ['application/json'];
+    var accepts = ['application/json'];
+    var returnType = null;
+
+    return this.apiClient.callApi(
+      '/devices/{device_id}/sensors', 'POST',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * insert name
-   * @param {String} sensorId 
+   * @param {String} deviceId 
    * @param {String} body 
    */
-  this.putSensorName = async function(sensorId, body) {
+  this.putDeviceName = async function(deviceId, body) {
     var postBody = body;
 
-    // verify the required parameter 'sensorId' is set
-    if (sensorId === undefined || sensorId === null) {
-      throw("Missing the required parameter 'sensorId' when calling putSensorName");
+    // verify the required parameter 'deviceId' is set
+    if (deviceId === undefined || deviceId === null) {
+      throw("Missing the required parameter 'deviceId' when calling putDeviceName");
     }
 
     // verify the required parameter 'body' is set
     if (body === undefined || body === null) {
-      throw("Missing the required parameter 'body' when calling putSensorName");
+      throw("Missing the required parameter 'body' when calling putDeviceName");
     }
 
 
     var pathParams = {
-      'sensor_id': sensorId
+      'device_id': deviceId
     };
     var queryParams = {};
     var headerParams = {};
@@ -626,31 +626,31 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/sensors/{sensor_id}/name', 'PUT',
+      '/devices/{device_id}/name', 'PUT',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * insert owner
-   * @param {String} sensorId 
+   * @param {String} deviceId 
    * @param {String} body 
    */
-  this.putSensorOwner = async function(sensorId, body) {
+  this.putDeviceOwner = async function(deviceId, body) {
     var postBody = body;
 
-    // verify the required parameter 'sensorId' is set
-    if (sensorId === undefined || sensorId === null) {
-      throw("Missing the required parameter 'sensorId' when calling putSensorOwner");
+    // verify the required parameter 'deviceId' is set
+    if (deviceId === undefined || deviceId === null) {
+      throw("Missing the required parameter 'deviceId' when calling putDeviceOwner");
     }
 
     // verify the required parameter 'body' is set
     if (body === undefined || body === null) {
-      throw("Missing the required parameter 'body' when calling putSensorOwner");
+      throw("Missing the required parameter 'body' when calling putDeviceOwner");
     }
 
     var pathParams = {
-      'sensor_id': sensorId
+      'device_id': deviceId
     };
     var queryParams = {};
     var headerParams = {};
@@ -662,31 +662,31 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/sensors/{sensor_id}/owner', 'PUT',
+      '/devices/{device_id}/owner', 'PUT',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
 
   /**
    * insert visibility
-   * @param {String} sensorId 
+   * @param {String} deviceId 
    * @param {String} body 
    */
-  this.putSensorVisility = async function(sensorId, body) {
+  this.putDeviceVisility = async function(deviceId, body) {
     var postBody = body;
 
-    // verify the required parameter 'sensorId' is set
-    if (sensorId === undefined || sensorId === null) {
-      throw("Missing the required parameter 'sensorId' when calling putSensorOwner");
+    // verify the required parameter 'deviceId' is set
+    if (deviceId === undefined || deviceId === null) {
+      throw("Missing the required parameter 'deviceId' when calling putDeviceOwner");
     }
 
     // verify the required parameter 'body' is set
     if (body === undefined || body === null) {
-      throw("Missing the required parameter 'body' when calling putSensorOwner");
+      throw("Missing the required parameter 'body' when calling putDeviceOwner");
     }
 
     var pathParams = {
-      'sensor_id': sensorId
+      'device_id': deviceId
     };
     var queryParams = {};
     var headerParams = {};
@@ -698,30 +698,30 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/sensors/{sensor_id}/visibility', 'PUT',
+      '/devices/{device_id}/visibility', 'PUT',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
   /**
    * insert gateway_id
-   * @param {String} sensorId 
+   * @param {String} deviceId 
    * @param {String} body 
    */
-  this.putSensorGatewayId = async function(sensorId, body) {
+  this.putDeviceGatewayId = async function(deviceId, body) {
     var postBody = body;
 
-    // verify the required parameter 'sensorId' is set
-    if (sensorId === undefined || sensorId === null) {
-      throw("Missing the required parameter 'sensorId' when calling putSensorGatewayId");
+    // verify the required parameter 'deviceId' is set
+    if (deviceId === undefined || deviceId === null) {
+      throw("Missing the required parameter 'deviceId' when calling putDeviceGatewayId");
     }
 
     // verify the required parameter 'body' is set
     if (body === undefined || body === null) {
-      throw("Missing the required parameter 'body' when calling putSensorGatewayId");
+      throw("Missing the required parameter 'body' when calling putDeviceGatewayId");
     }
 
     var pathParams = {
-      'sensor_id': sensorId
+      'device_id': deviceId
     };
     var queryParams = {};
     var headerParams = {};
@@ -733,7 +733,7 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      '/sensors/{sensor_id}/gateway_id', 'PUT',
+      '/devices/{device_id}/gateway_id', 'PUT',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
