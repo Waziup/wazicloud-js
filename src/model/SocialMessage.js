@@ -6,15 +6,15 @@ import ApiClient from '../ApiClient';
  * One social network message
  * @alias module:model/SocialMessage
  * @class
- * @param socChannel {String} 
- * @param socMessage {String} 
+ * @param channel {String} 
+ * @param message {String} 
  */
-var exports = function(socChannel, socMessage) {
+var exports = function(channel, message) {
   var _this = this;
 
 
-  _this['socChannel'] = socChannel;
-  _this['socMessage'] = socMessage;
+  _this['channel'] = channel;
+  _this['message'] = message;
 };
 
 /**
@@ -28,14 +28,14 @@ exports.constructFromObject = function(data, obj) {
   if (data) {
     obj = obj || new exports();
 
-    if (data.hasOwnProperty('socUsername')) {
-      obj['socUsername'] = ApiClient.convertToType(data['socUsername'], 'String');
+    if (data.hasOwnProperty('username')) {
+      obj['username'] = ApiClient.convertToType(data['username'], 'String');
     }
-    if (data.hasOwnProperty('socChannel')) {
-      obj['socChannel'] = ApiClient.convertToType(data['socChannel'], 'String');
+    if (data.hasOwnProperty('channel')) {
+      obj['channel'] = ApiClient.convertToType(data['channel'], 'String');
     }
-    if (data.hasOwnProperty('socMessage')) {
-      obj['socMessage'] = ApiClient.convertToType(data['socMessage'], 'String');
+    if (data.hasOwnProperty('message')) {
+      obj['message'] = ApiClient.convertToType(data['message'], 'String');
     }
   }
   return obj;
@@ -43,16 +43,16 @@ exports.constructFromObject = function(data, obj) {
 
 /**
  * User name in Keycloak
- * @member {String} socUsername
+ * @member {String} username
  */
-exports.prototype['socUsername'] = undefined;
+exports.prototype['username'] = undefined;
 /**
- * @member {String} socChannel
+ * @member {String} channel
  */
-exports.prototype['socChannel'] = undefined;
+exports.prototype['channel'] = undefined;
 /**
- * @member {String} socMessage
+ * @member {String} message
  */
-exports.prototype['socMessage'] = undefined;
+exports.prototype['message'] = undefined;
 
 export default exports;

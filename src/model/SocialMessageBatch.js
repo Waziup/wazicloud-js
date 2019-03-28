@@ -6,15 +6,15 @@ import ApiClient from '../ApiClient';
  * A message to be sent to several users and socials
  * @alias module:model/SocialMessageBatch
  * @class
- * @param socBatchChannels {Array.<String>} channels where to send the messages
- * @param socBatchMessage {String} 
+ * @param channels {Array.<String>} channels where to send the messages
+ * @param message {String} 
  */
-var exports = function(socBatchChannels, socBatchMessage, socBatchUsernames) {
+var exports = function(channels, message, usernames) {
   var _this = this;
 
-  _this['socBatchChannels'] = socBatchChannels;
-  _this['socBatchMessage'] = socBatchMessage;
-  _this['socBatchUsernames'] = socBatchUsernames;
+  _this['channels'] = channels;
+  _this['message'] = message;
+  _this['usernames'] = usernames;
 };
 
 /**
@@ -28,14 +28,14 @@ exports.constructFromObject = function(data, obj) {
   if (data) {
     obj = obj || new exports();
 
-    if (data.hasOwnProperty('socBatchUsernames')) {
-      obj['socBatchUsernames'] = ApiClient.convertToType(data['socBatchUsernames'], ['String']);
+    if (data.hasOwnProperty('usernames')) {
+      obj['usernames'] = ApiClient.convertToType(data['usernames'], ['String']);
     }
-    if (data.hasOwnProperty('socBatchChannels')) {
-      obj['socBatchChannels'] = ApiClient.convertToType(data['socBatchChannels'], ['String']);
+    if (data.hasOwnProperty('channels')) {
+      obj['channels'] = ApiClient.convertToType(data['channels'], ['String']);
     }
-    if (data.hasOwnProperty('socBatchMessage')) {
-      obj['socBatchMessage'] = ApiClient.convertToType(data['socBatchMessage'], 'String');
+    if (data.hasOwnProperty('message')) {
+      obj['message'] = ApiClient.convertToType(data['message'], 'String');
     }
   }
   return obj;
@@ -43,17 +43,17 @@ exports.constructFromObject = function(data, obj) {
 
 /**
  * names of the destination users
- * @member {Array.<String>} socBatchUsernames
+ * @member {Array.<String>} usernames
  */
-exports.prototype['socBatchUsernames'] = undefined;
+exports.prototype['usernames'] = undefined;
 /**
- * socBatchChannels where to send the messages
- * @member {Array.<String>} socBatchChannels
+ * channels where to send the messages
+ * @member {Array.<String>} channels
  */
-exports.prototype['socBatchChannels'] = undefined;
+exports.prototype['channels'] = undefined;
 /**
- * @member {String} socBatchMessage
+ * @member {String} message
  */
-exports.prototype['socBatchMessage'] = undefined;
+exports.prototype['message'] = undefined;
 
 export default exports;

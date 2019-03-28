@@ -7,10 +7,10 @@ import SensorValue from './SensorValue';
  * @alias module:model/Sensor
  * @class
  */
-var exports = function(senId) {
+var exports = function(id) {
   var _this = this;
 
-  _this['senId'] = senId;
+  _this['id'] = id;
 
 };
 
@@ -25,23 +25,23 @@ exports.constructFromObject = function(data, obj) {
   if (data) {
     obj = obj || new exports();
 
-    if (data.hasOwnProperty('senId')) {
-      obj['senId'] = ApiClient.convertToType(data['senId'], 'String');
+    if (data.hasOwnProperty('id')) {
+      obj['id'] = ApiClient.convertToType(data['id'], 'String');
     }
-    if (data.hasOwnProperty('senName')) {
-      obj['senName'] = ApiClient.convertToType(data['senName'], 'String');
+    if (data.hasOwnProperty('name')) {
+      obj['name'] = ApiClient.convertToType(data['name'], 'String');
     }
-    if (data.hasOwnProperty('senValue')) {
-      obj['senValue'] = SensorValue.constructFromObject(data['senValue']);
+    if (data.hasOwnProperty('value')) {
+      obj['value'] = SensorValue.constructFromObject(data['value']);
     }
-    if (data.hasOwnProperty('senSensorKind')) {
-      obj['senSensorKind'] = ApiClient.convertToType(data['senSensorKind'], 'String');
+    if (data.hasOwnProperty('sensor_kind')) {
+      obj['sensor_kind'] = ApiClient.convertToType(data['sensor_kind'], 'String');
     }
-    if (data.hasOwnProperty('senQuantityKind')) {
-      obj['senQuantityKind'] = ApiClient.convertToType(data['senQuantityKind'], 'String');
+    if (data.hasOwnProperty('quantity_kind')) {
+      obj['quantity_kind'] = ApiClient.convertToType(data['quantity_kind'], 'String');
     }
-    if (data.hasOwnProperty('senUnit')) {
-      obj['senUnit'] = ApiClient.convertToType(data['senUnit'], 'String');
+    if (data.hasOwnProperty('unit')) {
+      obj['unit'] = ApiClient.convertToType(data['unit'], 'String');
     }
   }
   return obj;
@@ -49,34 +49,34 @@ exports.constructFromObject = function(data, obj) {
 
 /**
  * ID of the sensor
- * @member {String} senId
+ * @member {String} id
  */
-exports.prototype['senId'] = undefined;
+exports.prototype['id'] = undefined;
 /**
  * name of the sensor
- * @member {String} senName
+ * @member {String} name
  */
-exports.prototype['senName'] = undefined;
+exports.prototype['name'] = undefined;
 /**
  * last value measured
- * @member {model/SensorValue} senValue 
+ * @member {model/SensorValue} value 
  */
-exports.prototype['senValue'] = undefined;
+exports.prototype['value'] = undefined;
 /**
  * quantity kind measured
- * @member {model/QuantityKinds} senQuantityKind 
+ * @member {model/QuantityKinds} quantity_kind 
  */
-exports.prototype['senQuantityKind'] = undefined;
+exports.prototype['quantity_kind'] = undefined;
 /**
  * unit of the sensor
- * @member {model/Units} senUnit
+ * @member {model/Units} unit
  */
-exports.prototype['senUnit'] = undefined;
+exports.prototype['unit'] = undefined;
 /**
  * kind of device providing the sensor
- * @member {model/SensorKinds} senSensorKind 
+ * @member {model/SensorKinds} sensor_kind 
  */
-exports.prototype['senSensorKind'] = undefined;
+exports.prototype['sensor_kind'] = undefined;
 
 
 export default exports;

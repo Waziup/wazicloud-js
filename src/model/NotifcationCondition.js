@@ -7,12 +7,12 @@ import ApiClient from '../ApiClient';
  * @alias module:model/NotificationCondition
  * @class
  */
-var exports = function(notifDevices, notifSensors, notifExpression) {
+var exports = function(devices, sensors, expression) {
   var _this = this;
 
-  _this['notifDevices'] = notifDevices;
-  _this['notifSensors'] = notifSensors;
-  _this['notifExpression'] = notifExpression;
+  _this['devices'] = devices;
+  _this['sensors'] = sensors;
+  _this['expression'] = expression;
 
 
 };
@@ -28,30 +28,30 @@ exports.constructFromObject = function(data, obj) {
   if (data) {
     obj = obj || new exports();
 
-    if (data.hasOwnProperty('notifDevices')) {
-      obj['notifDevices'] = ApiClient.convertToType(data['notifDevices'], ['String']);
+    if (data.hasOwnProperty('devices')) {
+      obj['devices'] = ApiClient.convertToType(data['devices'], ['String']);
     }
-    if (data.hasOwnProperty('notifSensors')) {
-      obj['notifSensors'] = ApiClient.convertToType(data['notifSensors'], ['String']);
+    if (data.hasOwnProperty('sensors')) {
+      obj['sensors'] = ApiClient.convertToType(data['sensors'], ['String']);
     }
-    if (data.hasOwnProperty('notifExpression')) {
-      obj['notifExpression'] = ApiClient.convertToType(data['notifExpression'], 'String');
+    if (data.hasOwnProperty('expression')) {
+      obj['expression'] = ApiClient.convertToType(data['expression'], 'String');
     }
   }
   return obj;
 }
 
 /**
- * @member {Array.<String>} notifDevices
+ * @member {Array.<String>} devices
  */
-exports.prototype['notifDevices'] = undefined;
+exports.prototype['devices'] = undefined;
 /**
- * @member {Array.<String>} notifSensors
+ * @member {Array.<String>} sensors
  */
-exports.prototype['notifSensors'] = undefined;
+exports.prototype['sensors'] = undefined;
 /**
- * @member {String} notifExpression
+ * @member {String} expression
  */
-exports.prototype['notifExpression'] = undefined;
+exports.prototype['expression'] = undefined;
 
 export default exports;

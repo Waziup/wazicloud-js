@@ -7,12 +7,12 @@ import Sensor from './Device';
  * Constructs a new <code>Device</code>.
  * @alias module:model/Device
  * @class
- * @param devId {String} Unique ID of the device node
+ * @param id {String} Unique ID of the device node
  */
-var exports = function(devId) {
+var exports = function(id) {
   var _this = this;
 
-  _this['devId'] = devId;
+  _this['id'] = id;
 
 };
 
@@ -27,35 +27,35 @@ exports.constructFromObject = function(data, obj) {
   if (data) {
     obj = obj || new exports();
 
-    if (data.hasOwnProperty('devId')) {
-      obj['devId'] = ApiClient.convertToType(data['devId'], 'String');
+    if (data.hasOwnProperty('id')) {
+      obj['id'] = ApiClient.convertToType(data['id'], 'String');
     }
-    if (data.hasOwnProperty('devGatewayId')) {
-      obj['devGatewayId'] = ApiClient.convertToType(data['devGatewayId'], 'String');
+    if (data.hasOwnProperty('gateway_id')) {
+      obj['gateway_id'] = ApiClient.convertToType(data['gateway_id'], 'String');
     }
-    if (data.hasOwnProperty('devName')) {
-      obj['devName'] = ApiClient.convertToType(data['devName'], 'String');
+    if (data.hasOwnProperty('name')) {
+      obj['name'] = ApiClient.convertToType(data['name'], 'String');
     }
-    if (data.hasOwnProperty('devOwner')) {
-      obj['devOwner'] = ApiClient.convertToType(data['devOwner'], 'String');
+    if (data.hasOwnProperty('owner')) {
+      obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
     }
-    if (data.hasOwnProperty('devVisibility')) {
-      obj['devVisibility'] = ApiClient.convertToType(data['devVisibility'], 'String');
+    if (data.hasOwnProperty('visibility')) {
+      obj['visibility'] = ApiClient.convertToType(data['visibility'], 'String');
     }
-    if (data.hasOwnProperty('devSensors')) {
-      obj['devSensors'] = ApiClient.convertToType(data['devSensors'], [Sensor]);
+    if (data.hasOwnProperty('sensors')) {
+      obj['sensors'] = ApiClient.convertToType(data['sensors'], [Sensor]);
     }
-    if (data.hasOwnProperty('devLocation')) {
-      obj['devLocation'] = Location.constructFromObject(data['devLocation']);
+    if (data.hasOwnProperty('location')) {
+      obj['location'] = Location.constructFromObject(data['location']);
     }
-    if (data.hasOwnProperty('devDateCreated')) {
-      obj['devDateCreated'] = ApiClient.convertToType(data['devDateCreated'], 'String');
+    if (data.hasOwnProperty('date_created')) {
+      obj['date_created'] = ApiClient.convertToType(data['date_created'], 'String');
     }
-    if (data.hasOwnProperty('devDateModified')) {
-      obj['devDateModified'] = ApiClient.convertToType(data['devDateModified'], 'String');
+    if (data.hasOwnProperty('date_modified')) {
+      obj['date_modified'] = ApiClient.convertToType(data['date_modified'], 'String');
     }
-    if (data.hasOwnProperty('devDomain')) {
-      obj['devDomain'] = ApiClient.convertToType(data['devDomain'], 'String');
+    if (data.hasOwnProperty('domain')) {
+      obj['domain'] = ApiClient.convertToType(data['domain'], 'String');
     }
   }
   
@@ -64,52 +64,52 @@ exports.constructFromObject = function(data, obj) {
 
 /**
  * Unique ID of the device node
- * @member {String} devId
+ * @member {String} id
  */
-exports.prototype['devId'] = undefined;
+exports.prototype['id'] = undefined;
 /**
  * Unique ID of the gateway
- * @member {String} devGatewayId
+ * @member {String} gateway_id
  */
-exports.prototype['devGatewayId'] = undefined;
+exports.prototype['gateway_id'] = undefined;
 /**
  * name of the device node
- * @member {String} devName
+ * @member {String} name
  */
-exports.prototype['devName'] = undefined;
+exports.prototype['name'] = undefined;
 /**
- * devOwner of the device node
- * @member {String} devOwner
+ * owner of the device node
+ * @member {String} owner
  */
-exports.prototype['devOwner'] = undefined;
+exports.prototype['owner'] = undefined;
 /**
  * visibility of the device node (either "private" or "public")
- * @member {String} devVisibility
+ * @member {String} visibility
  */
-exports.prototype['devVisibility'] = undefined;
+exports.prototype['visibility'] = undefined;
 /**
- * @member {Array.<module:model/Sensor>} devSensors
+ * @member {Array.<module:model/Sensor>} sensors
  */
-exports.prototype['devSensors'] = undefined;
+exports.prototype['sensors'] = undefined;
 /**
- * @member {module:model/Location} devLocation
+ * @member {module:model/Location} location
  */
-exports.prototype['devLocation'] = undefined;
+exports.prototype['location'] = undefined;
 /**
  * date at which the device has been modified
- * @member {String} devDateModified
+ * @member {String} date_modified
  */
-exports.prototype['devDateModified'] = undefined;
+exports.prototype['date_modified'] = undefined;
 /**
  * date at which the device has been created
- * @member {String} devDateCreated
+ * @member {String} date_created
  */
-exports.prototype['devDateCreated'] = undefined;
+exports.prototype['date_created'] = undefined;
 /**
  * domain of the device
- * @member {String} devDomain
+ * @member {String} domain
  */
-exports.prototype['devDomain'] = undefined;
+exports.prototype['domain'] = undefined;
 
 
 

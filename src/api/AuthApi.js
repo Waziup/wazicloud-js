@@ -1,6 +1,6 @@
 'use strict';
 import ApiClient from '../ApiClient'
-import Permission from '../model/Perm'
+import Permission from '../model/Permission'
 
 /**
  * Constructs a new AuthApi. 

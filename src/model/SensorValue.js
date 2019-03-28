@@ -6,9 +6,9 @@ import ApiClient from '../ApiClient';
  * @alias module:model/SensorValue
  * @class
  */
-var exports = function(senValValue) {
+var exports = function(value) {
   var _this = this;
-  _this['senValValue'] = senValValue;
+  _this['value'] = value;
 };
 
 /**
@@ -22,14 +22,14 @@ exports.constructFromObject = function(data, obj) {
   if (data) {
     obj = obj || new exports();
 
-    if (data.hasOwnProperty('senValValue')) {
-      obj['senValValue'] = ApiClient.convertToType(data['senValValue'], 'Blob');
+    if (data.hasOwnProperty('value')) {
+      obj['value'] = ApiClient.convertToType(data['value'], 'Blob');
     }
-    if (data.hasOwnProperty('senValTimestamp')) {
-      obj['senValTimestamp'] = ApiClient.convertToType(data['senValTimestamp'], 'String');
+    if (data.hasOwnProperty('timestamp')) {
+      obj['timestamp'] = ApiClient.convertToType(data['timestamp'], 'String');
     }
-    if (data.hasOwnProperty('senValDateReceived')) {
-      obj['senValDateReceived'] = ApiClient.convertToType(data['senValDateReceived'], 'String');
+    if (data.hasOwnProperty('date_received')) {
+      obj['date_received'] = ApiClient.convertToType(data['date_received'], 'String');
     }
   }
   return obj;
@@ -37,19 +37,19 @@ exports.constructFromObject = function(data, obj) {
 
 /**
  * value of the sensor
- * @member {Number} senValValue
+ * @member {Number} value
  */
-exports.prototype['senValValue'] = undefined;
+exports.prototype['value'] = undefined;
 /**
  * time of the sensor
- * @member {String} senValTimestamp
+ * @member {String} timestamp
  */
-exports.prototype['senValTimestamp'] = undefined;
+exports.prototype['timestamp'] = undefined;
 /**
  * time received on Cloud side
- * @member {String} senValDateReceived
+ * @member {String} date_received
  */
-exports.prototype['senValDateReceived'] = undefined;
+exports.prototype['date_received'] = undefined;
 
 
 export default exports;
