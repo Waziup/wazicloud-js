@@ -2,7 +2,7 @@
 import ApiClient from '../ApiClient'
 import Error from '../model/Error'
 import Location from '../model/Location'
-import Sensor from '../model/Device'
+import Sensor from '../model/Sensor'
 import SensorValue from '../model/SensorValue'
 import Device from '../model/Device'
 
@@ -493,6 +493,8 @@ var exports = function(apiClient) {
       'sensor_id': sensorId
     };
     var queryParams = {
+      'device_id': deviceId,
+      'sensor_id': sensorId,
       'lastN'   : opts['lastN'],
       'limit'   : opts['limit'],
       'offset'  : opts['offset'],
@@ -508,7 +510,7 @@ var exports = function(apiClient) {
     var returnType = [SensorValue];
 
     return this.apiClient.callApi(
-      '/devices/{device_id}/sensors/{sensor_id}/values', 'GET',
+      '/sensors_data', 'GET',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }

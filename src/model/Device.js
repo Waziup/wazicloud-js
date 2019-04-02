@@ -1,7 +1,7 @@
 'use strict';
 import ApiClient from '../ApiClient';
 import Location from './Location';
-import Sensor from './Device';
+import Sensor from './Sensor';
 
 /**
  * Constructs a new <code>Device</code>.
