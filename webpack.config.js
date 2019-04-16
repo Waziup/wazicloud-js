@@ -1,8 +1,11 @@
+const path = require('path');
+
 module.exports = {
     entry: './lib/index.js',
     output: {
         library: 'Waziup',
-        filename: 'lib/Waziup.js',
+        path: path.resolve(__dirname, 'lib'),
+        filename: 'Waziup.js',
         libraryTarget:'var'
     },
 	module: {
