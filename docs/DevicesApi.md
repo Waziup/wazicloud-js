@@ -241,8 +241,8 @@ Delete sensor
 ### Example
 ```javascript
 var deviceID = "test"
-var measID = "TC"
-var sensors = await apiInstance.deleteDeviceSensor(deviceID, measID);
+var sensID = "TC"
+var sensors = await apiInstance.deleteDeviceSensor(deviceID, sensID);
 ```
 
 ### Parameters
@@ -274,8 +274,8 @@ put sensor quantity kind
 ### Example
 ```javascript
 var deviceID = "test"
-var measID = "TC"
-apiInstance.putSensorQuantityKind(deviceID, measID, "Temperature");
+var sensID = "TC"
+apiInstance.putSensorQuantityKind(deviceID, sensID, "Temperature");
 ```
 
 ### Parameters
@@ -308,8 +308,8 @@ get sensor
 ### Example
 ```javascript
 var deviceID = "test"
-var measID = "TC"
-var sensors = await apiInstance.getSensor(deviceID, measID);
+var sensID = "TC"
+var sensors = await apiInstance.getSensor(deviceID, sensID);
 ```
 
 ### Parameters
@@ -341,7 +341,7 @@ put sensor name
 ### Example
 ```javascript
 var deviceID = "test"
-var measID = "TC"
+var sensID = "TC"
 apiInstance.putSensorName(deviceID, "My temperature");
 ```
 
@@ -375,8 +375,8 @@ insert device kind
 ### Example
 ```javascript
 var deviceID = "test"
-var measID = "TC"
-apiInstance.putSensorDeviceKind(deviceID, measID, "Thermometer");
+var sensID = "TC"
+apiInstance.putSensorDeviceKind(deviceID, sensID, "Thermometer");
 ```
 
 ### Parameters
@@ -409,8 +409,8 @@ put sensor unit
 ### Example
 ```javascript
 var deviceID = "test"
-var measID = "TC"
-apiInstance.putSensorUnit(deviceID, measID, "DegreeCelcius");
+var sensID = "TC"
+apiInstance.putSensorUnit(deviceID, sensID, "DegreeCelcius");
 ```
 
 ### Parameters
@@ -443,7 +443,7 @@ get sensor values
 ### Example
 ```javascript
 var deviceID = "test"
-var measID = "TC"
+var sensID = "TC"
 //Options for fetching the values. Use either 'lastN' or ('limit', 'offset'). dateFrom and dataTo can be use to further limit the time window.
 var opts = { 
   'lastN': "20", // String | get the last N entries, most recent first. Default value is 20.
@@ -452,7 +452,7 @@ var opts = {
   'dateFrom': "2016-01-01T00:00:00.000Z", // String | The starting date and time from which the entries are desired. It is an optional parameter.
   'dateTo': "2019-01-31T23:59:59.999Z" // String | The final date and time until which the entries are desired. It is an optional parameter.
 };
-var values = await apiInstance.getSensorValues(deviceID, measID, opts);
+var values = await apiInstance.getSensorValues(deviceID, sensID, opts);
 ```
 
 ### Parameters
@@ -489,9 +489,9 @@ Create new datapoint
 ### Example
 ```javascript
 var deviceID = "test"
-var measID = "TC"
+var sensID = "TC"
 var value = new WaziupApi.SensorValue("25.6", "2018-03-15T15:27:17+01:00");
-apiInstance.addDatapoint(deviceID, measID, value);
+apiInstance.addDatapoint(deviceID, sensID, value);
 ```
 
 ### Parameters
@@ -524,8 +524,8 @@ insert new sensor
 ### Example
 ```javascript
 var deviceID = "test"
-var meas = new WaziupApi.Sensor("TC");
-apiInstance.addSensor(deviceID, meas);
+var sens = new WaziupApi.Sensor("TC");
+apiInstance.addSensor(deviceID, sens);
 ```
 
 ### Parameters
