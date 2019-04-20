@@ -1,7 +1,6 @@
 'use strict';
 import ApiClient from '../ApiClient'
 import Actuator from '../model/Actuator'
-import ActuatorValue from '../model/ActuatorValue'
 
 /**
  * Constructs a new ActuatorsAPI. 
