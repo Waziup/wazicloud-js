@@ -54,6 +54,12 @@ exports.constructFromObject = function(data, obj) {
     if (data.hasOwnProperty('last_notification')) {
       obj['last_notification'] = ApiClient.convertToType(data['last_notification'], 'String');
     }
+    if (data.hasOwnProperty('last_success')) {
+      obj['last_success'] = ApiClient.convertToType(data['last_success'], 'String');
+    }
+    if (data.hasOwnProperty('last_failure')) {
+      obj['last_failure'] = ApiClient.convertToType(data['last_failure'], 'String');
+    }
     if (data.hasOwnProperty('status')) {
       obj['status'] = ApiClient.convertToType(data['status'], 'String');
     }
@@ -98,6 +104,16 @@ exports.prototype['times_sent'] = undefined;
  * @member {String} last_notification
  */
 exports.prototype['last_notification'] = undefined;
+/**
+ * last_success of the notification
+ * @member {String} last_success
+ */
+exports.prototype['last_success'] = undefined;
+/**
+ * last_failure of the notification
+ * @member {String} last_failure
+ */
+exports.prototype['last_failure'] = undefined;
 /**
  * status of the notification
  * @member {String} status
