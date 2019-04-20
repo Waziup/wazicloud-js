@@ -1,6 +1,7 @@
 'use strict';
 import ApiClient from '../ApiClient';
 import SensorValue from './SensorValue';
+import Calib from './Calib';
 
 /**
  * Constructs a new <code>Sensor</code>.
@@ -43,6 +44,9 @@ exports.constructFromObject = function(data, obj) {
     if (data.hasOwnProperty('unit')) {
       obj['unit'] = ApiClient.convertToType(data['unit'], 'String');
     }
+    if (data.hasOwnProperty('calib')) {
+      obj['calib'] = Calib.constructFromObject(data['calib']);
+    }
   }
   return obj;
 }
@@ -77,6 +81,11 @@ exports.prototype['unit'] = undefined;
  * @member {model/SensorKinds} sensor_kind 
  */
 exports.prototype['sensor_kind'] = undefined;
+/**
+ * calibration
+ * @member {model/Calib} value 
+ */
+exports.prototype['calib'] = undefined;
 
 
 export default exports;
