@@ -45,17 +45,14 @@ exports.constructFromObject = function(data, obj) {
     if (data.hasOwnProperty('phone')) {
       obj['phone'] = ApiClient.convertToType(data['phone'], 'String');
     }
-    if (data.hasOwnProperty('address')) {
-      obj['address'] = ApiClient.convertToType(data['address'], 'String');
-    }
     if (data.hasOwnProperty('facebook')) {
       obj['facebook'] = ApiClient.convertToType(data['facebook'], 'String');
     }
     if (data.hasOwnProperty('twitter')) {
       obj['twitter'] = ApiClient.convertToType(data['twitter'], 'String');
     }
-    if (data.hasOwnProperty('roles')) {
-      obj['roles'] = ApiClient.convertToType(data['roles'], 'String');
+    if (data.hasOwnProperty('sms_credit')) {
+      obj['sms_credit'] = ApiClient.convertToType(data['sms_credit'], 'Integer');
     }
   }
   return obj;
@@ -102,8 +99,8 @@ exports.prototype['facebook'] = undefined;
  */
 exports.prototype['twitter'] = undefined;
 /**
- * @member {String} roles
+ * @member {Integer} smsCredit
  */
-exports.prototype['roles'] = undefined;
+exports.prototype['sms_credit'] = undefined;
 
 export default exports;
