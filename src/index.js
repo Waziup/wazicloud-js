@@ -13,10 +13,23 @@ import Device                 from './model/Device'
 import SocialMessage          from './model/SocialMessage'
 import SocialMessageBatch     from './model/SocialMessageBatch'
 import Units                  from './model/Units'
+import Calib                  from './model/Calib'
+import CalibFunction          from './model/CalibFunction'
+import CalibLinear            from './model/CalibLinear'
+import CalibValue             from './model/CalibValue'
+import Actuator               from './model/Actuator'
+import ActuatorKinds          from './model/ActuatorKinds'
+import Gateway                from './model/Gateway'
+import GatewayTunnel          from './model/GatewayTunnel'
+import Project                from './model/Project'
 import User                   from './model/User'
 import UserUpdateBody         from './model/UserUpdateBody'
 import NotificationsApi       from './api/NotificationsApi'
 import DevicesApi             from './api/DevicesApi'
+import SensorsApi             from './api/SensorsApi'
+import ActuatorsApi           from './api/ActuatorsApi'
+import GatewaysApi            from './api/GatewaysApi'
+import ProjectsApi            from './api/ProjectsApi'
 import SocialsApi             from './api/SocialsApi'
 import UsersApi               from './api/UsersApi'               
 import AuthApi                from './api/AuthApi'               
@@ -122,6 +135,51 @@ import AuthApi                from './api/AuthApi'
    */
   Units,
   /**
+   * List of Calib
+   * @property {module:model/Calib}
+   */
+  Calib,  
+  /**
+   * List of CalibFunction
+   * @property {module:model/CalibFunction}
+   */
+  CalibFunction,
+  /**
+   * List of CalibLinear
+   * @property {module:model/CalibLinear}
+   */
+  CalibLinear,
+    /**
+   * List of CalibValue
+   * @property {module:model/CalibValue}
+   */
+  CalibValue,  
+  /**
+   * The Actuator model constructor.
+   * @property {module:model/Actuator}
+   */
+  Actuator,
+  /**
+   * The ActuatorKinds model constructor.
+   * @property {module:model/ActuatorKinds}
+   */
+  ActuatorKinds,
+  /**
+   * The Gateway model constructor.
+   * @property {module:model/Gateway}
+   */
+  Gateway,
+  /**
+   * The GatewayTunnel model constructor.
+   * @property {module:model/GatewayTunnel}
+   */
+  GatewayTunnel,
+  /**
+   * The Project model constructor.
+   * @property {module:model/Project}
+   */
+  Project,
+  /**
    * The User model constructor.
    * @property {module:model/User}
    */
@@ -141,6 +199,26 @@ import AuthApi                from './api/AuthApi'
    * @property {module:api/DevicesApi}
    */
   DevicesApi,
+  /**
+   * The SensorsApi service constructor.
+   * @property {module:api/SensorsApi}
+   */
+  SensorsApi,
+  /**
+   * The ActuatorsApi service constructor.
+   * @property {module:api/ActuatorsApi}
+   */
+  ActuatorsApi,
+  /**
+   * The GatewaysApi service constructor.
+   * @property {module:api/GatewaysApi}
+   */
+  GatewaysApi,
+  /**
+   * The ProjectsApi service constructor.
+   * @property {module:api/ProjectsApi}
+   */
+  ProjectsApi,
   /**
    * The SocialsApi service constructor.
    * @property {module:api/SocialsApi}
