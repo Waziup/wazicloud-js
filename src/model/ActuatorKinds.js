@@ -1,4 +1,5 @@
 'use strict'
+import QuantityKinds from './QuantityKinds.js'
 
 /* Sensing devices list
   Generated from FIESTA IoT ontology with this Jena SPARQL script:
@@ -130,8 +131,9 @@ function getLabel(id) {
 
 function getVTs(id) {
   const sds = dic.find(sd => sd.id == id)
-  return sds
+  return sds? sds.VT.map(qkid => QuantityKinds.getQK(qkid)): []
 }
+
 
 var exports = {getAll, getLabel, getVTs}
 export default exports 
