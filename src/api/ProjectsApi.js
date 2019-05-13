@@ -27,7 +27,8 @@ var exports = function(apiClient) {
     var queryParams = {
       q: opts["q"],
       limit: opts["limit"],
-      offset: opts["offset"]
+      offset: opts["offset"],
+      full: opts["full"]
     };
     var headerParams = {};
     var formParams = {};
@@ -147,7 +148,9 @@ var exports = function(apiClient) {
     var pathParams = {
       id: projectId
     };
-    var queryParams = {};
+    var queryParams = {
+      full: true
+    };
     var headerParams = {};
     var formParams = {};
 
