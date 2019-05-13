@@ -34,10 +34,10 @@ exports.constructFromObject = function(data, obj) {
       obj['name'] = ApiClient.convertToType(data['name'], 'String');
     }
     if (data.hasOwnProperty('devices')) {
-      obj['devices'] = ApiClient.convertToType(data['devices'], [Device]);
+      obj['devices'] = ApiClient.convertToType(data['devices'], 'Array');
     }
     if (data.hasOwnProperty('gateways')) {
-      obj['gateways'] = ApiClient.convertToType(data['gateways'], [Gateway]);
+      obj['gateways'] = ApiClient.convertToType(data['gateways'], 'Array');
     }
   }
   
@@ -55,11 +55,11 @@ exports.prototype['id'] = undefined;
  */
 exports.prototype['name'] = undefined;
 /**
- * @member {Array.<module:model/Device>} devices
+ * @member {Array} devices
  */
 exports.prototype['devices'] = undefined;
 /**
- * @member {Array.<module:model/Gateway>} gateways
+ * @member {Array} gateways
  */
 exports.prototype['gateways'] = undefined;
 
