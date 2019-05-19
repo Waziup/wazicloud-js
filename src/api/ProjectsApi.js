@@ -149,7 +149,7 @@ var exports = function(apiClient) {
       id: projectId
     };
     var queryParams = {
-      full: true
+      full: false
     };
     var headerParams = {};
     var formParams = {};
@@ -263,6 +263,53 @@ var exports = function(apiClient) {
       returnType
     );
   };
+
+
+  /**
+   * insert name
+   * @param {String} projectId
+   * @param {String} body
+   */
+  this.putProjectName = async function(projectId, body) {
+    var postBody = body;
+
+    // verify the required parameter 'projectId' is set
+    if (projectId === undefined || projectId === null) {
+      throw "Missing the required parameter 'projectId' when calling putProjectName";
+    }
+
+    // verify the required parameter 'body' is set
+    if (body === undefined || body === null) {
+      throw "Missing the required parameter 'body' when calling putProjectName";
+    }
+
+    var pathParams = {
+      project_id: projectId
+    };
+    var queryParams = {};
+    var headerParams = {};
+    var formParams = {};
+
+    var authNames = ["Bearer"];
+    var contentTypes = ["application/json;charset=utf-8"];
+    var accepts = ["application/json;charset=utf-8"];
+    var returnType = null;
+
+    return this.apiClient.callApi(
+      "/projects/{project_id}/name",
+      "PUT",
+      pathParams,
+      queryParams,
+      headerParams,
+      formParams,
+      postBody,
+      authNames,
+      contentTypes,
+      accepts,
+      returnType
+    );
+  };
+
 };
 
 export default exports;
