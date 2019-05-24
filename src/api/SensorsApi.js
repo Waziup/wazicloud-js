@@ -163,7 +163,7 @@ var exports = function(apiClient) {
     var formParams = {};
 
     var authNames = ['Bearer'];
-    var contentTypes = ['text/plain'];
+    var contentTypes = ['text/plain;charset=utf-8'];
     var accepts = ['application/json'];
     var returnType = null;
 
@@ -206,7 +206,7 @@ var exports = function(apiClient) {
     var formParams = {};
 
     var authNames = ['Bearer'];
-    var contentTypes = ['text/plain'];
+    var contentTypes = ['text/plain;charset=utf-8'];
     var accepts = ['application/json'];
     var returnType = null;
 
@@ -250,7 +250,7 @@ var exports = function(apiClient) {
     var formParams = {};
 
     var authNames = ['Bearer'];
-    var contentTypes = ['text/plain'];
+    var contentTypes = ['text/plain;charset=utf-8'];
     var accepts = ['application/json'];
     var returnType = null;
 
@@ -293,7 +293,7 @@ var exports = function(apiClient) {
     var formParams = {};
 
     var authNames = ['Bearer'];
-    var contentTypes = ['text/plain'];
+    var contentTypes = ['text/plain;charset=utf-8'];
     var accepts = ['application/json'];
     var returnType = null;
 
