@@ -2,6 +2,7 @@
 import ApiClient from '../ApiClient';
 import Location from './Location';
 import Sensor from './Sensor';
+import Actuator from './Actuator';
 
 /**
  * Constructs a new <code>Device</code>.
@@ -44,6 +45,9 @@ exports.constructFromObject = function(data, obj) {
     }
     if (data.hasOwnProperty('sensors')) {
       obj['sensors'] = ApiClient.convertToType(data['sensors'], [Sensor]);
+    }
+    if (data.hasOwnProperty('actuators')) {
+      obj['actuators'] = ApiClient.convertToType(data['actuators'], [Actuator]);
     }
     if (data.hasOwnProperty('location')) {
       obj['location'] = Location.constructFromObject(data['location']);
@@ -91,6 +95,10 @@ exports.prototype['visibility'] = undefined;
  * @member {Array.<module:model/Sensor>} sensors
  */
 exports.prototype['sensors'] = undefined;
+/**
+ * @member {Array.<module:model/Actuator>} actuators
+ */
+exports.prototype['actuators'] = undefined;
 /**
  * @member {module:model/Location} location
  */
