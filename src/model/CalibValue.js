@@ -45,4 +45,4 @@ exports.prototype['sensor_value'] = undefined;
  */
 exports.prototype['real_value'] = undefined;
 
-exports.default = exports;
+export default exports;

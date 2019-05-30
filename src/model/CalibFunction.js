@@ -45,4 +45,4 @@ exports.prototype['enabled'] = undefined;
  */
 exports.prototype['func'] = undefined;
 
-exports.default = exports;
+export default exports;
