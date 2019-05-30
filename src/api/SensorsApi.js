@@ -304,6 +304,49 @@ var exports = function(apiClient) {
   }
 
   /**
+   * put sensor calibration
+   * @param {String} deviceId 
+   * @param {String} sensorId 
+   * @param {String} body 
+   */
+  this.putSensorCalibration = async function(deviceId, sensorId, body) {
+    var postBody = body;
+
+    // verify the required parameter 'deviceId' is set
+    if (deviceId === undefined || deviceId === null) {
+      throw("Missing the required parameter 'deviceId' when calling putSensorCalibration");
+    }
+
+    // verify the required parameter 'sensorId' is set
+    if (sensorId === undefined || sensorId === null) {
+      throw("Missing the required parameter 'sensorId' when calling putSensorCalibration");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body === undefined || body === null) {
+      throw("Missing the required parameter 'body' when calling putSensorCalibration");
+    }
+
+    var pathParams = {
+      'device_id': deviceId,
+      'sensor_id': sensorId
+    };
+    var queryParams = {};
+    var headerParams = {};
+    var formParams = {};
+
+    var authNames = ['Bearer'];
+    var contentTypes = ['application/json;charset=utf-8'];
+    var accepts = ['application/json'];
+    var returnType = null;
+
+    return this.apiClient.callApi(
+      '/devices/{device_id}/sensors/{sensor_id}/calib', 'PUT',
+      pathParams, queryParams, headerParams, formParams, postBody,
+      authNames, contentTypes, accepts, returnType);
+  }  
+
+  /**
    * Create new sensor value
    * @param {String} deviceId 
    * @param {String} sensorId 

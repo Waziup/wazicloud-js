@@ -7,6 +7,7 @@ import CalibFunction from './CalibFunction';
 /**
  * Constructs a new <code>Calib</code>.
  * Calib is a pair of [linear, calFunction].
+ * @alias module:model/Calib
  * @alias module:model/CalibLinear
  * @alias module:model/CalibFunction
  * @class
@@ -29,10 +30,10 @@ exports.constructFromObject = function (data, obj) {
   if (data) {
     obj = obj || new exports();
     if (data.hasOwnProperty('linear')) {
-      obj['linear'] = ApiClient.convertToType(data['linear'], [CalibLinear.default]);
+      obj['linear'] =  CalibLinear.constructFromObject(data['linear']);
     }
     if (data.hasOwnProperty('function')) {
-      obj['function'] = ApiClient.convertToType(data['function'], [CalibFunction.default]);
+      obj['function'] = CalibFunction.constructFromObject(data['function']);
     }
   }
   return obj;
@@ -47,4 +48,4 @@ exports.prototype['linear'] = undefined;
  */
 exports.prototype['function'] = undefined;
 
-exports.default = exports;
+export default exports;

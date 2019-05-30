@@ -31,10 +31,10 @@ exports.constructFromObject = function (data, obj) {
       obj['enabled'] = ApiClient.convertToType(data['enabled'], 'Boolean');
     }
     if (data.hasOwnProperty('value_min')) {
-      obj['value_min'] = ApiClient.convertToType(data['value_min'], [CalibValue.default]);
+      obj['value_min'] = CalibValue.constructFromObject(data['value_min']);
     }
     if (data.hasOwnProperty('value_max')) {
-      obj['value_max'] = ApiClient.convertToType(data['value_max'], [CalibValue.default]);
+      obj['value_max'] = CalibValue.constructFromObject(data['value_max']);
     }
   }
   return obj;
@@ -53,4 +53,4 @@ exports.prototype['value_min'] = undefined;
  */
 exports.prototype['value_max'] = undefined;
 
-exports.default = exports;
+export default exports;
