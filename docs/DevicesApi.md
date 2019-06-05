@@ -1,26 +1,26 @@
-# WaziupApi.SensorsApi
+# WaziupApi.DevicesApi
 
 All URIs are relative to *http://127.0.0.1:8000/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getSensors**](SensorsApi.md#getSensors) | **GET** /sensors | Sensor data
-[**createSensor**](SensorsApi.md#createSensor) | **POST** /sensors | Create sensors
-[**getSensor**](SensorsApi.md#getSensor) | **GET** /sensors/{sensor_id} | get sensor
-[**deleteSensor**](SensorsApi.md#deleteSensor) | **DELETE** /sensors/{sensor_id} | Delete sensor
-[**putSensorLocation**](SensorsApi.md#putSensorLocation) | **PUT** /sensors/{sensor_id}/location | insert location
-[**putSensorName**](SensorsApi.md#putSensorName) | **PUT** /sensors/{sensor_id}/name | insert name
-[**putSensorOwner**](SensorsApi.md#putSensorOwner) | **PUT** /sensors/{sensor_id}/owner | insert owner
-[**getSensorMeasurements**](SensorsApi.md#getSensorMeasurements) | **GET** /sensors/{sensor_id}/measurements | get measurements
-[**addMeasurement**](SensorsApi.md#addMeasurement) | **POST** /sensors/{sensor_id}/measurements | insert new measurement
-[**deleteMeasurement**](SensorsApi.md#deleteMeasurement) | **DELETE** /sensors/{sensor_id}/measurements/{measurement_id} | Delete measurement
-[**putMeasurementQK**](SensorsApi.md#putMeasurementQK) | **PUT** /sensors/{sensor_id}/measurements/{measurement_id}/quantity_kind | put measurement quantity kind 
-[**getMeasurement**](SensorsApi.md#getMeasurement) | **GET** /sensors/{sensor_id}/measurements/{measurement_id} | get measurement
-[**putMeasurementName**](SensorsApi.md#putMeasurementName) | **PUT** /sensors/{sensor_id}/measurements/{measurement_id}/name | put measurement name
-[**putMeasurementSD**](SensorsApi.md#putMeasurementSD) | **PUT** /sensors/{sensor_id}/measurements/{measurement_id}/sensingDevice | insert sensor kind
-[**putMeasurementUnit**](SensorsApi.md#putMeasurementUnit) | **PUT** /sensors/{sensor_id}/measurements/{measurement_id}/unit | put measurement unit
-[**getMeasurementValues**](SensorsApi.md#getMeasurementValues) | **GET** /sensors/{sensor_id}/measurements/{measurement_id}/values | get measurement values
-[**addDatapoint**](SensorsApi.md#addDatapoint) | **POST** /sensors/{sensor_id}/measurements/{measurement_id}/values | Create new datapoint
+[**getDevices**](DevicesApi.md#getDevices) | **GET** /devices | Device data
+[**createDevice**](DevicesApi.md#createDevice) | **POST** /devices | Create devices
+[**getDevice**](DevicesApi.md#getDevice) | **GET** /devices/{device_id} | get device
+[**deleteDevice**](DevicesApi.md#deleteDevice) | **DELETE** /devices/{device_id} | Delete device
+[**putDeviceLocation**](DevicesApi.md#putDeviceLocation) | **PUT** /devices/{device_id}/location | insert location
+[**putDeviceName**](DevicesApi.md#putDeviceName) | **PUT** /devices/{device_id}/name | insert name
+[**putDeviceOwner**](DevicesApi.md#putDeviceOwner) | **PUT** /devices/{device_id}/owner | insert owner
+[**getDeviceSensors**](DevicesApi.md#getDeviceSensors) | **GET** /devices/{device_id}/sensors | get sensors
+[**addSensor**](DevicesApi.md#addSensor) | **POST** /devices/{device_id}/sensors | insert new sensor
+[**deleteSensor**](DevicesApi.md#deleteSensor) | **DELETE** /devices/{device_id}/sensors/{sensor_id} | Delete sensor
+[**putSensorQK**](DevicesApi.md#putSensorQK) | **PUT** /devices/{device_id}/sensors/{sensor_id}/quantity_kind | put sensor quantity kind 
+[**getSensor**](DevicesApi.md#getSensor) | **GET** /devices/{device_id}/sensors/{sensor_id} | get sensor
+[**putSensorName**](DevicesApi.md#putSensorName) | **PUT** /devices/{device_id}/sensors/{sensor_id}/name | put sensor name
+[**putSensorSD**](DevicesApi.md#putSensorSD) | **PUT** /devices/{device_id}/sensors/{sensor_id}/sensingDevice | insert device kind
+[**putSensorUnit**](DevicesApi.md#putSensorUnit) | **PUT** /devices/{device_id}/sensors/{sensor_id}/unit | put sensor unit
+[**getSensorValues**](DevicesApi.md#getSensorValues) | **GET** /devices/{device_id}/sensors/{sensor_id}/values | get sensor values
+[**addDatapoint**](DevicesApi.md#addDatapoint) | **POST** /devices/{device_id}/sensors/{sensor_id}/values | Create new datapoint
 
 ## Preliminaries
 Insert this code in your file, before using any endpoint:
@@ -33,21 +33,21 @@ defaultClient.basePath = 'WAZIUP_BASE_URL' + '/v1'
 // Configure API key authorization: Bearer
 defaultClient.authentications['Bearer'].apiKey = "Bearer " + 'YOUR API KEY';
 
-var apiInstance = new WaziupApi.SensorsApi();
+var apiInstance = new WaziupApi.DevicesApi();
 ```
 
-<a name="getSensors"></a>
-# **getSensors**
-> [Sensor] getSensors(opts)
+<a name="getDevices"></a>
+# **getDevices**
+> [Device] getDevices(opts)
 
-Sensor data
+Device data
 
 ### Example
 
 ```javascript
 var opts = {'q': "owner=cdupont"} // filter the results
-let sensors = await apiInstance.getSensors(opts);
-//You can use the sensors here
+let devices = await apiInstance.getDevices(opts);
+//You can use the devices here
 ```
 
 ### Parameters
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[Sensor]**](Sensor.md)
+[**[Device]**](Device.md)
 
 ### Authorization
 
@@ -69,26 +69,26 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="createSensor"></a>
-# **createSensor**
-> createSensor(sensor)
+<a name="createDevice"></a>
+# **createDevice**
+> createDevice(device)
 
-Create sensors
+Create devices
 
 Endpoint to create sensing devices.
 
 ### Example
 ```javascript
-var sensor = new WaziupApi.Sensor("ID");
-sensor.name = ... //Set up the sensor here
-apiInstance.createSensors(sensor);
+var device = new WaziupApi.Device("ID");
+device.name = ... //Set up the device here
+apiInstance.createDevices(device);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Sensor**](Sensor.md)|  | 
+ **body** | [**Device**](Device.md)|  | 
 
 ### Return type
 
@@ -103,23 +103,23 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="deleteSensor"></a>
-# **deleteSensor**
-> deleteSensor(sensorId)
+<a name="deleteDevice"></a>
+# **deleteDevice**
+> deleteDevice(deviceId)
 
-Delete sensor
+Delete device
 
 ### Example
 ```javascript
-var sensorID = "test"
-apiInstance.deleteSensor(sensorID);
+var deviceID = "test"
+apiInstance.deleteDevice(deviceID);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sensorId** | **String**|  | 
+ **deviceId** | **String**|  | 
 
 ### Return type
 
@@ -134,28 +134,28 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="getSensor"></a>
-# **getSensor**
-> Sensor getSensor(sensorId)
+<a name="getDevice"></a>
+# **getDevice**
+> Device getDevice(deviceId)
 
-get sensor
+get device
 
 ### Example
 ```javascript
-var sensorID = "test"
-let sensor = await apiInstance.getSensor(sensorID);
-//You can use the sensor here
+var deviceID = "test"
+let device = await apiInstance.getDevice(deviceID);
+//You can use the device here
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sensorId** | **String**|  | 
+ **deviceId** | **String**|  | 
 
 ### Return type
 
-[**Sensor**](Sensor.md)
+[**Device**](Device.md)
 
 ### Authorization
 
@@ -166,24 +166,24 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="putSensorLocation"></a>
-# **putSensorLocation**
-> putSensorLocation(sensorId, body)
+<a name="putDeviceLocation"></a>
+# **putDeviceLocation**
+> putDeviceLocation(deviceId, body)
 
 insert location
 
 ### Example
 ```javascript
-var sensorID = "test"
+var deviceID = "test"
 var location = new WaziupApi.Location(4.0, 1.0);
-apiInstance.putSensorLocation(sensorID, location);
+apiInstance.putDeviceLocation(deviceID, location);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sensorId** | **String**|  | 
+ **deviceId** | **String**|  | 
  **body** | [**Location**](Location.md)|  | 
 
 ### Return type
@@ -199,27 +199,27 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="getSensorMeasurements"></a>
-# **getSensorMeasurements**
-> [Measurement] getSensorMeasurements(sensorId)
+<a name="getDeviceSensors"></a>
+# **getDeviceSensors**
+> [Sensor] getDeviceSensors(deviceId)
 
-get measurements
+get sensors
 
 ### Example
 ```javascript
-var sensorID = "test"
-var measurements = await apiInstance.getSensorMeasurements(sensorID);
+var deviceID = "test"
+var sensors = await apiInstance.getDeviceSensors(deviceID);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sensorId** | **String**|  | 
+ **deviceId** | **String**|  | 
 
 ### Return type
 
-[**[Measurement]**](Measurement.md)
+[**[Sensor]**](Sensor.md)
 
 ### Authorization
 
@@ -230,27 +230,27 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="deleteMeasurement"></a>
-# **deleteMeasurement**
-> deleteMeasurement(sensorId, measurementId)
+<a name="deleteSensor"></a>
+# **deleteSensor**
+> deleteSensor(deviceId, sensorId)
 
-Delete measurement
+Delete sensor
 
 
 
 ### Example
 ```javascript
-var sensorID = "test"
-var measID = "TC"
-var measurements = await apiInstance.deleteSensorMeasurement(sensorID, measID);
+var deviceID = "test"
+var sensID = "TC"
+var sensors = await apiInstance.deleteDeviceSensor(deviceID, sensID);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **deviceId** | **String**|  | 
  **sensorId** | **String**|  | 
- **measurementId** | **String**|  | 
 
 ### Return type
 
@@ -265,25 +265,25 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="putMeasurementQuantityKind"></a>
-# **putMeasurementQuantityKind**
-> putMeasurementQuantityKind(sensorId, measurementId, body)
+<a name="putSensorQuantityKind"></a>
+# **putSensorQuantityKind**
+> putSensorQuantityKind(deviceId, sensorId, body)
 
-put measurement quantity kind 
+put sensor quantity kind 
 
 ### Example
 ```javascript
-var sensorID = "test"
-var measID = "TC"
-apiInstance.putMeasurementQuantityKind(sensorID, measID, "Temperature");
+var deviceID = "test"
+var sensID = "TC"
+apiInstance.putSensorQuantityKind(deviceID, sensID, "Temperature");
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **deviceId** | **String**|  | 
  **sensorId** | **String**|  | 
- **measurementId** | **String**|  | 
  **body** | **String**|  | 
 
 ### Return type
@@ -299,245 +299,29 @@ null (empty response body)
  - **Content-Type**: text/plain
  - **Accept**: application/json
 
-<a name="getMeasurement"></a>
-# **getMeasurement**
-> Measurement getMeasurement(sensorId, measurementId)
+<a name="getSensor"></a>
+# **getSensor**
+> Sensor getSensor(deviceId, sensorId)
 
-get measurement
+get sensor
 
 ### Example
 ```javascript
-var sensorID = "test"
-var measID = "TC"
-var measurements = await apiInstance.getMeasurement(sensorID, measID);
+var deviceID = "test"
+var sensID = "TC"
+var sensors = await apiInstance.getSensor(deviceID, sensID);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **deviceId** | **String**|  | 
  **sensorId** | **String**|  | 
- **measurementId** | **String**|  | 
 
 ### Return type
 
-[**Measurement**](Measurement.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="putMeasurementName"></a>
-# **putMeasurementName**
-> putMeasurementName(sensorId, measurementId, body)
-
-put measurement name
-
-### Example
-```javascript
-var sensorID = "test"
-var measID = "TC"
-apiInstance.putMeasurementName(sensorID, "My temperature");
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sensorId** | **String**|  | 
- **measurementId** | **String**|  | 
- **body** | **String**|  | 
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: text/plain
- - **Accept**: application/json
-
-<a name="putMeasurementSensorKind"></a>
-# **putMeasurementSensorKind**
-> putMeasurementSensorKind(sensorId, measurementId, body)
-
-insert sensor kind
-
-### Example
-```javascript
-var sensorID = "test"
-var measID = "TC"
-apiInstance.putMeasurementSensorKind(sensorID, measID, "Thermometer");
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sensorId** | **String**|  | 
- **measurementId** | **String**|  | 
- **body** | **String**|  | 
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: text/plain
- - **Accept**: application/json
-
-<a name="putMeasurementUnit"></a>
-# **putMeasurementUnit**
-> putMeasurementUnit(sensorId, measurementId, body)
-
-put measurement unit
-
-### Example
-```javascript
-var sensorID = "test"
-var measID = "TC"
-apiInstance.putMeasurementUnit(sensorID, measID, "DegreeCelcius");
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sensorId** | **String**|  | 
- **measurementId** | **String**|  | 
- **body** | **String**|  | 
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: text/plain
- - **Accept**: application/json
-
-<a name="getMeasurementValues"></a>
-# **getMeasurementValues**
-> [MeasurementValue] getMeasurementValues(sensorId, measurementId, options)
-
-get measurement values
-
-### Example
-```javascript
-var sensorID = "test"
-var measID = "TC"
-//Options for fetching the values. Use either 'lastN' or ('limit', 'offset'). dateFrom and dataTo can be use to further limit the time window.
-var opts = { 
-  'lastN': "20", // String | get the last N entries, most recent first. Default value is 20.
-  'limit': "50", // String | In case of pagination, number of entris per page
-  'offset': "0", // String | In case of pagination, offset for the starting entry
-  'dateFrom': "2016-01-01T00:00:00.000Z", // String | The starting date and time from which the entries are desired. It is an optional parameter.
-  'dateTo': "2019-01-31T23:59:59.999Z" // String | The final date and time until which the entries are desired. It is an optional parameter.
-};
-var values = await apiInstance.getMeasurementValues(sensorID, measID, opts);
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sensorId** | **String**|  | 
- **measurementId** | **String**|  |
- **lastN** | **String**| get the last N entries, most recent first. Default value is 20. | [optional] 
- **limit** | **String**| In case of pagination, number of entris per page | [optional] 
- **offset** | **String**| In case of pagination, offset for the starting entry | [optional] 
- **dateFrom** | **String**| The starting date and time from which the entries are desired. It is an optional parameter. | [optional] 
- **dateTo** | **String**| The final date and time until which the entries are desired. It is an optional parameter. | [optional] 
-
-### Return type
-
-[**[MeasurementValue]**](MeasurementValue.md)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="addDatapoint"></a>
-# **addDatapoint**
-> addDatapoint(sensorId, measurementId, datapoint)
-
-Create new datapoint
-
-### Example
-```javascript
-var sensorID = "test"
-var measID = "TC"
-var value = new WaziupApi.MeasurementValue("25.6", "2018-03-15T15:27:17+01:00");
-apiInstance.addDatapoint(sensorID, measID, value);
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sensorId** | **String**|  | 
- **measurementId** | **String**|  | 
- **value** | [**MeasurementValue**](MeasurementValue.md)|  | 
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[Bearer](../README.md#Bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="addMeasurement"></a>
-# **addMeasurement**
-> addMeasurement(sensorId, body)
-
-insert new measurement
-
-### Example
-```javascript
-var sensorID = "test"
-var meas = new WaziupApi.Measurement("TC");
-apiInstance.addMeasurement(sensorID, meas);
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sensorId** | **String**|  | 
- **body** | [**Measurement**](Measurement.md)|  | 
-
-### Return type
-
-null (empty response body)
+[**Sensor**](Sensor.md)
 
 ### Authorization
 
@@ -550,20 +334,22 @@ null (empty response body)
 
 <a name="putSensorName"></a>
 # **putSensorName**
-> putSensorName(sensorId, body)
+> putSensorName(deviceId, sensorId, body)
 
-insert name
+put sensor name
 
 ### Example
 ```javascript
-var sensorID = "test"
-apiInstance.putSensorName(sensorID, "My Sensor 1");
+var deviceID = "test"
+var sensID = "TC"
+apiInstance.putSensorName(deviceID, "My temperature");
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **deviceId** | **String**|  | 
  **sensorId** | **String**|  | 
  **body** | **String**|  | 
 
@@ -580,23 +366,237 @@ null (empty response body)
  - **Content-Type**: text/plain
  - **Accept**: application/json
 
-<a name="putSensorOwner"></a>
-# **putSensorOwner**
-> putSensorOwner(sensorId, body)
+<a name="putSensorDeviceKind"></a>
+# **putSensorDeviceKind**
+> putSensorDeviceKind(deviceId, sensorId, body)
 
-insert owner
+insert device kind
 
 ### Example
 ```javascript
-var sensorID = "test"
-apiInstance.putSensorOwner(sensorID, "cdupont");
+var deviceID = "test"
+var sensID = "TC"
+apiInstance.putSensorDeviceKind(deviceID, sensID, "Thermometer");
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **deviceId** | **String**|  | 
  **sensorId** | **String**|  | 
+ **body** | **String**|  | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: text/plain
+ - **Accept**: application/json
+
+<a name="putSensorUnit"></a>
+# **putSensorUnit**
+> putSensorUnit(deviceId, sensorId, body)
+
+put sensor unit
+
+### Example
+```javascript
+var deviceID = "test"
+var sensID = "TC"
+apiInstance.putSensorUnit(deviceID, sensID, "DegreeCelcius");
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **deviceId** | **String**|  | 
+ **sensorId** | **String**|  | 
+ **body** | **String**|  | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: text/plain
+ - **Accept**: application/json
+
+<a name="getSensorValues"></a>
+# **getSensorValues**
+> [SensorValue] getSensorValues(deviceId, sensorId, options)
+
+get sensor values
+
+### Example
+```javascript
+var deviceID = "test"
+var sensID = "TC"
+//Options for fetching the values. Use either 'lastN' or ('limit', 'offset'). dateFrom and dataTo can be use to further limit the time window.
+var opts = { 
+  'lastN': "20", // String | get the last N entries, most recent first. Default value is 20.
+  'limit': "50", // String | In case of pagination, number of entris per page
+  'offset': "0", // String | In case of pagination, offset for the starting entry
+  'dateFrom': "2016-01-01T00:00:00.000Z", // String | The starting date and time from which the entries are desired. It is an optional parameter.
+  'dateTo': "2019-01-31T23:59:59.999Z" // String | The final date and time until which the entries are desired. It is an optional parameter.
+};
+var values = await apiInstance.getSensorValues(deviceID, sensID, opts);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **deviceId** | **String**|  | 
+ **sensorId** | **String**|  |
+ **lastN** | **String**| get the last N entries, most recent first. Default value is 20. | [optional] 
+ **limit** | **String**| In case of pagination, number of entris per page | [optional] 
+ **offset** | **String**| In case of pagination, offset for the starting entry | [optional] 
+ **dateFrom** | **String**| The starting date and time from which the entries are desired. It is an optional parameter. | [optional] 
+ **dateTo** | **String**| The final date and time until which the entries are desired. It is an optional parameter. | [optional] 
+
+### Return type
+
+[**[SensorValue]**](SensorValue.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="addDatapoint"></a>
+# **addDatapoint**
+> addDatapoint(deviceId, sensorId, datapoint)
+
+Create new datapoint
+
+### Example
+```javascript
+var deviceID = "test"
+var sensID = "TC"
+var value = new WaziupApi.SensorValue("25.6", "2018-03-15T15:27:17+01:00");
+apiInstance.addDatapoint(deviceID, sensID, value);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **deviceId** | **String**|  | 
+ **sensorId** | **String**|  | 
+ **value** | [**SensorValue**](SensorValue.md)|  | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="addSensor"></a>
+# **addSensor**
+> addSensor(deviceId, body)
+
+insert new sensor
+
+### Example
+```javascript
+var deviceID = "test"
+var sens = new WaziupApi.Sensor("TC");
+apiInstance.addSensor(deviceID, sens);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **deviceId** | **String**|  | 
+ **body** | [**Sensor**](Sensor.md)|  | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="putDeviceName"></a>
+# **putDeviceName**
+> putDeviceName(deviceId, body)
+
+insert name
+
+### Example
+```javascript
+var deviceID = "test"
+apiInstance.putDeviceName(deviceID, "My Device 1");
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **deviceId** | **String**|  | 
+ **body** | **String**|  | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: text/plain
+ - **Accept**: application/json
+
+<a name="putDeviceOwner"></a>
+# **putDeviceOwner**
+> putDeviceOwner(deviceId, body)
+
+insert owner
+
+### Example
+```javascript
+var deviceID = "test"
+apiInstance.putDeviceOwner(deviceID, "cdupont");
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **deviceId** | **String**|  | 
  **body** | **String**|  | 
 
 ### Return type

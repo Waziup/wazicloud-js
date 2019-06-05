@@ -42,9 +42,9 @@ var exports = function(apiClient) {
   }
 
   /**
-   * Get the permissions
+   * Get project permissions
    */
-  this.getPermissions = async function() {
+  this.getProjectPermissions = async function() {
     var postBody = null;
 
     var pathParams = {};
@@ -58,10 +58,54 @@ var exports = function(apiClient) {
     var returnType = [Permission];
 
     return this.apiClient.callApi(
-      '/auth/permissions', 'GET',
+      '/auth/permissions/projects', 'GET',
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
+
+  /**
+   * Get device permissions
+   */
+  this.getDevicePermissions = async function() {
+    var postBody = null;
+
+    var pathParams = {};
+    var queryParams = {};
+    var headerParams = {};
+    var formParams = {};
+
+    var authNames = ['Bearer'];
+    var contentTypes = ['application/json'];
+    var accepts = ['application/json'];
+    var returnType = [Permission];
+
+    return this.apiClient.callApi(
+      '/auth/permissions/devices', 'GET',
+      pathParams, queryParams, headerParams, formParams, postBody,
+      authNames, contentTypes, accepts, returnType);
+  }
+
+  /**
+   * Get gateway permissions
+   */
+  this.getGatewayPermissions = async function() {
+    var postBody = null;
+
+    var pathParams = {};
+    var queryParams = {};
+    var headerParams = {};
+    var formParams = {};
+
+    var authNames = ['Bearer'];
+    var contentTypes = ['application/json'];
+    var accepts = ['application/json'];
+    var returnType = [Permission];
+
+    return this.apiClient.callApi(
+      '/auth/permissions/gateways', 'GET',
+      pathParams, queryParams, headerParams, formParams, postBody,
+      authNames, contentTypes, accepts, returnType);
+  }  
 };
 
 export default exports;

@@ -5,7 +5,7 @@
   2 PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
   3 PREFIX ssn:<http://purl.oclc.org/NET/ssnx/ssn#>
   4 SELECT (strafter(str(?subClass), "#") AS ?quantityKind)
-  5 WHERE { ?subClass rdfs:subClassOf* ssn:SensingDevice. } 
+  5 WHERE { ?subClass rdfs:subClassOf* ssn:SensorKind. } 
   $ bin/sparql --data=http://ontology.fiesta-iot.eu/ontologyDocs/fiesta-iot.owl --query=./rq --results=TSV
   Reference paper: R. Agarwal, D. Farnandez, T. Elsaleh, A.Gyrard, J. Lanza, L. Sanchez, N. Georgantas, V. Issarny, "Unified IoT Ontology to Enable Interoperability and Federation of Testbeds", 3rd IEEE WF-IoT, pp. 70-75, Reston USA, 12-14 December 2016
 */

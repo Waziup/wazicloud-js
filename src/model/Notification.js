@@ -1,6 +1,6 @@
 'use strict';
 import ApiClient from '../ApiClient';
-import NotificationCondition from './NotificationCondition';
+import NotificationCondition from './NotifcationCondition';
 import SocialMessageBatch from './SocialMessageBatch';
 
 /**
@@ -8,13 +8,13 @@ import SocialMessageBatch from './SocialMessageBatch';
  * @alias module:model/Notification
  * @class
  * @param condition {module:model/NotificationCondition} 
- * @param notification {module:model/SocialMessageBatch} 
+ * @param action {module:model/SocialMessageBatch} 
  */
-var exports = function(condition, description, notification) {
+var exports = function(condition, description, action) {
   var _this = this;
 
   _this['condition'] = condition;
-  _this['notification'] = notification;
+  _this['action'] = action;
   _this['description'] = description;
 
 };
@@ -39,8 +39,8 @@ exports.constructFromObject = function(data, obj) {
     if (data.hasOwnProperty('condition')) {
       obj['condition'] = NotificationCondition.constructFromObject(data['condition']);
     }
-    if (data.hasOwnProperty('notification')) {
-      obj['notification'] = SocialMessageBatch.constructFromObject(data['notification']);
+    if (data.hasOwnProperty('action')) {
+      obj['action'] = SocialMessageBatch.constructFromObject(data['action']);
     }
     if (data.hasOwnProperty('expires')) {
       obj['expires'] = ApiClient.convertToType(data['expires'], 'String');
@@ -54,6 +54,12 @@ exports.constructFromObject = function(data, obj) {
     if (data.hasOwnProperty('last_notification')) {
       obj['last_notification'] = ApiClient.convertToType(data['last_notification'], 'String');
     }
+    if (data.hasOwnProperty('last_success')) {
+      obj['last_success'] = ApiClient.convertToType(data['last_success'], 'String');
+    }
+    if (data.hasOwnProperty('last_failure')) {
+      obj['last_failure'] = ApiClient.convertToType(data['last_failure'], 'String');
+    }
     if (data.hasOwnProperty('status')) {
       obj['status'] = ApiClient.convertToType(data['status'], 'String');
     }
@@ -62,7 +68,7 @@ exports.constructFromObject = function(data, obj) {
 }
 
 /**
- * id of the notification
+ * Id of the notification
  * @member {String} id
  */
 exports.prototype['id'] = undefined;
@@ -72,13 +78,13 @@ exports.prototype['id'] = undefined;
  */
 exports.prototype['description'] = undefined;
 /**
- * @member {module:model/NotificationCondition} conndition
+ * @member {module:model/NotificationCondition} condition
  */
 exports.prototype['condition'] = undefined;
 /**
- * @member {module:model/SocialMessageBatch} notification
+ * @member {module:model/SocialMessageBatch} action
  */
-exports.prototype['notification'] = undefined;
+exports.prototype['action'] = undefined;
 /**
  * @member {Number} expires
  */
@@ -98,6 +104,16 @@ exports.prototype['times_sent'] = undefined;
  * @member {String} last_notification
  */
 exports.prototype['last_notification'] = undefined;
+/**
+ * last_success of the notification
+ * @member {String} last_success
+ */
+exports.prototype['last_success'] = undefined;
+/**
+ * last_failure of the notification
+ * @member {String} last_failure
+ */
+exports.prototype['last_failure'] = undefined;
 /**
  * status of the notification
  * @member {String} status

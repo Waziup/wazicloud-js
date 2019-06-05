@@ -7,11 +7,11 @@ import ApiClient from '../ApiClient';
  * @alias module:model/NotificationCondition
  * @class
  */
-var exports = function(sensors, measurements, expression) {
+var exports = function(devices, sensors, expression) {
   var _this = this;
 
+  _this['devices'] = devices;
   _this['sensors'] = sensors;
-  _this['measurements'] = measurements;
   _this['expression'] = expression;
 
 
@@ -28,11 +28,11 @@ exports.constructFromObject = function(data, obj) {
   if (data) {
     obj = obj || new exports();
 
+    if (data.hasOwnProperty('devices')) {
+      obj['devices'] = ApiClient.convertToType(data['devices'], ['String']);
+    }
     if (data.hasOwnProperty('sensors')) {
       obj['sensors'] = ApiClient.convertToType(data['sensors'], ['String']);
-    }
-    if (data.hasOwnProperty('measurements')) {
-      obj['measurements'] = ApiClient.convertToType(data['measurements'], ['String']);
     }
     if (data.hasOwnProperty('expression')) {
       obj['expression'] = ApiClient.convertToType(data['expression'], 'String');
@@ -42,13 +42,13 @@ exports.constructFromObject = function(data, obj) {
 }
 
 /**
+ * @member {Array.<String>} devices
+ */
+exports.prototype['devices'] = undefined;
+/**
  * @member {Array.<String>} sensors
  */
 exports.prototype['sensors'] = undefined;
-/**
- * @member {Array.<String>} measurementss
- */
-exports.prototype['meaurements'] = undefined;
 /**
  * @member {String} expression
  */

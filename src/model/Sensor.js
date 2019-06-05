@@ -1,13 +1,12 @@
 'use strict';
 import ApiClient from '../ApiClient';
-import Location from './Location';
-import Measurement from './Measurement';
+import SensorValue from './SensorValue';
+import Calib from './Calib';
 
 /**
  * Constructs a new <code>Sensor</code>.
  * @alias module:model/Sensor
  * @class
- * @param id {String} Unique ID of the sensor node
  */
 var exports = function(id) {
   var _this = this;
@@ -30,87 +29,63 @@ exports.constructFromObject = function(data, obj) {
     if (data.hasOwnProperty('id')) {
       obj['id'] = ApiClient.convertToType(data['id'], 'String');
     }
-    if (data.hasOwnProperty('gateway_id')) {
-      obj['gateway_id'] = ApiClient.convertToType(data['gateway_id'], 'String');
-    }
     if (data.hasOwnProperty('name')) {
       obj['name'] = ApiClient.convertToType(data['name'], 'String');
     }
-    if (data.hasOwnProperty('owner')) {
-      obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
+    if (data.hasOwnProperty('value')) {
+      obj['value'] = SensorValue.constructFromObject(data['value']);
     }
-    if (data.hasOwnProperty('visibility')) {
-      obj['visibility'] = ApiClient.convertToType(data['visibility'], 'String');
+    if (data.hasOwnProperty('sensor_kind')) {
+      obj['sensor_kind'] = ApiClient.convertToType(data['sensor_kind'], 'String');
     }
-    if (data.hasOwnProperty('measurements')) {
-      obj['measurements'] = ApiClient.convertToType(data['measurements'], [Measurement]);
+    if (data.hasOwnProperty('quantity_kind')) {
+      obj['quantity_kind'] = ApiClient.convertToType(data['quantity_kind'], 'String');
     }
-    if (data.hasOwnProperty('location')) {
-      obj['location'] = Location.constructFromObject(data['location']);
+    if (data.hasOwnProperty('unit')) {
+      obj['unit'] = ApiClient.convertToType(data['unit'], 'String');
     }
-    if (data.hasOwnProperty('date_created')) {
-      obj['date_created'] = ApiClient.convertToType(data['date_created'], 'String');
-    }
-    if (data.hasOwnProperty('date_modified')) {
-      obj['date_modified'] = ApiClient.convertToType(data['date_modified'], 'String');
-    }
-    if (data.hasOwnProperty('domain')) {
-      obj['domain'] = ApiClient.convertToType(data['domain'], 'String');
+    if (data.hasOwnProperty('calib')) {
+      obj['calib'] = Calib.constructFromObject(data['calib']);
     }
   }
-  
   return obj;
 }
 
 /**
- * Unique ID of the sensor node
+ * ID of the sensor
  * @member {String} id
  */
 exports.prototype['id'] = undefined;
 /**
- * Unique ID of the gateway
- * @member {String} gateway_id
- */
-exports.prototype['gateway_id'] = undefined;
-/**
- * name of the sensor node
+ * name of the sensor
  * @member {String} name
  */
 exports.prototype['name'] = undefined;
 /**
- * owner of the sensor node
- * @member {String} owner
+ * last value measured
+ * @member {model/SensorValue} value 
  */
-exports.prototype['owner'] = undefined;
+exports.prototype['value'] = undefined;
 /**
- * visibility of the sensor node (either "private" or "public")
- * @member {String} visibility
+ * quantity kind measured
+ * @member {model/QuantityKinds} quantity_kind 
  */
-exports.prototype['visibility'] = undefined;
+exports.prototype['quantity_kind'] = undefined;
 /**
- * @member {Array.<module:model/Measurement>} measurements
+ * unit of the sensor
+ * @member {model/Units} unit
  */
-exports.prototype['measurements'] = undefined;
+exports.prototype['unit'] = undefined;
 /**
- * @member {module:model/Location} location
+ * kind of device providing the sensor
+ * @member {model/SensorKinds} sensor_kind 
  */
-exports.prototype['location'] = undefined;
+exports.prototype['sensor_kind'] = undefined;
 /**
- * date at which the sensor has been modified
- * @member {String} dateModified
+ * calibration
+ * @member {model/Calib} value 
  */
-exports.prototype['date_modified'] = undefined;
-/**
- * date at which the sensor has been created
- * @member {String} date_created
- */
-exports.prototype['date_created'] = undefined;
-/**
- * domain of the sensor
- * @member {String} domain
- */
-exports.prototype['domain'] = undefined;
-
+exports.prototype['calib'] = undefined;
 
 
 export default exports;

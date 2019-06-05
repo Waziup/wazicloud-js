@@ -36,8 +36,8 @@ exports.constructFromObject = function(data, obj) {
     if (data.hasOwnProperty('lastName')) {
       obj['lastName'] = ApiClient.convertToType(data['lastName'], 'String');
     }
-    if (data.hasOwnProperty('subservice')) {
-      obj['subservice'] = ApiClient.convertToType(data['subservice'], 'String');
+    if (data.hasOwnProperty('createdTime')) {
+      obj['createdTime'] = ApiClient.convertToType(data['createdTime'], 'String');
     }
     if (data.hasOwnProperty('email')) {
       obj['email'] = ApiClient.convertToType(data['email'], 'String');
@@ -45,17 +45,14 @@ exports.constructFromObject = function(data, obj) {
     if (data.hasOwnProperty('phone')) {
       obj['phone'] = ApiClient.convertToType(data['phone'], 'String');
     }
-    if (data.hasOwnProperty('address')) {
-      obj['address'] = ApiClient.convertToType(data['address'], 'String');
-    }
     if (data.hasOwnProperty('facebook')) {
       obj['facebook'] = ApiClient.convertToType(data['facebook'], 'String');
     }
     if (data.hasOwnProperty('twitter')) {
       obj['twitter'] = ApiClient.convertToType(data['twitter'], 'String');
     }
-    if (data.hasOwnProperty('roles')) {
-      obj['roles'] = ApiClient.convertToType(data['roles'], 'String');
+    if (data.hasOwnProperty('sms_credit')) {
+      obj['sms_credit'] = ApiClient.convertToType(data['sms_credit'], 'Integer');
     }
   }
   return obj;
@@ -78,9 +75,9 @@ exports.prototype['firstName'] = undefined;
  */
 exports.prototype['lastName'] = undefined;
 /**
- * @member {String} subservice
+ * @member {String} createdTime
  */
-exports.prototype['subservice'] = undefined;
+exports.prototype['createdTime'] = undefined;
 /**
  * @member {String} email
  */
@@ -102,8 +99,8 @@ exports.prototype['facebook'] = undefined;
  */
 exports.prototype['twitter'] = undefined;
 /**
- * @member {String} roles
+ * @member {Integer} smsCredit
  */
-exports.prototype['roles'] = undefined;
+exports.prototype['sms_credit'] = undefined;
 
 export default exports;

@@ -131,6 +131,43 @@ var exports = function(apiClient) {
       pathParams, queryParams, headerParams, formParams, postBody,
       authNames, contentTypes, accepts, returnType);
   }
+
+
+  /**
+   * put a notification status
+   * @param {String} notifId 
+   * @param {String} body 
+   */
+  this.putNotificationStatus = async function(notifId, body) {
+    var postBody = body;
+
+    // verify the required parameter 'notifId' is set
+    if (notifId === undefined || notifId === null) {
+      throw("Missing the required parameter 'notifId' when calling putNotificationStatus");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body === undefined || body === null) {
+      throw("Missing the required parameter 'body' when calling putNotificationStatus");
+    }
+
+    var pathParams = {
+      'notif_id': deviceId
+    };
+    var queryParams = {};
+    var headerParams = {};
+    var formParams = {};
+
+    var authNames = ['Bearer'];
+    var contentTypes = ['text/plain;charset=utf-8'];
+    var accepts = ['application/json'];
+    var returnType = null;
+
+    return this.apiClient.callApi(
+      '/notifications/{notif_id}/status', 'PUT',
+      pathParams, queryParams, headerParams, formParams, postBody,
+      authNames, contentTypes, accepts, returnType);
+  }
 };
 
 export default exports;
