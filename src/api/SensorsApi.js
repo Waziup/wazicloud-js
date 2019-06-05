@@ -106,14 +106,14 @@ var exports = function(apiClient) {
 
     var pathParams = {};
     var queryParams = {
-      'device_id': opts['deviceId'],
-      'sensor_id': opts['sensorId'],
-      'sort'   : opts['sort'],
-      'calibrated'   : opts['calibrated'],
-      'limit'   : opts['limit'],
-      'offset'  : opts['offset'],
-      'dateFrom': opts['dateFrom'],
-      'dateTo'  : opts['dateTo']
+      'device_id'  : opts['device_id'],
+      'sensor_id'  : opts['sensor_id'],
+      'sort'       : opts['sort'],
+      'calibrated' : opts['calibrated'],
+      'limit'      : opts['limit'],
+      'offset'     : opts['offset'],
+      'date_from'  : opts['date_from'],
+      'date_to'    : opts['date_to']
     };
     var headerParams = {};
     var formParams = {};
