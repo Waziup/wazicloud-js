@@ -27,7 +27,8 @@ var exports = function(apiClient) {
     var queryParams = {
       q: opts["q"],
       limit: opts["limit"],
-      offset: opts["offset"]
+      offset: opts["offset"],
+      full: true
     };
     var headerParams = {};
     var formParams = {};
