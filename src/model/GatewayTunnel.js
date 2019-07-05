@@ -26,7 +26,7 @@ exports.constructFromObject = function(data, obj) {
     obj = obj || new exports();
 
     if (data.hasOwnProperty('tunnel_port')) {
-      obj['tunnel_port'] = ApiClient.convertToType(data['tunnel_port'], 'Integer');
+      obj['tunnel_port'] = ApiClient.convertToType(data['tunnel_port'], 'Number');
     }
   }
   
@@ -35,7 +35,7 @@ exports.constructFromObject = function(data, obj) {
 
 /**
  * Tunnel port of the gateway tunnel node
- * @member {String} tunnel_port
+ * @member {Number} tunnel_port
  */
 exports.prototype['tunnel_port'] = undefined;
 
