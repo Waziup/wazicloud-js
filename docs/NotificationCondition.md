@@ -1,9 +1,9 @@
 # WaziupApi.NotificationCondition
 
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**attrs** | **[String]** |  | [optional] 
-**expression** | **String** |  | [optional] 
 
-
+| Name           | Type         | Description | Notes      |
+| -------------- | ------------ | ----------- | ---------- |
+| **devices**    | **[String]** |             | [optional] |
+| **sensors**    | **[String]** |             | [optional] |
+| **expression** | **String**   |             | [optional] |
