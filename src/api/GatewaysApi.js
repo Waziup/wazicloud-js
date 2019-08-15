@@ -28,7 +28,7 @@ var exports = function(apiClient) {
       q: opts["q"],
       limit: opts["limit"],
       offset: opts["offset"],
-      full: true
+      full: false
     };
     var headerParams = {};
     var formParams = {};
@@ -148,7 +148,9 @@ var exports = function(apiClient) {
     var pathParams = {
       gw_id: gatewayId
     };
-    var queryParams = {};
+    var queryParams = {
+      full: true
+    };
     var headerParams = {};
     var formParams = {};
 
