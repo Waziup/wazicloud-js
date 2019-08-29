@@ -52,6 +52,7 @@ let users = await apiInstance.getUsers(opts);
 
 <a name="getUser"></a>
 
+
 # **getUser**
 
 > User getUser(userId)

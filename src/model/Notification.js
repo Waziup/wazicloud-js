@@ -51,14 +51,20 @@ exports.constructFromObject = function(data, obj) {
     if (data.hasOwnProperty('times_sent')) {
       obj['times_sent'] = ApiClient.convertToType(data['times_sent'], 'String');
     }
-    if (data.hasOwnProperty('last_notification')) {
-      obj['last_notification'] = ApiClient.convertToType(data['last_notification'], 'String');
+    if (data.hasOwnProperty('last_notif')) {
+      obj['last_notif'] = ApiClient.convertToType(data['last_notif'], 'String');
     }
     if (data.hasOwnProperty('last_success')) {
       obj['last_success'] = ApiClient.convertToType(data['last_success'], 'String');
     }
+    if (data.hasOwnProperty('last_success_code')) {
+      obj['last_success_code'] = ApiClient.convertToType(data['last_success_code'], 'String');
+    }
     if (data.hasOwnProperty('last_failure')) {
       obj['last_failure'] = ApiClient.convertToType(data['last_failure'], 'String');
+    }
+    if (data.hasOwnProperty('last_failure_reason')) {
+      obj['last_failure_reason'] = ApiClient.convertToType(data['last_failure_reason'], 'String');
     }
     if (data.hasOwnProperty('status')) {
       obj['status'] = ApiClient.convertToType(data['status'], 'String');
@@ -110,10 +116,20 @@ exports.prototype['last_notification'] = undefined;
  */
 exports.prototype['last_success'] = undefined;
 /**
+ * last_success_code of the notification
+ * @member {String} last_success_code
+ */
+exports.prototype['last_success_code'] = undefined;
+/**
  * last_failure of the notification
  * @member {String} last_failure
  */
 exports.prototype['last_failure'] = undefined;
+/**
+ * last_failure_reason of the notification
+ * @member {String} last_failure_reason
+ */
+exports.prototype['last_failure_reason'] = undefined;
 /**
  * status of the notification
  * @member {String} status
