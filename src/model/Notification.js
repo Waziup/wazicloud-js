@@ -1,6 +1,6 @@
 'use strict';
 import ApiClient from '../ApiClient';
-import NotificationCondition from './NotifcationCondition';
+import NotificationCondition from './NotificationCondition';
 import SocialMessageBatch from './SocialMessageBatch';
 
 /**

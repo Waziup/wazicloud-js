@@ -32,8 +32,23 @@ exports.constructFromObject = function(data, obj) {
     if (data.hasOwnProperty('name')) {
       obj['name'] = ApiClient.convertToType(data['name'], 'String');
     }
+    if (data.hasOwnProperty('owner')) {
+      obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
+    }
+    if (data.hasOwnProperty('visibility')) {
+      obj['visibility'] = ApiClient.convertToType(data['visibility'], 'String');
+    }
     if (data.hasOwnProperty('tunnel')) {
       obj['tunnel'] = ApiClient.convertToType(data['tunnel'], GatewayTunnel);
+    }
+    if (data.hasOwnProperty('devices')) {
+      obj['devices'] = ApiClient.convertToType(data['devices'], 'Array');
+    }
+    if (data.hasOwnProperty('date_created')) {
+      obj['date_created'] = ApiClient.convertToType(data['date_created'], 'String');
+    }
+    if (data.hasOwnProperty('date_modified')) {
+      obj['date_modified'] = ApiClient.convertToType(data['date_modified'], 'String');
     }
   }
   
@@ -51,8 +66,32 @@ exports.prototype['id'] = undefined;
  */
 exports.prototype['name'] = undefined;
 /**
+ * owner of the device node
+ * @member {String} owner
+ */
+exports.prototype['owner'] = undefined;
+/**
+ * visibility of the device node (either "private" or "public")
+ * @member {String} visibility
+ */
+exports.prototype['visibility'] = undefined;
+/**
  * @member {module:model/GatewayTunnel} tunnel
  */
 exports.prototype['tunnel'] = undefined;
+/**
+ * @member {Array} devices
+ */
+exports.prototype['devices'] = undefined;
+/**
+ * time created on Cloud side
+ * @member {String} date_created
+ */
+exports.prototype['date_created'] = undefined;
+/**
+ * time modified on Cloud side
+ * @member {String} date_modified
+ */
+exports.prototype['date_modified'] = undefined;
 
 export default exports;

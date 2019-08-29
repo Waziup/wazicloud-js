@@ -250,8 +250,8 @@ var exports = function(apiClient) {
     var formParams = {};
 
     var authNames = ['Bearer'];
-    var contentTypes = ['application/json'];
-    var accepts = ['application/json'];
+    var contentTypes = ["application/json;charset=utf-8"];
+    var accepts = ["application/json;charset=utf-8"];
     var returnType = null;
 
     return this.apiClient.callApi(
