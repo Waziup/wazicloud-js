@@ -137,7 +137,8 @@ var exports = function(apiClient) {
    * @param {String} projectId
    * data is of type: {@link module:model/Project}
    */
-  this.getProject = async function(projectId) {
+  this.getProject = async function(projectId, opts) {
+    opts = opts || {};
     var postBody = null;
 
     // verify the required parameter 'projectId' is set
@@ -149,7 +150,7 @@ var exports = function(apiClient) {
       id: projectId
     };
     var queryParams = {
-      full: false
+      full: opts["full"]
     };
     var headerParams = {};
     var formParams = {};
