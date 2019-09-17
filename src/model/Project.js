@@ -33,11 +33,20 @@ exports.constructFromObject = function(data, obj) {
     if (data.hasOwnProperty('name')) {
       obj['name'] = ApiClient.convertToType(data['name'], 'String');
     }
+    if (data.hasOwnProperty('owner')) {
+      obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
+    }
     if (data.hasOwnProperty('devices')) {
       obj['devices'] = ApiClient.convertToType(data['devices'], 'Array');
     }
     if (data.hasOwnProperty('gateways')) {
       obj['gateways'] = ApiClient.convertToType(data['gateways'], 'Array');
+    }
+    if (data.hasOwnProperty('device_ids')) {
+      obj['device_ids'] = ApiClient.convertToType(data['device_ids'], 'Array');
+    }
+    if (data.hasOwnProperty('gateway_ids')) {
+      obj['gateway_ids'] = ApiClient.convertToType(data['gateway_ids'], 'Array');
     }
   }
   
@@ -55,6 +64,11 @@ exports.prototype['id'] = undefined;
  */
 exports.prototype['name'] = undefined;
 /**
+ * owner of the project node
+ * @member {String} owner
+ */
+exports.prototype['owner'] = undefined;
+/**
  * @member {Array} devices
  */
 exports.prototype['devices'] = undefined;
@@ -62,5 +76,13 @@ exports.prototype['devices'] = undefined;
  * @member {Array} gateways
  */
 exports.prototype['gateways'] = undefined;
+/**
+ * @member {Array} device_ids
+ */
+exports.prototype['device_ids'] = undefined;
+/**
+ * @member {Array} gateway_ids
+ */
+exports.prototype['gateway_ids'] = undefined;
 
 export default exports;

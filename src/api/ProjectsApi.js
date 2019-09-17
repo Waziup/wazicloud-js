@@ -176,11 +176,11 @@ var exports = function(apiClient) {
   };
 
   /**
-   * insert device
+   * insert devices
    * @param {String} projectId
    * @param {module:model/Device} body
    */
-  this.putDevices = async function(projectId, body) {
+  this.putDeviceIds = async function(projectId, body) {
     var postBody = body;
 
     // verify the required parameter 'projectId' is set
@@ -206,7 +206,7 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      "/projects/{id}/devices",
+      "/projects/{id}/device_ids",
       "PUT",
       pathParams,
       queryParams,
@@ -221,11 +221,11 @@ var exports = function(apiClient) {
   };
 
   /**
-   * insert gateway
+   * insert gateways
    * @param {String} projectId
    * @param {module:model/Gateway} body
    */
-  this.putGateways = async function(projectId, body) {
+  this.putGatewayIds = async function(projectId, body) {
     var postBody = body;
 
     // verify the required parameter 'projectId' is set
@@ -251,7 +251,7 @@ var exports = function(apiClient) {
     var returnType = null;
 
     return this.apiClient.callApi(
-      "/projects/{id}/gateways",
+      "/projects/{id}/gateway_ids",
       "PUT",
       pathParams,
       queryParams,
