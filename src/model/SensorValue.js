@@ -28,6 +28,12 @@ exports.constructFromObject = function(data, obj) {
     if (data.hasOwnProperty('timestamp')) {
       obj['timestamp'] = ApiClient.convertToType(data['timestamp'], 'String');
     }
+    if (data.hasOwnProperty('sensor_id')) {
+      obj['sensor_id'] = ApiClient.convertToType(data['sensor_id'], 'String');
+    }
+    if (data.hasOwnProperty('device_id')) {
+      obj['device_id'] = ApiClient.convertToType(data['device_id'], 'String');
+    }
     if (data.hasOwnProperty('date_received')) {
       obj['date_received'] = ApiClient.convertToType(data['date_received'], 'String');
     }
@@ -45,6 +51,16 @@ exports.prototype['value'] = undefined;
  * @member {String} timestamp
  */
 exports.prototype['timestamp'] = undefined;
+/**
+ * id of the sensor
+ * @member {String} sensor_id
+ */
+exports.prototype['sensor_id'] = undefined;
+/**
+ * device id of the sensor
+ * @member {String} device_id
+ */
+exports.prototype['device_id'] = undefined;
 /**
  * time received on Cloud side
  * @member {String} date_received
