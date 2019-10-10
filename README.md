@@ -137,15 +137,10 @@ npm link /path/to/<JAVASCRIPT_CLIENT_DIR>
 You should now be able to `require('waziup-js')` in javascript files from the directory you ran the last
 command above from.
 
-### For browser
+### Publish
 
-The library also works in the browser environment via npm and [browserify](http://browserify.org/). After following
-the above steps with Node.js and installing browserify with `npm install -g browserify`,
-perform the following (assuming _main.js_ is your entry file, that's to say your javascript file where you actually
-use this library):
-
-```shell
-browserify main.js > bundle.js
+Simply type:
+```
+npm publish
 ```
 
-Then include _bundle.js_ in the HTML pages.
