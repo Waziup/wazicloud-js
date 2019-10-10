@@ -50,6 +50,12 @@ exports.constructFromObject = function(data, obj) {
     if (data.hasOwnProperty('date_modified')) {
       obj['date_modified'] = ApiClient.convertToType(data['date_modified'], 'String');
     }
+    if (data.hasOwnProperty('connected')) {
+      obj['connected'] = ApiClient.convertToType(data['connected'], 'String');
+    }
+    if (data.hasOwnProperty('last_seen')) {
+      obj['last_seen'] = ApiClient.convertToType(data['last_seen'], 'String');
+    }
   }
   
   return obj;
@@ -93,5 +99,15 @@ exports.prototype['date_created'] = undefined;
  * @member {String} date_modified
  */
 exports.prototype['date_modified'] = undefined;
+/**
+ * time modified on Cloud side
+ * @member {String} date_modified
+ */
+exports.prototype['connected'] = undefined;
+/**
+ * time modified on Cloud side
+ * @member {String} date_modified
+ */
+exports.prototype['last_seen'] = undefined;
 
 export default exports;
