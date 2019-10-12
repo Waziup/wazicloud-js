@@ -38,9 +38,6 @@ exports.constructFromObject = function(data, obj) {
     if (data.hasOwnProperty('visibility')) {
       obj['visibility'] = ApiClient.convertToType(data['visibility'], 'String');
     }
-    if (data.hasOwnProperty('tunnel')) {
-      obj['tunnel'] = ApiClient.convertToType(data['tunnel'], GatewayTunnel);
-    }
     if (data.hasOwnProperty('devices')) {
       obj['devices'] = ApiClient.convertToType(data['devices'], 'Array');
     }
@@ -51,7 +48,7 @@ exports.constructFromObject = function(data, obj) {
       obj['date_modified'] = ApiClient.convertToType(data['date_modified'], 'String');
     }
     if (data.hasOwnProperty('connected')) {
-      obj['connected'] = ApiClient.convertToType(data['connected'], 'String');
+      obj['connected'] = ApiClient.convertToType(data['connected'], 'Bool');
     }
     if (data.hasOwnProperty('last_seen')) {
       obj['last_seen'] = ApiClient.convertToType(data['last_seen'], 'String');
