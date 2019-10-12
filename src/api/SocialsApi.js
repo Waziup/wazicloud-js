@@ -46,7 +46,7 @@ var exports = function(apiClient) {
 
   /**
    * Get all messages sent
-   * data is of type: {@link module:model/SocialMessage}
+   * data is of type: {@link Array.<module:model/SocialMessage>}
    */
   this.getSocialMsgs = async function() {
     var postBody = null;
@@ -60,7 +60,7 @@ var exports = function(apiClient) {
     var authNames = ['Bearer'];
     var contentTypes = ['application/json'];
     var accepts = ['application/json'];
-    var returnType = SocialMessage;
+    var returnType = [SocialMessage];
 
     return this.apiClient.callApi(
       '/socials', 'GET',
