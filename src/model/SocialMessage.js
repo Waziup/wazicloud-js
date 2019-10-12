@@ -9,12 +9,11 @@ import ApiClient from '../ApiClient';
  * @param channel {String} 
  * @param message {String} 
  */
-var exports = function(channel, message) {
+var exports = function(id) {
   var _this = this;
 
+  _this['id'] = id;
 
-  _this['channel'] = channel;
-  _this['message'] = message;
 };
 
 /**
@@ -28,6 +27,9 @@ exports.constructFromObject = function(data, obj) {
   if (data) {
     obj = obj || new exports();
 
+    if (data.hasOwnProperty('id')) {
+      obj['id'] = ApiClient.convertToType(data['id'], 'String');
+    }
     if (data.hasOwnProperty('username')) {
       obj['username'] = ApiClient.convertToType(data['username'], 'String');
     }
@@ -37,10 +39,18 @@ exports.constructFromObject = function(data, obj) {
     if (data.hasOwnProperty('message')) {
       obj['message'] = ApiClient.convertToType(data['message'], 'String');
     }
+    if (data.hasOwnProperty('timestamp')) {
+      obj['timestamp'] = ApiClient.convertToType(data['timestamp'], 'String');
+    }
   }
   return obj;
 }
 
+/**
+ * ID of the message
+ * @member {String} id
+ */
+exports.prototype['id'] = undefined;
 /**
  * User name in Keycloak
  * @member {String} username
@@ -54,5 +64,10 @@ exports.prototype['channel'] = undefined;
  * @member {String} message
  */
 exports.prototype['message'] = undefined;
+/**
+ * timestamp of the message
+ * @member {String} timestamp
+ */
+exports.prototype['timestamp'] = undefined;
 
 export default exports;
