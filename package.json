@@ -1,0 +1,23 @@
+{
+  "name": "waziup",
+  "version": "1.0.0",
+  "description": "Waziup API Client",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "docs": "npx typedoc"
+  },
+  "author": "\"Johann Forster\" <johann.forster@waziup.org>",
+  "license": "ISC",
+  "types": "types/index.d.ts",
+  "dependencies": {
+    "@types/node": "^13.7.0",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "typedoc": "^0.16.9",
+    "typescript": "^3.7.5"
+  }
+}

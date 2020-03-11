@@ -1,0 +1,18 @@
+{
+    "include": [
+        "index.ts",
+        "src/**/*"
+    ],
+    "compilerOptions": {
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "declaration": true,
+        "target": "ES2019",
+        "lib": ["ES2019", "DOM"],
+        "declarationDir": "./types/",
+        "outDir": "./dist/"
+    }
+}

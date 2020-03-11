@@ -1,0 +1,14 @@
+{
+    "inputFiles": [
+        "index.ts"
+    ],
+    "mode": "file",
+    "out": "docs",
+    "readme": "Readme.md",
+    "categoryOrder": [
+        "My Gateway",
+        "Generic API",
+        "Clouds",
+        "*"
+    ]
+  }
