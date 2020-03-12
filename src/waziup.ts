@@ -160,8 +160,20 @@ export type Event = {
  * @category Apps
  */
 export type App = {
-    name: string;
-    type: number;
+    id: string;
+    internal: boolean;
+    state: "started" | "stopped" | "starting" | "stopping" | "uninstalled" ;
+    restart: "always" | "on-failure" | "unless-stopped" | "no";
+    log: string;
+}
+
+/**
+ * A Waziup App Configuration.
+ * @category Apps
+ */
+export interface AppConfig {
+    state?: "started" | "stopped" | "starting" | "stopping" | "uninstalled" ;
+    restart?: "always" | "on-failure" | "unless-stopped" | "no";
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -679,6 +691,34 @@ export class Waziup {
      */
     async getApps(): Promise<App[]> {
         return this.get<App[]>("apps");
+    }
+
+    /**
+     * @category Apps
+     */
+    async getApp(id: string): Promise<App> {
+        return this.get<App>(`apps/${id}`);
+    }
+
+    /**
+     * @category Apps
+     */
+    async setAppConfig(id: string, config: AppConfig) {
+        return this.set(`apps/${id}`, config);
+    }
+
+    /**
+     * @category Apps
+     */
+    uninstallApp(id: string, keepConfig: boolean) {
+        return this.del(`apps/${id}?keepConfig=${keepConfig}`);
+    }
+
+    /**
+     * @category Apps
+     */
+    installApp(id: string) {
+        return this.set(`apps`, id);
     }
 
     /**

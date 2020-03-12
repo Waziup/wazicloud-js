@@ -251,6 +251,18 @@ class Waziup {
     async getApps() {
         return this.get("apps");
     }
+    async getApp(id) {
+        return this.get(`apps/${id}`);
+    }
+    async setAppConfig(id, config) {
+        return this.set(`apps/${id}`, config);
+    }
+    uninstallApp(id, keepConfig) {
+        return this.del(`apps/${id}?keepConfig=${keepConfig}`);
+    }
+    installApp(id) {
+        return this.set(`apps`, id);
+    }
     toProxyURL(app, path) {
         return `${this.host}/apps/${app}/${path}`;
     }

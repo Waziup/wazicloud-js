@@ -3,17 +3,17 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>waziup</title>
+	<title>AppConfig | waziup</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body>
 <header>
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">waziup</a>
+					<a href="../index.html" class="title">waziup</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -53,133 +53,147 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="globals.html">Globals</a>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="appconfig.html">AppConfig</a>
 				</li>
 			</ul>
-			<h1>waziup</h1>
+			<h1>Interface AppConfig</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<a href="#waziup" id="waziup" style="color: inherit; text-decoration: none;">
-					<h1>Waziup</h1>
-				</a>
-				<p>This repository implements a client to call APIs of the Waziup Cloud and Wazigate platform.</p>
-				<p>Connect to the Waziup Cloud or to a Wazigate from a remote machine like this:</p>
-				<pre><code class="language-ts"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> waziup <span class="hljs-keyword">from</span> <span class="hljs-string">"waziup"</span>;
-
-main();
-
-<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>) </span>{
-
-    <span class="hljs-comment">// connect to the Wazigate (or the Cloud).</span>
-    <span class="hljs-keyword">var</span> gateway = <span class="hljs-keyword">await</span> waziup.connect({
-        host: <span class="hljs-string">"wazigate.local"</span>, <span class="hljs-comment">// a local Wazigate</span>
-        <span class="hljs-comment">// host: "waziup.io", // or the Waziup Cloud</span>
-        username: <span class="hljs-string">"MyUsername"</span>,
-        password: <span class="hljs-string">"MyPassword"</span>
-    });
-
-    <span class="hljs-comment">// read the devices list</span>
-    <span class="hljs-keyword">var</span> devices = <span class="hljs-keyword">await</span> gateway.getDevices();
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`We have <span class="hljs-subst">${devices.length}</span> devices:`</span>, devices);
-
-    <span class="hljs-comment">// rename a device</span>
-    gateway.setDeviceName(myDevice, <span class="hljs-string">"New Name :)"</span>);
-
-    <span class="hljs-comment">// upload a new sensor value</span>
-    <span class="hljs-keyword">var</span> value = <span class="hljs-number">47.5</span>; <span class="hljs-comment">// measurement value</span>
-    gateway.addSensorValues(myDevice, mySensor, value);
-}</code></pre>
-				<p>From inside a Waziup App things a little bit easier:</p>
-				<pre><code class="language-ts"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> waziup <span class="hljs-keyword">from</span> <span class="hljs-string">"waziup"</span>;
-
-main();
-
-<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>) </span>{
-
-    <span class="hljs-comment">// connect to the Wazigate</span>
-    <span class="hljs-keyword">var</span> gateway = <span class="hljs-keyword">await</span> waziup.connect();
-
-    <span class="hljs-comment">// read the Gateway ID</span>
-    <span class="hljs-keyword">var</span> id = <span class="hljs-keyword">await</span> gateway.getDeviceID();
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`This is Wazigate #<span class="hljs-subst">${id}</span>.`</span>)
-
-    <span class="hljs-comment">// rename the gateway</span>
-    gateway.setDeviceName(<span class="hljs-string">"New Gateway :)"</span>);
-
-    <span class="hljs-comment">// upload a new sensor value</span>
-    <span class="hljs-keyword">var</span> value = <span class="hljs-number">47.5</span>; <span class="hljs-comment">// measurement value</span>
-    gateway.addSensorValues(mySensor, value);
-}</code></pre>
-			</div>
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>A Waziup App Configuration.</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">AppConfig</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="appconfig.html#restart" class="tsd-kind-icon">restart</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="appconfig.html#state" class="tsd-kind-icon">state</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="restart" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> restart</h3>
+					<div class="tsd-signature tsd-kind-icon">restart<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"always"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"on-failure"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"unless-stopped"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"no"</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Waziup/waziup-js/blob/145be0e/src/waziup.ts#L176">src/waziup.ts:176</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="state" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> state</h3>
+					<div class="tsd-signature tsd-kind-icon">state<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"started"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"stopped"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"starting"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"stopping"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"uninstalled"</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Waziup/waziup-js/blob/145be0e/src/waziup.ts#L175">src/waziup.ts:175</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
 					<li class="globals  ">
-						<a href="globals.html"><em>Globals</em></a>
+						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
-						<a href="classes/waziup.html" class="tsd-kind-icon">Waziup</a>
+						<a href="../classes/waziup.html" class="tsd-kind-icon">Waziup</a>
 					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface">
+						<a href="appconfig.html" class="tsd-kind-icon">App<wbr>Config</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="appconfig.html#restart" class="tsd-kind-icon">restart</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="appconfig.html#state" class="tsd-kind-icon">state</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/appconfig.html" class="tsd-kind-icon">App<wbr>Config</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/connectsettings.html" class="tsd-kind-icon">Connect<wbr>Settings</a>
+						<a href="connectsettings.html" class="tsd-kind-icon">Connect<wbr>Settings</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#actuator" class="tsd-kind-icon">Actuator</a>
+						<a href="../globals.html#actuator" class="tsd-kind-icon">Actuator</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#app" class="tsd-kind-icon">App</a>
+						<a href="../globals.html#app" class="tsd-kind-icon">App</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#cloud" class="tsd-kind-icon">Cloud</a>
+						<a href="../globals.html#cloud" class="tsd-kind-icon">Cloud</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#cloudaction" class="tsd-kind-icon">Cloud<wbr>Action</a>
+						<a href="../globals.html#cloudaction" class="tsd-kind-icon">Cloud<wbr>Action</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#cloudstatus" class="tsd-kind-icon">Cloud<wbr>Status</a>
+						<a href="../globals.html#cloudstatus" class="tsd-kind-icon">Cloud<wbr>Status</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#credentials" class="tsd-kind-icon">Credentials</a>
+						<a href="../globals.html#credentials" class="tsd-kind-icon">Credentials</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#device" class="tsd-kind-icon">Device</a>
+						<a href="../globals.html#device" class="tsd-kind-icon">Device</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#event" class="tsd-kind-icon">Event</a>
+						<a href="../globals.html#event" class="tsd-kind-icon">Event</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#gateway" class="tsd-kind-icon">Gateway</a>
+						<a href="../globals.html#gateway" class="tsd-kind-icon">Gateway</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#id" class="tsd-kind-icon">ID</a>
+						<a href="../globals.html#id" class="tsd-kind-icon">ID</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#meta" class="tsd-kind-icon">Meta</a>
+						<a href="../globals.html#meta" class="tsd-kind-icon">Meta</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#sensor" class="tsd-kind-icon">Sensor</a>
+						<a href="../globals.html#sensor" class="tsd-kind-icon">Sensor</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#value" class="tsd-kind-icon">Value</a>
+						<a href="../globals.html#value" class="tsd-kind-icon">Value</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#valuewithtime" class="tsd-kind-icon">Value<wbr>With<wbr>Time</a>
+						<a href="../globals.html#valuewithtime" class="tsd-kind-icon">Value<wbr>With<wbr>Time</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#connect" class="tsd-kind-icon">connect</a>
+						<a href="../globals.html#connect" class="tsd-kind-icon">connect</a>
 					</li>
 				</ul>
 			</nav>
@@ -250,7 +264,7 @@ main();
 	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
-<script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>

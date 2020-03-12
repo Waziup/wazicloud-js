@@ -72,9 +72,16 @@ export declare type Event = {
     time: Date;
 };
 export declare type App = {
-    name: string;
-    type: number;
+    id: string;
+    internal: boolean;
+    state: "started" | "stopped" | "starting" | "stopping" | "uninstalled";
+    restart: "always" | "on-failure" | "unless-stopped" | "no";
+    log: string;
 };
+export interface AppConfig {
+    state?: "started" | "stopped" | "starting" | "stopping" | "uninstalled";
+    restart?: "always" | "on-failure" | "unless-stopped" | "no";
+}
 export declare class Waziup {
     private host;
     private auth;
@@ -137,6 +144,10 @@ export declare class Waziup {
     setCloudCredentials(id: ID, cred: Credentials): Promise<void>;
     getCloudStatus(id: ID): Promise<CloudStatus>;
     getApps(): Promise<App[]>;
+    getApp(id: string): Promise<App>;
+    setAppConfig(id: string, config: AppConfig): Promise<void>;
+    uninstallApp(id: string, keepConfig: boolean): Promise<void>;
+    installApp(id: string): Promise<void>;
     toProxyURL(app: string, path: string): string;
     toURL(path: string): string;
     subscribe(path: string, cb: (data: any) => void): Promise<void>;
