@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const mqtt = require("mqtt");
 var univFetch;
 if (process.title !== "browser") {
     univFetch = require('node-fetch');
@@ -9,6 +10,9 @@ else {
 }
 class Waziup {
     constructor(host, auth) {
+        this.client = null;
+        this.topics = {};
+        this.clientID = "dashboard_" + Math.random().toString(16).substr(2, 8);
         this.host = host;
         this.auth = auth;
     }
@@ -30,6 +34,9 @@ class Waziup {
         devices.forEach(polishDevice);
         return devices;
     }
+    async addDevice(device) {
+        return this.set(`devices`, device);
+    }
     async getDeviceName(id) {
         if (id) {
             var name = await this.get(`device/${id}/name`);
@@ -46,6 +53,12 @@ class Waziup {
         else {
             await this.set(`device/name`, arg1);
         }
+    }
+    async getDeviceMeta(device) {
+        return this.get(`devices/${device}/meta`);
+    }
+    async setDeviceMeta(device, meta) {
+        return this.set(`devices/${device}/meta`, meta);
     }
     async getSensors(id) {
         if (!id) {
@@ -269,28 +282,114 @@ class Waziup {
     toURL(path) {
         return `${this.host}/${path}`;
     }
-    async subscribe(path, cb) {
-        return;
+    connectMQTT(onConnect, onError = null) {
+        if (this.client !== null) {
+            throw "The Waziup MQTT client is already connected. Use .disconnectMQTT() or .reconnectMQTT().";
+        }
+        this.client = mqtt.connect("ws://" + location.host, {
+            clientId: this.clientID,
+        });
+        this.client.on("connect", onConnect);
+        this.client.on("message", (topic, pl, pkt) => {
+            const plString = pl.toString();
+            if (topic in this.topics) {
+                var msg;
+                try {
+                    msg = JSON.parse(plString);
+                }
+                catch (err) {
+                    console.error("MQTT: Invalid message payload on topic '%s': %o", topic, plString);
+                    return;
+                }
+                for (let l of this.topics[topic]) {
+                    try {
+                        l(msg);
+                    }
+                    catch (err) {
+                        console.error("MQTT: Message listener '%s' %o:\n%o", topic, l, plString);
+                    }
+                }
+            }
+            else {
+                console.warn("MQTT: Received Message without listeners on topic '%s': %o", topic, plString);
+            }
+        });
+        if (onError)
+            this.client.on("error", onError);
     }
-    async unsubscribe(path, cb) {
-        return;
+    disconnectMQTT(onDisconnect) {
+        if (this.client === null) {
+            throw "The Waziup MQTT client is disconnected. Use .connectMQTT() first.";
+        }
+        this.client.end(true, null, onDisconnect);
+        this.client = null;
+    }
+    on(event, cb) {
+        switch (event) {
+            case "connect":
+                this.connectMQTT(cb);
+                break;
+            case "message":
+            case "error":
+                if (this.client === null) {
+                    throw "The Waziup MQTT client is disconnected. Use .connectMQTT() first.";
+                }
+                this.client.on(event, cb);
+        }
+    }
+    off(event, cb) {
+        switch (event) {
+            case "message":
+            case "error":
+            case "connect":
+                if (this.client !== null) {
+                    this.client.off(event, cb);
+                }
+        }
+    }
+    reconnectMQTT() {
+        if (this.client === null) {
+            throw ".reconnectMQTT() must be called after .connectMQTT().";
+        }
+        this.client.reconnect();
+    }
+    subscribe(path, cb) {
+        if (this.client === null) {
+            throw "Call .connectMQTT() before subscribing to paths.";
+        }
+        if (path in this.topics) {
+            this.topics[path].add(cb);
+        }
+        else {
+            this.topics[path] = new Set([cb]);
+            this.client.subscribe(path);
+        }
+    }
+    unsubscribe(path, cb) {
+        if (path in this.topics) {
+            this.topics[path].delete(cb);
+            if (this.topics[path].size === 0) {
+                delete this.topics[path];
+                this.client.unsubscribe(path);
+            }
+        }
     }
     async get(path) {
         var resp = await univFetch(this.toURL(path));
+        const contentType = resp.headers.get("Content-Type");
         if (!resp.ok) {
-            if (resp.headers.get("Content-Type").startsWith("application/json")) {
+            if (contentType && contentType.startsWith("application/json")) {
                 var data = await resp.json();
-                throw data;
+                throw `HTTP Error ${resp.status} ${resp.statusText}\n${data}`;
             }
             else {
                 var text = await resp.text();
-                throw text;
+                throw `HTTP Error ${resp.status} ${resp.statusText}\n${data}`;
             }
         }
-        var data = await resp.json();
-        if (!resp.ok)
-            throw data;
-        return data;
+        if (contentType.startsWith("application/json")) {
+            return resp.json();
+        }
     }
     async fetch(path, init) {
         return univFetch(path, init);
@@ -299,15 +398,19 @@ class Waziup {
         var resp = await univFetch(this.toURL(path), {
             method: "DELETE"
         });
+        const contentType = resp.headers.get("Content-Type");
         if (!resp.ok) {
-            if (resp.headers.get("Content-Type").startsWith("application/json")) {
+            if (contentType && contentType.startsWith("application/json")) {
                 var data = await resp.json();
-                throw data;
+                throw `HTTP Error ${resp.status} ${resp.statusText}\n${data}`;
             }
             else {
                 var text = await resp.text();
-                throw text;
+                throw `HTTP Error ${resp.status} ${resp.statusText}\n${data}`;
             }
+        }
+        if (contentType.startsWith("application/json")) {
+            return resp.json();
         }
         return;
     }
@@ -319,21 +422,20 @@ class Waziup {
             },
             body: JSON.stringify(val)
         });
+        const contentType = resp.headers.get("Content-Type");
         if (!resp.ok) {
-            if (resp.headers.get("Content-Type").startsWith("application/json")) {
+            if (contentType && contentType.startsWith("application/json")) {
                 var data = await resp.json();
-                throw data;
+                throw `HTTP Error ${resp.status} ${resp.statusText}\n${data}`;
             }
             else {
                 var text = await resp.text();
-                throw text;
+                throw `HTTP Error ${resp.status} ${resp.statusText}\n${data}`;
             }
         }
-        if (resp.headers.get("Content-Type").startsWith("application/json")) {
-            var data = await resp.json();
-            return data;
+        if (contentType.startsWith("application/json")) {
+            return resp.json();
         }
-        return;
     }
 }
 exports.Waziup = Waziup;

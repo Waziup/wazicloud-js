@@ -1,3 +1,4 @@
+/// <reference types="node" />
 export declare type Meta = {
     [key: string]: any;
 };
@@ -12,6 +13,8 @@ export declare type Sensor = {
     name: string;
     value: Value;
     kind: string;
+    quantity: string;
+    unit: string;
     modified: Date;
     created: Date;
     time: Date;
@@ -22,6 +25,8 @@ export declare type Actuator = {
     name: string;
     value: Value;
     kind: string;
+    quantity: string;
+    unit: string;
     modified: Date;
     created: Date;
     time: Date;
@@ -85,15 +90,21 @@ export interface AppConfig {
 export declare class Waziup {
     private host;
     private auth;
+    private client;
+    private topics;
+    clientID: string;
     constructor(host: string, auth: string);
     getID(): Promise<ID>;
     getDevice(id?: ID): Promise<Device>;
     getDevice(): Promise<Device>;
     getDevices(): Promise<Device[]>;
+    addDevice(device: Device): Promise<ID>;
     getDeviceName(device: ID): Promise<string>;
     getDeviceName(): Promise<string>;
     setDeviceName(device: ID, name: string): Promise<void>;
     setDeviceName(name: string): Promise<void>;
+    getDeviceMeta(device: ID): Promise<Meta>;
+    setDeviceMeta(device: ID, meta: Meta): Promise<void>;
     getSensors(device?: ID): Promise<Sensor[]>;
     getSensors(): Promise<Sensor[]>;
     getSensor(device: ID, sensor: ID): Promise<Sensor>;
@@ -150,10 +161,19 @@ export declare class Waziup {
     installApp(id: string): Promise<void>;
     toProxyURL(app: string, path: string): string;
     toURL(path: string): string;
-    subscribe(path: string, cb: (data: any) => void): Promise<void>;
-    unsubscribe(path: string, cb: (data: any) => void): Promise<void>;
+    connectMQTT(onConnect: () => void, onError?: (err: Error) => void): void;
+    disconnectMQTT(onDisconnect: () => void): void;
+    on(event: "message", cb: (topic: string, payload: Buffer) => void): void;
+    on(event: "error", cb: (error: Error) => void): void;
+    on(event: "connect", cb: () => void): void;
+    off(event: "message", cb: (topic: string, payload: Buffer) => void): void;
+    off(event: "error", cb: (error: Error) => void): void;
+    off(event: "connect", cb: () => void): void;
+    reconnectMQTT(): void;
+    subscribe<T = any>(path: string, cb: (msg: T) => void): void;
+    unsubscribe(path: string, cb: (data: any) => void): void;
     get<T>(path: string): Promise<T>;
     fetch(path: string, init?: RequestInit): Promise<Response>;
-    del(path: string): Promise<void>;
+    del<T = void>(path: string): Promise<T>;
     set<T = void>(path: string, val: any): Promise<T>;
 }

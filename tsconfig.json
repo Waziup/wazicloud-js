@@ -13,6 +13,7 @@
         "target": "ES2019",
         "lib": ["ES2019", "DOM"],
         "declarationDir": "./types/",
-        "outDir": "./dist/"
+        "outDir": "./dist/",
+        "jsx": "react"
     }
 }

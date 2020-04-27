@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ConnectSettings | waziup</title>
+	<title>DeviceHookProps | waziup</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="connectsettings.html">ConnectSettings</a>
+					<a href="devicehookprops.html">DeviceHookProps</a>
 				</li>
 			</ul>
-			<h1>Interface ConnectSettings</h1>
+			<h1>Interface DeviceHookProps</h1>
 		</div>
 	</div>
 </header>
@@ -69,8 +69,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Pass this settings to <a href="../globals.html#connect">connect</a>.
-						You can either connect by username+password or with a connect-token from the cloud or gateway that you want to connect to.</p>
+						<p>The props are passed to a DeviceHook.</p>
 					</div>
 				</div>
 			</section>
@@ -78,7 +77,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ConnectSettings</span>
+						<span class="target">DeviceHookProps</span>
 					</li>
 				</ul>
 			</section>
@@ -89,10 +88,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="connectsettings.html#host" class="tsd-kind-icon">host</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="connectsettings.html#password" class="tsd-kind-icon">password</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="connectsettings.html#token" class="tsd-kind-icon">token</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="connectsettings.html#username" class="tsd-kind-icon">username</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="devicehookprops.html#device" class="tsd-kind-icon">device</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="devicehookprops.html#setdevice" class="tsd-kind-icon">set<wbr>Device</a></li>
 							</ul>
 						</section>
 					</div>
@@ -101,64 +98,24 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="host" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> host</h3>
-					<div class="tsd-signature tsd-kind-icon">host<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="device" class="tsd-anchor"></a>
+					<h3>device</h3>
+					<div class="tsd-signature tsd-kind-icon">device<span class="tsd-signature-symbol">:</span> <a href="../globals.html#device" class="tsd-signature-type">Device</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Waziup/waziup-js/blob/50cf6ad/src/connect.ts#L11">src/connect.ts:11</a></li>
+							<li>Defined in src/HookRegistry.ts:18</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Waziup Cloud or Gateway address. This can be a hostname (like &quot;waziup.io&quot;) or an IP address.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="password" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> password</h3>
-					<div class="tsd-signature tsd-kind-icon">password<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="setdevice" class="tsd-anchor"></a>
+					<h3>set<wbr>Device</h3>
+					<div class="tsd-signature tsd-kind-icon">set<wbr>Device<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">React.Dispatch</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">React.SetStateAction</span><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#device" class="tsd-signature-type">Device</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Waziup/waziup-js/blob/50cf6ad/src/connect.ts#L19">src/connect.ts:19</a></li>
+							<li>Defined in src/HookRegistry.ts:19</li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Your password.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="token" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> token</h3>
-					<div class="tsd-signature tsd-kind-icon">token<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Waziup/waziup-js/blob/50cf6ad/src/connect.ts#L23">src/connect.ts:23</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>A connect-token that you got from the cloud or the gateway that you want to connect to.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="username" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> username</h3>
-					<div class="tsd-signature tsd-kind-icon">username<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Waziup/waziup-js/blob/50cf6ad/src/connect.ts#L15">src/connect.ts:15</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Your username.</p>
-						</div>
-					</div>
 				</section>
 			</section>
 		</div>
@@ -181,30 +138,24 @@
 					<li class=" tsd-kind-interface">
 						<a href="appconfig.html" class="tsd-kind-icon">App<wbr>Config</a>
 					</li>
+					<li class=" tsd-kind-interface">
+						<a href="connectsettings.html" class="tsd-kind-icon">Connect<wbr>Settings</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="connectsettings.html" class="tsd-kind-icon">Connect<wbr>Settings</a>
+						<a href="devicehookprops.html" class="tsd-kind-icon">Device<wbr>Hook<wbr>Props</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="connectsettings.html#host" class="tsd-kind-icon">host</a>
+								<a href="devicehookprops.html#device" class="tsd-kind-icon">device</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="connectsettings.html#password" class="tsd-kind-icon">password</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="connectsettings.html#token" class="tsd-kind-icon">token</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="connectsettings.html#username" class="tsd-kind-icon">username</a>
+								<a href="devicehookprops.html#setdevice" class="tsd-kind-icon">set<wbr>Device</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface">
-						<a href="devicehookprops.html" class="tsd-kind-icon">Device<wbr>Hook<wbr>Props</a>
-					</li>
 					<li class=" tsd-kind-interface">
 						<a href="hookregistry.html" class="tsd-kind-icon">Hook<wbr>Registry</a>
 					</li>

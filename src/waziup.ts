@@ -1,3 +1,5 @@
+import * as mqtt from "mqtt";
+
 /** @hidden */
 var univFetch: (input: RequestInfo, init?: RequestInit) => Promise<Response>;
 
@@ -47,8 +49,12 @@ export type Sensor = {
     name: string;
     /** Sensor value. */
     value: Value;
-    /** Sensor kind. */
+    /** Sensor kind, like 'Thermometer'. */
     kind: string;
+    /** Sensor quantity, like 'AirTemperature'. */
+    quantity: string;
+    /** Sensor unit, like 'DegreeCelsius'. */
+    unit: string;
     /** Time at which the sensor was last modified. This includes changes of the name and metadata, but not the upload of new values (see [[time]] for that.). */
     modified: Date;
     /** Time at which the sensor was created. */
@@ -71,6 +77,10 @@ export type Actuator = {
     value: Value;
     /** Actuator kind. */
     kind: string;
+    /** Actuator quantity. */
+    quantity: string;
+    /** Actuator unit. */
+    unit: string;
     /** Time at which the actuator was last modified. This includes changes of the name and metadata, but not the upload of new values (see [[time]] for that.) */
     modified: Date;
     /** Time at which the actuator was created. */
@@ -196,6 +206,14 @@ export class Waziup {
     private host: string;
     /** @hidden */
     private auth: string;
+    /** @hidden */
+    private client: mqtt.Client = null;
+    /** @hidden */
+    private topics: {
+        [id: string]: Set<Function>
+    } = {};
+
+    clientID = "dashboard_" + Math.random().toString(16).substr(2, 8);
 
     /**
      * Construct a new Waziup API client that connects to a given host (either a Wazigate or Waziup Cloud).
@@ -248,6 +266,15 @@ export class Waziup {
     }
 
     /**
+     * Declare a new device.
+     * If no ID is set, the Cloud assigns a new ID to the new device and returns the ID.
+     * @returns the ID of the new device.
+     */
+    async addDevice(device: Device): Promise<ID> {
+        return this.set<ID>(`devices`, device);
+    }
+
+    /**
      * Get the name of a device.
      */
     async getDeviceName(device: ID): Promise<string>;
@@ -278,6 +305,20 @@ export class Waziup {
         } else {
             await this.set(`device/name`, arg1);
         }
+    }
+
+    /**
+     * Get a devices's metadata.
+     */
+    async getDeviceMeta(device: ID) {
+        return this.get<Meta>(`devices/${device}/meta`);
+    }
+
+    /**
+     * Set (override) a devices's metadata.
+     */
+    async setDeviceMeta(device: ID, meta: Meta) {
+        return this.set(`devices/${device}/meta`, meta)
     }
 
     //////////////////////////////////////////////////
@@ -741,15 +782,122 @@ export class Waziup {
     /**
      * @category Generic API
      */
-    async subscribe(path: string, cb: (data: any) => void) {
-        return
+    connectMQTT(onConnect: () => void, onError: (err: Error) => void = null) {
+        if (this.client !== null) {
+            throw "The Waziup MQTT client is already connected. Use .disconnectMQTT() or .reconnectMQTT()."
+        }
+        this.client = mqtt.connect("ws://"+location.host, {
+            clientId: this.clientID,
+        });
+        this.client.on("connect", onConnect);
+        this.client.on("message", (topic: string, pl: Buffer, pkt: mqtt.Packet) => {
+            const plString = pl.toString();
+            if (topic in this.topics) {
+                var msg: any;
+                try {
+                    msg = JSON.parse(plString)
+                } catch(err) {
+                    console.error("MQTT: Invalid message payload on topic '%s': %o", topic, plString);
+                    return
+                }
+                for(let l of this.topics[topic]) {
+                    try {
+                        l(msg);
+                    } catch(err) {
+                        console.error("MQTT: Message listener '%s' %o:\n%o", topic, l, plString)
+                    }
+                }
+            } else {
+                console.warn("MQTT: Received Message without listeners on topic '%s': %o", topic, plString);
+            }
+        });
+        if(onError) this.client.on("error", onError);
+    }
+
+    /**
+     * @category Generic API
+     */
+    disconnectMQTT(onDisconnect: () => void) {
+        if (this.client === null) {
+            throw "The Waziup MQTT client is disconnected. Use .connectMQTT() first."
+        }
+        this.client.end(true, null, onDisconnect);
+        this.client = null;
+    }
+
+    /**
+     * @category Generic API
+     */
+    on(event: "message", cb: (topic: string, payload: Buffer) => void): void;
+    on(event: "error", cb: (error: Error) => void): void;
+    on(event: "connect", cb: () => void): void;
+    on(event: string, cb: Function) {
+        switch (event) {
+            case "connect":
+                this.connectMQTT(cb as any);
+                break;
+            case "message":
+            case "error":
+                if (this.client === null) {
+                    throw "The Waziup MQTT client is disconnected. Use .connectMQTT() first."
+                }
+                this.client.on(event, cb);
+        }
+    }
+
+    /**
+     * @category Generic API
+     */
+    off(event: "message", cb: (topic: string, payload: Buffer) => void): void;
+    off(event: "error", cb: (error: Error) => void): void;
+    off(event: "connect", cb: () => void): void;
+    off(event: string, cb: Function) {
+        switch (event) {
+            case "message":
+            case "error":
+            case "connect":
+                if (this.client !== null) {
+                    this.client.off(event, cb as any);
+                }
+        }
+    }
+
+    /**
+     * @category Generic API
+     */
+    reconnectMQTT() {
+        if (this.client === null) {
+            throw ".reconnectMQTT() must be called after .connectMQTT().";
+        }
+        this.client.reconnect();
+    }
+
+    /**
+     * @category Generic API
+     */
+    subscribe<T = any>(path: string, cb: (msg: T) => void) {
+        if (this.client === null) {
+            throw "Call .connectMQTT() before subscribing to paths.";
+        }
+        if (path in this.topics) {
+            this.topics[path].add(cb);
+        } else {
+            this.topics[path] = new Set([cb]);
+            this.client.subscribe(path);
+        }
     }
 
      /**
      * @category Generic API
      */
-    async unsubscribe(path: string, cb: (data: any) => void) {
-        return
+    unsubscribe(path: string, cb: (data: any) => void) {
+        if (path in this.topics) {
+            this.topics[path].delete(cb);
+            if(this.topics[path].size === 0) {
+                delete this.topics[path];
+                this.client.unsubscribe(path);
+            }
+        }
     }
 
     /**
@@ -757,18 +905,19 @@ export class Waziup {
      */
     async get<T>(path: string) {
         var resp = await univFetch(this.toURL(path));
+        const contentType = resp.headers.get("Content-Type");
         if(!resp.ok) {
-            if(resp.headers.get("Content-Type").startsWith("application/json")) {
+            if(contentType && contentType.startsWith("application/json")) {
                 var data = await resp.json();
-                throw data;
+                throw `HTTP Error ${resp.status} ${resp.statusText}\n${data}`;
             } else {
                 var text = await resp.text();
-                throw text;
+                throw `HTTP Error ${resp.status} ${resp.statusText}\n${data}`;
             }
         }
-        var data = await resp.json();
-        if(!resp.ok) throw data;
-        return data as T;
+        if(contentType.startsWith("application/json")) {
+            return resp.json() as Promise<T>;
+        }
     }
 
     async fetch(path: string, init?: RequestInit): Promise<Response> {
@@ -778,18 +927,22 @@ export class Waziup {
     /**
      * @category Generic API
      */
-    async del(path: string) {
+    async del<T=void>(path: string) {
         var resp = await univFetch(this.toURL(path), {
             method: "DELETE"
         });
+        const contentType = resp.headers.get("Content-Type");
         if(!resp.ok) {
-            if(resp.headers.get("Content-Type").startsWith("application/json")) {
+            if(contentType && contentType.startsWith("application/json")) {
                 var data = await resp.json();
-                throw data;
+                throw `HTTP Error ${resp.status} ${resp.statusText}\n${data}`;
             } else {
                 var text = await resp.text();
-                throw text;
+                throw `HTTP Error ${resp.status} ${resp.statusText}\n${data}`;
             }
+        }
+        if(contentType.startsWith("application/json")) {
+            return resp.json() as Promise<T>;
         }
         return;
     }
@@ -797,7 +950,7 @@ export class Waziup {
     /**
      * @category Generic API
      */
-    async set<T=void>(path: string, val: any) {
+    async set<T=void>(path: string, val: any): Promise<T> {
         var resp = await univFetch(this.toURL(path), {
             method: "POST",
             headers: {
@@ -805,20 +958,19 @@ export class Waziup {
             },
             body: JSON.stringify(val)
         });
+        const contentType = resp.headers.get("Content-Type");
         if(!resp.ok) {
-            if(resp.headers.get("Content-Type").startsWith("application/json")) {
+            if(contentType && contentType.startsWith("application/json")) {
                 var data = await resp.json();
-                throw data;
+                throw `HTTP Error ${resp.status} ${resp.statusText}\n${data}`;
             } else {
                 var text = await resp.text();
-                throw text;
+                throw `HTTP Error ${resp.status} ${resp.statusText}\n${data}`;
             }
         }
-        if(resp.headers.get("Content-Type").startsWith("application/json")) {
-            var data = await resp.json();
-            return data as T;
+        if(contentType.startsWith("application/json")) {
+            return resp.json() as Promise<T>;
         }
-        return;
     }
 }
 
