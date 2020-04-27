@@ -101,6 +101,7 @@ export declare class Waziup {
     addDevice(device: Device): Promise<ID>;
     getDeviceName(device: ID): Promise<string>;
     getDeviceName(): Promise<string>;
+    deleteDevice(device: ID): Promise<void>;
     setDeviceName(device: ID, name: string): Promise<void>;
     setDeviceName(name: string): Promise<void>;
     getDeviceMeta(device: ID): Promise<Meta>;

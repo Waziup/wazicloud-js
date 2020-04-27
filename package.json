@@ -1,6 +1,6 @@
 {
   "name": "waziup",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Waziup API Client",
   "main": "dist/index.js",
   "scripts": {

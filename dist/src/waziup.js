@@ -46,6 +46,9 @@ class Waziup {
         }
         return name;
     }
+    async deleteDevice(device) {
+        await this.del(`devices/${device}`);
+    }
     async setDeviceName(arg1, arg2) {
         if (arguments.length === 2) {
             await this.set(`device/${arg1}/name`, arg2);
@@ -375,10 +378,11 @@ class Waziup {
         }
     }
     async get(path) {
+        var _a, _b;
         var resp = await univFetch(this.toURL(path));
         const contentType = resp.headers.get("Content-Type");
         if (!resp.ok) {
-            if (contentType && contentType.startsWith("application/json")) {
+            if ((_a = contentType) === null || _a === void 0 ? void 0 : _a.startsWith("application/json")) {
                 var data = await resp.json();
                 throw `HTTP Error ${resp.status} ${resp.statusText}\n${data}`;
             }
@@ -387,7 +391,7 @@ class Waziup {
                 throw `HTTP Error ${resp.status} ${resp.statusText}\n${data}`;
             }
         }
-        if (contentType.startsWith("application/json")) {
+        if ((_b = contentType) === null || _b === void 0 ? void 0 : _b.startsWith("application/json")) {
             return resp.json();
         }
     }
@@ -395,12 +399,13 @@ class Waziup {
         return univFetch(path, init);
     }
     async del(path) {
+        var _a, _b;
         var resp = await univFetch(this.toURL(path), {
             method: "DELETE"
         });
         const contentType = resp.headers.get("Content-Type");
         if (!resp.ok) {
-            if (contentType && contentType.startsWith("application/json")) {
+            if ((_a = contentType) === null || _a === void 0 ? void 0 : _a.startsWith("application/json")) {
                 var data = await resp.json();
                 throw `HTTP Error ${resp.status} ${resp.statusText}\n${data}`;
             }
@@ -409,12 +414,13 @@ class Waziup {
                 throw `HTTP Error ${resp.status} ${resp.statusText}\n${data}`;
             }
         }
-        if (contentType.startsWith("application/json")) {
+        if ((_b = contentType) === null || _b === void 0 ? void 0 : _b.startsWith("application/json")) {
             return resp.json();
         }
         return;
     }
     async set(path, val) {
+        var _a, _b;
         var resp = await univFetch(this.toURL(path), {
             method: "POST",
             headers: {
@@ -424,7 +430,7 @@ class Waziup {
         });
         const contentType = resp.headers.get("Content-Type");
         if (!resp.ok) {
-            if (contentType && contentType.startsWith("application/json")) {
+            if ((_a = contentType) === null || _a === void 0 ? void 0 : _a.startsWith("application/json")) {
                 var data = await resp.json();
                 throw `HTTP Error ${resp.status} ${resp.statusText}\n${data}`;
             }
@@ -433,7 +439,7 @@ class Waziup {
                 throw `HTTP Error ${resp.status} ${resp.statusText}\n${data}`;
             }
         }
-        if (contentType.startsWith("application/json")) {
+        if ((_b = contentType) === null || _b === void 0 ? void 0 : _b.startsWith("application/json")) {
             return resp.json();
         }
     }

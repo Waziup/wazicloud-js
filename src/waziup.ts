@@ -292,6 +292,14 @@ export class Waziup {
     }
 
     /**
+     * Delete a device.
+     * This removes the device, all of its Sensors and Actuators and all Values.
+     */
+    async deleteDevice(device: ID): Promise<void> {
+        await this.del(`devices/${device}`);
+    }
+
+    /**
      * Set the name of a device.
      */
     async setDeviceName(device: ID, name: string): Promise<void>;
@@ -907,7 +915,7 @@ export class Waziup {
         var resp = await univFetch(this.toURL(path));
         const contentType = resp.headers.get("Content-Type");
         if(!resp.ok) {
-            if(contentType && contentType.startsWith("application/json")) {
+            if(contentType?.startsWith("application/json")) {
                 var data = await resp.json();
                 throw `HTTP Error ${resp.status} ${resp.statusText}\n${data}`;
             } else {
@@ -915,7 +923,7 @@ export class Waziup {
                 throw `HTTP Error ${resp.status} ${resp.statusText}\n${data}`;
             }
         }
-        if(contentType.startsWith("application/json")) {
+        if(contentType?.startsWith("application/json")) {
             return resp.json() as Promise<T>;
         }
     }
@@ -933,7 +941,7 @@ export class Waziup {
         });
         const contentType = resp.headers.get("Content-Type");
         if(!resp.ok) {
-            if(contentType && contentType.startsWith("application/json")) {
+            if(contentType?.startsWith("application/json")) {
                 var data = await resp.json();
                 throw `HTTP Error ${resp.status} ${resp.statusText}\n${data}`;
             } else {
@@ -941,7 +949,7 @@ export class Waziup {
                 throw `HTTP Error ${resp.status} ${resp.statusText}\n${data}`;
             }
         }
-        if(contentType.startsWith("application/json")) {
+        if(contentType?.startsWith("application/json")) {
             return resp.json() as Promise<T>;
         }
         return;
@@ -960,7 +968,7 @@ export class Waziup {
         });
         const contentType = resp.headers.get("Content-Type");
         if(!resp.ok) {
-            if(contentType && contentType.startsWith("application/json")) {
+            if(contentType?.startsWith("application/json")) {
                 var data = await resp.json();
                 throw `HTTP Error ${resp.status} ${resp.statusText}\n${data}`;
             } else {
@@ -968,7 +976,7 @@ export class Waziup {
                 throw `HTTP Error ${resp.status} ${resp.statusText}\n${data}`;
             }
         }
-        if(contentType.startsWith("application/json")) {
+        if(contentType?.startsWith("application/json")) {
             return resp.json() as Promise<T>;
         }
     }
