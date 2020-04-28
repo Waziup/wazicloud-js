@@ -49,12 +49,6 @@ export type Sensor = {
     name: string;
     /** Sensor value. */
     value: Value;
-    /** Sensor kind, like 'Thermometer'. */
-    kind: string;
-    /** Sensor quantity, like 'AirTemperature'. */
-    quantity: string;
-    /** Sensor unit, like 'DegreeCelsius'. */
-    unit: string;
     /** Time at which the sensor was last modified. This includes changes of the name and metadata, but not the upload of new values (see [[time]] for that.). */
     modified: Date;
     /** Time at which the sensor was created. */
@@ -75,12 +69,6 @@ export type Actuator = {
     name: string;
     /** Actuator value. */
     value: Value;
-    /** Actuator kind. */
-    kind: string;
-    /** Actuator quantity. */
-    quantity: string;
-    /** Actuator unit. */
-    unit: string;
     /** Time at which the actuator was last modified. This includes changes of the name and metadata, but not the upload of new values (see [[time]] for that.) */
     modified: Date;
     /** Time at which the actuator was created. */
@@ -471,6 +459,22 @@ export class Waziup {
     }
 
     /**
+     * Set (override) a sensor's name.
+     */
+    async setSensorName(device: ID, sensor: ID, name: string): Promise<void>;
+    /**
+     * Set (override) a Wazigate-sensor's name. *Use on Wazigates only!*
+     */
+    async setSensorName(sensor: ID, name: string): Promise<void>;
+    async setSensorName(id1: ID, arg2: ID | string, arg3?: string): Promise<void> {
+        if(arguments.length === 2)  {
+            await this.set(`sensors/${id1}/name`, arg2);
+        } else {
+            await this.set(`devices/${id1}/sensors/${arg2}/name`, arg3);
+        }
+    }
+
+    /**
      * Set (override) a sensor's metadata.
      */
     async setSensorMeta(device: ID, sensor: ID, meta: Meta): Promise<void>;
@@ -641,6 +645,22 @@ export class Waziup {
             await this.set(`actuators/${id1}/values`, arg2);
         } else {
             await this.set(`devices/${id1}/actuators/${arg2}/values`, arg3);
+        }
+    }
+
+    /**
+     * Set (override) a actuator's name.
+     */
+    async setActuatorName(device: ID, actuator: ID, name: string): Promise<void>;
+    /**
+     * Set (override) a Wazigate-actuator's name. *Use on Wazigates only!*
+     */
+    async setActuatorName(actuator: ID, name: string): Promise<void>;
+    async setActuatorName(id1: ID, arg2: ID | string, arg3?: string): Promise<void> {
+        if(arguments.length === 2)  {
+            await this.set(`actuators/${id1}/name`, arg2);
+        } else {
+            await this.set(`devices/${id1}/actuators/${arg2}/name`, arg3);
         }
     }
 

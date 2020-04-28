@@ -135,6 +135,14 @@ class Waziup {
             await this.set(`devices/${id1}/sensors/${arg2}/values`, arg3);
         }
     }
+    async setSensorName(id1, arg2, arg3) {
+        if (arguments.length === 2) {
+            await this.set(`sensors/${id1}/name`, arg2);
+        }
+        else {
+            await this.set(`devices/${id1}/sensors/${arg2}/name`, arg3);
+        }
+    }
     async setSensorMeta(id1, arg2, arg3) {
         if (arguments.length === 2) {
             await this.set(`sensors/${id1}/meta`, arg2);
@@ -222,6 +230,14 @@ class Waziup {
         }
         else {
             await this.set(`devices/${id1}/actuators/${arg2}/values`, arg3);
+        }
+    }
+    async setActuatorName(id1, arg2, arg3) {
+        if (arguments.length === 2) {
+            await this.set(`actuators/${id1}/name`, arg2);
+        }
+        else {
+            await this.set(`devices/${id1}/actuators/${arg2}/name`, arg3);
         }
     }
     async setActuatorMeta(id1, arg2, arg3) {

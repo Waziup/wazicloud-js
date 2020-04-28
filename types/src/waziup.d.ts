@@ -12,9 +12,6 @@ export declare type Sensor = {
     id: ID;
     name: string;
     value: Value;
-    kind: string;
-    quantity: string;
-    unit: string;
     modified: Date;
     created: Date;
     time: Date;
@@ -24,9 +21,6 @@ export declare type Actuator = {
     id: ID;
     name: string;
     value: Value;
-    kind: string;
-    quantity: string;
-    unit: string;
     modified: Date;
     created: Date;
     time: Date;
@@ -122,6 +116,8 @@ export declare class Waziup {
     getSensorValues(sensor: ID): Promise<Value>;
     addSensorValues(device: ID, sensor: ID, values: Value[] | ValueWithTime[]): Promise<void>;
     addSensorValues(sensor: ID, values: Value[] | ValueWithTime[]): Promise<void>;
+    setSensorName(device: ID, sensor: ID, name: string): Promise<void>;
+    setSensorName(sensor: ID, name: string): Promise<void>;
     setSensorMeta(device: ID, sensor: ID, meta: Meta): Promise<void>;
     setSensorMeta(sensor: ID, meta: Meta): Promise<void>;
     getSensorMeta(device: ID, sensor: ID): Promise<Meta>;
@@ -142,6 +138,8 @@ export declare class Waziup {
     getActuatorValues(actuator: ID): Promise<Value>;
     addActuatorValues(device: ID, actuator: ID, values: Value[] | ValueWithTime[]): Promise<void>;
     addActuatorValues(actuator: ID, values: Value[] | ValueWithTime[]): Promise<void>;
+    setActuatorName(device: ID, actuator: ID, name: string): Promise<void>;
+    setActuatorName(actuator: ID, name: string): Promise<void>;
     setActuatorMeta(device: ID, actuator: ID, meta: Meta): Promise<void>;
     setActuatorMeta(actuator: ID, meta: Meta): Promise<void>;
     getActuatorMeta(device: ID, actuator: ID): Promise<Meta>;
