@@ -154,15 +154,50 @@ export type Event = {
 }
 
 /**
+ * See [package.json](https://docs.npmjs.com/files/package.json).
+ * @category Apps
+ */
+export type Package = {
+    name: string;
+    version: string;
+    author?: any;
+    homepage?: string;
+    wazigate: {
+        menu?: {
+            [id: string]: {
+                primary: string;
+                iconSrc: string;
+                href: string;
+                target?: string;
+                prio?: number;
+            }
+        };
+        hook?: string;
+    }
+}
+
+/**
+ * The state of an App is compiled of Docker container data.
+ * @category Apps
+ */
+export type AppState = {
+    error: string;
+    finishedAt: string;
+    heath: string;
+    paused: string;
+    restaartPolicy: string;
+    running: true;
+    startedAt: string;
+    status: string;
+}
+
+/**
  * A Waziup App.
  * @category Apps
  */
-export type App = {
+export type App = Package & {
     id: string;
-    internal: boolean;
-    state: "started" | "stopped" | "starting" | "stopping" | "uninstalled" ;
-    restart: "always" | "on-failure" | "unless-stopped" | "no";
-    log: string;
+    state: AppState;
 }
 
 /**

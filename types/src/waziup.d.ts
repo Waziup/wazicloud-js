@@ -70,12 +70,37 @@ export declare type Event = {
     msg: string;
     time: Date;
 };
-export declare type App = {
+export declare type Package = {
+    name: string;
+    version: string;
+    author?: any;
+    homepage?: string;
+    wazigate: {
+        menu?: {
+            [id: string]: {
+                primary: string;
+                iconSrc: string;
+                href: string;
+                target?: string;
+                prio?: number;
+            };
+        };
+        hook?: string;
+    };
+};
+export declare type AppState = {
+    error: string;
+    finishedAt: string;
+    heath: string;
+    paused: string;
+    restaartPolicy: string;
+    running: true;
+    startedAt: string;
+    status: string;
+};
+export declare type App = Package & {
     id: string;
-    internal: boolean;
-    state: "started" | "stopped" | "starting" | "stopping" | "uninstalled";
-    restart: "always" | "on-failure" | "unless-stopped" | "no";
-    log: string;
+    state: AppState;
 };
 export interface AppConfig {
     state?: "started" | "stopped" | "starting" | "stopping" | "uninstalled";
