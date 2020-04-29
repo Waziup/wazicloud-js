@@ -183,9 +183,9 @@ export type Package = {
 export type AppState = {
     error: string;
     finishedAt: string;
-    heath: string;
+    health: string;
     paused: string;
-    restaartPolicy: string;
+    restartPolicy: string;
     running: true;
     startedAt: string;
     status: string;
