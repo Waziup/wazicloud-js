@@ -186,7 +186,7 @@ export type AppState = {
     health: string;
     paused: string;
     restartPolicy: string;
-    running: true;
+    running: boolean;
     startedAt: string;
     status: string;
 }
