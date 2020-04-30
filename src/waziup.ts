@@ -100,27 +100,19 @@ export type Device = {
 }
 
 /**
- * Cloud Credentials.
- * 
- * @category Clouds
- */
-export type Credentials = {
-    username: string;
-    password: string;
-    token: string;
-}
-
-/**
  * @category Clouds
  */
 export type Cloud = {
     id: ID;
+    name: string;
     paused: boolean;
     pausing: boolean;
     pausing_mqtt: boolean;
     rest: string;
     mqtt: string;
-    credentials: Credentials,
+    username: string;
+    password: string;
+    token: string;
     statusCode: number;
     statusText: string;
 }
@@ -162,7 +154,7 @@ export type Package = {
     version: string;
     author?: any;
     homepage?: string;
-    wazigate: {
+    waziapp: {
         menu?: {
             [id: string]: {
                 primary: string;
@@ -774,8 +766,11 @@ export class Waziup {
     /**
      * @category Clouds
      */
-    setCloudCredentials(id: ID, cred: Credentials) {
-        return this.set(`clouds/${id}/credentials`, cred);
+    async setCloudCredentials(id: ID, username: string, token: string) {
+        await Promise.all([
+            this.set(`clouds/${id}/username`, username),
+            this.set(`clouds/${id}/token`, token),
+        ]);
     }
 
     /**

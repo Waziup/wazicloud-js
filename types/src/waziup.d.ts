@@ -35,19 +35,17 @@ export declare type Device = {
     created: Date;
     meta: Meta;
 };
-export declare type Credentials = {
-    username: string;
-    password: string;
-    token: string;
-};
 export declare type Cloud = {
     id: ID;
+    name: string;
     paused: boolean;
     pausing: boolean;
     pausing_mqtt: boolean;
     rest: string;
     mqtt: string;
-    credentials: Credentials;
+    username: string;
+    password: string;
+    token: string;
     statusCode: number;
     statusText: string;
 };
@@ -75,7 +73,7 @@ export declare type Package = {
     version: string;
     author?: any;
     homepage?: string;
-    wazigate: {
+    waziapp: {
         menu?: {
             [id: string]: {
                 primary: string;
@@ -91,10 +89,10 @@ export declare type Package = {
 export declare type AppState = {
     error: string;
     finishedAt: string;
-    heath: string;
+    health: string;
     paused: string;
-    restaartPolicy: string;
-    running: true;
+    restartPolicy: string;
+    running: boolean;
     startedAt: string;
     status: string;
 };
@@ -176,7 +174,7 @@ export declare class Waziup {
     getCloud(id: ID): Promise<Cloud>;
     deleteCloud(id: ID): Promise<void>;
     setCloudPaused(id: ID, paused: boolean): Promise<void>;
-    setCloudCredentials(id: ID, cred: Credentials): Promise<void>;
+    setCloudCredentials(id: ID, username: string, token: string): Promise<void>;
     getCloudStatus(id: ID): Promise<CloudStatus>;
     getApps(): Promise<App[]>;
     getApp(id: string): Promise<App>;

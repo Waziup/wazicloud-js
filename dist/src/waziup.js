@@ -272,8 +272,11 @@ class Waziup {
     setCloudPaused(id, paused) {
         return this.set(`clouds/${id}/paused`, paused);
     }
-    setCloudCredentials(id, cred) {
-        return this.set(`clouds/${id}/credentials`, cred);
+    async setCloudCredentials(id, username, token) {
+        await Promise.all([
+            this.set(`clouds/${id}/username`, username),
+            this.set(`clouds/${id}/token`, token),
+        ]);
     }
     async getCloudStatus(id) {
         var status = await this.get(`clouds/${id}/status`);

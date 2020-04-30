@@ -1,6 +1,6 @@
 {
   "name": "waziup",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Waziup API Client",
   "main": "dist/index.js",
   "scripts": {
@@ -9,6 +9,7 @@
     "watch": "tsc --watch",
     "docs": "npx typedoc"
   },
+  "keywords": ["Waziup", "WaziApp", "WaziGate", "WaziEdge", "IoT"],
   "author": "\"Johann Forster\" <johann.forster@waziup.org>",
   "license": "ISC",
   "types": "types/index.d.ts",
