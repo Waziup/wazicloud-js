@@ -1,4 +1,5 @@
 /// <reference types="node" />
+import * as mqtt from "mqtt";
 export declare type Meta = {
     [key: string]: any;
 };
@@ -77,7 +78,7 @@ export declare type Package = {
         menu?: {
             [id: string]: {
                 primary: string;
-                iconSrc: string;
+                icon: string;
                 href: string;
                 target?: string;
                 prio?: number;
@@ -183,14 +184,18 @@ export declare class Waziup {
     installApp(id: string): Promise<void>;
     toProxyURL(app: string, path: string): string;
     toURL(path: string): string;
-    connectMQTT(onConnect: () => void, onError?: (err: Error) => void): void;
+    connectMQTT(onConnect: () => void, onError?: (err: Error) => void, opt?: mqtt.IClientOptions): void;
     disconnectMQTT(onDisconnect: () => void): void;
     on(event: "message", cb: (topic: string, payload: Buffer) => void): void;
     on(event: "error", cb: (error: Error) => void): void;
     on(event: "connect", cb: () => void): void;
+    on(event: "reconnect", cb: () => void): void;
+    on(event: "close", cb: () => void): void;
     off(event: "message", cb: (topic: string, payload: Buffer) => void): void;
     off(event: "error", cb: (error: Error) => void): void;
     off(event: "connect", cb: () => void): void;
+    off(event: "reconnect", cb: () => void): void;
+    off(event: "close", cb: () => void): void;
     reconnectMQTT(): void;
     subscribe<T = any>(path: string, cb: (msg: T) => void): void;
     unsubscribe(path: string, cb: (data: any) => void): void;

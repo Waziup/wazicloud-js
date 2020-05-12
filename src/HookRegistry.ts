@@ -65,7 +65,6 @@ export type ActuatorMenuHook = (props: ActuatorHookProps & MenuHookProps) => JSX
 export type MenuHook = {
     primary: string;
     icon?: JSX.Element;
-    iconSrc?: string;
     href: string;
     target?: string;
 };

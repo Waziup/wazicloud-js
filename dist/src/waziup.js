@@ -304,35 +304,43 @@ class Waziup {
     toURL(path) {
         return `${this.host}/${path}`;
     }
-    connectMQTT(onConnect, onError = null) {
+    connectMQTT(onConnect, onError = null, opt = {}) {
         if (this.client !== null) {
             throw "The Waziup MQTT client is already connected. Use .disconnectMQTT() or .reconnectMQTT().";
         }
         this.client = mqtt.connect("ws://" + location.host, {
             clientId: this.clientID,
+            ...opt
         });
+        console.log("Connecting to mqtt...");
         this.client.on("connect", onConnect);
         this.client.on("message", (topic, pl, pkt) => {
             const plString = pl.toString();
-            if (topic in this.topics) {
-                var msg;
-                try {
-                    msg = JSON.parse(plString);
-                }
-                catch (err) {
-                    console.error("MQTT: Invalid message payload on topic '%s': %o", topic, plString);
-                    return;
-                }
-                for (let l of this.topics[topic]) {
-                    try {
-                        l(msg);
-                    }
-                    catch (err) {
-                        console.error("MQTT: Message listener '%s' %o:\n%o", topic, l, plString);
+            var msg;
+            try {
+                msg = JSON.parse(plString);
+            }
+            catch (err) {
+                console.error("MQTT: Invalid message payload on topic '%s': %o", topic, plString);
+                return;
+            }
+            var listeners = new Set();
+            for (var t in this.topics) {
+                if (matchTopic(topic, t)) {
+                    for (let l of this.topics[topic]) {
+                        if (listeners.has(l))
+                            continue;
+                        listeners.add(l);
+                        try {
+                            l(msg);
+                        }
+                        catch (err) {
+                            console.error("MQTT: Message listener '%s' %o:\n%o", topic, l, plString);
+                        }
                     }
                 }
             }
-            else {
+            if (listeners.size === 0) {
                 console.warn("MQTT: Received Message without listeners on topic '%s': %o", topic, plString);
             }
         });
@@ -349,10 +357,10 @@ class Waziup {
     on(event, cb) {
         switch (event) {
             case "connect":
-                this.connectMQTT(cb);
-                break;
             case "message":
+            case "reconnect":
             case "error":
+            case "close":
                 if (this.client === null) {
                     throw "The Waziup MQTT client is disconnected. Use .connectMQTT() first.";
                 }
@@ -364,6 +372,8 @@ class Waziup {
             case "message":
             case "error":
             case "connect":
+            case "reconnect":
+            case "close":
                 if (this.client !== null) {
                     this.client.off(event, cb);
                 }
@@ -483,5 +493,23 @@ function polishCloudStatus(status) {
         stat.status.remote = new Date(stat.status.remote);
         stat.status.wakeup = new Date(stat.status.wakeup);
     }
+}
+function matchTopic(template, topic) {
+    if (template == topic)
+        return true;
+    const templateElm = template.split("/");
+    const topicElm = topic.split("/");
+    for (var i = 0; i < templateElm.length; i++) {
+        const elm = templateElm[i];
+        if (elm === "#")
+            return true;
+        if (i >= topic.length)
+            return false;
+        if (elm === "+")
+            continue;
+        if (elm != topicElm[i])
+            return false;
+    }
+    return topicElm.length === templateElm.length;
 }
 //# sourceMappingURL=waziup.js.map

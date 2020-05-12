@@ -158,7 +158,7 @@ export type Package = {
         menu?: {
             [id: string]: {
                 primary: string;
-                iconSrc: string;
+                icon: string;
                 href: string;
                 target?: string;
                 prio?: number;
@@ -840,32 +840,40 @@ export class Waziup {
     /**
      * @category Generic API
      */
-    connectMQTT(onConnect: () => void, onError: (err: Error) => void = null) {
+    connectMQTT(onConnect: () => void, onError: (err: Error) => void = null, opt: mqtt.IClientOptions = {}) {
         if (this.client !== null) {
             throw "The Waziup MQTT client is already connected. Use .disconnectMQTT() or .reconnectMQTT()."
         }
         this.client = mqtt.connect("ws://"+location.host, {
             clientId: this.clientID,
+            ...opt
         });
+        console.log("Connecting to mqtt...");
         this.client.on("connect", onConnect);
         this.client.on("message", (topic: string, pl: Buffer, pkt: mqtt.Packet) => {
             const plString = pl.toString();
-            if (topic in this.topics) {
-                var msg: any;
-                try {
-                    msg = JSON.parse(plString)
-                } catch(err) {
-                    console.error("MQTT: Invalid message payload on topic '%s': %o", topic, plString);
-                    return
+            var msg: any;
+            try {
+                msg = JSON.parse(plString)
+            } catch(err) {
+                console.error("MQTT: Invalid message payload on topic '%s': %o", topic, plString);
+                return
+            }
+            var listeners = new Set<Function>();
+            for(var t in this.topics) {
+                if (matchTopic(topic, t)) {
+                    for(let l of this.topics[topic]) {
+                        if(listeners.has(l)) continue;
+                        listeners.add(l);
+                        try {
+                            l(msg);
+                        } catch(err) {
+                            console.error("MQTT: Message listener '%s' %o:\n%o", topic, l, plString)
+                        }
+                    }                
                 }
-                for(let l of this.topics[topic]) {
-                    try {
-                        l(msg);
-                    } catch(err) {
-                        console.error("MQTT: Message listener '%s' %o:\n%o", topic, l, plString)
-                    }
-                }
-            } else {
+            }
+            if (listeners.size === 0){
                 console.warn("MQTT: Received Message without listeners on topic '%s': %o", topic, plString);
             }
         });
@@ -889,13 +897,15 @@ export class Waziup {
     on(event: "message", cb: (topic: string, payload: Buffer) => void): void;
     on(event: "error", cb: (error: Error) => void): void;
     on(event: "connect", cb: () => void): void;
+    on(event: "reconnect", cb: () => void): void;
+    on(event: "close", cb: () => void): void;
     on(event: string, cb: Function) {
         switch (event) {
             case "connect":
-                this.connectMQTT(cb as any);
-                break;
             case "message":
+            case "reconnect":
             case "error":
+            case "close":
                 if (this.client === null) {
                     throw "The Waziup MQTT client is disconnected. Use .connectMQTT() first."
                 }
@@ -909,11 +919,15 @@ export class Waziup {
     off(event: "message", cb: (topic: string, payload: Buffer) => void): void;
     off(event: "error", cb: (error: Error) => void): void;
     off(event: "connect", cb: () => void): void;
+    off(event: "reconnect", cb: () => void): void;
+    off(event: "close", cb: () => void): void;
     off(event: string, cb: Function) {
         switch (event) {
             case "message":
             case "error":
             case "connect":
+            case "reconnect":
+            case "close":
                 if (this.client !== null) {
                     this.client.off(event, cb as any);
                 }
@@ -1060,4 +1074,24 @@ function polishCloudStatus(status: CloudStatus) {
         stat.status.remote = new Date(stat.status.remote);
         stat.status.wakeup = new Date(stat.status.wakeup);
     }
+}
+
+/** @hidden */
+function matchTopic(template: string, topic: string): boolean {
+    if (template == topic)
+        return true;
+    const templateElm = template.split("/")
+    const topicElm = topic.split("/")
+    for(var i=0; i<templateElm.length; i++) {
+        const elm = templateElm[i];
+        if (elm === "#")
+            return true;
+        if (i >= topic.length)
+            return false;
+        if (elm === "+")
+            continue;
+        if (elm != topicElm[i])
+            return false;
+    }
+    return topicElm.length === templateElm.length;
 }
