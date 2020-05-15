@@ -325,14 +325,14 @@ class Waziup {
                 return;
             }
             var listeners = new Set();
-            for (var t in this.topics) {
-                if (matchTopic(topic, t)) {
-                    for (let l of this.topics[topic]) {
+            for (var templ in this.topics) {
+                if (matchTopic(templ, topic)) {
+                    for (let l of this.topics[templ]) {
                         if (listeners.has(l))
                             continue;
                         listeners.add(l);
                         try {
-                            l(msg);
+                            l(msg, topic);
                         }
                         catch (err) {
                             console.error("MQTT: Message listener '%s' %o:\n%o", topic, l, plString);

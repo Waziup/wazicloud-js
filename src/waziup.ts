@@ -137,7 +137,7 @@ export type CloudStatus = {
         sleep: number;
         wakeup: Date;
     }
-}[];
+};
 
 export type Event = {
     code: number;
@@ -776,8 +776,8 @@ export class Waziup {
     /**
      * @category Clouds
      */
-    async getCloudStatus(id: ID): Promise<CloudStatus> {
-        var status = await this.get<CloudStatus>(`clouds/${id}/status`);
+    async getCloudStatus(id: ID): Promise<CloudStatus[]> {
+        var status = await this.get<CloudStatus[]>(`clouds/${id}/status`);
         polishCloudStatus(status);
         return status;
     }
@@ -860,13 +860,13 @@ export class Waziup {
                 return
             }
             var listeners = new Set<Function>();
-            for(var t in this.topics) {
-                if (matchTopic(topic, t)) {
-                    for(let l of this.topics[topic]) {
+            for(var templ in this.topics) {
+                if (matchTopic(templ, topic)) {
+                    for(let l of this.topics[templ]) {
                         if(listeners.has(l)) continue;
                         listeners.add(l);
                         try {
-                            l(msg);
+                            l(msg, topic);
                         } catch(err) {
                             console.error("MQTT: Message listener '%s' %o:\n%o", topic, l, plString)
                         }
@@ -947,7 +947,7 @@ export class Waziup {
     /**
      * @category Generic API
      */
-    subscribe<T = any>(path: string, cb: (msg: T) => void) {
+    subscribe<T = any>(path: string, cb: (msg: T, topic: string) => void) {
         if (this.client === null) {
             throw "Call .connectMQTT() before subscribing to paths.";
         }
@@ -962,7 +962,7 @@ export class Waziup {
      /**
      * @category Generic API
      */
-    unsubscribe(path: string, cb: (data: any) => void) {
+    unsubscribe(path: string, cb: (data: any, topic: string) => void) {
         if (path in this.topics) {
             this.topics[path].delete(cb);
             if(this.topics[path].size === 0) {
@@ -1069,7 +1069,7 @@ function polishValue(val: ValueWithTime) {
 }
 
 /** @hidden */
-function polishCloudStatus(status: CloudStatus) {
+function polishCloudStatus(status: CloudStatus[]) {
     for(var stat of status) {
         stat.status.remote = new Date(stat.status.remote);
         stat.status.wakeup = new Date(stat.status.wakeup);

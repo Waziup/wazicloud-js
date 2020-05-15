@@ -63,7 +63,7 @@ export declare type CloudStatus = {
         sleep: number;
         wakeup: Date;
     };
-}[];
+};
 export declare type Event = {
     code: number;
     msg: string;
@@ -176,7 +176,7 @@ export declare class Waziup {
     deleteCloud(id: ID): Promise<void>;
     setCloudPaused(id: ID, paused: boolean): Promise<void>;
     setCloudCredentials(id: ID, username: string, token: string): Promise<void>;
-    getCloudStatus(id: ID): Promise<CloudStatus>;
+    getCloudStatus(id: ID): Promise<CloudStatus[]>;
     getApps(): Promise<App[]>;
     getApp(id: string): Promise<App>;
     setAppConfig(id: string, config: AppConfig): Promise<void>;
@@ -197,8 +197,8 @@ export declare class Waziup {
     off(event: "reconnect", cb: () => void): void;
     off(event: "close", cb: () => void): void;
     reconnectMQTT(): void;
-    subscribe<T = any>(path: string, cb: (msg: T) => void): void;
-    unsubscribe(path: string, cb: (data: any) => void): void;
+    subscribe<T = any>(path: string, cb: (msg: T, topic: string) => void): void;
+    unsubscribe(path: string, cb: (data: any, topic: string) => void): void;
     get<T>(path: string): Promise<T>;
     fetch(path: string, init?: RequestInit): Promise<Response>;
     del<T = void>(path: string): Promise<T>;
