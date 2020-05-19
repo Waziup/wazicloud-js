@@ -36,6 +36,8 @@ export interface HookRegistry {
     set(id: string, hook: any, prio?: number): void;
     delete(id: string, hook: any): void;
     clear(): void;
+    on(id: RegExp, cb: (id: string, hook: any) => void): void;
+    off(id: RegExp, cb: (id: string, hook: any) => void): void;
     get<I = any>(id: string): I[];
     getAt(id: string): {
         [id: string]: any[];
