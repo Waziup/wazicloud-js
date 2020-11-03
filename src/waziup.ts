@@ -834,6 +834,7 @@ export class Waziup {
      * @category Generic API
      */
     toURL(path: string) {
+        if (this.host === "") return path;
         return `${this.host}/${path}`;
     }
 
@@ -844,7 +845,7 @@ export class Waziup {
         if (this.client !== null) {
             throw "The Waziup MQTT client is already connected. Use .disconnectMQTT() or .reconnectMQTT()."
         }
-        this.client = mqtt.connect("ws://"+location.host, {
+        this.client = mqtt.connect(location.protocol.replace("http", "ws")+"//"+location.host, {
             clientId: this.clientID,
             ...opt
         });
