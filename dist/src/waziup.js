@@ -302,13 +302,15 @@ class Waziup {
         return `${this.host}/apps/${app}/${path}`;
     }
     toURL(path) {
+        if (this.host === "")
+            return path;
         return `${this.host}/${path}`;
     }
     connectMQTT(onConnect, onError = null, opt = {}) {
         if (this.client !== null) {
             throw "The Waziup MQTT client is already connected. Use .disconnectMQTT() or .reconnectMQTT().";
         }
-        this.client = mqtt.connect("ws://" + location.host, {
+        this.client = mqtt.connect(location.protocol.replace("http", "ws") + "//" + location.host, {
             clientId: this.clientID,
             ...opt
         });
