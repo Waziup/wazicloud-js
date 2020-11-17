@@ -71,8 +71,9 @@ As a rule of thumb, you can only update or delete resources that you are owner o
 
 There are 8 endpoints:
 
-- [Actuators API](docs/ActuatorsApi.md)
 - [Auth API](docs/AuthApi.md)
+- [Sensors API](docs/SensorsApi.md)
+- [Actuators API](docs/ActuatorsApi.md)
 - [Devices API](docs/DevicesApi.md)
 - [Gateways API](docs/GatewaysApi.md)
 - [Notifications API](docs/NotificationsApi.md)
