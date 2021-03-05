@@ -2,6 +2,7 @@
 import ApiClient from '../ApiClient';
 import NotificationCondition from './NotificationCondition';
 import SocialMessageBatch from './SocialMessageBatch';
+import ActuationAction from './ActuationAction';
 
 /**
  * Constructs a new <code>Notification</code>.
@@ -41,6 +42,9 @@ exports.constructFromObject = function(data, obj) {
     }
     if (data.hasOwnProperty('action')) {
       obj['action'] = SocialMessageBatch.constructFromObject(data['action']);
+    }
+    if (data.hasOwnProperty('actuation_action')) {
+      obj['actuation_action'] = ActuationAction.constructFromObject(data['actuation_action']);
     }
     if (data.hasOwnProperty('expires')) {
       obj['expires'] = ApiClient.convertToType(data['expires'], 'String');
@@ -91,6 +95,10 @@ exports.prototype['condition'] = undefined;
  * @member {module:model/SocialMessageBatch} action
  */
 exports.prototype['action'] = undefined;
+/**
+ * @member {module:model/ActuationAction} action
+ */
+exports.prototype['actuation_action'] = undefined;
 /**
  * @member {Number} expires
  */

@@ -124,7 +124,7 @@ var exports = function(apiClient) {
     var authNames = ['Bearer'];
     var contentTypes = ['application/json'];
     var accepts = ['application/json'];
-    var returnType = null;
+    var returnType = "String";
 
     return this.apiClient.callApi(
       '/notifications', 'POST',

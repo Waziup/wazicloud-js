@@ -71,37 +71,16 @@ As a rule of thumb, you can only update or delete resources that you are owner o
 
 There are 8 endpoints:
 
-- [Actuators API](docs/ActuatorsApi.md)
 - [Auth API](docs/AuthApi.md)
+- [Sensors API](docs/SensorsApi.md)
 - [Devices API](docs/DevicesApi.md)
+- [Actuators API](docs/ActuatorsApi.md)
 - [Gateways API](docs/GatewaysApi.md)
 - [Notifications API](docs/NotificationsApi.md)
 - [Projects API](docs/ProjectsApi.md)
 - [Socials API](docs/SocialsApi.md)
 - [Users API](docs/UsersApi.md)
 
-## Documentation for Models
-
-- [WaziupApi.Actuator](docs/Actuator.md)
-- [WaziupApi.AuthBody](docs/AuthBody.md)
-- [WaziupApi.Calib](docs/Calib.md)
-- [WaziupApi.CalibFunction](docs/CalibFunction.md)
-- [WaziupApi.CalibLinear](docs/CalibLinear.md)
-- [WaziupApi.CalibValue](docs/CalibValue.md)
-- [WaziupApi.Device](docs/Device.md)
-- [WaziupApi.Error](docs/Error.md)
-- [WaziupApi.Gateway](docs/Gateway.md)
-- [WaziupApi.GatewayTunnel](docs/GatewayTunnel.md)
-- [WaziupApi.Location](docs/Location.md)
-- [WaziupApi.Notification](docs/Notification.md)
-- [WaziupApi.NotificationCondition](docs/NotificationCondition.md)
-- [WaziupApi.Sensor](docs/Project.md)
-- [WaziupApi.Sensor](docs/Sensor.md)
-- [WaziupApi.SensorValue](docs/SensorValue.md)
-- [WaziupApi.SocialMessage](docs/SocialMessage.md)
-- [WaziupApi.SocialMessageBatch](docs/SocialMessageBatch.md)
-- [WaziupApi.User](docs/User.md)
-- [WaziupApi.UserUpdateBody](docs/UserUpdateBody.md)
 
 ## Documentation for Authorization
 

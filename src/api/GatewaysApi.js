@@ -264,6 +264,50 @@ var exports = function(apiClient) {
     );
   };
 
+    /**
+   * insert name
+   * @param {String} gatewayId
+   * @param {model/Location} body
+   */
+  this.putGatewayLocation = async function(gatewayId, body) {
+    var postBody = body;
+
+    // verify the required parameter 'gatewayId' is set
+    if (gatewayId === undefined || gatewayId === null) {
+      throw "Missing the required parameter 'gatewayId' when calling putGatewayName";
+    }
+
+    // verify the required parameter 'body' is set
+    if (body === undefined || body === null) {
+      throw "Missing the required parameter 'body' when calling putGatewayName";
+    }
+
+    var pathParams = {
+      gw_id: gatewayId
+    };
+    var queryParams = {};
+    var headerParams = {};
+    var formParams = {};
+
+    var authNames = ["Bearer"];
+    var contentTypes = ["application/json"];
+    var accepts = ["application/json"];
+    var returnType = null;
+
+    return this.apiClient.callApi(
+      "/gateways/{gw_id}/location",
+      "PUT",
+      pathParams,
+      queryParams,
+      headerParams,
+      formParams,
+      postBody,
+      authNames,
+      contentTypes,
+      accepts,
+      returnType
+    );
+  };
 };
 
 export default exports;

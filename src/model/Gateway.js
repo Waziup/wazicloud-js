@@ -1,6 +1,7 @@
 'use strict';
 import ApiClient from '../ApiClient';
 import GatewayTunnel from './GatewayTunnel';
+import Location from './Location';
 
 /**
  * Constructs a new <code>Gateway</code>.
@@ -52,6 +53,9 @@ exports.constructFromObject = function(data, obj) {
     }
     if (data.hasOwnProperty('last_seen')) {
       obj['last_seen'] = ApiClient.convertToType(data['last_seen'], 'String');
+    }
+    if (data.hasOwnProperty('location')) {
+      obj['location'] = Location.constructFromObject(data['location']);
     }
   }
   
@@ -106,5 +110,10 @@ exports.prototype['connected'] = undefined;
  * @member {String} date_modified
  */
 exports.prototype['last_seen'] = undefined;
+/**
+ * time modified on Cloud side
+ * @member {module:model/Location} location
+ */
+exports.prototype['location'] = undefined;
 
 export default exports;
