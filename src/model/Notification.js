@@ -1,8 +1,7 @@
 'use strict';
 import ApiClient from '../ApiClient';
 import NotificationCondition from './NotificationCondition';
-import SocialMessageBatch from './SocialMessageBatch';
-import ActuationAction from './ActuationAction';
+import NotificationAction from './NotificationAction';
 
 /**
  * Constructs a new <code>Notification</code>.
@@ -28,6 +27,7 @@ var exports = function(condition, description, action) {
  * @return {module:model/Notification} The populated <code>Notification</code> instance.
  */
 exports.constructFromObject = function(data, obj) {
+  console.log(JSON.stringify(data));
   if (data) {
     obj = obj || new exports();
 
@@ -41,10 +41,7 @@ exports.constructFromObject = function(data, obj) {
       obj['condition'] = NotificationCondition.constructFromObject(data['condition']);
     }
     if (data.hasOwnProperty('action')) {
-      obj['action'] = SocialMessageBatch.constructFromObject(data['action']);
-    }
-    if (data.hasOwnProperty('actuation_action')) {
-      obj['actuation_action'] = ActuationAction.constructFromObject(data['actuation_action']);
+      obj['action'] = NotificationAction.constructFromObject(data['action']);
     }
     if (data.hasOwnProperty('expires')) {
       obj['expires'] = ApiClient.convertToType(data['expires'], 'String');
@@ -92,13 +89,9 @@ exports.prototype['description'] = undefined;
  */
 exports.prototype['condition'] = undefined;
 /**
- * @member {module:model/SocialMessageBatch} action
+ * @member {module:model/NotificationAction} action
  */
 exports.prototype['action'] = undefined;
-/**
- * @member {module:model/ActuationAction} action
- */
-exports.prototype['actuation_action'] = undefined;
 /**
  * @member {Number} expires
  */
