@@ -68,13 +68,13 @@ export type Actuator = {
     /** Actuator name. */
     name: string;
     /** Actuator value. */
-    value: Value;
+    value: Value | null;
     /** Time at which the actuator was last modified. This includes changes of the name and metadata, but not the upload of new values (see [[time]] for that.) */
     modified: Date;
     /** Time at which the actuator was created. */
     created: Date;
     /** Time at which the last value was uploaded for this actuator. */
-    time: Date;
+    time: Date | null;
     /** Actuator metadata. */
     meta: Meta;
 }
@@ -1053,7 +1053,7 @@ export class Waziup {
 function polishEntity(ent: Sensor | Actuator) {
     ent.modified = new Date(ent.modified);
     ent.created = new Date(ent.created);
-    ent.time = new Date(ent.time);
+    if(ent.time) ent.time = new Date(ent.time);
 }
 
 /** @hidden */

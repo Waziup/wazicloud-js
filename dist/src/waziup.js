@@ -479,7 +479,8 @@ exports.Waziup = Waziup;
 function polishEntity(ent) {
     ent.modified = new Date(ent.modified);
     ent.created = new Date(ent.created);
-    ent.time = new Date(ent.time);
+    if (ent.time)
+        ent.time = new Date(ent.time);
 }
 function polishDevice(device) {
     device.created = new Date(device.created);

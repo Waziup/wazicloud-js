@@ -21,10 +21,10 @@ export declare type Sensor = {
 export declare type Actuator = {
     id: ID;
     name: string;
-    value: Value;
+    value: Value | null;
     modified: Date;
     created: Date;
-    time: Date;
+    time: Date | null;
     meta: Meta;
 };
 export declare type Device = {
