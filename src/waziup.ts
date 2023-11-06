@@ -1,4 +1,4 @@
-import * as mqtt from "mqtt";
+import * as mqtt from "precompiled-mqtt";
 
 /** @hidden */
 var univFetch: (input: RequestInfo, init?: RequestInit) => Promise<Response>;
