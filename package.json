@@ -23,7 +23,8 @@
     "@types/node": "^13.7.0",
     "@types/react": "^16.9.34",
     "mqtt": "^3.0.0",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "precompiled-mqtt": "^4.3.14-beta"
   },
   "devDependencies": {
     "typedoc": "^0.16.9",
