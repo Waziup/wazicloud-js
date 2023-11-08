@@ -1,14 +1,5 @@
 import * as mqtt from "precompiled-mqtt";
 
-/** @hidden */
-var univFetch: (input: RequestInfo, init?: RequestInit) => Promise<Response>;
-
-if (process.title !== "browser") {
-    univFetch = require('node-fetch');
-} else {
-    univFetch = window.fetch;
-}
-
 /**
  * Every sensor, actuator and device can have metadata.
  * This is additional data that can be set by apps and by the Waziup system to provide
@@ -977,7 +968,7 @@ export class Waziup {
      * @category Generic API
      */
     async get<T>(path: string) {
-        var resp = await univFetch(this.toURL(path));
+        var resp = await fetch(this.toURL(path));
         const contentType = resp.headers.get("Content-Type");
         if(!resp.ok) {
             if(contentType?.startsWith("application/json")) {
@@ -994,14 +985,14 @@ export class Waziup {
     }
 
     async fetch(path: string, init?: RequestInit): Promise<Response> {
-        return univFetch(path, init);
+        return fetch(path, init);
     }
 
     /**
      * @category Generic API
      */
     async del<T=void>(path: string) {
-        var resp = await univFetch(this.toURL(path), {
+        var resp = await fetch(this.toURL(path), {
             method: "DELETE"
         });
         const contentType = resp.headers.get("Content-Type");
@@ -1024,7 +1015,7 @@ export class Waziup {
      * @category Generic API
      */
     async set<T=void>(path: string, val: any): Promise<T> {
-        var resp = await univFetch(this.toURL(path), {
+        var resp = await fetch(this.toURL(path), {
             method: "POST",
             headers: {
                 "Content-Type": "application/json; charset=utf-8"
