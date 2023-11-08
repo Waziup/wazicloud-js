@@ -1,5 +1,5 @@
 /// <reference types="node" />
-import * as mqtt from "mqtt";
+import * as mqtt from "precompiled-mqtt";
 export declare type Meta = {
     [key: string]: any;
 };
