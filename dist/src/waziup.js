@@ -1,13 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const mqtt = require("mqtt");
+const mqtt = require("precompiled-mqtt");
 var univFetch;
-if (process.title !== "browser") {
-    univFetch = require('node-fetch');
-}
-else {
-    univFetch = window.fetch;
-}
+univFetch = window.fetch;
 class Waziup {
     constructor(host, auth) {
         this.client = null;
