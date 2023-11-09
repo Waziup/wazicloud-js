@@ -1,8 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const mqtt = require("precompiled-mqtt");
-var univFetch;
-univFetch = window.fetch;
 class Waziup {
     constructor(host, auth) {
         this.client = null;
@@ -405,7 +403,7 @@ class Waziup {
     }
     async get(path) {
         var _a, _b;
-        var resp = await univFetch(this.toURL(path));
+        var resp = await fetch(this.toURL(path));
         const contentType = resp.headers.get("Content-Type");
         if (!resp.ok) {
             if ((_a = contentType) === null || _a === void 0 ? void 0 : _a.startsWith("application/json")) {
@@ -422,11 +420,11 @@ class Waziup {
         }
     }
     async fetch(path, init) {
-        return univFetch(path, init);
+        return fetch(path, init);
     }
     async del(path) {
         var _a, _b;
-        var resp = await univFetch(this.toURL(path), {
+        var resp = await fetch(this.toURL(path), {
             method: "DELETE"
         });
         const contentType = resp.headers.get("Content-Type");
@@ -447,10 +445,10 @@ class Waziup {
     }
     async set(path, val) {
         var _a, _b;
-        var resp = await univFetch(this.toURL(path), {
+        var resp = await fetch(this.toURL(path), {
             method: "POST",
             headers: {
-                "Content-Type": "application/json; charset=utf-8"
+                "Content-Type": path === 'auth/token' || 'auth/retoken' ? 'text/plain' : 'application/json; charset=utf-8'
             },
             body: JSON.stringify(val)
         });
