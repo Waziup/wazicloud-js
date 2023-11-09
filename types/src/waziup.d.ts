@@ -120,6 +120,7 @@ export declare class Waziup {
     getDeviceName(device: ID): Promise<string>;
     getDeviceName(): Promise<string>;
     deleteDevice(device: ID): Promise<void>;
+    setToken(token: string): void;
     setDeviceName(device: ID, name: string): Promise<void>;
     setDeviceName(name: string): Promise<void>;
     getDeviceMeta(device: ID): Promise<Meta>;
