@@ -1018,7 +1018,7 @@ export class Waziup {
         var resp = await fetch(this.toURL(path), {
             method: "POST",
             headers: {
-                "Content-Type": "application/json; charset=utf-8"
+                "Content-Type": path==='auth/token' ||'auth/retoken'? 'text/plain':'application/json; charset=utf-8'
             },
             body: JSON.stringify(val)
         });
